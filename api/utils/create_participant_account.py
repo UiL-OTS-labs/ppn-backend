@@ -9,7 +9,7 @@ from api.auth.models import ApiUser, ApiGroup, UserToken
 from api.utils import get_reset_links
 from comments.utils import add_system_comment
 from leaders.utils import _get_tomorrow
-from participants.models import Participant
+from participants.models import Participant, SecondaryEmail
 from main.utils import get_supreme_admin
 from participants.utils import get_mailinglist_unsubscribe_url
 
@@ -25,6 +25,10 @@ SYSTEM_MESSAGES = {
 class ReturnValues(Enum):
     OK = 0
     ACCOUNT_ALREADY_EXISTS = 1
+
+
+def _to_lower(string: str) -> str:
+    return str(string).lower()
 
 
 def create_participant_account(email: str,
@@ -67,7 +71,7 @@ def create_participant_account(email: str,
         new_participant = False
 
         # Switch emails if needed
-        if participant.email != email:
+        if _to_lower(participant.email) != _to_lower(email):
             _switch_main_email(participant, email)
 
     # Create a queryset to check if this email is already used
@@ -245,9 +249,16 @@ def _switch_main_email(participant: Participant, new_email: str) -> None:
     """
     # Get the secondary email that now houses the new main email
     secondary_emails = participant.secondaryemail_set.all()
-    existing_new_email = next(
-        iter([x for x in secondary_emails if x.email == new_email])
-    )
+    try:
+        existing_new_email = next(
+            iter([x for x in secondary_emails if _to_lower(x.email) ==
+                  _to_lower(new_email)])
+        )
+    except StopIteration:
+        # Should not happen, but if it happens it can ruin one's day so we
+        # need to have a fallback
+        existing_new_email = SecondaryEmail()
+        existing_new_email.participant = participant
 
     # Set the old main email as this object's email address
     existing_new_email.email = participant.email
