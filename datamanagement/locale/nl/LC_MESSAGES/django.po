@@ -60,9 +60,9 @@ msgstr "Opmerkingen"
 msgid "datamanagement:home:comments:info_text"
 msgstr ""
 "Deze experimenten hebben opmerkingen die ouder zijn dan {}, het kan een goed "
-"ideezijn om ze te verwijderen. Je kunt alle opmerkingen voor dit experiment "
-"bekijken op de experiment details pagina.(klik op de naam van het "
-"experiment). Je kunt ze daar ookindividueel verwijderen."
+"idee zijn om ze te verwijderen. Je kunt alle opmerkingen voor dit experiment "
+"bekijken op de experiment details pagina (klik op de naam van het "
+"experiment). Je kunt ze daar ook individueel verwijderen."
 
 #: datamanagement/templates/datamanagement/index_parts/comments.html:26
 #: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:26
@@ -96,7 +96,7 @@ msgstr "Participant zichtbaarheid"
 msgid "datamanagement:home:exp_part_visibility:info_text"
 msgstr ""
 "Deze experimenten hebben de persoonlijke informatie van de participant "
-"zichtbaar voor deleiders, maar hun laatste tijdslot was {} geleden"
+"zichtbaar voor de leiders, maar hun laatste tijdslot was {} geleden."
 
 #: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:29
 #: datamanagement/templates/datamanagement/index_parts/participants.html:29
@@ -153,7 +153,7 @@ msgstr "Participanten zonder afspraak"
 #: datamanagement/templates/datamanagement/index_parts/participants.html:75
 msgid "datamanagement:home:participants:info_text2"
 msgstr ""
-"Deze participanten hebben nooit aan een experiment mee gedaan en zijn {}"
+"Deze participanten hebben nooit aan een experiment mee gedaan en zijn {} "
 "geleden aangemaakt."
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:84
