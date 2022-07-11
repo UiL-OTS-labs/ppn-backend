@@ -107,12 +107,16 @@ def create_ldap_leader(name: str, email: str, phonenumber: str) -> \
 
     if existing_api_user:
         api_user = existing_api_user
+        pre_population_user = None  # Keeps the linter happy
     else:
         # Create an empty account first, before we populate
-        ApiUser.objects.create(email=email)
+        pre_population_user = ApiUser.objects.create(email=email)
         api_user = ApiLdapBackend().populate_user(email)
 
     if not api_user:
+        # Clean up if population didn't work
+        if pre_population_user:
+            pre_population_user.delete()
         return None
 
     if _leader_group not in api_user.groups.all():
