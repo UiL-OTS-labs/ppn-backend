@@ -94,11 +94,11 @@ class LDAPLeaderCreateView(braces.LoginRequiredMixin, SuccessMessageMixin,
             if data['notify_user']:
                 notify_new_ldap_leader(leader)
         else:
-            messages.warning(
+            messages.error(
                 self.request,
                 _('leaders:create:error_no_solis')
             )
-            # Skip success message mixin, as we actually have a warning!
+            # Skip success message mixin, as we actually have an error!
             return super(SuccessMessageMixin, self).form_valid(form)
 
         return super(LDAPLeaderCreateView, self).form_valid(form)
@@ -200,7 +200,7 @@ class LeaderConvertToLdap(braces.LoginRequiredMixin, generic.DetailView):
         if result == result.SUCCESS:
             messages.success(request, _('leaders:messages:converted'))
         elif result == result.UNKNOWN_USER:
-            messages.warning(request, _('leaders:create:error_no_solis'))
+            messages.error(request, _('leaders:create:error_no_solis'))
         elif result == result.NO_OP:
             messages.error(request, _('leaders:messages:ldap_not_enabled'))
         elif result == result.INVALID_EMAIL:
