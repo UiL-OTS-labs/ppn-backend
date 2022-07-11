@@ -10,13 +10,29 @@ class ApiLdapBackend(PpnLdapBackend):
     def get_user_model(self):
         return ApiUser
 
-    def authenticate(self, username=None, password=None, **kwargs):
+    def authenticate(
+            self,
+            username=None,
+            password=None,
+            stop_recursion=False,
+            **kwargs
+    ):
         if password or self.settings.PERMIT_EMPTY_PASSWORD:
             ldap_user = _LDAPUser(self, username=username.strip())
             user = self.authenticate_ldap_user(ldap_user, password)
         else:
             logger.debug('Rejecting empty password for {}'.format(username))
-            user = None
+            return None
+
+        # Make sure people can still login even if they use the wrong email
+        if not user and not stop_recursion and username.endswith(
+                '@students.uu.nl'
+        ):
+            username = username.replace('students.uu.nl', 'uu.nl')
+            user = self.authenticate(username, password, True, **kwargs)
+        elif not user and not stop_recursion and username.endswith('@uu.nl'):
+            username = username.replace('uu.nl', 'students.uu.nl')
+            user = self.authenticate(username, password, True, **kwargs)
 
         return user
 
