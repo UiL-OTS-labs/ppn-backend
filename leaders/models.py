@@ -11,7 +11,12 @@ class Leader(models.Model):
 
     phonenumber = models.TextField()
 
-    api_user = models.OneToOneField(ApiUser, on_delete=models.CASCADE)
+    api_user = models.OneToOneField(
+        ApiUser,
+        null=True,  # Should not happen, signals should clean this up.
+        # However, null=True is needed for those signals to work correctly.
+        on_delete=models.SET_NULL
+    )
 
     @property
     def email(self):
