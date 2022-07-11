@@ -90,8 +90,16 @@ class LDAPLeaderCreateView(braces.LoginRequiredMixin, SuccessMessageMixin,
             data['phonenumber'],
         )
 
-        if data['notify_user']:
-            notify_new_ldap_leader(leader)
+        if leader:
+            if data['notify_user']:
+                notify_new_ldap_leader(leader)
+        else:
+            messages.warning(
+                self.request,
+                _('leaders:create:error_no_solis')
+            )
+            # Skip success message mixin, as we actually have a warning!
+            return super(SuccessMessageMixin, self).form_valid(form)
 
         return super(LDAPLeaderCreateView, self).form_valid(form)
 

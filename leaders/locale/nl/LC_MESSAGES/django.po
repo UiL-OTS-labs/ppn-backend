@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-23 14:52+0200\n"
+"POT-Creation-Date: 2022-07-11 10:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -99,7 +99,7 @@ msgstr ""
 "Dit veld kan niet leeg gelaten worden als 'Behoud huidig wachtwoord' is "
 "aangevinkt!"
 
-#: leaders/models.py:28
+#: leaders/models.py:34
 msgid "leader:inactive"
 msgstr "{} (inactief)"
 
@@ -195,13 +195,13 @@ msgstr "Solis account"
 msgid "leaders:home:actions"
 msgstr "Acties"
 
-#: leaders/templates/leaders/index.html:96
-msgid "leaders:home:convert_to_ldap"
-msgstr "Zet account om naar Solis account"
-
-#: leaders/templates/leaders/index.html:116
+#: leaders/templates/leaders/index.html:107
 msgid "leaders:home:delete:title"
 msgstr "Proefleider verwijderen"
+
+#: leaders/templates/leaders/index.html:115
+msgid "leaders:home:convert_to_ldap"
+msgstr "Zet account om naar Solis account"
 
 #: leaders/templates/leaders/new.html:8 leaders/templates/leaders/new.html:15
 msgid "leaders:new:header"
@@ -229,14 +229,18 @@ msgstr "<br/>"
 msgid "leaders:create:success_message"
 msgstr "Nieuwe proefleider aangemaakt!"
 
-#: leaders/views.py:104 leaders/views.py:142
+#: leaders/views.py:99
+msgid "leaders:create:error_no_solis"
+msgstr "Solis account kon niet gevonden worden!"
+
+#: leaders/views.py:112 leaders/views.py:150
 msgid "leaders:update:success_message"
 msgstr "Proefleider aangepast!"
 
-#: leaders/views.py:180
+#: leaders/views.py:188
 msgid "leaders:messages:deleted"
 msgstr "Proefleider verwijderd!"
 
-#: leaders/views.py:192
+#: leaders/views.py:200
 msgid "leaders:messages:converted"
 msgstr "Account omgezet!"

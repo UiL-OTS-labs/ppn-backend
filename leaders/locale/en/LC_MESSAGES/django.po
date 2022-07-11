@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-23 14:52+0200\n"
+"POT-Creation-Date: 2022-07-11 10:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,7 +93,7 @@ msgstr "If checked, no changes will be made to the user's password."
 msgid "leader:form:password:error:empty"
 msgstr "This field cannot be empty when 'Keep current password' is unchecked!"
 
-#: leaders/models.py:28
+#: leaders/models.py:34
 msgid "leader:inactive"
 msgstr "{} (inactive)"
 
@@ -187,13 +187,13 @@ msgstr "Solis Account"
 msgid "leaders:home:actions"
 msgstr "Actions"
 
-#: leaders/templates/leaders/index.html:96
-msgid "leaders:home:convert_to_ldap"
-msgstr "Convert account to solis account"
-
-#: leaders/templates/leaders/index.html:116
+#: leaders/templates/leaders/index.html:107
 msgid "leaders:home:delete:title"
 msgstr "Delete leader"
+
+#: leaders/templates/leaders/index.html:115
+msgid "leaders:home:convert_to_ldap"
+msgstr "Convert account to solis account"
 
 #: leaders/templates/leaders/new.html:8 leaders/templates/leaders/new.html:15
 msgid "leaders:new:header"
@@ -221,14 +221,18 @@ msgstr "<br/>"
 msgid "leaders:create:success_message"
 msgstr "Leader successfully created!"
 
-#: leaders/views.py:104 leaders/views.py:142
+#: leaders/views.py:99
+msgid "leaders:create:error_no_solis"
+msgstr "No Solis account using the given data could be found!"
+
+#: leaders/views.py:112 leaders/views.py:150
 msgid "leaders:update:success_message"
 msgstr "Leader successfully updated!"
 
-#: leaders/views.py:180
+#: leaders/views.py:188
 msgid "leaders:messages:deleted"
 msgstr "Leader deleted!"
 
-#: leaders/views.py:192
+#: leaders/views.py:200
 msgid "leaders:messages:converted"
 msgstr "Leader converted!"

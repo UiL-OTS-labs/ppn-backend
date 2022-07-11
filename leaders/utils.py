@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import urllib.parse as parse
+from typing import Optional
 
 from django.conf import settings
 from pytz import timezone
@@ -70,7 +71,8 @@ def create_leader(name: str, email: str, phonenumber: str,
     return leader, existing
 
 
-def create_ldap_leader(name: str, email: str, phonenumber: str) -> Leader:
+def create_ldap_leader(name: str, email: str, phonenumber: str) -> \
+        Optional[Leader]:
     """
     This function creates a new Leader object, which will log in through the
     LDAP.
@@ -108,6 +110,9 @@ def create_ldap_leader(name: str, email: str, phonenumber: str) -> Leader:
         # Create an empty account first, before we populate
         ApiUser.objects.create(email=email)
         api_user = ApiLdapBackend().populate_user(email)
+
+    if not api_user:
+        return None
 
     if _leader_group not in api_user.groups.all():
         api_user.groups.add(_leader_group)
