@@ -7,5 +7,6 @@ from leaders.models import Leader
 @receiver(post_delete, sender=Leader)
 def on_leader_delete(sender, instance, using, **kwargs):
     # Delete the api_user as well, if it's not also a participant
-    if instance.api_user and not instance.api_user.is_participant:
+    if instance.api_user and instance.api_user.id is not None and \
+            not instance.api_user.is_participant:
         instance.api_user.delete()
