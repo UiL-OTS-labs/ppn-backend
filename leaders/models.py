@@ -11,7 +11,13 @@ class Leader(models.Model):
 
     phonenumber = models.TextField()
 
-    api_user = models.OneToOneField(ApiUser, on_delete=models.CASCADE)
+    api_user = models.OneToOneField(
+        ApiUser,
+        # Not really going to happen, but we want to handle cascading through
+        # signals
+        null=True,
+        on_delete=models.SET_NULL
+    )
 
     @property
     def email(self):

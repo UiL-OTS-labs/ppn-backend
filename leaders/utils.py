@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
 import urllib.parse as parse
+from enum import Enum
+from typing import Optional
 
 from django.conf import settings
 from pytz import timezone
@@ -70,7 +72,8 @@ def create_leader(name: str, email: str, phonenumber: str,
     return leader, existing
 
 
-def create_ldap_leader(name: str, email: str, phonenumber: str) -> Leader:
+def create_ldap_leader(name: str, email: str, phonenumber: str) -> \
+        Optional[Leader]:
     """
     This function creates a new Leader object, which will log in through the
     LDAP.
@@ -104,10 +107,17 @@ def create_ldap_leader(name: str, email: str, phonenumber: str) -> Leader:
 
     if existing_api_user:
         api_user = existing_api_user
+        pre_population_user = None  # Keeps the linter happy
     else:
         # Create an empty account first, before we populate
-        ApiUser.objects.create(email=email)
+        pre_population_user = ApiUser.objects.create(email=email)
         api_user = ApiLdapBackend().populate_user(email)
+
+    if not api_user:
+        # Clean up if population didn't work
+        if pre_population_user:
+            pre_population_user.delete()
+        return None
 
     if _leader_group not in api_user.groups.all():
         api_user.groups.add(_leader_group)
@@ -244,7 +254,14 @@ def delete_leader(leader: Leader) -> None:
     leader.delete()
 
 
-def convert_leader_to_ldap(leader: Leader) -> None:
+class ConvertResult(Enum):
+    NO_OP = "NO_OP"
+    INVALID_EMAIL = "INVALID_EMAIL"
+    UNKNOWN_USER = "UNKNOWN_USER"
+    SUCCESS = "SUCCESS"
+
+
+def convert_leader_to_ldap(leader: Leader) -> ConvertResult:
     """All hail the mighty LDAP!
     Oh wait, it's not that kind of conversion... bummer
 
@@ -254,14 +271,20 @@ def convert_leader_to_ldap(leader: Leader) -> None:
     api_user = leader.api_user
 
     if not is_ldap_enabled() or api_user.is_ldap_account:
-        return
+        return ConvertResult.NO_OP
 
     if not api_user.email.endswith("uu.nl"):
-        return
+        return ConvertResult.INVALID_EMAIL
 
     api_user.set_password(None)
     api_user.passwords_needs_change = False
-    api_user.is_ldap_account = True
     api_user.save()
 
-    ApiLdapBackend().populate_user(api_user.email)
+    user = ApiLdapBackend().populate_user(api_user.email)
+
+    if user:
+        user.is_ldap_account = True
+        user.save()
+        return ConvertResult.SUCCESS
+
+    return ConvertResult.UNKNOWN_USER

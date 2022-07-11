@@ -31,6 +31,20 @@ class PpnLdapBackend(LDAPBackend):
 
         return user, False
 
+    def populate_user(self, username, stop_recursion=False):
+        user = super().populate_user(username)
+        # Make sure people can still be found even if they use the wrong email
+        if not user and not stop_recursion and username.endswith(
+                '@students.uu.nl'
+        ):
+            username = username.replace('students.uu.nl', 'uu.nl')
+            user = self.populate_user(username, True)
+        elif not user and not stop_recursion and username.endswith('@uu.nl'):
+            username = username.replace('uu.nl', 'students.uu.nl')
+            user = self.populate_user(username, True)
+
+        return user
+
     def _get_user_object(self,
                          model,
                          lookup: str,
