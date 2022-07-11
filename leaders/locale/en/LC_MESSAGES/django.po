@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-11 10:49+0200\n"
+"POT-Creation-Date: 2022-07-11 10:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -221,7 +221,7 @@ msgstr "<br/>"
 msgid "leaders:create:success_message"
 msgstr "Leader successfully created!"
 
-#: leaders/views.py:99
+#: leaders/views.py:99 leaders/views.py:203
 msgid "leaders:create:error_no_solis"
 msgstr "No Solis account using the given data could be found!"
 
@@ -233,6 +233,14 @@ msgstr "Leader successfully updated!"
 msgid "leaders:messages:deleted"
 msgstr "Leader deleted!"
 
-#: leaders/views.py:200
+#: leaders/views.py:201
 msgid "leaders:messages:converted"
 msgstr "Leader converted!"
+
+#: leaders/views.py:205
+msgid "leaders:messages:ldap_not_enabled"
+msgstr "LDAP is not enabled. How did you get this error?"
+
+#: leaders/views.py:207
+msgid "leaders:messages:invalid_solis_mail"
+msgstr "This leader does not have a valid UU mail. How did you get this error?"

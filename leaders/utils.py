@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import urllib.parse as parse
+from enum import Enum
 from typing import Optional
 
 from django.conf import settings
@@ -249,7 +250,14 @@ def delete_leader(leader: Leader) -> None:
     leader.delete()
 
 
-def convert_leader_to_ldap(leader: Leader) -> None:
+class ConvertResult(Enum):
+    NO_OP = "NO_OP"
+    INVALID_EMAIL = "INVALID_EMAIL"
+    UNKNOWN_USER = "UNKNOWN_USER"
+    SUCCESS = "SUCCESS"
+
+
+def convert_leader_to_ldap(leader: Leader) -> ConvertResult:
     """All hail the mighty LDAP!
     Oh wait, it's not that kind of conversion... bummer
 
@@ -259,14 +267,19 @@ def convert_leader_to_ldap(leader: Leader) -> None:
     api_user = leader.api_user
 
     if not is_ldap_enabled() or api_user.is_ldap_account:
-        return
+        return ConvertResult.NO_OP
 
     if not api_user.email.endswith("uu.nl"):
-        return
+        return ConvertResult.INVALID_EMAIL
 
     api_user.set_password(None)
     api_user.passwords_needs_change = False
     api_user.is_ldap_account = True
     api_user.save()
 
-    ApiLdapBackend().populate_user(api_user.email)
+    user = ApiLdapBackend().populate_user(api_user.email)
+
+    if user:
+        return ConvertResult.SUCCESS
+
+    return ConvertResult.UNKNOWN_USER
