@@ -181,7 +181,8 @@ class LeaderUpdateForm(forms.Form):
 
         existing_user = ApiUser.objects.get_by_email(data)
 
-        if existing_user and current_leader != existing_user.leader:
+        if existing_user and existing_user.is_leader and current_leader != \
+                existing_user.leader:
             raise forms.ValidationError(
                 _('leader:form:email:error:user_exists'))
 
@@ -245,7 +246,8 @@ class LDAPLeaderUpdateForm(forms.Form):
 
         existing_user = ApiUser.objects.get_by_email(data)
 
-        if existing_user and current_leader != existing_user.leader:
+        if existing_user and existing_user.is_leader and current_leader != \
+                existing_user.leader:
             raise forms.ValidationError(
                 _('leader:form:email:error:user_exists'))
 
