@@ -197,13 +197,13 @@ class LeaderConvertToLdap(braces.LoginRequiredMixin, generic.DetailView):
     def post(self, request, *args, **kwargs):
         result = convert_leader_to_ldap(self.get_object())
 
-        if result.SUCCESS:
+        if result == result.SUCCESS:
             messages.success(request, _('leaders:messages:converted'))
-        elif result.UNKNOWN_USER:
+        elif result == result.UNKNOWN_USER:
             messages.warning(request, _('leaders:create:error_no_solis'))
-        elif result.NO_OP:
+        elif result == result.NO_OP:
             messages.error(request, _('leaders:messages:ldap_not_enabled'))
-        elif result.INVALID_EMAIL:
+        elif result == result.INVALID_EMAIL:
             messages.success(request, _('leaders:messages:invalid_solis_mail'))
 
         return HttpResponseRedirect(reverse('leaders:home'))

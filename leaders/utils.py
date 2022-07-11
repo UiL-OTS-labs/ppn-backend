@@ -278,12 +278,13 @@ def convert_leader_to_ldap(leader: Leader) -> ConvertResult:
 
     api_user.set_password(None)
     api_user.passwords_needs_change = False
-    api_user.is_ldap_account = True
     api_user.save()
 
     user = ApiLdapBackend().populate_user(api_user.email)
 
     if user:
+        user.is_ldap_account = True
+        user.save()
         return ConvertResult.SUCCESS
 
     return ConvertResult.UNKNOWN_USER
