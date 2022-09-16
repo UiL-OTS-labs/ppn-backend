@@ -29,7 +29,6 @@ class ExperimentForm(TemplatedModelForm):
             'participants_visible': BootstrapCheckboxInput,
             'location': BootstrapSelect,
             'leader': BootstrapSelect,
-            # TODO: excluded experiment and additional leaders select
         }
 
     def __init__(self, *args, **kwargs):
