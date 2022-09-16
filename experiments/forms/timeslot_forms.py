@@ -1,9 +1,11 @@
 from django import forms
 
+from cdh.core.forms import TemplatedModelForm
+
 from ..models import TimeSlot
 
 
-class TimeSlotForm(forms.ModelForm):
+class TimeSlotForm(TemplatedModelForm):
 
     class Meta:
         model = TimeSlot

@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -9,30 +9,34 @@
 {% endblock %}
 
 {% block html_head %}
+    {{ block.super }}
     <script src="{% static 'datamanagement/js/index.js' %}"></script>
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <div class="float-right button button-colored">
-            <a href="{% url 'datamanagement:thresholds' %}">
-                {% trans 'datamanagement:home:edit_thresholds' %}
-            </a>
-        </div>
+{% block pre-messages-content %}
+    <div class="uu-hero justify-content-between align-items-center">
         <h1>
             {% trans 'datamanagement:home:header' %}
         </h1>
+
+        <a href="{% url 'datamanagement:thresholds' %}" class="btn btn-secondary">
+            {% trans 'datamanagement:home:edit_thresholds' %}
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <p>
             {% trans 'datamanagement:home:info_text' %}
         </p>
-        <div class="panel-group uu-panel">
+        <div class="accordion" id="datamanagement-accordion" style="--bs-accordion-bg: #FFF;--bs-accordion-border-width: .0625rem">
             {% include 'datamanagement/index_parts/participants.html' %}
             {% include 'datamanagement/index_parts/exp_part_visibility.html' %}
             {% include 'datamanagement/index_parts/comments.html' %}
             {% include 'datamanagement/index_parts/invites.html' %}
         </div>
-        <br/>
     </div>
 </div>
 {% endblock %}

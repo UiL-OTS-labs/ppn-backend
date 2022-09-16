@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -8,27 +8,25 @@
     {% trans 'locations:new:header' %} - {{ block.super }}
 {% endblock %}
 
-
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
+{% block pre-messages-content %}
+    <div class="uu-hero">
         <h1>
             {% trans 'locations:new:header' %}
         </h1>
-        <p>
-            {% trans 'locations:new:info_text' %}
-        </p>
-        <form method="post">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <form method="post" class="uu-form uu-form-no-gap uu-form-no-help">
             {% csrf_token %}
-            <table width="100%">
-                {{ form.as_table }}
-            </table>
-            <br/>
-            <div class="float-right">
-                <button type="submit">{% trans 'experiments:globals:save_button' %}</button>
+            {{ form }}
+            <div class="float-end mt-2">
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'experiments:globals:save_button' %}
+                </button>
             </div>
-            <br/>
-            <br/>
         </form>
     </div>
 </div>

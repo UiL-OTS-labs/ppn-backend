@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -8,15 +8,17 @@
     {% trans 'comments:home:header' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
+{% block pre-messages-content %}
+    <div class="uu-hero">
         <h1>
             {% trans 'comments:home:header' %}
         </h1>
-        <p>
-            {% trans 'comments:home:info_text' %}
-        </p>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <table class="dt" width="100%" data-language="{% datatables_lang %}">
             <thead>
                 <tr>

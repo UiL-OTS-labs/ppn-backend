@@ -1,10 +1,10 @@
-from django import forms
+from cdh.core.forms import TemplatedModelForm
 
 from datamanagement.models import Thresholds
 from datamanagement.widgets import TimespanWidget
 
 
-class ThresholdsEditForm(forms.ModelForm):
+class ThresholdsEditForm(TemplatedModelForm):
     class Meta:
         model = Thresholds
         fields = '__all__'

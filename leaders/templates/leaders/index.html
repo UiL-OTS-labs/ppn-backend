@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -7,37 +7,32 @@
     {% trans 'leaders:home:header' %} - {{ block.super }}
 {% endblock %}
 
-
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <div class="float-right">
-            <div class="button button-colored">
-                <a href="{% url 'leaders:create' %}">
-                    {% if ldap %}
-                        {% trans 'leaders:home:create_leader:local' %}
-                    {% else %}
-                        {% trans 'leaders:home:create_leader' %}
-                    {% endif %}
-                </a>
-            </div>
-            {% if ldap %}
-                <br/>
-                <div class="button button-colored mt-1">
-                    <a href="{% url 'leaders:create_ldap' %}">
-                        {% trans 'leaders:home:create_leader:ldap' %}
-                    </a>
-                </div>
-            {% endif %}
-        </div>
-
+{% block pre-messages-content %}
+    <div class="uu-hero justify-content-between align-items-center">
         <h1>
             {% trans 'leaders:home:header' %}
         </h1>
-        <p>
-            {% trans 'leaders:home:info_text' %}
-        </p>
-        <table class="dt" width="100%" data-language="{% datatables_lang %}">
+        <div>
+            <a href="{% url 'leaders:create' %}" class="btn btn-secondary">
+                {% if ldap %}
+                    {% trans 'leaders:home:create_leader:local' %}
+                {% else %}
+                    {% trans 'leaders:home:create_leader' %}
+                {% endif %}
+            </a>
+            {% if ldap %}
+                <a href="{% url 'leaders:create_ldap' %}" class="btn btn-secondary">
+                    {% trans 'leaders:home:create_leader:ldap' %}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <table class="dt w-100" data-language="{% datatables_lang %}">
             <thead>
                 <tr>
                     <th>

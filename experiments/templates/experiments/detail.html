@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -9,19 +9,19 @@
    {% transformat 'experiments:detail:header' experiment.name %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <div class="button button-colored float-right" id="back_to_prev">
-            <a href="{% url 'experiments:home' %}">
-                {% trans 'experiments:detail:all_experiments' %}
-            </a>
-        </div>
-        <h1>
-            {% transformat 'experiments:detail:header' experiment.name %}
-        </h1>
-    </div>
+{% block pre-messages-content %}
+<div class="uu-hero justify-content-between align-items-center">
+    <h1>
+        {% transformat 'experiments:detail:header' experiment.name %}
+    </h1>
+
+    <a href="{% url 'experiments:home' %}"  class="btn btn-secondary float-right" id="back_to_prev">
+        {% trans 'experiments:detail:all_experiments' %}
+    </a>
 </div>
+{% endblock %}
+
+{% block content %}
 {% include 'experiments/detail_parts/info.html' %}
 
 {% if experiment.use_timeslots %}

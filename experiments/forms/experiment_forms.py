@@ -1,10 +1,12 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
+from cdh.core.forms import TemplatedModelForm, BootstrapCheckboxInput, \
+    BootstrapRadioSelect, BootstrapSelect
 
 from ..models import Experiment
 
 
-class ExperimentForm(forms.ModelForm):
+class ExperimentForm(TemplatedModelForm):
     class Meta:
         model = Experiment
         fields = '__all__'
@@ -12,7 +14,7 @@ class ExperimentForm(forms.ModelForm):
             'name':         forms.TextInput,
             'duration':     forms.TextInput,
             'compensation': forms.TextInput,
-            'use_timeslots': forms.RadioSelect(choices=(
+            'use_timeslots': BootstrapRadioSelect(choices=(
                 (True, _("experiment:form:use_timeslots:true")),
                 (False, _("experiment:form:use_timeslots:false")),
             )),
@@ -21,7 +23,13 @@ class ExperimentForm(forms.ModelForm):
             }),
             'additional_instructions': forms.Textarea({
                 'rows': 7
-            })
+            }),
+            'open': BootstrapCheckboxInput,
+            'public': BootstrapCheckboxInput,
+            'participants_visible': BootstrapCheckboxInput,
+            'location': BootstrapSelect,
+            'leader': BootstrapSelect,
+            # TODO: excluded experiment and additional leaders select
         }
 
     def __init__(self, *args, **kwargs):

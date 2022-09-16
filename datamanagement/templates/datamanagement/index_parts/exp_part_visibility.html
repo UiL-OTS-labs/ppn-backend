@@ -1,17 +1,27 @@
 {% load i18n %}
 {% load display_threshold %}
 {% load transformat %}
-<div class="panel uu-panel panel-default">
-    <div class="panel-heading">
-        <h5 class="panel-title">
-            <a class="collapsed" data-toggle="collapse" href="#collapse-exp_part_visibility">
-                {% trans 'datamanagement:home:exp_part_visibility:header' %}
-                ({{ exp_part_visible|length }})
-            </a>
-        </h5>
+<div class="accordion-item">
+    <div class="accordion-header" id="exp_part_visibility-header">
+        <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-exp_part_visibility"
+                aria-expanded="true"
+                aria-controls="collapse-exp_part_visibility"
+        >
+            {% trans 'datamanagement:home:exp_part_visibility:header' %}
+            ({{ exp_part_visible|length }})
+        </button>
     </div>
-    <div id="collapse-exp_part_visibility" class="panel-collapse collapse">
-        <div class="panel-body">
+    <div
+            id="collapse-exp_part_visibility"
+            class="accordion-collapse collapse"
+            aria-labelledby="exp_part_visibility-header"
+            data-bs-parent="#datamanagement-accordion"
+    >
+        <div class="accordion-body">
             <h3>
                 {% trans 'datamanagement:home:exp_part_visibility:header' %}
             </h3>

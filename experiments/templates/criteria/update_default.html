@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -9,23 +9,24 @@
      {% transformat 'criteria:new_default_criteria:header' form.instance.experiment.name %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <h1>
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="text-truncate">
             {% transformat 'criteria:new_default_criteria:header' form.instance.experiment.name %}
         </h1>
-        <p>
-            {% trans 'criteria:new_default_criteria:info_text' %}
-        </p>
-        <form method="post">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <form method="post" class="uu-form" style="--bs-uu-form-row-gap: 0.5rem;">
             {% csrf_token %}
-            <table width="100%">
-                {{ form.as_table }}
-            </table>
-            <br/>
-            <div class="float-right">
-                <button type="submit">{% trans 'experiments:globals:save_button' %}</button>
+            {{ form }}
+            <div class="float-end mt-2">
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'experiments:globals:save_button' %}
+                </button>
             </div>
         </form>
     </div>

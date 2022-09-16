@@ -1,11 +1,11 @@
-from django import forms
+from cdh.core.forms import TemplatedModelForm
 
 from experiments.models import Experiment
 from participants.models import Participant
 from .models import Comment
 
 
-class CommentForm(forms.ModelForm):
+class CommentForm(TemplatedModelForm):
     class Meta:
         model = Comment
         fields = ['participant', 'experiment', 'comment']

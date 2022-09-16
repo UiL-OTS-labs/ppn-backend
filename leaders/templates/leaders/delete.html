@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -8,21 +8,27 @@
     {% trans 'leaders:delete:header' %} - {{ block.super }}
 {% endblock %}
 
-
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
+{% block pre-messages-content %}
+    <div class="uu-hero">
         <h1>
             {% trans 'leaders:delete:header' %}
         </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <form method="post">{% csrf_token %}
             <p>{% transformat 'leaders:delete:text' object.name %}</p>
-            <div class="button" style="display: inline-block">
-                <a href="{% url 'leaders:home' %}" >
+            <div class="btn-group">
+                <a href="{% url 'leaders:home' %}" class="btn btn-secondary">
                     {% trans 'leaders:delete:cancel' %}
                 </a>
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'leaders:delete:confirm' %}
+                </button>
             </div>
-            <input type="submit" value="{% trans 'leaders:delete:confirm' %}">
         </form>
         <br/>
     </div>

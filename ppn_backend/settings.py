@@ -26,6 +26,7 @@ SECRET_KEY = 'hk+83s0m6j8(ei)gxgy)e59b@^n77y_bmd4(#yyknr#whcrf^#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ACCEPTATION = False
 ENABLE_DEBUG_TOOLBAR = True
 
 ALLOWED_HOSTS = []
@@ -35,6 +36,7 @@ INTERNAL_IPS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'cdh.core',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,9 +53,11 @@ INSTALLED_APPS = [
     # DRF
     'rest_framework',
 
+    # Impersonate
+    'impersonate',
+
     # local apps
-    'uil.core',
-    'uil.vue',
+    'cdh.vue',
     'api',
     'api.auth',
     'main',
@@ -80,7 +84,8 @@ MIDDLEWARE = [
     'axes.middleware.AxesMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'uil.core.middleware.ThreadLocalUserMiddleware',
+    'impersonate.middleware.ImpersonateMiddleware',
+    'cdh.core.middleware.ThreadLocalUserMiddleware',
     'csp.middleware.CSPMiddleware',
 ]
 
@@ -106,6 +111,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cdh.core.context_processors.acceptation',
             ],
         },
     },
@@ -197,7 +203,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'uil.core.hashers.PBKDF2WrappedMD5PasswordHasher',
+    'cdh.core.hashers.PBKDF2WrappedMD5PasswordHasher',
 ]
 
 # Internationalization
@@ -237,6 +243,7 @@ SESSION_COOKIE_AGE = 60 * 60 * 12  # 12 hours
 AXES_LOCKOUT_TEMPLATE = 'main/login_lockout.html'
 AXES_RESET_ON_SUCCESS = True
 AXES_LOCK_OUT_BY_USER_OR_IP = True
+AXES_FAILURE_LIMIT = 1000
 AXES_COOLOFF_TIME = 1
 
 # Django CSP

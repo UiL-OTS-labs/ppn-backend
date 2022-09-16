@@ -2,23 +2,27 @@ from django import forms
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
+from cdh.core.forms import TemplatedModelForm, TemplatedForm, BootstrapRadioSelect
+
 from ..models import Criterion, DefaultCriteria
 from ..widgets import LanguageWidget
 
 
-class DefaultCriteriaForm(forms.ModelForm):
+class DefaultCriteriaForm(TemplatedModelForm):
     class Meta:
         model = DefaultCriteria
         fields = '__all__'
         widgets = {
             'experiment':    forms.HiddenInput,
             'language':      LanguageWidget,
-            'multilingual':  forms.RadioSelect,
-            'sex':           forms.RadioSelect,
-            'handedness':    forms.RadioSelect,
-            'dyslexia':      forms.RadioSelect,
-            'social_status': forms.RadioSelect,
+            'multilingual':  BootstrapRadioSelect,
+            'sex':           BootstrapRadioSelect,
+            'handedness':    BootstrapRadioSelect,
+            'dyslexia':      BootstrapRadioSelect,
+            'social_status': BootstrapRadioSelect,
         }
+
+    always_show_help_column = False
 
     def __init__(self, *args, **kwargs):
         # This removes the colon from the labels. Without it Django is very
@@ -27,7 +31,7 @@ class DefaultCriteriaForm(forms.ModelForm):
         super(DefaultCriteriaForm, self).__init__(*args, **kwargs)
 
 
-class CriterionForm(forms.ModelForm):
+class CriterionForm(TemplatedModelForm):
     class Meta:
         model = Criterion
         fields = ['name_form', 'name_natural', 'values']
@@ -73,7 +77,7 @@ class CriterionForm(forms.ModelForm):
         return correct_value
 
 
-class ExperimentCriterionForm(forms.Form):
+class ExperimentCriterionForm(TemplatedForm):
 
     name_form = forms.CharField(
         label=_('criterion:attribute:name_form'),

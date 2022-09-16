@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -8,21 +8,21 @@
     {% trans 'participants:home:header' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <div class="float-right button button-colored">
-            <a href="{% url 'participants:merge' %}">
-                {% trans 'participants:home:merge_participants' %}
-            </a>
-        </div>
+{% block pre-messages-content %}
+    <div class="uu-hero justify-content-between align-items-center">
         <h1>
             {% trans 'participants:home:header' %}
         </h1>
-        <p>
-            {% trans 'participants:home:info_text' %}
-        </p>
-        <table class="dt" width="100%" data-language="{% datatables_lang %}">
+        <a href="{% url 'participants:merge' %}" class="btn btn-secondary">
+            {% trans 'participants:home:merge_participants' %}
+        </a>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <table class="dt w-100" data-language="{% datatables_lang %}">
             <thead>
                 <tr>
                     <th>
@@ -131,7 +131,6 @@
                 {% endfor %}
             </tbody>
         </table>
-        <br/>
     </div>
 </div>
 {% endblock %}

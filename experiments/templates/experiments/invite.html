@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -6,6 +6,7 @@
 {% load static %}
 
 {% block html_head %}
+    {{ block.super }}
     <script src="{% static 'experiments/invite/table.js' %}"></script>
 {% endblock %}
 
@@ -13,15 +14,16 @@
    {% transformat 'experiments:invite:header' experiment.name %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <h1>
-            {% transformat 'experiments:invite:header' experiment.name %}
-        </h1>
-    </div>
+{% block pre-messages-content %}
+<div class="uu-hero">
+    <h1>
+        {% transformat 'experiments:invite:header' experiment.name %}
+    </h1>
 </div>
-<div class="uu-inner-container">
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
     <div class="col-6">
         {% include 'experiments/criteria_snippit.html' %}
     </div>
@@ -31,12 +33,11 @@
         </p>
     </div>
 </div>
-<br/>
-<form method="post">
-    <div class="uu-inner-container">
+<form method="post" class="uu-content">
+    <div class="uu-container">
         <div class="col-12">
             {% csrf_token %}
-            <table class="dt_custom" width="100%" data-language="{% datatables_lang %}" data-responsive="">
+            <table class="dt_custom table w-100" data-language="{% datatables_lang %}" data-responsive="">
                 <thead>
                     <tr>
                         <th>
@@ -91,23 +92,25 @@
             </table>
         </div>
     </div>
-    <div class="uu-inner-container mt-2">
-        <div class="col-6">
-            <textarea name="content" rows="25" style="width: 100%">{{ invite_text }}
+    <div class="uu-container">
+        <div class="col-6 pe-2">
+            <textarea class="form-control" name="content" rows="25" style="width: 100%">{{ invite_text }}
             </textarea>
 
         </div>
-        <div class="col-6">
+        <div class="col-6 ps-2">
             {% url 'experiments:update' experiment.pk as edit_url %}
             <p>
                 {% transformat "experiments:invite:text:help" edit_url %}
             </p>
-            <button type="submit" formaction="{% url 'experiments:mail_preview' experiment.pk %}" formtarget="_blank" class="button-black">
-                {% trans 'experiments:invite:preview_button' %}
-            </button>
-            <button type="submit">
-                {% trans 'experiments:invite:invite_button' %}
-            </button>
+            <div class="btn-group">
+                <button type="submit" formaction="{% url 'experiments:mail_preview' experiment.pk %}" formtarget="_blank" class="btn btn-secondary">
+                    {% trans 'experiments:invite:preview_button' %}
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'experiments:invite:invite_button' %}
+                </button>
+            </div>
         </div>
     </div>
 </form>

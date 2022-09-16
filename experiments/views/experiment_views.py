@@ -4,11 +4,11 @@ from django.contrib.auth.views import SuccessURLAllowedHostsMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Count, F, Q
 from django.urls import reverse_lazy as reverse
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
-from uil.core.views import RedirectActionView
-from uil.core.views.mixins import DeleteSuccessMessageMixin, \
+from cdh.core.views import RedirectActionView
+from cdh.core.views.mixins import DeleteSuccessMessageMixin, \
     RedirectSuccessMessageMixin
 
 from comments.models import Comment
@@ -64,7 +64,7 @@ class ExperimentUpdateView(braces.LoginRequiredMixin,
         url = reverse('experiments:home')
         redirect_to = self.request.GET.get('next', url)
 
-        url_is_safe = is_safe_url(
+        url_is_safe = url_has_allowed_host_and_scheme(
             url=redirect_to,
             allowed_hosts=self.get_success_url_allowed_hosts(),
             require_https=self.request.is_secure(),

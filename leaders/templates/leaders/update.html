@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -9,34 +9,37 @@
     {% transformat 'leaders:update:header' form.name.value %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<script src="{% static 'uil.core/js/form_helpers.js' %}"></script>
-<script nonce="{{ request.csp_nonce }}">
-$(function () {
-    depends_on_value('keep_current_password', undefined, 'password');
-    depends_on_value('keep_current_password', undefined, 'confirm_password');
-});
-</script>
-<div class="uu-inner-container">
-    <div class="col-12">
+{% block html_head %}
+    {{ block.super }}
+    <script src="{% static 'cdh.core/js/form_helpers.js' %}"></script>
+    <script nonce="{{ request.csp_nonce }}">
+    $(function () {
+        depends_on_value('keep_current_password', undefined, 'password');
+        depends_on_value('keep_current_password', undefined, 'confirm_password');
+    });
+    </script>
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
         <h1>
             {% transformat 'leaders:update:header' form.name.value %}
         </h1>
-        <p>
-            {% trans 'leaders:update:info_text' %}
-        </p>
-        <form method="post">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <form method="post" class="uu-form uu-form-no-gap">
             {% csrf_token %}
-            <table width="100%">
-                {{ form.as_table }}
-            </table>
-            <br/>
-            <div class="float-right">
-                <button type="submit">{% trans 'leaders:globals:save_button' %}</button>
+            {{ form }}
+            <div class="float-end mt-3">
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'leaders:globals:save_button' %}
+                </button>
             </div>
         </form>
-        <br/>
-        <br/>
     </div>
 </div>
 {% endblock %}

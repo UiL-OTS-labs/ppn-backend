@@ -20,52 +20,10 @@ h1, h2, h3, h4 {
     font-weight: normal;
 }
 
-/* TODO: remove this when we switch to Django Core 3 */
-:root {
-    /* Message background colors */
-    --uu-message-success-background: #28a745;
-    --uu-message-failed-background: #dc3545;
-    --uu-message-warning-background: #ffc107;
-    --uu-message-info-background: #17a2b8;
-}
+.uu-root-container {
+    --bs-uu-hero-bg: var(--bs-blue);
+    --bs-uu-hero-color: var(--bs-white);
 
-div#messages {
-    background: transparent;
-    padding: 0;
-    color: #fff;
-    font-weight: bold;
-}
-
-#messages .success {
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--uu-message-success-background);
-    list-style-type: none;
-}
-
-#messages .failed,
-#messages .error {
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--uu-message-failed-background);
-    list-style-type: none;
-}
-
-#messages .warning {
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--uu-message-warning-background);
-    list-style-type: none;
-    color: #333;
-}
-
-#messages .info {
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--uu-message-info-background);
-    list-style-type: none;
+    --bs-uu-container-width: 115rem;
+    --bs-uu-content-width: 100rem;
 }
