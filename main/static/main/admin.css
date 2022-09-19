@@ -16,8 +16,8 @@
     color: green;
 }
 
-h1, h2, h3, h4 {
-    font-weight: normal;
+.dt-buttons {
+    float: left;
 }
 
 .uu-root-container {
