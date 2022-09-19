@@ -12,21 +12,26 @@ from participants.utils import get_mailinglist_unsubscribe_url
 
 
 def get_initial_invite_context(experiment: Experiment) -> dict:
-    return {
+    context = {
         'duration':                experiment.duration,
         'compensation':            experiment.compensation,
         'task_description':        experiment.task_description,
         'additional_instructions': experiment.additional_instructions,
         'experiment_name':         experiment.name,
-        'experiment_location':     experiment.location,
+        'experiment_location':     '',
         'leader_name':             experiment.leader.name,
         'leader_email':            experiment.leader.api_user.email,
         'leader_phonenumber':      experiment.leader.phonenumber,
-        'all_leaders_name_list':   experiment.leader.name,
+        'all_leaders_name_list':   experiment.all_leaders_str,
         'admin':                   get_supreme_admin().get_full_name(),
         'reg_through_login_link':  _get_login_exp_url(experiment),
         'reg_link':                get_register_link(experiment),
     }
+
+    if experiment.location:
+        context['experiment_location'] = experiment.location.name
+
+    return context
 
 
 def mail_invite(
