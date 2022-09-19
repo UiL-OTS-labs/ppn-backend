@@ -1,13 +1,17 @@
 {% extends "base/ppn_base.html" %}
 {% load i18n %}
 
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h2">
+            {% trans 'login:header:login' %}
+        </h1>
+    </div>
+{% endblock %}
 
 {% block content %}
     <div class="uu-container">
         <div class="col-12 col-md-6 col-lg-4">
-            <h2 class="mb-3">
-                {% trans 'login:header:login' %}
-            </h2>
             {% if form.errors %}
                 <p class="text-red fw-bold mb-3">
                     {% trans "main:login:error" %}

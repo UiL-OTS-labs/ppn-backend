@@ -9,17 +9,20 @@
     {% trans 'main:login_lockout:header' %} - {{ block.super }}
 {% endblock %}
 
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h2">
+            {% trans 'main:login_lockout:header' %}
+        </h1>
+    </div>
+{% endblock %}
 
 {% block content %}
 <div class="uu-container">
     <div class="col-12">
-        <h1>
-            {% trans 'main:login_lockout:header' %}
-        </h1>
         <p>
             {% trans 'main:login_lockout:info_text' %}
         </p>
-        <br/>
     </div>
 </div>
 {% endblock %}

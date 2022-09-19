@@ -1,11 +1,17 @@
 {% extends "base/ppn_base.html" %}
 {% load i18n %}
 
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h2">
+            {% trans "main:logged_out_title" %}
+        </h1>
+    </div>
+{% endblock %}
 
 {% block content %}
     <div class="uu-container">
         <div class="col-12">
-            <h2>{% trans "main:logged_out_title" %}</h2>
             {% trans "main:logged_out_text" %}
         </div>
     </div>

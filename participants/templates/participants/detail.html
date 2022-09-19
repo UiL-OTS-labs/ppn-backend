@@ -22,10 +22,10 @@
 
 {% block uu-content %}
     <div class="uu-hero justify-content-between align-items-center">
-        <h1>
+        <h1 class="h2 text-truncate">
             {% transformat 'participants:detail:header' participant.fullname %}
         </h1>
-        <a href="{% url 'participants:edit' participant.pk %}" class="btn btn-secondary">
+        <a href="{% url 'participants:edit' participant.pk %}" class="btn btn-secondary btn-sm">
             {% trans 'participants:detail:edit_participant' %}
         </a>
     </div>

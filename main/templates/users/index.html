@@ -10,11 +10,11 @@
 
 {% block pre-messages-content %}
     <div class="uu-hero justify-content-between align-items-center">
-        <h1>
+        <h1 class="h2">
             {% trans 'users:home:header' %}
         </h1>
-        <div>
-            <a href="{% url 'main:user_create' %}" class="btn btn-secondary">
+        <div class="btn-group">
+            <a href="{% url 'main:user_create' %}" class="btn btn-secondary btn-sm">
                 {% if ldap %}
                     {% trans 'users:home:create_user:local' %}
                 {% else %}
@@ -22,7 +22,7 @@
                 {% endif %}
             </a>
             {% if ldap  %}
-                <a href="{% url 'main:user_create_ldap' %}" class="btn btn-secondary">
+                <a href="{% url 'main:user_create_ldap' %}" class="btn btn-secondary btn-sm">
                     {% trans 'users:home:create_user:ldap' %}
                 </a>
             {% endif %}

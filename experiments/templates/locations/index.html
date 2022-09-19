@@ -10,10 +10,10 @@
 
 {% block pre-messages-content %}
     <div class="uu-hero justify-content-between align-items-center">
-        <h1>
+        <h1 class="h2">
             {% trans 'locations:home:header' %}
         </h1>
-        <a href="{% url 'experiments:location_create' %}" class="btn btn-secondary">
+        <a href="{% url 'experiments:location_create' %}" class="btn btn-secondary btn-sm">
             {% trans 'locations:home:create_location' %}
         </a>
     </div>
