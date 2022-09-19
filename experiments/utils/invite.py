@@ -4,19 +4,11 @@ import urllib.parse as parse
 from django.conf import settings
 from django.core.mail import get_connection
 
-from experiments.emails import InviteEmail
+from experiments.emails import DEFAULT_INVITE_FOOTER, InviteEmail
 from experiments.models import Experiment, Invitation
 from main.utils import get_supreme_admin, get_register_link
 from participants.models import Participant
 from participants.utils import get_mailinglist_unsubscribe_url
-
-
-DEFAULT_FOOTER = "<p>Je ontvangt deze e-mail omdat je je e-mailadres hebt " \
-                 "opgegeven om informatie te ontvangen over nieuwe " \
-                 "experimenten in het UiL OTS. Indien je deze e-mails " \
-                 "niet meer wilt ontvangen klik dan " \
-                 "<a href=\"{{ unsub_link }}\" " \
-                 "style=\"color:#fff\">hier</a>.</p>"
 
 
 def get_initial_invite_context(experiment: Experiment) -> dict:
@@ -71,9 +63,9 @@ def mail_invite(
                            "te loggen en dan direct naar de inschrijf pagina " \
                            "te gaan! Indien je ingelogt bent hoef je niet " \
                            "alle gegevens meer in te vullen die wij al " \
-                           "hebben.</p>" + DEFAULT_FOOTER
+                           "hebben.</p>" + DEFAULT_INVITE_FOOTER
         else:
-            email.footer = DEFAULT_FOOTER
+            email.footer = DEFAULT_INVITE_FOOTER
 
         email.context = part_context
         email.to = [participant.email]
