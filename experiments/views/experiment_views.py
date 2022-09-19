@@ -14,7 +14,7 @@ from cdh.core.views.mixins import DeleteSuccessMessageMixin, \
 from comments.models import Comment
 from experiments.utils.remind_participant import remind_participant
 from .mixins import ExperimentObjectMixin
-from ..forms import ExperimentForm
+from ..forms import ExperimentEmailTemplatesForm, ExperimentForm
 from ..models import Appointment, Experiment
 
 from django.core.exceptions import SuspiciousOperation
@@ -218,6 +218,19 @@ class ExperimentAppointmentsView(braces.LoginRequiredMixin,
         count = Count('timeslot__appointments', filter=q_filter)
 
         return qs.annotate(n=count)
+
+
+class ExperimentEmailTemplatesUpdateView(
+    braces.LoginRequiredMixin,
+    SuccessURLAllowedHostsMixin,
+    SuccessMessageMixin,
+    generic.UpdateView
+):
+    template_name = 'experiments/email_templates.html'
+    form_class = ExperimentEmailTemplatesForm
+    model = Experiment
+    success_message = _('experiments:message:update_emails:success')
+    success_url = reverse('experiments:home')
 
 
 # -------------------

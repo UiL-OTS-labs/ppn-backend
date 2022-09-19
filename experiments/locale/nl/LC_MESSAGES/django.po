@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 11:42+0000\n"
+"POT-Creation-Date: 2022-09-19 16:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,43 +16,98 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: experiments/forms/criteria_forms.py:71
-#: experiments/forms/criteria_forms.py:124
+#: experiments/emails.py:8
+msgid "invite-email.vars.name"
+msgstr ""
+"De naam van de proefpersoon. 'proefpersoon' indien de naam niet bekend is."
+
+#: experiments/emails.py:9
+msgid "invite-email.vars.duration"
+msgstr "De opgegeven tijdsduur van het experiment"
+
+#: experiments/emails.py:10
+msgid "invite-email.vars.compensation"
+msgstr "De opgegeven compensatie van het experiment"
+
+#: experiments/emails.py:11
+msgid "invite-email.vars.task_description"
+msgstr "De opgegeven taak omschrijving"
+
+#: experiments/emails.py:12
+msgid "invite-email.vars.additional_instructions"
+msgstr "De opgegeven extra instructies"
+
+#: experiments/emails.py:13
+msgid "invite-email.vars.experiment_name"
+msgstr "De naam van het experiment"
+
+#: experiments/emails.py:14
+msgid "invite-email.vars.experiment_location"
+msgstr "De locatie van het experiment (indien opgegeven)"
+
+#: experiments/emails.py:15
+msgid "invite-email.vars.leader_name"
+msgstr "De naam van de primaire proefleider"
+
+#: experiments/emails.py:16
+msgid "invite-email.vars.leader_email"
+msgstr "Het e-mailadres van de primaire proefleider"
+
+#: experiments/emails.py:17
+msgid "invite-email.vars.leader_phonenumber"
+msgstr "Het telefoonnummer van de primaire proefleider"
+
+#: experiments/emails.py:18
+msgid "invite-email.vars.all_leaders_name_list"
+msgstr "Een opsomming van alle proefleiders, in goed Nederlands geformat"
+
+#: experiments/emails.py:19
+msgid "invite-email.vars.admin"
+msgstr "De naam van de huidige 'hoofd admin'"
+
+#: experiments/emails.py:20
+msgid "invite-email.vars.reg_link"
+msgstr ""
+"De URL naar de inschrijf pagina (gebruik als waarde voor 'URL' in het 'link "
+"invoegen' dialoogvenster)"
+
+#: experiments/forms/criteria_forms.py:75
+#: experiments/forms/criteria_forms.py:128
 msgid "criteria:form:correct_value:error:not_a_value"
 msgstr "Deze waarde is niet opgegeven in 'Mogelijke waardes'!"
 
-#: experiments/forms/criteria_forms.py:79
+#: experiments/forms/criteria_forms.py:83
 #: experiments/models/criteria_models.py:130
 msgid "criterion:attribute:name_form"
 msgstr "Form naam"
 
-#: experiments/forms/criteria_forms.py:83
+#: experiments/forms/criteria_forms.py:87
 #: experiments/models/criteria_models.py:134
 msgid "criterion:attribute:name_natural"
 msgstr "Weergave naam"
 
-#: experiments/forms/criteria_forms.py:87
+#: experiments/forms/criteria_forms.py:91
 #: experiments/models/criteria_models.py:138
 msgid "criterion:attribute:values"
 msgstr "Mogelijke waardes"
 
-#: experiments/forms/criteria_forms.py:91
+#: experiments/forms/criteria_forms.py:95
 #: experiments/models/criteria_models.py:172
-#: experiments/templates/criteria/specific_list.html:125
+#: experiments/templates/criteria/specific_list.html:128
 msgid "experiment_criterion:attribute:correct_value"
 msgstr "Correcte waarde"
 
-#: experiments/forms/criteria_forms.py:95
+#: experiments/forms/criteria_forms.py:99
 #: experiments/models/criteria_models.py:176
-#: experiments/templates/criteria/specific_list.html:143
+#: experiments/templates/criteria/specific_list.html:146
 msgid "experiment_criterion:attribute:message_failed"
 msgstr "Melding indien incorrect"
 
-#: experiments/forms/experiment_forms.py:16
+#: experiments/forms/experiment_forms.py:35
 msgid "experiment:form:use_timeslots:true"
 msgstr "Op locatie"
 
-#: experiments/forms/experiment_forms.py:17
+#: experiments/forms/experiment_forms.py:36
 msgid "experiment:form:use_timeslots:false"
 msgstr "Online"
 
@@ -79,7 +134,7 @@ msgstr "Meerdere"
 #: experiments/models/criteria_models.py:105
 #: experiments/models/criteria_models.py:111
 #: experiments/models/criteria_models.py:117
-#: experiments/templates/widgets/language_widget.html:33
+#: experiments/templates/widgets/language_widget.html:70
 msgid "experiments:globals:indifferent"
 msgstr "Maakt niet uit"
 
@@ -155,31 +210,31 @@ msgstr "Wat moet de bovengrens van de participant's leeftijd zijn?"
 msgid "default_criteria:attribute:max_age:help_text"
 msgstr "Zet dit op -1 als er geen bovengrens is."
 
-#: experiments/models/experiment_models.py:61
+#: experiments/models/experiment_models.py:83
 msgid "experiment:attribute:name"
 msgstr "Naam"
 
-#: experiments/models/experiment_models.py:65
+#: experiments/models/experiment_models.py:87
 msgid "experiment:attribute:duration"
 msgstr "Tijdsduur"
 
-#: experiments/models/experiment_models.py:69
+#: experiments/models/experiment_models.py:91
 msgid "experiment:attribute:compensation"
 msgstr "Compensatie"
 
-#: experiments/models/experiment_models.py:73
+#: experiments/models/experiment_models.py:95
 msgid "experiment:attribute:task_description"
 msgstr "Taak omschrijving"
 
-#: experiments/models/experiment_models.py:77
+#: experiments/models/experiment_models.py:99
 msgid "experiment:attribute:additional_instructions"
 msgstr "Extra instructies"
 
-#: experiments/models/experiment_models.py:82
+#: experiments/models/experiment_models.py:104
 msgid "experiment:attribute:confirmation_email"
-msgstr "Bevestigingsmail text"
+msgstr "Bevestigingsmail sjabloon"
 
-#: experiments/models/experiment_models.py:83
+#: experiments/models/experiment_models.py:105
 msgid "experiment:attribute:confirmation_email:help_text"
 msgstr ""
 "Er zijn enkele variabelen:<br/><code>{experiment_name}</code> De naam van "
@@ -190,72 +245,56 @@ msgstr ""
 "><code>{leader_name}</code> De naam van de proefleider<br/"
 "><code>{leader_email}</code> De e-mail van de proefleider<br/"
 "><code>{leader_phonenumber}</code> Het telefoonnummer van de proefleider<br/"
-"><code>{all_leaders_name_list}</code> Een opsomming van alle proefleiders, in "
-"goed Nederlands geformat<br/>"
+"><code>{all_leaders_name_list}</code> Een opsomming van alle proefleiders, "
+"in goed Nederlands geformat<br/>"
 
-#: experiments/models/experiment_models.py:88
+#: experiments/models/experiment_models.py:110
 msgid "experiment:attribute:invite_email"
 msgstr "Uitnodigingsmail sjabloon"
 
-#: experiments/models/experiment_models.py:89
-msgid "experiment:attribute:invite_email:help_text"
-msgstr ""
-"De sjabloon die is gebruikt om de uitnodigingsmail te maken; het resultaat "
-"kan worden bewerkt voordat het wordt verzonden. Er zijn enkele variabelen:"
-"<br/><code>{experiment_name}</code> De naam van het experiment<br/"
-"><code>{experiment_location}</code> De locatie van het experiment (indien "
-"van toepassing)<br/><code>{duration}</code> De opgegeven tijdsduur van het "
-"experiment<br/><code>{compensation}</code> De opgegeven compensatie voor het "
-"experiment<br/><code>{task_description}</code> De inhoud van het taak "
-"omschrijving veld<br/><code>{additional_instructions}</code> De inhoud van "
-"het extra instructies veld<br/><code>{leader_name}</code> De naam van de "
-"proefleider<br/><code>{leader_email}</code> Het emailadres van de "
-"proefleider<br/><code>{leader_phonenumber}</code> Het telefoonnummer van de "
-"proefleider<br/><code>{all_leaders_name_list}</code> Een opsomming van alle "
-"proefleiders, in goed Nederlands geformat<br/><code>{admin}</code> De naam "
-"van de huidige hoofd admin<br/><code>{link_to_subscribe:\"deze link\"}</"
-"code> Een link naar de inschrijfpagina. De tekst na de : wordt gebruikt als "
-"de linktekst"
+#: experiments/models/experiment_models.py:116
+msgid "experiment:attribute:reminder_email"
+msgstr "Herinneringsmail sjabloon"
 
-#: experiments/models/experiment_models.py:95
+#: experiments/models/experiment_models.py:122
 msgid "experiment:attribute:location"
 msgstr "Locatie"
 
-#: experiments/models/experiment_models.py:102
+#: experiments/models/experiment_models.py:129
 msgid "experiment:attribute:use_timeslots"
 msgstr "Type"
 
-#: experiments/models/experiment_models.py:104
+#: experiments/models/experiment_models.py:131
 msgid "experiment:attribute:use_timeslots:help_text"
 msgstr ""
 "Indien 'op locatie' is gekozen, moeten participanten voor een tijdslot "
 "inschrijven. Als 'online' is gekozen, schrijven participanten alleen in voor "
 "een experiment."
 
-#: experiments/models/experiment_models.py:108
+#: experiments/models/experiment_models.py:135
 msgid "experiment:attribute:default_max_places"
 msgstr "Standaard aantal plekken"
 
-#: experiments/models/experiment_models.py:112
+#: experiments/models/experiment_models.py:139
 msgid "experiment:attribute:default_max_places:help_text"
 msgstr ""
 "Standaard aantal plekken in een timeslot. Dit kan later per slot veranderd "
 "worden. Als een experiment geen timeslots gebruikt, is dit het max aantal "
 "participanten voor dit experiment."
 
-#: experiments/models/experiment_models.py:117
+#: experiments/models/experiment_models.py:144
 msgid "experiment:attribute:open"
 msgstr "Open voor participanten"
 
-#: experiments/models/experiment_models.py:119
+#: experiments/models/experiment_models.py:146
 msgid "experiment:attribute:open:help_text"
 msgstr "Bepaald of participanten zich kunnen opgeven voor dit experiment."
 
-#: experiments/models/experiment_models.py:123
+#: experiments/models/experiment_models.py:150
 msgid "experiment:attribute:public"
 msgstr "Openbaar"
 
-#: experiments/models/experiment_models.py:125
+#: experiments/models/experiment_models.py:152
 msgid "experiment:attribute:public:help_text"
 msgstr ""
 "Bepaald of dit experiment op de voorpagina komt te staan. Indien dit is "
@@ -263,42 +302,42 @@ msgstr ""
 "link hebben. Dit is voornamelijk bedoeld voor vervolg experimenten waarbij "
 "alleen participanten uit de originele studie mee mogen doen.."
 
-#: experiments/models/experiment_models.py:129
+#: experiments/models/experiment_models.py:156
 msgid "experiment:attribute:participants_visible"
 msgstr "Participanten zichtbaar"
 
-#: experiments/models/experiment_models.py:131
+#: experiments/models/experiment_models.py:158
 msgid "experiment:attribute:participants_visible:help_text"
 msgstr ""
 "Bepaald of proefleiders de persoonlijke informatie van participanten kunnen "
 "zien."
 
-#: experiments/models/experiment_models.py:136
+#: experiments/models/experiment_models.py:163
 msgid "experiment:attribute:excluded_experiments"
 msgstr "Uitgesloten experimenten"
 
-#: experiments/models/experiment_models.py:138
+#: experiments/models/experiment_models.py:165
 msgid "experiment:attribute:excluded_experiments:help_text"
 msgstr ""
 "Experimenten waar een participant niet aan mee heeft mogen doen voor dit "
 "experiment. <br/>Je kunt zoeken door de lijst door in dit veld te typen, als "
 "je een experiment selecteert zal die als een blokje verschijnen in het veld."
 
-#: experiments/models/experiment_models.py:143
+#: experiments/models/experiment_models.py:170
 msgid "experiment:attribute:leader"
 msgstr "Proefleider"
 
-#: experiments/models/experiment_models.py:147
+#: experiments/models/experiment_models.py:174
 msgid "experiment:attribute:leader:help_text"
 msgstr ""
 "De hoofd-proefleider. Deze proefleider zal getoond worden als het "
 "contactpersoon op de experiment pagina."
 
-#: experiments/models/experiment_models.py:152
+#: experiments/models/experiment_models.py:179
 msgid "experiment:attribute:additional_leaders"
 msgstr "Extra proefleiders"
 
-#: experiments/models/experiment_models.py:155
+#: experiments/models/experiment_models.py:182
 msgid "experiment:attribute:additional_leaders:help_text"
 msgstr ""
 "Enige andere proefleiders van dit experiment. Indien opgegeven kunnen deze "
@@ -315,53 +354,50 @@ msgid "location:attribute:route_url"
 msgstr "Routebeschrijving URL"
 
 #: experiments/templates/criteria/delete.html:8
-#: experiments/templates/criteria/delete.html:16
+#: experiments/templates/criteria/delete.html:14
 msgid "criteria:delete:header"
 msgstr "Criterium verwijderen"
 
-#: experiments/templates/criteria/delete.html:19
+#: experiments/templates/criteria/delete.html:23
 msgid "criteria:delete:text"
 msgstr ""
 "Weet je zeker dat je het criterium '{}' wilt verwijderen? Het wordt op het "
 "moment in {} experiment(en) gebruikt! Indien dit criterium wordt verwijderd "
 "zal deze niet meer gebruikt worden in enige gelinkt experimenten."
 
-#: experiments/templates/criteria/delete.html:22
+#: experiments/templates/criteria/delete.html:26
 msgid "criteria:delete:cancel"
 msgstr "Annuleer"
 
-#: experiments/templates/criteria/delete.html:25
+#: experiments/templates/criteria/delete.html:29
 msgid "criteria:delete:confirm"
 msgstr "Verwijder criterium"
 
 #: experiments/templates/criteria/edit.html:8
-#: experiments/templates/criteria/edit.html:15
+#: experiments/templates/criteria/edit.html:14
 msgid "criteria:edit:header"
 msgstr "Criterium aanpassen"
-
-#: experiments/templates/criteria/edit.html:18
-msgid "criteria:edit:info_text"
-msgstr "<br/>"
 
 #: experiments/templates/criteria/edit.html:27
 #: experiments/templates/criteria/new.html:27
 #: experiments/templates/criteria/update_default.html:28
-#: experiments/templates/experiments/edit.html:27
+#: experiments/templates/experiments/edit.html:38
+#: experiments/templates/experiments/email_templates.html:28
 #: experiments/templates/locations/edit.html:27
-#: experiments/templates/locations/new.html:28
+#: experiments/templates/locations/new.html:27
 msgid "experiments:globals:save_button"
 msgstr "Opslaan"
 
 #: experiments/templates/criteria/index.html:8
-#: experiments/templates/criteria/index.html:20
+#: experiments/templates/criteria/index.html:14
 msgid "criteria:home:header"
 msgstr "Criteria"
 
-#: experiments/templates/criteria/index.html:16
+#: experiments/templates/criteria/index.html:17
 msgid "criteria:home:create_criterion"
 msgstr "Nieuwe criterium"
 
-#: experiments/templates/criteria/index.html:23
+#: experiments/templates/criteria/index.html:26
 msgid "criteria:home:info_text"
 msgstr ""
 "Hier kun je zien welke losse criteria al bestaan, criteria aanmaken en "
@@ -370,75 +406,63 @@ msgstr ""
 "foutmelding, dit wordt aangegeven bij het toevoegen van een criterium aan "
 "een experiment. Op deze manier kunnen criteria beter hergebruikt worden. "
 
-#: experiments/templates/criteria/index.html:41
+#: experiments/templates/criteria/index.html:44
 msgid "criteria:home:num_experiment"
 msgstr "Aantal gelinkte experimenten"
 
-#: experiments/templates/criteria/index.html:44
-#: experiments/templates/criteria/specific_list.html:44
-#: experiments/templates/experiments/detail_parts/comments.html:32
+#: experiments/templates/criteria/index.html:47
+#: experiments/templates/criteria/specific_list.html:47
+#: experiments/templates/experiments/detail_parts/comments.html:33
 #: experiments/templates/experiments/participants.html:64
-#: experiments/templates/locations/index.html:39
-#: experiments/templates/timeslots/index.html:59
+#: experiments/templates/locations/index.html:38
+#: experiments/templates/timeslots/index.html:68
 msgid "experiments:globals:actions"
 msgstr "Acties"
 
-#: experiments/templates/criteria/index.html:69
+#: experiments/templates/criteria/index.html:72
 msgid "criteria:home:edit:title"
 msgstr "Criterium aanpassen"
 
-#: experiments/templates/criteria/index.html:76
+#: experiments/templates/criteria/index.html:79
 msgid "criteria:home:delete:title"
 msgstr "Criterium verwijderen"
 
 #: experiments/templates/criteria/new.html:8
-#: experiments/templates/criteria/new.html:15
+#: experiments/templates/criteria/new.html:14
 msgid "criteria:new:header"
 msgstr "Nieuw criterium"
-
-#: experiments/templates/criteria/new.html:18
-msgid "criteria:new:info_text"
-msgstr "<br/>"
 
 #: experiments/templates/criteria/specific_list.html:9
 #: experiments/templates/criteria/specific_list.html:20
 msgid "criteria:specific_list:header"
 msgstr "Specifieke criteria voor '{}'"
 
-#: experiments/templates/criteria/specific_list.html:23
-msgid "criteria:specific_list:info_text"
-msgstr "<br/>"
-
-#: experiments/templates/criteria/specific_list.html:71
+#: experiments/templates/criteria/specific_list.html:74
 msgid "criteria:specific_list:delete:title"
 msgstr "Verwijder criterium uit experiment"
 
-#: experiments/templates/criteria/specific_list.html:84
+#: experiments/templates/criteria/specific_list.html:88
 msgid "criteria:specific_list:add_new:header"
 msgstr "Voeg nieuw criterium toe"
 
-#: experiments/templates/criteria/specific_list.html:93
-#: experiments/templates/criteria/specific_list.html:153
-#: experiments/templates/timeslots/index.html:172
+#: experiments/templates/criteria/specific_list.html:97
+#: experiments/templates/criteria/specific_list.html:156
+#: experiments/templates/timeslots/index.html:175
 msgid "experiments:globals:add_button"
 msgstr "Toevoegen"
 
-#: experiments/templates/criteria/specific_list.html:101
+#: experiments/templates/criteria/specific_list.html:104
 msgid "criteria:specific_list:add_existing:header"
 msgstr "Voeg bestaand criterium toe"
 
-#: experiments/templates/criteria/specific_list.html:109
+#: experiments/templates/criteria/specific_list.html:112
 msgid "criteria:existing_form:criterion"
 msgstr "Criterium"
 
 #: experiments/templates/criteria/update_default.html:9
-#: experiments/templates/criteria/update_default.html:16
+#: experiments/templates/criteria/update_default.html:15
 msgid "criteria:new_default_criteria:header"
 msgstr "Standaard criteria voor {}"
-
-#: experiments/templates/criteria/update_default.html:19
-msgid "criteria:new_default_criteria:info_text"
-msgstr " "
 
 #: experiments/templates/experiments/criteria_snippit.html:11
 msgid "criteria_snippit:dyslexia"
@@ -473,64 +497,64 @@ msgid "criteria_snippit:max_age"
 msgstr "Max. leeftijd:"
 
 #: experiments/templates/experiments/delete.html:8
-#: experiments/templates/experiments/delete.html:16
+#: experiments/templates/experiments/delete.html:14
 msgid "experiments:delete:header"
 msgstr "Verwijder experiment"
 
-#: experiments/templates/experiments/delete.html:19
+#: experiments/templates/experiments/delete.html:23
 msgid "experiments:delete:text"
 msgstr "Weet je zeker dat je het experiment '{}' wilt verwijderen?"
 
-#: experiments/templates/experiments/delete.html:22
+#: experiments/templates/experiments/delete.html:26
 msgid "experiments:delete:cancel"
 msgstr "Annuleer"
 
-#: experiments/templates/experiments/delete.html:25
+#: experiments/templates/experiments/delete.html:29
 msgid "experiments:delete:confirm"
 msgstr "Verwijder experiment"
 
 #: experiments/templates/experiments/detail.html:9
-#: experiments/templates/experiments/detail.html:21
+#: experiments/templates/experiments/detail.html:15
 msgid "experiments:detail:header"
 msgstr "Experiment '{}'"
 
-#: experiments/templates/experiments/detail.html:17
+#: experiments/templates/experiments/detail.html:19
 msgid "experiments:detail:all_experiments"
 msgstr "Alle experimenten"
 
-#: experiments/templates/experiments/detail_parts/comments.html:10
+#: experiments/templates/experiments/detail_parts/comments.html:9
 msgid "experiments:detail:comments"
 msgstr "Opmerkingen"
 
-#: experiments/templates/experiments/detail_parts/comments.html:17
+#: experiments/templates/experiments/detail_parts/comments.html:18
 msgid "experiments:detail:comments:participant"
 msgstr "Participant"
 
-#: experiments/templates/experiments/detail_parts/comments.html:20
+#: experiments/templates/experiments/detail_parts/comments.html:21
 msgid "experiments:detail:comments:email"
 msgstr "Email"
 
-#: experiments/templates/experiments/detail_parts/comments.html:23
+#: experiments/templates/experiments/detail_parts/comments.html:24
 msgid "experiments:detail:comments:added_by"
 msgstr "Toegevoegd door"
 
-#: experiments/templates/experiments/detail_parts/comments.html:26
+#: experiments/templates/experiments/detail_parts/comments.html:27
 msgid "experiments:detail:comments:added_on"
 msgstr "Datum en tijd"
 
-#: experiments/templates/experiments/detail_parts/comments.html:29
+#: experiments/templates/experiments/detail_parts/comments.html:30
 msgid "experiments:detail:comments:comment"
 msgstr "Opmerking"
 
-#: experiments/templates/experiments/detail_parts/comments.html:46
+#: experiments/templates/experiments/detail_parts/comments.html:47
 msgid "experiments:detail:comment:system_user"
 msgstr "Systeem"
 
-#: experiments/templates/experiments/detail_parts/comments.html:50
+#: experiments/templates/experiments/detail_parts/comments.html:51
 msgid "experiments:detail:comment:admin_user"
 msgstr "Admin gebruiker"
 
-#: experiments/templates/experiments/detail_parts/comments.html:61
+#: experiments/templates/experiments/detail_parts/comments.html:62
 msgid "experiments:detail:comment:delete"
 msgstr "Verwijder opmerking"
 
@@ -591,35 +615,35 @@ msgstr "Participanten zichtbaar"
 msgid "experiments:detail:info:leader"
 msgstr "Hoofd proefleider"
 
-#: experiments/templates/experiments/detail_parts/info.html:104
+#: experiments/templates/experiments/detail_parts/info.html:105
 msgid "experiments:detail:criteria"
 msgstr "Criteria"
 
-#: experiments/templates/experiments/detail_parts/info.html:107
+#: experiments/templates/experiments/detail_parts/info.html:109
 msgid "experiments:detail:edit_default_criteria"
 msgstr "Pas standaard criteria aan"
 
-#: experiments/templates/experiments/detail_parts/info.html:111
+#: experiments/templates/experiments/detail_parts/info.html:113
 msgid "experiments:detail:edit_specific_criteria"
 msgstr "Pas specifieke criteria aan"
 
-#: experiments/templates/experiments/detail_parts/participants.html:10
+#: experiments/templates/experiments/detail_parts/participants.html:9
 msgid "experiments:detail:participants"
 msgstr "Participanten"
 
-#: experiments/templates/experiments/detail_parts/participants.html:13
+#: experiments/templates/experiments/detail_parts/participants.html:12
 msgid "experiments:detail:participants:view_details"
 msgstr "Bekijk details"
 
-#: experiments/templates/experiments/detail_parts/participants.html:21
+#: experiments/templates/experiments/detail_parts/participants.html:22
 msgid "experiments:detail:participants:name"
 msgstr "Naam"
 
-#: experiments/templates/experiments/detail_parts/participants.html:24
+#: experiments/templates/experiments/detail_parts/participants.html:25
 msgid "experiments:detail:participants:date_added"
 msgstr "Ingeschreven op"
 
-#: experiments/templates/experiments/detail_parts/timeslots.html:10
+#: experiments/templates/experiments/detail_parts/timeslots.html:9
 msgid "experiments:detail:timeslots"
 msgstr "Timeslots"
 
@@ -631,176 +655,177 @@ msgstr "Bewerk timeslots"
 msgid "experiments:detail:timeslots:view_participants"
 msgstr "Bekijk alle participanten"
 
-#: experiments/templates/experiments/detail_parts/timeslots.html:25
+#: experiments/templates/experiments/detail_parts/timeslots.html:28
 msgid "experiments:detail:timeslots:datetime"
 msgstr "Datum en tijd"
 
-#: experiments/templates/experiments/detail_parts/timeslots.html:28
+#: experiments/templates/experiments/detail_parts/timeslots.html:31
 msgid "experiments:detail:timeslots:free_places"
 msgstr "Vrije plekken"
 
-#: experiments/templates/experiments/detail_parts/timeslots.html:31
+#: experiments/templates/experiments/detail_parts/timeslots.html:34
 msgid "experiments:detail:timeslots:taken_places"
 msgstr "Ingeplande plekken"
 
 #: experiments/templates/experiments/edit.html:8
-#: experiments/templates/experiments/edit.html:15
+#: experiments/templates/experiments/edit.html:25
 msgid "experiments:edit:header"
-msgstr "Verander experiment"
+msgstr "Wijzig experiment"
 
-#: experiments/templates/experiments/edit.html:18
-msgid "experiments:edit:info_text"
-msgstr " "
+#: experiments/templates/experiments/email_templates.html:9
+#: experiments/templates/experiments/email_templates.html:15
+msgid "experiments:edit_email_templates:header"
+msgstr "Wijzig e-mail sjablonen voor '{}'"
 
 #: experiments/templates/experiments/excluded_experiments.html:8
-#: experiments/templates/experiments/excluded_experiments.html:15
+#: experiments/templates/experiments/excluded_experiments.html:14
 msgid "experiments:excluded_experiments:header"
 msgstr "Uitgesloten experimenten"
 
-#: experiments/templates/experiments/excluded_experiments.html:18
-msgid "experiments:excluded_experiments:info_text"
-msgstr " "
-
-#: experiments/templates/experiments/excluded_experiments.html:36
+#: experiments/templates/experiments/excluded_experiments.html:38
 msgid "experiments:excluded_experiments:toggle_header"
 msgstr "Participanten hebben mogen deelnemen in dit experiment"
 
-#: experiments/templates/experiments/excluded_experiments.html:63
+#: experiments/templates/experiments/excluded_experiments.html:65
 msgid "experiments:excluded_experiments:excluded:title"
 msgstr "Neem experiment op"
 
-#: experiments/templates/experiments/excluded_experiments.html:71
+#: experiments/templates/experiments/excluded_experiments.html:73
 msgid "experiments:excluded_experiments:included:title"
 msgstr "Sluit experiment uit"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:7
-msgid "experiments:home:edit_timeslots:title"
-msgstr "Pas timeslots aan"
-
-#: experiments/templates/experiments/experiment_actions_snippit.html:14
-msgid "experiments:home:edit_timeslots:title:disabled"
-msgstr "Dit experiment gebruikt geen timeslots."
-
-#: experiments/templates/experiments/experiment_actions_snippit.html:22
+#: experiments/templates/experiments/experiment_actions_snippit.html:16
+#: experiments/templates/experiments/experiment_actions_snippit.html:110
 msgid "experiments:home:edit_experiment:title"
-msgstr "Pas experiment aan"
+msgstr "Wijzig experiment"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:29
+#: experiments/templates/experiments/experiment_actions_snippit.html:24
+#: experiments/templates/experiments/experiment_actions_snippit.html:117
 msgid "experiments:home:edit_default_criteria:title"
-msgstr "Pas standaard criteria aan"
+msgstr "Wijzig standaard criteria"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:36
+#: experiments/templates/experiments/experiment_actions_snippit.html:32
+#: experiments/templates/experiments/experiment_actions_snippit.html:124
 msgid "experiments:home:edit_specific_criteria:title"
-msgstr "Pas specifieke criteria aan"
+msgstr "Wijzig specifieke criteria"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:43
+#: experiments/templates/experiments/experiment_actions_snippit.html:40
+msgid "experiments:home:edit_email_templates:title"
+msgstr "Wijzig e-mail slablonen"
+
+#: experiments/templates/experiments/experiment_actions_snippit.html:49
+#: experiments/templates/experiments/experiment_actions_snippit.html:95
+msgid "experiments:home:edit_timeslots:title"
+msgstr "Wijzig timeslots"
+
+#: experiments/templates/experiments/experiment_actions_snippit.html:59
+#: experiments/templates/experiments/experiment_actions_snippit.html:131
 msgid "experiments:home:exclude_experiments:title"
 msgstr "Sluit experimenten uit"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:50
-msgid "experiments:home:invite:title"
-msgstr "Nodig participanten uit"
-
-#: experiments/templates/experiments/experiment_actions_snippit.html:57
+#: experiments/templates/experiments/experiment_actions_snippit.html:68
+#: experiments/templates/experiments/experiment_actions_snippit.html:145
 msgid "experiments:home:participants:title"
 msgstr "Participanten"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:64
+#: experiments/templates/experiments/experiment_actions_snippit.html:76
+#: experiments/templates/experiments/experiment_actions_snippit.html:138
+msgid "experiments:home:invite:title"
+msgstr "Nodig participanten uit"
+
+#: experiments/templates/experiments/experiment_actions_snippit.html:85
+#: experiments/templates/experiments/experiment_actions_snippit.html:152
 msgid "experiments:home:delete:title"
 msgstr "Verwijder experiment"
 
+#: experiments/templates/experiments/experiment_actions_snippit.html:102
+msgid "experiments:home:edit_timeslots:title:disabled"
+msgstr "Dit experiment gebruikt geen timeslots."
+
 #: experiments/templates/experiments/index.html:8
-#: experiments/templates/experiments/index.html:20
+#: experiments/templates/experiments/index.html:14
 msgid "experiments:home:header"
 msgstr "Experimenten"
 
-#: experiments/templates/experiments/index.html:16
+#: experiments/templates/experiments/index.html:18
 msgid "experiments:home:create_experiment"
 msgstr "Nieuw experiment"
 
-#: experiments/templates/experiments/index.html:23
-msgid "experiments:home:info_text"
-msgstr "<br/>"
-
-#: experiments/templates/experiments/index.html:38
+#: experiments/templates/experiments/index.html:39
 msgid "experiments:global:slots"
 msgstr "Slots"
 
-#: experiments/templates/experiments/index.html:41
+#: experiments/templates/experiments/index.html:42
 msgid "experiments:global:participants"
 msgstr "Participanten"
 
-#: experiments/templates/experiments/index.html:90
+#: experiments/templates/experiments/index.html:91
 msgid "experiments:home:switch_open:title"
 msgstr "Open/sluit experiment"
 
-#: experiments/templates/experiments/index.html:99
+#: experiments/templates/experiments/index.html:100
 msgid "experiments:home:switch_public:title"
 msgstr "Maak experiment openbaar/verborgen"
 
-#: experiments/templates/experiments/index.html:108
+#: experiments/templates/experiments/index.html:109
 msgid "experiments:home:switch_visible:title"
 msgstr "Maak participant data openbaar/verborgen voor proefleiders"
 
-#: experiments/templates/experiments/invite.html:13
-#: experiments/templates/experiments/invite.html:20
+#: experiments/templates/experiments/invite.html:18
+#: experiments/templates/experiments/invite.html:24
 msgid "experiments:invite:header"
 msgstr "Participanten uitnodigen - Experiment: {}"
 
-#: experiments/templates/experiments/invite.html:30
+#: experiments/templates/experiments/invite.html:36
 msgid "experiments:invite:info_text"
 msgstr " "
 
-#: experiments/templates/experiments/invite.html:49
+#: experiments/templates/experiments/invite.html:54
 msgid "experiments:invite:secondary_emails"
 msgstr "Secundaire emails"
 
-#: experiments/templates/experiments/invite.html:52
+#: experiments/templates/experiments/invite.html:57
 msgid "experiments:invite:already_invited"
 msgstr "Uitgenodigd op"
 
-#: experiments/templates/experiments/invite.html:97
+#: experiments/templates/experiments/invite.html:117
 msgid "experiments:invite:text:help"
 msgstr ""
-" Deze tekst is gegenereerd aan de hand van het uitnodigingsmail-sjabloon van "
-"dit experiment. Dit sjabloon kan aangepast worden op de <a href="
-"\"{}\">'Verander experiment' pagina</a>."
+"Hier kan je wijzigingen aanbrengen in de uitnodigingsmail voordat hij "
+"verstuurd wordt. Wijzigingen worden niet opgeslagen voor de volgende keer, "
+"dat kan via de <a href=\"{}\">'Wijzig e-mail sjablonen' pagina</a>."
 
-#: experiments/templates/experiments/invite.html:100
-msgid "experiments:invite:preview_button"
-msgstr "Voorvertoning"
-
-#: experiments/templates/experiments/invite.html:103
+#: experiments/templates/experiments/invite.html:121
 msgid "experiments:invite:invite_button"
 msgstr "Uitnodigen"
 
 #: experiments/templates/experiments/new.html:8
-#: experiments/templates/experiments/new.html:15
+#: experiments/templates/experiments/new.html:25
 msgid "experiments:new:header"
 msgstr "Nieuw experiment"
 
-#: experiments/templates/experiments/new.html:18
+#: experiments/templates/experiments/new.html:34
 msgid "experiments:new:info_text"
 msgstr ""
 "Hier kun je een nieuw experiment aanmaken. Criteria kun je op de volgende "
 "pagina instellen."
 
-#: experiments/templates/experiments/new.html:27
+#: experiments/templates/experiments/new.html:41
 msgid "experiments:globals:next_button"
 msgstr "Volgende >>"
 
 #: experiments/templates/experiments/participants.html:11
-#: experiments/templates/experiments/participants.html:24
+#: experiments/templates/experiments/participants.html:23
 msgid "experiments:participants:header"
 msgstr "Participanten - Experiment '{}'"
 
-#: experiments/templates/experiments/participants.html:34
+#: experiments/templates/experiments/participants.html:35
 msgid "experiments:participants:info_text"
 msgstr " "
 
 #: experiments/templates/experiments/participants.html:51
 #: experiments/templates/experiments/participants.html:183
-#: experiments/templates/timeslots/index.html:41
+#: experiments/templates/timeslots/index.html:50
 msgid "timeslots:day"
 msgstr "Dag"
 
@@ -854,12 +879,12 @@ msgid "experiments:participants:sex"
 msgstr "Geslacht"
 
 #: experiments/templates/experiments/participants.html:123
-#: experiments/templates/timeslots/index.html:123
+#: experiments/templates/timeslots/index.html:132
 msgid "timeslots:remove_participant:title"
 msgstr "Verwijder participant uit dit timeslot."
 
 #: experiments/templates/experiments/participants.html:130
-#: experiments/templates/timeslots/index.html:130
+#: experiments/templates/timeslots/index.html:139
 msgid "timeslots:silent_remove_participant:title"
 msgstr ""
 "Verwijder participant uit dit timeslot (zonder automatische bevestigings-"
@@ -874,16 +899,12 @@ msgid "experiments:participants:send"
 msgstr "Verstuur"
 
 #: experiments/templates/locations/edit.html:8
-#: experiments/templates/locations/edit.html:15
+#: experiments/templates/locations/edit.html:14
 msgid "locations:update:header"
-msgstr "Verander locatie"
-
-#: experiments/templates/locations/edit.html:18
-msgid "locations:update:info_text"
-msgstr " "
+msgstr "Wijzig locatie"
 
 #: experiments/templates/locations/index.html:8
-#: experiments/templates/locations/index.html:21
+#: experiments/templates/locations/index.html:14
 msgid "locations:home:header"
 msgstr "Locaties"
 
@@ -891,25 +912,17 @@ msgstr "Locaties"
 msgid "locations:home:create_location"
 msgstr "Nieuwe locatie"
 
-#: experiments/templates/locations/index.html:24
-msgid "locations:home:info_text"
-msgstr "<br/>"
-
 #: experiments/templates/locations/new.html:8
-#: experiments/templates/locations/new.html:16
+#: experiments/templates/locations/new.html:14
 msgid "locations:new:header"
 msgstr "Nieuwe locatie"
 
-#: experiments/templates/locations/new.html:19
-msgid "locations:new:info_text"
-msgstr " "
-
 #: experiments/templates/timeslots/index.html:9
-#: experiments/templates/timeslots/index.html:24
+#: experiments/templates/timeslots/index.html:23
 msgid "timeslots:home:header"
 msgstr "Timeslots voor experiment '{}'"
 
-#: experiments/templates/timeslots/index.html:27
+#: experiments/templates/timeslots/index.html:32
 msgid "timeslots:home:info_text"
 msgstr ""
 "Hier kun je de timeslots voor dit experiment aanpassen. Standaard is alleen "
@@ -923,27 +936,27 @@ msgstr ""
 "tegenovergestelde effect hebben als de meeste van je tijdsloten slechts 1 "
 "plaats heeft."
 
-#: experiments/templates/timeslots/index.html:44
+#: experiments/templates/timeslots/index.html:53
 msgid "timeslots:date"
 msgstr "Datum"
 
-#: experiments/templates/timeslots/index.html:47
+#: experiments/templates/timeslots/index.html:56
 msgid "timeslots:time"
 msgstr "Tijd"
 
-#: experiments/templates/timeslots/index.html:50
+#: experiments/templates/timeslots/index.html:59
 msgid "timeslots:place"
 msgstr "Plaats #"
 
-#: experiments/templates/timeslots/index.html:53
+#: experiments/templates/timeslots/index.html:62
 msgid "timeslots:participant:name"
 msgstr "Participant"
 
-#: experiments/templates/timeslots/index.html:56
+#: experiments/templates/timeslots/index.html:65
 msgid "timeslots:participant:email"
 msgstr "Participant email"
 
-#: experiments/templates/timeslots/index.html:166
+#: experiments/templates/timeslots/index.html:169
 msgid "timeslots:home:new_timeslots:header"
 msgstr "Nieuw timeslot"
 
@@ -988,61 +1001,62 @@ msgstr "Criterium toegevoegd aan experiment!"
 msgid "criteria:messages:removed_from_experiment"
 msgstr "Criterium verwijderd uit experiment!"
 
-#: experiments/views/experiment_views.py:50
+#: experiments/views/experiment_views.py:48
 msgid "experiments:message:create:success"
 msgstr "Nieuw experiment succesvol aangemaakt"
 
-#: experiments/views/experiment_views.py:63
+#: experiments/views/experiment_views.py:61
 msgid "experiments:message:update:success"
 msgstr "Experiment aangepast"
 
-#: experiments/views/experiment_views.py:108
+#: experiments/views/experiment_views.py:106
 msgid "experiments:message:deleted_experiment"
 msgstr "Experiment verwijderd!"
 
-#: experiments/views/experiment_views.py:154
+#: experiments/views/experiment_views.py:152
 msgid "experiments:message:exclude:included"
 msgstr "Experiment succesvol opgenomen"
 
-#: experiments/views/experiment_views.py:157
+#: experiments/views/experiment_views.py:155
 msgid "experiments:message:exclude:excluded"
 msgstr "Experiment succesvol uitgesloten"
 
-#: experiments/views/experiment_views.py:240
+#: experiments/views/experiment_views.py:232
+msgid "experiments:message:update_emails:success"
+msgstr "E-mail sjablonen aangepast"
+
+#: experiments/views/experiment_views.py:251
 msgid "experiments:message:switch_open:closed"
 msgstr "Experiment openbaar gemaakt"
 
-#: experiments/views/experiment_views.py:243
+#: experiments/views/experiment_views.py:254
 msgid "experiments:message:switch_open:opened"
 msgstr "Experiment verborgen"
 
-#: experiments/views/experiment_views.py:258
+#: experiments/views/experiment_views.py:269
 msgid "experiments:message:switch_public:closed"
 msgstr "Experiment ge-opent"
 
-#: experiments/views/experiment_views.py:261
+#: experiments/views/experiment_views.py:272
 msgid "experiments:message:switch_public:opened"
 msgstr "Experiment gesloten"
 
-#: experiments/views/experiment_views.py:277
+#: experiments/views/experiment_views.py:288
 msgid "experiments:message:switch_visible:invisible"
 msgstr "Participant informatie verborgen voor proefleiders"
 
-#: experiments/views/experiment_views.py:282
+#: experiments/views/experiment_views.py:293
 msgid "experiments:message:switch_visible:visible"
 msgstr "Participant informatie zichtbaar gemaakt voor proefleiders"
 
-#: experiments/views/experiment_views.py:305
+#: experiments/views/experiment_views.py:316
 msgid "experiments:message:sent_reminders"
 msgstr "Herinneringen gestuurd naar {} participant(en)"
 
-#: experiments/views/invite_views.py:51
+#: experiments/views/invite_views.py:67
 msgid "experiments:message:invite_failure"
 msgstr "Er is iets fout gegaan..."
 
-#: experiments/views/invite_views.py:53
+#: experiments/views/invite_views.py:69
 msgid "experiments:message:invite_success"
 msgstr "Participant(en) succesvol uitgenodigd!"
-
-#~ msgid "experiments:detail:appointments"
-#~ msgstr "Afspraken"

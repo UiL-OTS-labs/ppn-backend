@@ -8,6 +8,7 @@ from django.utils.timezone import get_current_timezone
 
 from leaders.models import Leader
 from .location_models import Location
+from ..emails import InviteEmail
 
 
 def _get_dt_2_hours_ago() -> datetime:
@@ -16,7 +17,7 @@ def _get_dt_2_hours_ago() -> datetime:
 
 class Experiment(models.Model):
 
-    DEFAULT_CONFIRMATION_MAIL = """<p>Beste {participant_name},</p>
+    DEFAULT_CONFIRMATION_MAIL = """<p>Beste {{ participant_name }},</p>
     <p>
         Je hebt een afspraak gemaakt om mee te doen met het experiment: 
         <strong>{experiment_name}</strong><br/><br/>
@@ -39,23 +40,44 @@ class Experiment(models.Model):
     </p>"""
 
     DEFAULT_INVITE_MAIL = """<p>Je kunt je weer opgeven voor een nieuw 
-    experiment: <strong>{experiment_name}</strong>.</p>
-<p>De proefleider is <strong>{leader_name}</strong>.
+    experiment: <strong>{{ experiment_name }}</strong>.</p>
+<p>De proefleider is <strong>{{ leader_name }}</strong>.
 <ul>
-    <li>Duur: {duration}.</li>
-    <li>Vergoeding: {compensation}.</li>
-    <li>{task_description}</li>
-    <li>{additional_instructions}</li>
+    <li>Duur: {{ duration }}.</li>
+    <li>Vergoeding: {{ compensation }}.</li>
+    <li>{{ task_description }}</li>
+    <li>{{ additional_instructions }}</li>
 </ul>
 
-<p>Je kunt via {link_to_subscribe:"deze link"} inschrijven.</p>
+<p>Je kunt via <a href="{{ ref_link }}">deze link</a> inschrijven.</p>
 
 <p>Bedankt!</p>
 
 <p>
 Met vriendelijke groet,<br/>
-{admin}
+{{ admin }}
 </p>"""
+
+    DEFAULT_REMINDER_MAIL = """<p>Beste {{ participant_name }},</p>
+    <p>
+        <strong>Dit is een reminder!</strong>
+    </p>
+    <p>
+        Je hebt een afspraak gemaakt om mee te doen met het experiment: <strong> {{ experiment.name }}</strong>.
+    </p>
+    <p>
+        We verwachten je op: <br/>
+        Datum: <strong>{{ date }}</strong><br/>
+        Tijd: <strong>{{ time }} uur</strong><br/>
+        Locatie: <strong>{{ location }}</strong><br/>
+    </p>
+    <p>
+        Als je deze afspraak wilt afzeggen, kun je dat doen via <a href="{{ cancel_link }}">deze link</a>. Doe dat
+        alsjeblieft minstens 24 uur vantevoren. Als je vlak vantevoren ontdekt dat je verhinderd bent, neem dan svp even
+        persoonlijk contact op met de proefleider ({{ leader_name }}, email: {{ 
+        leader_email }}
+        tel.: {{ leader_phone }}).
+    </p>"""
 
     name = models.TextField(
         _('experiment:attribute:name')
@@ -86,8 +108,13 @@ Met vriendelijke groet,<br/>
 
     invite_email = models.TextField(
         _('experiment:attribute:invite_email'),
-        help_text=_('experiment:attribute:invite_email:help_text'),
+        help_text=InviteEmail.help_text,
         default=DEFAULT_INVITE_MAIL,
+    )
+
+    reminder_email = models.TextField(
+        _('experiment:attribute:reminder_email'),
+        default=DEFAULT_REMINDER_MAIL,
     )
 
     location = models.ForeignKey(
@@ -154,6 +181,26 @@ Met vriendelijke groet,<br/>
         blank=True,
         help_text=_("experiment:attribute:additional_leaders:help_text"),
     )
+
+    @property
+    def all_leaders_str(self):
+        leaders = self.leader.name
+
+        # 0 should be seen as false
+        if num_additional_leaders := self.additional_leaders.count():
+            last_leader = self.additional_leaders.last()
+            others = self.additional_leaders.exclude(pk=last_leader.pk)
+
+            # If there's one additional, don't add the comma as it looks weird
+            if num_additional_leaders > 1:
+                leaders += ", "
+
+            leaders += ", ".join(
+                [x.name for x in others]
+            )
+            leaders += f" en {last_leader.name}"
+
+        return leaders
 
     def n_timeslot_places(self):
         """Returns the sum of all timeslot places this experiment has.

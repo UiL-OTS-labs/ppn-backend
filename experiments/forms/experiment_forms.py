@@ -1,7 +1,9 @@
 from django import forms
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from cdh.core.forms import TemplatedModelForm, BootstrapCheckboxInput, \
-    BootstrapRadioSelect, BootstrapSelect
+    BootstrapRadioSelect, BootstrapSelect, TinyMCEWidget
+from cdh.core.mail.widgets import EmailContentEditWidget
 
 from ..models import Experiment
 
@@ -9,7 +11,22 @@ from ..models import Experiment
 class ExperimentForm(TemplatedModelForm):
     class Meta:
         model = Experiment
-        fields = '__all__'
+        fields = [
+            'name',
+            'duration',
+            'compensation',
+            'task_description',
+            'additional_instructions',
+            'location',
+            'use_timeslots',
+            'default_max_places',
+            'open',
+            'public',
+            'participants_visible',
+            'excluded_experiments',
+            'leader',
+            'additional_leaders',
+        ]
         widgets = {
             'name':         forms.TextInput,
             'duration':     forms.TextInput,
@@ -47,3 +64,27 @@ class ExperimentForm(TemplatedModelForm):
             self.fields['excluded_experiments'].choices = [
                 (x.pk, x.name) for x in other_experiments
             ]
+
+
+class ExperimentEmailTemplatesForm(TemplatedModelForm):
+    class Meta:
+        model = Experiment
+        fields = [
+            'invite_email',
+            'reminder_email',
+            'confirmation_email',
+        ]
+        widgets = {
+            # we set the url in the init, as we need the experiment's pk
+            'invite_email': EmailContentEditWidget(None),
+            'reminder_email': TinyMCEWidget, # TODO: tmp
+            'confirmation_email': TinyMCEWidget, # TODO: tmp
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['invite_email'].widget.preview_url = reverse(
+            'experiments:mail_preview',
+            args=[self.instance.pk]
+        )

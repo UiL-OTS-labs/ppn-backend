@@ -1,13 +1,14 @@
 import braces.views as braces
+from cdh.core.mail import BaseEmailPreviewView
 from django.contrib.messages import error, success
-from django.core.exceptions import ObjectDoesNotExist, ViewDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext as _
 from django.views import generic
 
-from experiments.utils.invite import _parse_contents_html as parse_contents, \
-    get_invite_mail_content, mail_invite
+from experiments.utils.invite import get_initial_invite_context, mail_invite
 from main.utils import get_supreme_admin
 from .mixins import ExperimentObjectMixin
+from ..emails import InviteEmail
 from ..utils.exclusion import get_eligible_participants_for_experiment
 
 
@@ -28,16 +29,17 @@ class InviteParticipantsForExperimentView(braces.LoginRequiredMixin,
         context['object_list'] = self.get_object_list()
         context['experiment'] = self.experiment
         context['admin'] = get_supreme_admin().get_full_name()
-        context['invite_text'] = get_invite_mail_content(self.experiment)
+        context['invite_text'] = self.experiment.invite_email
+        context['invite_mail_help'] = InviteEmail.help_text
 
         return context
 
     def get_object_list(self):
-        particitants = get_eligible_participants_for_experiment(
+        participants = get_eligible_participants_for_experiment(
             self.experiment
         )
 
-        for participant in particitants:
+        for participant in participants:
             try:
                 invite = participant.invitation_set.filter(
                     experiment=self.experiment
@@ -46,7 +48,7 @@ class InviteParticipantsForExperimentView(braces.LoginRequiredMixin,
             except ObjectDoesNotExist:
                 participant.invite = None
 
-        return particitants
+        return participants
 
     def post(self, request, *args, **kwargs):
         data = request.POST
@@ -58,7 +60,7 @@ class InviteParticipantsForExperimentView(braces.LoginRequiredMixin,
                 data.get('content'),
                 self.experiment
             )
-        except:
+        except Exception as e:
             failed = True
 
         if failed:
@@ -69,23 +71,13 @@ class InviteParticipantsForExperimentView(braces.LoginRequiredMixin,
         return self.get(request)
 
 
-class MailPreviewView(braces.LoginRequiredMixin, ExperimentObjectMixin,
-                      generic.TemplateView):
-    template_name = 'experiments/mail/invite.html'
+class InviteEmailPreview(braces.LoginRequiredMixin, ExperimentObjectMixin,
+                         BaseEmailPreviewView):
+    email_class = InviteEmail
 
-    def get(self, request, *args, **kwargs):
-        raise ViewDoesNotExist
+    def post(self, request, experiment):
+        return super(InviteEmailPreview, self).post(request)
 
-    def post(self, request, *args, **kwargs):
-        return super(MailPreviewView, self).get(request, *args, **kwargs)
+    def get_preview_context(self):
+        return get_initial_invite_context(self.experiment)
 
-    def get_context_data(self, **kwargs):
-        context = super(MailPreviewView, self).get_context_data(**kwargs)
-
-        context['experiment'] = self.experiment
-        context['preview'] = True
-
-        content = self.request.POST.get('content')
-        context['content'] = parse_contents(content, self.experiment)
-
-        return context

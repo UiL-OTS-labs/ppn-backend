@@ -8,6 +8,10 @@
 {% block html_head %}
     {{ block.super }}
     <script src="{% static 'experiments/invite/table.js' %}"></script>
+    <script src="{% static 'cdh.core/js/tinymce/tinymce.min.js' %}"></script>
+    <script src="{% static 'cdh.core/js/tinymce/tinymce-jquery.min.js' %}"></script>
+    <script src="{% static 'cdh.core/js/tinymce-preview-mail-plugin.js' %}"></script>
+    <script src="{% static 'cdh.core/js/tinymce/shim.js' %}"></script>
 {% endblock %}
 
 {% block header_title %}
@@ -94,23 +98,28 @@
     </div>
     <div class="uu-container">
         <div class="col-6 pe-2">
-            <textarea class="form-control" name="content" rows="25" style="width: 100%">{{ invite_text }}
-            </textarea>
+            {% get_current_language as language_code %}
+            <textarea
+                data-tinymce="true"
+                data-menubar="false"
+                data-language="{{ language_code }}"
+                data-preview-url="{% url 'experiments:mail_preview' experiment.pk %}"
+                data-toolbar="undo redo casechange blocks bold italic underline link bullist numlist | code | preview-mail"
+                data-plugins="link,image,visualblocks,wordcount,lists,code,preview-mail"
+                name="content"
+                rows="25"
+            >{{ invite_text }}</textarea>
 
         </div>
         <div class="col-6 ps-2">
-            {% url 'experiments:update' experiment.pk as edit_url %}
+            {% url 'experiments:email_templates' experiment.pk as edit_url %}
             <p>
                 {% transformat "experiments:invite:text:help" edit_url %}
             </p>
-            <div class="btn-group">
-                <button type="submit" formaction="{% url 'experiments:mail_preview' experiment.pk %}" formtarget="_blank" class="btn btn-secondary">
-                    {% trans 'experiments:invite:preview_button' %}
-                </button>
-                <button type="submit" class="btn btn-primary">
-                    {% trans 'experiments:invite:invite_button' %}
-                </button>
-            </div>
+            {{ invite_mail_help }}
+            <button type="submit" class="btn btn-primary mt-3">
+                {% trans 'experiments:invite:invite_button' %}
+            </button>
         </div>
     </div>
 </form>
