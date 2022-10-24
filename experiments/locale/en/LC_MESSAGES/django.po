@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 15:33+0200\n"
+"POT-Creation-Date: 2022-10-24 15:54+0200\n"
 "PO-Revision-Date: 2018-11-23 08:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -492,11 +492,11 @@ msgstr "Number of linked experiments"
 msgid "experiments:globals:actions"
 msgstr "Actions"
 
-#: experiments/templates/criteria/index.html:72
+#: experiments/templates/criteria/index.html:85
 msgid "criteria:home:edit:title"
 msgstr "Edit criterion"
 
-#: experiments/templates/criteria/index.html:79
+#: experiments/templates/criteria/index.html:94
 msgid "criteria:home:delete:title"
 msgstr "Delete criterion"
 
@@ -974,6 +974,10 @@ msgstr "Locations"
 #: experiments/templates/locations/index.html:17
 msgid "locations:home:create_location"
 msgstr "Create location"
+
+#: experiments/templates/locations/index.html:59
+msgid "experiments:globals:edit"
+msgstr "Edit"
 
 #: experiments/templates/locations/new.html:8
 #: experiments/templates/locations/new.html:14

@@ -98,34 +98,53 @@
                             {{ participant.created|date:"Y-m-d" }}
                         </td>
                         <td>
-                            <a
-                                href="{% url 'participants:detail' participant.pk %}"
-                                class="icon-detail"
-                                title="{% trans 'participants:home:detail:title'  %}"
-                            >
-                                
-                            </a>
-                            <a
-                                href="{% url 'participants:edit' participant.pk %}"
-                                class="icon-update"
-                                title="{% trans 'participants:home:update:title'  %}"
-                            >
-                               <span class="behind-icon">P</span> 
-                            </a>
-                            <a
-                                href="{% url 'participants:update_specific_criteria' participant.pk %}"
-                                class="icon-update"
-                                title="{% trans 'participants:home:update_specific_criteria:title'  %}"
-                            >
-                                <span class="behind-icon">S</span> 
-                            </a>
-                            <a
-                                href="{% url 'participants:delete' participant.pk %}"
-                                class="icon-delete"
-                                title="{% trans 'participants:home:delete:title' %}"
-                            >
-                                
-                            </a>
+
+                            <div class="dropdown">
+                                <button
+                                        class="btn icon-menu dropdown-toggle p-1"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                >
+                                </button>
+                                {# Formatting is like this for a reason, namely whitespace #}
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a
+                                            href="{% url 'participants:detail' participant.pk %}"
+                                            class="dropdown-item"
+                                        >
+                                            {% trans 'participants:home:detail:title'  %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="{% url 'participants:edit' participant.pk %}"
+                                            class="dropdown-item"
+                                        >
+                                           {% trans 'participants:home:update:title'  %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="{% url 'participants:update_specific_criteria' participant.pk %}"
+                                            class="dropdown-item"
+                                        >
+                                            {% trans 'participants:home:update_specific_criteria:title' %}
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li>
+                                        <a
+                                            href="{% url 'participants:delete' participant.pk %}"
+                                            class="dropdown-item text-danger"
+                                        >
+                                            {% trans 'participants:home:delete:title' %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 {% endfor %}

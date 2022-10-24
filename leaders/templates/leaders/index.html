@@ -30,10 +30,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="uu-container">
-    <div class="col-12">
-        <table class="dt w-100" data-language="{% datatables_lang %}">
-            <thead>
+    <div class="uu-container">
+        <div class="col-12">
+            <table class="dt w-100" data-language="{% datatables_lang %}">
+                <thead>
                 <tr>
                     <th>
                         {% trans 'leaders:home:id' %}
@@ -59,9 +59,9 @@
                         {% trans 'leaders:home:actions' %}
                     </th>
                 </tr>
-            </thead>
+                </thead>
 
-            <tbody>
+                <tbody>
                 {% for leader in object_list %}
                     <tr>
                         <td>
@@ -87,37 +87,58 @@
                             </td>
                         {% endif %}
                         <td>
-                            {% if leader.api_user.is_ldap_account %}
-                                <a href="{% url 'leaders:update_ldap' leader.pk %}" class="icon-update">
-                                    
-                                </a>
-                            {% else %}
-                                <a href="{% url 'leaders:update' leader.pk %}" class="icon-update">
-                                    
-                                </a>
-                            {% endif %}
-                            <a
-                                href="{% url 'leaders:delete' leader.pk %}"
-                                class="icon-delete"
-                                title="{% trans 'leaders:home:delete:title' %}"
-                            >
-                                
-                            </a>
-                            {% if ldap and not leader.api_user.is_ldap_account and leader.email.lower|slice:"-5:" == "uu.nl" %}
-                                    <a
-                                        href="{% url 'leaders:convert_to_ldap' leader.pk %}"
-                                        class="icon-convert"
-                                        title="{% trans 'leaders:home:convert_to_ldap' %}"
-                                    >
-                                        
-                                    </a>
-                            {% endif %}
+                            <div class="dropdown">
+                                <button
+                                        class="btn icon-menu dropdown-toggle p-1"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                >
+                                </button>
+                                {# Formatting is like this for a reason, namely whitespace #}
+
+                                <ul class="dropdown-menu">
+                                    {% if leader.api_user.is_ldap_account %}
+                                        <li>
+                                            <a href="{% url 'leaders:update_ldap' leader.pk %}" class="dropdown-item">
+                                                {% trans 'leaders:home:edit:title' %}
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <a href="{% url 'leaders:update' leader.pk %}" class="dropdown-item">
+                                                {% trans 'leaders:home:edit:title' %}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if ldap and not leader.api_user.is_ldap_account and leader.email.lower|slice:"-5:" == "uu.nl" %}
+                                        <li>
+                                            <a
+                                                    href="{% url 'leaders:convert_to_ldap' leader.pk %}"
+                                                    class="dropdown-item"
+                                            >
+                                                {% trans 'leaders:home:convert_to_ldap' %}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    <li class="dropdown-divider"></li>
+                                    <li>
+                                        <a
+                                                href="{% url 'leaders:delete' leader.pk %}"
+                                                class="text-danger dropdown-item"
+                                                title=""
+                                        >
+                                            {% trans 'leaders:home:delete:title' %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 {% endfor %}
-            </tbody>
-        </table>
-        <br/>
+                </tbody>
+            </table>
+            <br/>
+        </div>
     </div>
-</div>
 {% endblock %}

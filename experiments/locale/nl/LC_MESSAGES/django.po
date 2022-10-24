@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 15:33+0200\n"
+"POT-Creation-Date: 2022-10-24 15:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,13 +86,11 @@ msgstr "De locatie van het experiment (indien opgegeven)"
 
 #: experiments/emails.py:121
 msgid "reminder-email.vars.date"
-msgstr ""
-"De datum van de afspraak. (Indien timeslots worden gebruikt)"
+msgstr "De datum van de afspraak. (Indien timeslots worden gebruikt)"
 
 #: experiments/emails.py:122
 msgid "reminder-email.vars.time"
-msgstr ""
-"De tijd van de afspraak. (Indien timeslots worden gebruikt)"
+msgstr "De tijd van de afspraak. (Indien timeslots worden gebruikt)"
 
 #: experiments/emails.py:123
 msgid "reminder-email.vars.leader_name"
@@ -135,13 +133,11 @@ msgstr "De locatie van het experiment (indien opgegeven)"
 
 #: experiments/emails.py:160
 msgid "confirmation-email.vars.date"
-msgstr ""
-"De datum van de afspraak. (Indien timeslots worden gebruikt)"
+msgstr "De datum van de afspraak. (Indien timeslots worden gebruikt)"
 
 #: experiments/emails.py:163
 msgid "confirmation-email.vars.time"
-msgstr ""
-"De tijd van de afspraak. (Indien timeslots worden gebruikt)"
+msgstr "De tijd van de afspraak. (Indien timeslots worden gebruikt)"
 
 #: experiments/emails.py:164
 msgid "confirmation-email.vars.leader_name"
@@ -499,11 +495,11 @@ msgstr "Aantal gelinkte experimenten"
 msgid "experiments:globals:actions"
 msgstr "Acties"
 
-#: experiments/templates/criteria/index.html:72
+#: experiments/templates/criteria/index.html:85
 msgid "criteria:home:edit:title"
 msgstr "Criterium aanpassen"
 
-#: experiments/templates/criteria/index.html:79
+#: experiments/templates/criteria/index.html:94
 msgid "criteria:home:delete:title"
 msgstr "Criterium verwijderen"
 
@@ -983,6 +979,10 @@ msgstr "Locaties"
 #: experiments/templates/locations/index.html:17
 msgid "locations:home:create_location"
 msgstr "Nieuwe locatie"
+
+#: experiments/templates/locations/index.html:59
+msgid "experiments:globals:edit"
+msgstr "Bewerk"
 
 #: experiments/templates/locations/new.html:8
 #: experiments/templates/locations/new.html:14

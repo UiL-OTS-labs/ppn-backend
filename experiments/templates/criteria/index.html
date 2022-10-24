@@ -20,13 +20,13 @@
 {% endblock %}
 
 {% block content %}
-<div class="uu-container">
-    <div class="col-12">
-        <p>
-            {% trans 'criteria:home:info_text' %}
-        </p>
-        <table class="dt w-100" data-language="{% datatables_lang %}">
-            <thead>
+    <div class="uu-container">
+        <div class="col-12">
+            <p>
+                {% trans 'criteria:home:info_text' %}
+            </p>
+            <table class="dt w-100" data-language="{% datatables_lang %}">
+                <thead>
                 <tr>
                     <th>
                         {% get_verbose_field_name "experiments" "Criterion" "id" %}
@@ -47,9 +47,9 @@
                         {% trans 'experiments:globals:actions' %}
                     </th>
                 </tr>
-            </thead>
+                </thead>
 
-            <tbody>
+                <tbody>
                 {% for criterion in object_list %}
                     <tr>
                         <td>
@@ -68,24 +68,41 @@
                             {{ criterion.n_experiments }}
                         </td>
                         <td>
-                            <a  href="{% url 'experiments:criterion_update' criterion.pk %}"
-                                title="{% trans 'criteria:home:edit:title' %}"
-                                class="icon-update">
-                                
-                            </a>
-                            <a
-                                href="{% url 'experiments:criterion_delete' criterion.pk %}"
-                                class="icon-delete"
-                                title="{% trans 'criteria:home:delete:title' %}"
-                            >
-                                
-                            </a>
+                            <div class="dropdown">
+                                <button
+                                        class="btn icon-menu dropdown-toggle p-1"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                >
+                                </button>
+                                {# Formatting is like this for a reason, namely whitespace #}
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{% url 'experiments:criterion_update' criterion.pk %}"
+                                           class="dropdown-item">
+                                            {% trans 'criteria:home:edit:title' %}
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-divider"></li>
+                                    <li>
+                                        <a
+                                                href="{% url 'experiments:criterion_delete' criterion.pk %}"
+                                                class="text-danger dropdown-item"
+                                                title=""
+                                        >
+                                            {% trans 'criteria:home:delete:title' %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 {% endfor %}
-            </tbody>
-        </table>
-        <br/>
+                </tbody>
+            </table>
+            <br/>
+        </div>
     </div>
-</div>
 {% endblock %}

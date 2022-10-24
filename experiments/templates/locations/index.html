@@ -55,8 +55,8 @@
                             {% endif %}
                         </td>
                         <td>
-                            <a href="{% url 'experiments:location_update' location.pk %}" class="icon-update">
-                                
+                            <a href="{% url 'experiments:location_update' location.pk %}">
+                                {% trans 'experiments:globals:edit' %}
                             </a>
                         </td>
                     </tr>

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-07-11 10:55+0200\n"
+"POT-Creation-Date: 2022-10-24 15:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,80 +16,80 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: leaders/forms.py:15
+#: leaders/forms.py:16
 msgid "leader:form:password:error:not_equal"
 msgstr "The supplied passwords don't match!"
 
-#: leaders/forms.py:28 leaders/forms.py:86 leaders/forms.py:142
-#: leaders/forms.py:223
+#: leaders/forms.py:29 leaders/forms.py:88 leaders/forms.py:146
+#: leaders/forms.py:230
 msgid "leader:form:name"
 msgstr "(Full) name"
 
-#: leaders/forms.py:32 leaders/forms.py:90 leaders/forms.py:146
-#: leaders/forms.py:227
+#: leaders/forms.py:33 leaders/forms.py:92 leaders/forms.py:150
+#: leaders/forms.py:234
 msgid "leader:form:email"
 msgstr "E-mail address"
 
-#: leaders/forms.py:36 leaders/forms.py:94 leaders/forms.py:150
-#: leaders/forms.py:231
+#: leaders/forms.py:37 leaders/forms.py:96 leaders/forms.py:154
+#: leaders/forms.py:238
 msgid "leader:form:phonenumber"
 msgstr "Phone number"
 
-#: leaders/forms.py:40 leaders/forms.py:162
+#: leaders/forms.py:41 leaders/forms.py:167
 msgid "leader:form:password"
 msgstr "Password"
 
-#: leaders/forms.py:41 leaders/forms.py:163
+#: leaders/forms.py:42 leaders/forms.py:168
 msgid "leader:form:password:help_text"
 msgstr "You can leave this empty if you don't want to set/change a password"
 
-#: leaders/forms.py:47 leaders/forms.py:169
+#: leaders/forms.py:48 leaders/forms.py:174
 msgid "leader:form:confirm_password:label"
 msgstr "Confirm password"
 
-#: leaders/forms.py:48 leaders/forms.py:170
+#: leaders/forms.py:49 leaders/forms.py:175
 msgid "leader:form:confirm_password:help_text"
 msgstr "You can leave this empty if you don't want to set/change a password"
 
-#: leaders/forms.py:54 leaders/forms.py:98
+#: leaders/forms.py:55 leaders/forms.py:100
 msgid "leaders:forms:create_form:notify_user:label"
 msgstr "Notify user"
 
-#: leaders/forms.py:55
+#: leaders/forms.py:56
 msgid "leaders:forms:create_form:notify_user:help_text"
 msgstr ""
 "If checked, the system will sent out an email to this user informing them of "
 "their new account. If no password was set, this email will contain "
 "instructions on how to set a password on their own."
 
-#: leaders/forms.py:70 leaders/forms.py:119 leaders/forms.py:186
-#: leaders/forms.py:250
+#: leaders/forms.py:72 leaders/forms.py:122 leaders/forms.py:192
+#: leaders/forms.py:258
 msgid "leader:form:email:error:user_exists"
 msgstr "There already is a leader with this email address!"
 
-#: leaders/forms.py:99
+#: leaders/forms.py:101
 msgid "leaders:forms:create_form:notify_user:help_text:ldap"
 msgstr ""
 "If checked, the system will sent out an email to this user informing them of "
 "their new account."
 
-#: leaders/forms.py:112 leaders/forms.py:243
+#: leaders/forms.py:115 leaders/forms.py:250
 msgid "leader:form:email:error:not_uu_mail"
 msgstr "This email address is not a valid UU email address!"
 
-#: leaders/forms.py:137 leaders/forms.py:218
+#: leaders/forms.py:140 leaders/forms.py:224
 msgid "leader:form:active"
 msgstr "Account active"
 
-#: leaders/forms.py:154
+#: leaders/forms.py:158
 msgid "leaders:forms:create_form:keep_current_password:label"
 msgstr "Keep current password"
 
-#: leaders/forms.py:156
+#: leaders/forms.py:160
 msgid "leaders:forms:create_form:keep_current_password:help_text"
 msgstr "If checked, no changes will be made to the user's password."
 
-#: leaders/forms.py:200
+#: leaders/forms.py:206
 msgid "leader:form:password:error:empty"
 msgstr "This field cannot be empty when 'Keep current password' is unchecked!"
 
@@ -98,31 +98,31 @@ msgid "leader:inactive"
 msgstr "{} (inactive)"
 
 #: leaders/templates/leaders/convert.html:8
-#: leaders/templates/leaders/convert.html:16
+#: leaders/templates/leaders/convert.html:14
 msgid "leaders:convert:header"
 msgstr "Convert account to Solis-ID account"
 
-#: leaders/templates/leaders/convert.html:19
+#: leaders/templates/leaders/convert.html:23
 msgid "leaders:convert:text"
 msgstr ""
 "Are you sure you want to convert {}'s account to a Solis-ID based account? "
 "<br/> This will remove any set password and require the user to use their UU "
 "credentials! The user won't be automatically informed of this change."
 
-#: leaders/templates/leaders/convert.html:22
+#: leaders/templates/leaders/convert.html:26
 msgid "leaders:convert:cancel"
 msgstr "Cancel"
 
-#: leaders/templates/leaders/convert.html:25
+#: leaders/templates/leaders/convert.html:29
 msgid "leaders:convert:confirm"
 msgstr "Convert"
 
 #: leaders/templates/leaders/delete.html:8
-#: leaders/templates/leaders/delete.html:16
+#: leaders/templates/leaders/delete.html:14
 msgid "leaders:delete:header"
 msgstr "Deleting leader"
 
-#: leaders/templates/leaders/delete.html:19
+#: leaders/templates/leaders/delete.html:23
 msgid "leaders:delete:text"
 msgstr ""
 "Are you sure you want to delete {} as leader? Any experiment where he/she is "
@@ -130,16 +130,16 @@ msgstr ""
 "You might want to disable his/her leader profile instead, which will appear "
 "to the leader as if their account has been deleted."
 
-#: leaders/templates/leaders/delete.html:22
+#: leaders/templates/leaders/delete.html:26
 msgid "leaders:delete:cancel"
 msgstr "Cancel"
 
-#: leaders/templates/leaders/delete.html:25
+#: leaders/templates/leaders/delete.html:29
 msgid "leaders:delete:confirm"
 msgstr "Delete"
 
 #: leaders/templates/leaders/index.html:7
-#: leaders/templates/leaders/index.html:35
+#: leaders/templates/leaders/index.html:13
 msgid "leaders:home:header"
 msgstr "Leaders"
 
@@ -151,71 +151,64 @@ msgstr "New guest leader (non-Solis-ID)"
 msgid "leaders:home:create_leader"
 msgstr "New leader"
 
-#: leaders/templates/leaders/index.html:28
+#: leaders/templates/leaders/index.html:25
 msgid "leaders:home:create_leader:ldap"
 msgstr "New leader (Solis-ID)"
 
-#: leaders/templates/leaders/index.html:38
-msgid "leaders:home:info_text"
-msgstr "<br/>"
-
-#: leaders/templates/leaders/index.html:44
+#: leaders/templates/leaders/index.html:39
 msgid "leaders:home:id"
 msgstr "ID"
 
-#: leaders/templates/leaders/index.html:47
+#: leaders/templates/leaders/index.html:42
 msgid "leaders:home:name"
 msgstr "Name"
 
-#: leaders/templates/leaders/index.html:50
+#: leaders/templates/leaders/index.html:45
 msgid "leaders:home:email"
 msgstr "E-mail"
 
-#: leaders/templates/leaders/index.html:53
+#: leaders/templates/leaders/index.html:48
 msgid "leaders:home:phone"
 msgstr "Phone number"
 
-#: leaders/templates/leaders/index.html:56
+#: leaders/templates/leaders/index.html:51
 msgid "leaders:home:active"
 msgstr "Active"
 
-#: leaders/templates/leaders/index.html:60
+#: leaders/templates/leaders/index.html:55
 msgid "leaders:home:is_ldap"
 msgstr "Solis Account"
 
-#: leaders/templates/leaders/index.html:64
+#: leaders/templates/leaders/index.html:59
 msgid "leaders:home:actions"
 msgstr "Actions"
 
-#: leaders/templates/leaders/index.html:107
-msgid "leaders:home:delete:title"
-msgstr "Delete leader"
+#: leaders/templates/leaders/index.html:104
+#: leaders/templates/leaders/index.html:110
+msgid "leaders:home:edit:title"
+msgstr "Edit leader"
 
-#: leaders/templates/leaders/index.html:115
+#: leaders/templates/leaders/index.html:120
 msgid "leaders:home:convert_to_ldap"
 msgstr "Convert account to solis account"
 
-#: leaders/templates/leaders/new.html:8 leaders/templates/leaders/new.html:15
+#: leaders/templates/leaders/index.html:131
+msgid "leaders:home:delete:title"
+msgstr "Delete leader"
+
+#: leaders/templates/leaders/new.html:8 leaders/templates/leaders/new.html:14
 msgid "leaders:new:header"
 msgstr "New leader"
 
-#: leaders/templates/leaders/new.html:18
-msgid "leaders:new:info_text"
-msgstr "<br/>"
-
-#: leaders/templates/leaders/new.html:26
-#: leaders/templates/leaders/update.html:35
+#: leaders/templates/leaders/new.html:27
+#: leaders/templates/leaders/update.html:39
 msgid "leaders:globals:save_button"
 msgstr "Save"
 
 #: leaders/templates/leaders/update.html:9
-#: leaders/templates/leaders/update.html:23
+#: leaders/templates/leaders/update.html:26
 msgid "leaders:update:header"
 msgstr "Update leader '{}'"
-
-#: leaders/templates/leaders/update.html:26
-msgid "leaders:update:info_text"
-msgstr "<br/>"
 
 #: leaders/views.py:51 leaders/views.py:78
 msgid "leaders:create:success_message"
@@ -244,3 +237,12 @@ msgstr "LDAP is not enabled. How did you get this error?"
 #: leaders/views.py:207
 msgid "leaders:messages:invalid_solis_mail"
 msgstr "This leader does not have a valid UU mail. How did you get this error?"
+
+#~ msgid "leaders:home:info_text"
+#~ msgstr "<br/>"
+
+#~ msgid "leaders:new:info_text"
+#~ msgstr "<br/>"
+
+#~ msgid "leaders:update:info_text"
+#~ msgstr "<br/>"

@@ -98,41 +98,58 @@
                             </td>
                         {% endif %}
                         <td>
-                        {% if user.is_ldap_account %}
-                            <a
-                                href="{% url 'main:user_edit_ldap' user.pk %}"
-                                title="{% trans 'users:home:edit:title' %}"
-                                class="icon-edit"
-                            >
-                                <span class="behind-icon">U</span> 
-                            </a>
-                        {% else %}
-                            <a
-                                href="{% url 'main:user_edit' user.pk %}"
-                                title="{% trans 'users:home:edit:title' %}"
-                                class="icon-edit"
-                            >
-                                <span class="behind-icon">U</span> 
-                            </a>
-                            <a
-                                href="{% url 'main:user_password' user.pk %}"
-                                title="{% trans 'users:home:change_password:title' %}"
-                                class="icon-edit"
-                            >
-                                <span class="behind-icon">P</span> 
-                            </a>
-                        {% endif %}
-                            {# We should not allow a user to delete their own account, that will we AWKWARD #}
-                            {# https://www.youtube.com/watch?v=q9kDT44DBXs #}
-                            {% if not request.user == user %}
-                            <a
-                                href="{% url 'main:user_delete' user.pk %}"
-                                title="{% trans 'users:home:delete:title' %}"
-                                class="icon-delete"
-                            >
-                                
-                            </a>
-                            {% endif %}
+                            <div class="dropdown">
+                                <button
+                                        class="btn icon-menu dropdown-toggle p-1"
+                                        type="button"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                >
+                                </button>
+                                {# Formatting is like this for a reason, namely whitespace #}
+
+                                <ul class="dropdown-menu">
+                                    {% if user.is_ldap_account %}
+                                        <li>
+                                            <a
+                                                href="{% url 'main:user_edit_ldap' user.pk %}"
+                                                class="dropdown-item"
+                                            >
+                                                {% trans 'users:home:edit:title' %}
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        <li>
+                                            <a
+                                                href="{% url 'main:user_edit' user.pk %}"
+                                                class="dropdown-item"
+                                            >
+                                                {% trans 'users:home:edit:title' %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="{% url 'main:user_password' user.pk %}"
+                                                class="dropdown-item"
+                                            >
+                                                {% trans 'users:home:change_password:title' %}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {# We should not allow a user to delete their own account, that would be awkward #}
+                                    {% if not request.user == user %}
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a
+                                                href="{% url 'main:user_delete' user.pk %}"
+                                                class="dropdown-item text-red"
+                                            >
+                                                {% trans 'users:home:delete:title' %}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 {% endfor %}
