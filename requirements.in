@@ -13,6 +13,6 @@ djangorestframework
 django-debug-toolbar
 cryptography
 python-dateutil
--e git+https://github.com/DH-IT-Portal-Development/django-shared-core.git@v3.0.0-rc.3#egg=cdh-django-core
+-e git+https://github.com/DH-IT-Portal-Development/django-shared-core.git@v3.0.0#egg=cdh-django-core
 mysqlclient
 django-auth-ldap
