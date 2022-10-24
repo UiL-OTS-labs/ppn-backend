@@ -14,7 +14,7 @@ import auditlog.utils.log as auditlog
 from experiments.models import Appointment, Experiment
 from experiments.utils import delete_timeslot, unsubscribe_participant
 from experiments.utils.exclusion import check_participant_eligible
-from experiments.utils.remind_participant import remind_participant
+from experiments.utils.remind_participant import send_reminder_mail
 from experiments.utils.timeslot_create import add_timeslot
 
 
@@ -96,7 +96,7 @@ class LeaderExperimentsView(viewsets.GenericViewSet):
 
         qs = qs.select_related('leader', 'location')
         qs = qs.prefetch_related('additional_leaders', 'excluded_experiments')
-        
+
         qs = qs.distinct()
 
         self.queryset = qs
@@ -203,7 +203,7 @@ class RemindParticipantsView(views.APIView):
         try:
             for pk in pks:
                 appointment = Appointment.objects.get(pk=pk)
-                remind_participant(appointment)
+                send_reminder_mail(appointment)
         except Exception as e:  # NoQA
             pass
 

@@ -77,8 +77,8 @@ class ExperimentEmailTemplatesForm(TemplatedModelForm):
         widgets = {
             # we set the url in the init, as we need the experiment's pk
             'invite_email': EmailContentEditWidget(None),
-            'reminder_email': TinyMCEWidget, # TODO: tmp
-            'confirmation_email': TinyMCEWidget, # TODO: tmp
+            'reminder_email': EmailContentEditWidget(None),
+            'confirmation_email': EmailContentEditWidget(None),
         }
 
     def __init__(self, *args, **kwargs):
@@ -86,5 +86,13 @@ class ExperimentEmailTemplatesForm(TemplatedModelForm):
 
         self.fields['invite_email'].widget.preview_url = reverse(
             'experiments:mail_preview',
+            args=[self.instance.pk]
+        )
+        self.fields['reminder_email'].widget.preview_url = reverse(
+            'experiments:reminder_preview',
+            args=[self.instance.pk]
+        )
+        self.fields['confirmation_email'].widget.preview_url = reverse(
+            'experiments:confirmation_preview',
             args=[self.instance.pk]
         )

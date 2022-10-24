@@ -8,7 +8,7 @@ from django.utils.timezone import get_current_timezone
 
 from leaders.models import Leader
 from .location_models import Location
-from ..emails import InviteEmail
+from ..emails import InviteEmail, ReminderEmail, ConfirmationEmail
 
 
 def _get_dt_2_hours_ago() -> datetime:
@@ -16,68 +16,6 @@ def _get_dt_2_hours_ago() -> datetime:
 
 
 class Experiment(models.Model):
-
-    DEFAULT_CONFIRMATION_MAIL = """<p>Beste {{ participant_name }},</p>
-    <p>
-        Je hebt een afspraak gemaakt om mee te doen met het experiment: 
-        <strong>{experiment_name}</strong><br/><br/>
-        We verwachten je op:<br/><br/>
-        Datum: <strong>{date}</strong><br/>
-        Tijd: <strong>{time} uur</strong><br/>
-        Locatie: <strong>{experiment_location}</strong><br/>
-    </p>
-    <p>
-        Als je deze afspraak wilt afzeggen, kun je dat doen via 
-        {cancel_link:"deze link"}.
-        Doe dat alsjeblieft minstens 24 uur vantevoren. Als je vlak vantevoren 
-        ontdekt dat je verhinderd bent, neem dan svp even persoonlijk contact 
-        op met de proefleider 
-        ({leader_name}, email: {leader_email} tel.: {leader_phonenumber}).
-    </p>
-    <p>
-        Met vriendelijke groet,<br/>
-        het UiL OTS lab
-    </p>"""
-
-    DEFAULT_INVITE_MAIL = """<p>Je kunt je weer opgeven voor een nieuw 
-    experiment: <strong>{{ experiment_name }}</strong>.</p>
-<p>De proefleider is <strong>{{ leader_name }}</strong>.
-<ul>
-    <li>Duur: {{ duration }}.</li>
-    <li>Vergoeding: {{ compensation }}.</li>
-    <li>{{ task_description }}</li>
-    <li>{{ additional_instructions }}</li>
-</ul>
-
-<p>Je kunt via <a href="{{ ref_link }}">deze link</a> inschrijven.</p>
-
-<p>Bedankt!</p>
-
-<p>
-Met vriendelijke groet,<br/>
-{{ admin }}
-</p>"""
-
-    DEFAULT_REMINDER_MAIL = """<p>Beste {{ participant_name }},</p>
-    <p>
-        <strong>Dit is een reminder!</strong>
-    </p>
-    <p>
-        Je hebt een afspraak gemaakt om mee te doen met het experiment: <strong> {{ experiment.name }}</strong>.
-    </p>
-    <p>
-        We verwachten je op: <br/>
-        Datum: <strong>{{ date }}</strong><br/>
-        Tijd: <strong>{{ time }} uur</strong><br/>
-        Locatie: <strong>{{ location }}</strong><br/>
-    </p>
-    <p>
-        Als je deze afspraak wilt afzeggen, kun je dat doen via <a href="{{ cancel_link }}">deze link</a>. Doe dat
-        alsjeblieft minstens 24 uur vantevoren. Als je vlak vantevoren ontdekt dat je verhinderd bent, neem dan svp even
-        persoonlijk contact op met de proefleider ({{ leader_name }}, email: {{ 
-        leader_email }}
-        tel.: {{ leader_phone }}).
-    </p>"""
 
     name = models.TextField(
         _('experiment:attribute:name')
@@ -102,19 +40,20 @@ Met vriendelijke groet,<br/>
 
     confirmation_email = models.TextField(
         _('experiment:attribute:confirmation_email'),
-        help_text=_('experiment:attribute:confirmation_email:help_text'),
-        default=DEFAULT_CONFIRMATION_MAIL,
+        help_text=ConfirmationEmail.help_text,
+        default=ConfirmationEmail.default_content,
     )
 
     invite_email = models.TextField(
         _('experiment:attribute:invite_email'),
         help_text=InviteEmail.help_text,
-        default=DEFAULT_INVITE_MAIL,
+        default=InviteEmail.default_content,
     )
 
     reminder_email = models.TextField(
         _('experiment:attribute:reminder_email'),
-        default=DEFAULT_REMINDER_MAIL,
+        help_text=ReminderEmail.help_text,
+        default=ReminderEmail.default_content,
     )
 
     location = models.ForeignKey(

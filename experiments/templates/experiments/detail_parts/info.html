@@ -10,9 +10,14 @@
             <h3 class="mb-0">
                 {% trans 'experiments:detail:info' %}
             </h3>
-            <a href="{% url 'experiments:update' experiment.pk %}?next={{ request.path }}" class="btn btn-secondary btn-sm">
-                {% trans 'experiments:detail:edit_info' %}
-            </a>
+            <div class="btn-group btn-group-sm">
+                <a href="{% url 'experiments:update' experiment.pk %}?next={{ request.path }}" class="btn btn-secondary">
+                    {% trans 'experiments:detail:edit_info' %}
+                </a>
+                <a href="{% url 'experiments:email_templates' experiment.pk %}?next={{ request.path }}" class="btn btn-secondary">
+                    {% trans 'experiments:detail:edit_emails' %}
+                </a>
+            </div>
         </div>
         <div class="d-inline-block">
             <table class="criteria-table mt-1">

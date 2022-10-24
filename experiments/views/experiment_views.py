@@ -7,13 +7,18 @@ from django.urls import reverse_lazy as reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
+
+from api.utils.appointment_mail import get_initial_confirmation_context
+from cdh.core.mail import BaseEmailPreviewView
 from cdh.core.views import RedirectActionView
 from cdh.core.views.mixins import DeleteSuccessMessageMixin, \
     RedirectSuccessMessageMixin
 
 from comments.models import Comment
-from experiments.utils.remind_participant import remind_participant
+from experiments.utils.remind_participant import get_initial_reminder_context, \
+    send_reminder_mail
 from .mixins import ExperimentObjectMixin
+from ..emails import ReminderEmail, ConfirmationEmail
 from ..forms import ExperimentEmailTemplatesForm, ExperimentForm
 from ..models import Appointment, Experiment
 
@@ -233,6 +238,22 @@ class ExperimentEmailTemplatesUpdateView(
     success_url = reverse('experiments:home')
 
 
+class ConfirmationEmailPreviewView(ExperimentObjectMixin, BaseEmailPreviewView):
+    email_class = ConfirmationEmail
+    experiment_kwargs_name = 'pk'
+
+    def get_preview_context(self):
+        return get_initial_confirmation_context(self.experiment)
+
+
+class ReminderEmailPreviewView(ExperimentObjectMixin, BaseEmailPreviewView):
+    email_class = ReminderEmail
+    experiment_kwargs_name = 'pk'
+
+    def get_preview_context(self):
+        return get_initial_reminder_context(self.experiment)
+
+
 # -------------------
 # Action views
 # -------------------
@@ -309,7 +330,7 @@ class RemindParticipantsView(braces.LoginRequiredMixin,
 
             for reminder in reminders:
                 appointment = Appointment.objects.get(pk=reminder)
-                remind_participant(appointment)
+                send_reminder_mail(appointment)
 
             messages.success(self.request,
                              str(
