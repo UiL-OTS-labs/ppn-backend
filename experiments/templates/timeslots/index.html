@@ -27,10 +27,22 @@
 
 {% block content %}
     <div class="uu-container">
-        <div class="col-12">
+        <div class="col-12 col-lg-8 pe-lg-3">
             <p>
                 {% trans 'timeslots:home:info_text' %}
             </p>
+        </div>
+        <div class="col-12 col-lg-4 text-bg-light p-3">
+            <h3>
+                {% trans 'timeslots:home:new_timeslots:header' %}
+            </h3>
+            <form method="post" class="oneline-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" id="save-new-slot" class="btn btn-primary">
+                    {% trans 'experiments:globals:add_button' %}
+                </button>
+            </form>
         </div>
     </div>
     <div class="uu-container">
@@ -160,20 +172,6 @@
                         </tr>
                     </tfoot>
                 </table>
-            </form>
-        </div>
-    </div>
-    <div class="uu-container">
-        <div class="col-4">
-            <h3>
-                {% trans 'timeslots:home:new_timeslots:header' %}
-            </h3>
-            <form method="post" class="oneline-form">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" id="save-new-slot" class="btn btn-primary">
-                    {% trans 'experiments:globals:add_button' %}
-                </button>
             </form>
         </div>
     </div>
