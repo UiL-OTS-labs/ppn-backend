@@ -35,12 +35,8 @@ class ExperimentForm(TemplatedModelForm):
                 (True, _("experiment:form:use_timeslots:true")),
                 (False, _("experiment:form:use_timeslots:false")),
             )),
-            'task_description': forms.Textarea({
-                'rows': 7,
-            }),
-            'additional_instructions': forms.Textarea({
-                'rows': 7
-            }),
+            'task_description': TinyMCEWidget,
+            'additional_instructions': TinyMCEWidget,
             'open': BootstrapCheckboxInput,
             'public': BootstrapCheckboxInput,
             'participants_visible': BootstrapCheckboxInput,
