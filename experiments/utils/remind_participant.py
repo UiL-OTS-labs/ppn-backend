@@ -5,12 +5,10 @@ from django.template import defaultfilters
 from django.utils import translation
 from django.utils.timezone import localtime
 
-from cdh.core.utils.mail import send_template_email
 from experiments.emails import ReminderEmail
 
-from experiments.models import Appointment, Experiment, TimeSlot
+from experiments.models import Appointment, Experiment
 from main.utils import get_supreme_admin
-from participants.models import Participant
 
 
 def get_initial_reminder_context(experiment: Experiment) -> dict:

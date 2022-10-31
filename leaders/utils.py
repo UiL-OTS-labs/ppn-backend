@@ -5,7 +5,7 @@ from typing import Optional
 
 from django.conf import settings
 from pytz import timezone
-from cdh.core.utils.mail import send_template_email
+from cdh.core.mail.utils import send_template_email
 
 from api.auth.ldap_backend import ApiLdapBackend
 from api.auth.models import ApiGroup, ApiUser, UserToken
@@ -171,9 +171,10 @@ def notify_new_leader(leader: Leader, existing=False) -> None:
     send_template_email(
         [leader.api_user.email],
         subject,
-        template,
-        context,
-        'no-reply@uu.nl'
+        html_template=f"{template}.html",
+        plain_template=f"{template}.html",
+        template_context=context,
+        from_email='no-reply@uu.nl',
     )
 
 
@@ -188,9 +189,10 @@ def notify_new_ldap_leader(leader: Leader) -> None:
     send_template_email(
         [leader.api_user.email],
         subject,
-        'leaders/mail/notify_new_ldap_leader',
-        context,
-        'no-reply@uu.nl'
+        html_template='leaders/mail/notify_new_ldap_leader.html',
+        plain_template='leaders/mail/notify_new_ldap_leader.txt',
+        template_context=context,
+        from_email='no-reply@uu.nl',
     )
 
 

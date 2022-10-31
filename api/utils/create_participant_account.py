@@ -3,7 +3,7 @@ from enum import Enum
 from django.conf import settings
 
 from participants.utils.mailinglist_unsubscribe import get_login_page_url
-from cdh.core.utils.mail import send_template_email
+from cdh.core.mail.utils import send_template_email
 
 from api.auth.models import ApiUser, ApiGroup, UserToken
 from api.utils import get_reset_links
@@ -181,9 +181,10 @@ def _create_new_account(participant: Participant, password: str = None) -> None:
     send_template_email(
         [participant.email],
         "UiL OTS: Account aangemaakt",
-        'api/mail/new_account',
-        context,
-        get_supreme_admin().email
+        html_template='api/mail/new_account.html',
+        plain_template='api/mail/new_account.txt',
+        template_context=context,
+        from_email=get_supreme_admin().email
     )
 
 
@@ -220,9 +221,10 @@ def _send_existing_account_mail(
     send_template_email(
         [participant.email],
         "UiL OTS: Account aangemaakt",
-        'api/mail/existing_leader_new_participant',
-        context,
-        get_supreme_admin().email
+        html_template='api/mail/existing_leader_new_participant.html',
+        plain_template='api/mail/existing_leader_new_participant.txt',
+        template_context=context,
+        from_email=get_supreme_admin().email
     )
 
 

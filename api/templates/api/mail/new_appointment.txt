@@ -1,3 +1,0 @@
-{{ plain_content }}
-
-Dit bericht is automatisch verzonden omdat je je hebt ingeschreven voor een experiment.

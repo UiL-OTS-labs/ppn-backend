@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 
 from django.conf import settings
-from cdh.core.utils.mail import send_template_email
+from cdh.core.mail.utils import send_template_email
 
 from comments.utils import add_system_comment
 from experiments.models import Appointment
@@ -57,9 +57,10 @@ def _inform_leaders(appointment: Appointment) -> None:
         send_template_email(
             [leader.email],
             subject,
-            'api/mail/participant_cancelled',
-            context,
-            'no-reply@uu.nl'
+            html_template='api/mail/participant_cancelled.html',
+            plain_template='api/mail/participant_cancelled.txt',
+            template_context=context,
+            from_email='no-reply@uu.nl'
         )
 
 
@@ -91,7 +92,8 @@ def _send_confirmation(appointment: Appointment) -> None:
     send_template_email(
         [appointment.participant.email],
         subject,
-        'api/mail/cancelled_appointment',
-        context,
-        admin.email
+        html_template='api/mail/cancelled_appointment.html',
+        plain_template='api/mail/cancelled_appointment.txt',
+        template_context=context,
+        from_email=admin.email,
     )

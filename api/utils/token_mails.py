@@ -2,7 +2,7 @@ from typing import Tuple
 import urllib.parse as parse
 
 from django.conf import settings
-from cdh.core.utils.mail import send_template_email
+from cdh.core.mail.utils import send_template_email
 
 from api.auth.models import ApiUser
 from participants.models import Participant
@@ -22,9 +22,10 @@ def send_password_reset_mail(user: ApiUser, token: str) -> None:
     send_template_email(
         [user.email],
         subject,
-        'api/mail/password_reset',
-        context,
-        'no-reply@uu.nl'
+        html_template='api/mail/password_reset.html',
+        plain_template='api/mail/password_reset.txt',
+        template_context=context,
+        from_email='no-reply@uu.nl'
     )
 
 
@@ -45,9 +46,10 @@ def send_cancel_token_mail(participant: Participant, token: str,
     send_template_email(
         [email],
         subject,
-        'api/mail/cancel_token',
-        context,
-        'no-reply@uu.nl'
+        html_template='api/mail/cancel_token.html',
+        plain_template='api/mail/cancel_token.txt',
+        template_context=context,
+        from_email='no-reply@uu.nl',
     )
 
 
