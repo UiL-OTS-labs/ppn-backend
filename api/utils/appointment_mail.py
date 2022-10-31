@@ -36,6 +36,12 @@ def send_appointment_mail(
         participant: Participant,
         time_slot: TimeSlot,
 ) -> None:
+
+    # Should not happen, but as that field technically now can be none we make
+    # sure to handle it.
+    if participant.email is None:
+        return
+
     context = get_initial_confirmation_context(experiment)
     context.update({
         'name': participant.mail_name,

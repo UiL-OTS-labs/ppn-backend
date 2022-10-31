@@ -5,8 +5,9 @@ from django.urls import reverse_lazy as reverse
 from django.utils.functional import cached_property
 from django.utils.text import gettext_lazy as _
 from django.views import generic
-from cdh.core.views import FormSetUpdateView
+from cdh.core.views import FormSetUpdateView, RedirectActionView
 from cdh.core.views.mixins import DeleteSuccessMessageMixin
+from main.views import RedirectSuccessMessageMixin
 
 from .forms import CriterionAnswerForm, ParticipantForm, ParticipantMergeForm
 from .models import CriterionAnswer, Participant, SecondaryEmail
@@ -14,6 +15,7 @@ from .utils import merge_participants
 
 from auditlog.enums import Event, UserType
 import auditlog.utils.log as auditlog
+from .utils.switch_main_email import switch_main_email
 
 
 class ParticipantsHomeView(braces.LoginRequiredMixin, generic.ListView):
@@ -39,6 +41,27 @@ class ParticipantDetailView(braces.LoginRequiredMixin,
         )
 
         return super().get(request, *args, **kwargs)
+
+
+class ParticipantSwitchEmailView(braces.LoginRequiredMixin,
+                                 RedirectSuccessMessageMixin,
+                                 RedirectActionView):
+
+    success_message = _('participants:messages:switched_emails')
+
+    def action(self, request):
+        participant_pk = self.kwargs.get('participant')
+        se_pk = self.kwargs.get('pk')
+
+        participant = Participant.objects.get(pk=participant_pk)
+        se = SecondaryEmail.objects.get(pk=se_pk)
+
+        switch_main_email(participant, se)
+
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('participants:detail', args=[
+            self.kwargs.get('participant')
+        ])
 
 
 class ParticipantUpdateView(braces.LoginRequiredMixin,

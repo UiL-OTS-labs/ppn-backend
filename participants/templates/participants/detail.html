@@ -58,11 +58,16 @@
                 </tr>
                 <tr>
                     <th>
-                        {% transformat 'participants:detail:secondary_emails' %}
+                        {% trans 'participants:detail:secondary_emails' %}
                     </th>
                     <td>
                         {% for email in participant.secondaryemail_set.all %}
-                            <a href="mailto:{{ email.email }}">{{ email.email }}</a>,
+                            <a href="mailto:{{ email.email }}">{{ email.email }}</a>
+                            (<a
+                                href="{% url 'participants:switch-email' participant.pk email.pk %}"
+                                title="{% trans 'participants:detail:secondary_emails:switch_main:title' %}"
+                            >{% trans 'participants:detail:secondary_emails:switch_main' %}</a>)
+                            {% if not forloop.last %},<br/>{% endif %}
                         {% endfor %}
                     </td>
                 </tr>
@@ -160,6 +165,9 @@
             </table>
         </div>
         <div class="uu-sidebar-content">
+            <h3 class="mb-3">
+                {% trans 'participants:detail:appointments_header' %}
+            </h3>
             <table class="dt_custom table w-100">
                 <thead>
                     <tr>

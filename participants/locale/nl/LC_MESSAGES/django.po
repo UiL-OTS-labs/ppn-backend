@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 15:54+0200\n"
+"POT-Creation-Date: 2022-10-31 13:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,98 +36,98 @@ msgstr "Participant om mee samen te voegen"
 msgid "participants:merge_form:validation:are_equal"
 msgstr "Dit is dezelfde participant als hierboven gekozen!"
 
-#: participants/models.py:45
+#: participants/models.py:48
 msgid "participant:attribute:handedness:lefthanded"
 msgstr "Linkshandig"
 
-#: participants/models.py:46
+#: participants/models.py:49
 msgid "participant:attribute:handedness:righthanded"
 msgstr "Rechtshandig"
 
-#: participants/models.py:50
+#: participants/models.py:53
 msgid "participant:attribute:social_role:student"
 msgstr "Student"
 
-#: participants/models.py:51
+#: participants/models.py:54
 msgid "participant:attribute:social_role:other"
 msgstr "Geen student"
 
-#: participants/models.py:55
+#: participants/models.py:58
 msgid "participant:attribute:email"
 msgstr "E-mailadres"
 
-#: participants/models.py:59
+#: participants/models.py:64
 msgid "participant:attribute:name"
 msgstr "Naam"
 
-#: participants/models.py:65
+#: participants/models.py:70
 msgid "participant:attribute:language"
 msgstr "Taal"
 
-#: participants/models.py:69
+#: participants/models.py:74
 msgid "participant:attribute:dyslexic"
 msgstr "Dyslexie"
 
-#: participants/models.py:73
+#: participants/models.py:78
 msgid "participant:attribute:birth_date"
 msgstr "Geboortedatum"
 
-#: participants/models.py:79
+#: participants/models.py:84
 msgid "participant:attribute:multilingual"
 msgstr "Meertalig"
 
-#: participants/models.py:85
+#: participants/models.py:90
 msgid "participant:attribute:phonenumber"
 msgstr "Telefoonnummer"
 
-#: participants/models.py:91
+#: participants/models.py:96
 msgid "participant:attribute:handedness"
 msgstr "Left/rechtshandig"
 
-#: participants/models.py:98
+#: participants/models.py:103
 msgid "participant:attribute:sex"
 msgstr "Geslacht"
 
-#: participants/models.py:104
+#: participants/models.py:109
 msgid "participant:attribute:social_status"
 msgstr "Sociale rol"
 
-#: participants/models.py:111
+#: participants/models.py:116
 msgid "participant:attribute:email_subscription"
 msgstr "Op maillijst"
 
-#: participants/models.py:116
+#: participants/models.py:121
 msgid "participant:attribute:capable"
 msgstr "Bekwaam"
 
-#: participants/models.py:128
+#: participants/models.py:133
 msgid "participant:attribute:created"
 msgstr "Aangemaakt op"
 
-#: participants/models.py:137 participants/models.py:178
+#: participants/models.py:142 participants/models.py:183
 msgid "participant:name:unknown"
 msgstr "naam onbekend"
 
-#: participants/models.py:159
+#: participants/models.py:164
 #: participants/templates/widgets/participant_sex_widget.html:42
 msgid "participant:attribute:sex:male"
 msgstr "Man"
 
-#: participants/models.py:160
+#: participants/models.py:165
 #: participants/templates/widgets/participant_sex_widget.html:58
 msgid "participant:attribute:sex:female"
 msgstr "Vrouw"
 
-#: participants/models.py:161
+#: participants/models.py:166
 #: participants/templates/widgets/participant_sex_widget.html:94
 msgid "participant:attribute:sex:prefer_not_to_answer"
 msgstr "Antwoordde liever niet"
 
-#: participants/models.py:190
+#: participants/models.py:195
 msgid "secondary_email:attribute:email"
 msgstr "Secundaire e-mailadres"
 
-#: participants/models.py:208
+#: participants/models.py:213
 msgid "criterion_answer:attribute:answer"
 msgstr "Antwoord"
 
@@ -170,32 +170,44 @@ msgstr ""
 msgid "participants:detail:secondary_emails"
 msgstr "Secundaire emails"
 
-#: participants/templates/participants/detail.html:71
+#: participants/templates/participants/detail.html:68
+msgid "participants:detail:secondary_emails:switch_main:title"
+msgstr "Wissel primair email met dit secundaire email adres"
+
+#: participants/templates/participants/detail.html:69
+msgid "participants:detail:secondary_emails:switch_main"
+msgstr "Wissel"
+
+#: participants/templates/participants/detail.html:76
 msgid "participants:detail:has_account"
 msgstr "Heeft account"
 
-#: participants/templates/participants/detail.html:74
-#: participants/templates/participants/detail.html:93
-#: participants/templates/participants/detail.html:149
-#: participants/templates/participants/detail.html:157
+#: participants/templates/participants/detail.html:79
+#: participants/templates/participants/detail.html:98
+#: participants/templates/participants/detail.html:154
+#: participants/templates/participants/detail.html:162
 #: participants/templates/participants/index.html:95
 msgid "yes,no"
 msgstr "ja,nee"
 
-#: participants/templates/participants/detail.html:109
+#: participants/templates/participants/detail.html:114
 #: participants/templates/participants/index.html:92
 msgid "options:many,one"
 msgstr "meerdere,een"
 
-#: participants/templates/participants/detail.html:167
+#: participants/templates/participants/detail.html:169
+msgid "participants:detail:appointments_header"
+msgstr "Afspraken van deze participant"
+
+#: participants/templates/participants/detail.html:175
 msgid "participants:detail:experiments"
 msgstr "Experimenten"
 
-#: participants/templates/participants/detail.html:170
+#: participants/templates/participants/detail.html:178
 msgid "participants:detail:datetime"
 msgstr "Datum & tijd"
 
-#: participants/templates/participants/detail.html:173
+#: participants/templates/participants/detail.html:181
 msgid "participants:detail:place"
 msgstr "Plaats"
 
@@ -230,19 +242,19 @@ msgstr "Combineer Participanten"
 msgid "participants:globals:actions"
 msgstr "Acties"
 
-#: participants/templates/participants/index.html:104
+#: participants/templates/participants/index.html:118
 msgid "participants:home:detail:title"
 msgstr "Bekijk details"
 
-#: participants/templates/participants/index.html:111
+#: participants/templates/participants/index.html:126
 msgid "participants:home:update:title"
 msgstr "Pas participant gegevens aan"
 
-#: participants/templates/participants/index.html:118
+#: participants/templates/participants/index.html:134
 msgid "participants:home:update_specific_criteria:title"
 msgstr "Pas participant criteria gegevens aan"
 
-#: participants/templates/participants/index.html:125
+#: participants/templates/participants/index.html:143
 msgid "participants:home:delete:title"
 msgstr "Verwijder participant"
 
@@ -261,31 +273,21 @@ msgid "participants:specific_criteria:header"
 msgstr "Specifieke criteria voor '{}'"
 
 #: participants/templates/widgets/participant_sex_widget.html:78
-#, fuzzy
-#| msgid "participant:attribute:sex"
 msgid "participant:attribute:sex:other"
-msgstr "Geslacht"
+msgstr "Overig"
 
-#: participants/views.py:49
+#: participants/views.py:50
+msgid "participants:messages:switched_emails"
+msgstr "Participant emails omgewisseld!"
+
+#: participants/views.py:72
 msgid "participants:messages:updated_participant"
 msgstr "Participant aangepast!"
 
-#: participants/views.py:103
+#: participants/views.py:126
 msgid "participants:messages:deleted_participant"
 msgstr "Participant verwijderd!"
 
-#: participants/views.py:150
+#: participants/views.py:173
 msgid "participants:messages:merged_participants"
 msgstr "Participanten samengevoegd!"
-
-#~ msgid "participants:update:info_text"
-#~ msgstr "<br/>"
-
-#~ msgid "participants:home:info_text"
-#~ msgstr "<br/>"
-
-#~ msgid "participants:merge:info_text"
-#~ msgstr " "
-
-#~ msgid "participants:specific_criteria:info_text"
-#~ msgstr " "

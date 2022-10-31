@@ -64,6 +64,12 @@ def _inform_leaders(appointment: Appointment) -> None:
 
 
 def _send_confirmation(appointment: Appointment) -> None:
+
+    # Should not happen, but as that field technically now can be none we make
+    # sure to handle it.
+    if appointment.participant.email is None:
+        return
+
     admin = get_supreme_admin()
     experiment = appointment.experiment
     time_slot = appointment.timeslot

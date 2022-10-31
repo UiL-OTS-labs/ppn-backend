@@ -80,9 +80,9 @@ def merge_participants(existing: Participant,
     existing.name = new.name
     existing.phonenumber = new.phonenumber
     existing.social_status = new.social_status
-    existing.email = new.email
+    if new.email:
+        existing.email = new.email
     existing.save()
-
 
     # Log the modification
     _log(existing, new, performing_user)

@@ -2,13 +2,18 @@ from django.urls import path
 
 from .views import ParticipantDeleteView, ParticipantDetailView, \
     ParticipantMergeView, ParticipantSpecificCriteriaUpdateView, \
-    ParticipantUpdateView, ParticipantsHomeView
+    ParticipantSwitchEmailView, ParticipantUpdateView, ParticipantsHomeView
 
 app_name = 'participants'
 
 urlpatterns = [
     path('', ParticipantsHomeView.as_view(), name='home'),
     path('<int:pk>/', ParticipantDetailView.as_view(), name='detail'),
+    path(
+        '<int:participant>/switch_email/<int:pk>/',
+        ParticipantSwitchEmailView.as_view(),
+        name='switch-email'
+    ),
     path('<int:pk>/edit/', ParticipantUpdateView.as_view(), name='edit'),
     path('<int:pk>/del/', ParticipantDeleteView.as_view(), name='delete'),
     path(

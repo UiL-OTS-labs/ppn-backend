@@ -9,9 +9,10 @@ from api.auth.models import ApiUser, ApiGroup, UserToken
 from api.utils import get_reset_links
 from comments.utils import add_system_comment
 from leaders.utils import _get_tomorrow
-from participants.models import Participant, SecondaryEmail
+from participants.models import Participant
 from main.utils import get_supreme_admin
 from participants.utils import get_mailinglist_unsubscribe_url
+from participants.utils.switch_main_email import switch_main_email
 
 SYSTEM_MESSAGES = {
     'multiple_participants': "A user tried to create an account, but the "
@@ -72,7 +73,7 @@ def create_participant_account(email: str,
 
         # Switch emails if needed
         if _to_lower(participant.email) != _to_lower(email):
-            _switch_main_email(participant, email)
+            switch_main_email(participant, email)
 
     # Create a queryset to check if this email is already used
     api_user = ApiUser.objects.get_by_email(email)
@@ -236,35 +237,3 @@ def _add_participant_group(api_user: ApiUser) -> None:
     api_user.groups.add(group)
     api_user.save()
 
-
-def _switch_main_email(participant: Participant, new_email: str) -> None:
-    """
-    This function switches the main email of a participant with one of it's
-    secondary emails. The old secondary email object is used to store the
-    previous main email.
-
-    :param participant: A participant object
-    :param new_email: An email string that corresponds to a secondary email
-    :return: Nothing
-    """
-    # Get the secondary email that now houses the new main email
-    secondary_emails = participant.secondaryemail_set.all()
-    try:
-        existing_new_email = next(
-            iter([x for x in secondary_emails if _to_lower(x.email) ==
-                  _to_lower(new_email)])
-        )
-    except StopIteration:
-        # Should not happen, but if it happens it can ruin one's day so we
-        # need to have a fallback
-        existing_new_email = SecondaryEmail()
-        existing_new_email.participant = participant
-
-    # Set the old main email as this object's email address
-    existing_new_email.email = participant.email
-    existing_new_email.save()
-
-    # Set the new email (same as the original value of the secondary email
-    # above) as the main email
-    participant.email = new_email
-    participant.save()

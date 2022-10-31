@@ -43,6 +43,11 @@ def send_reminder_mail(
     participant = appointment.participant
     timeslot = None
 
+    # Should not happen, but as that field technically now can be none we make
+    # sure to handle it.
+    if participant.email is None:
+        return
+
     if experiment.use_timeslots:
         timeslot = appointment.timeslot
 
