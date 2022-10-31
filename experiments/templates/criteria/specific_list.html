@@ -83,23 +83,17 @@
     </div>
 </div>
 <div class="uu-container">
-    <div class="col-6 pe-2">
-        <h3>
-            {% trans 'criteria:specific_list:add_new:header' %}
-        </h3>
-        <form method="post">
-             {% csrf_token %}
-            <table class="table w-100">
-                {{ form.as_table }}
-            </table>
-            <div class="float-end mt-2">
-                <button type="submit" class="btn btn-primary">
-                    {% trans 'experiments:globals:add_button' %}
-                </button>
-            </div>
-        </form>
+    <div class="col-12">
+        <h2>
+            {% trans 'criteria:specific_list:adding:header' %}
+        </h2>
+        <p>
+            {% trans 'criteria:specific_list:adding:p1' %}
+        </p>
     </div>
-    <div class="col-6 ps-2">
+</div>
+<div class="uu-container">
+    <div class="col-6 pe-2">
         <h3>
             {% trans 'criteria:specific_list:add_existing:header' %}
         </h3>
@@ -138,6 +132,7 @@
                                 {% endfor %}
                             {% endfor %}
                         </select>
+                        <span class="helptext">{% trans 'experiment_criterion:attribute:correct_value:help' %}</span>
                     </td>
                 </tr>
                 <tr>
@@ -148,8 +143,25 @@
                     </th>
                     <td>
                         <textarea id="id_criterion_message_failed" class="form-control" name="message_failed" required cols="35" rows="10"></textarea>
+                        <span class="helptext">{% trans 'experiment_criterion:attribute:message_failed:help' %}</span>
                     </td>
                 </tr>
+            </table>
+            <div class="float-end mt-2">
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'experiments:globals:add_button' %}
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="col-6 ps-2">
+        <h3>
+            {% trans 'criteria:specific_list:add_new:header' %}
+        </h3>
+        <form method="post">
+             {% csrf_token %}
+            <table class="table w-100">
+                {{ form.as_table }}
             </table>
             <div class="float-end mt-2">
                 <button type="submit" class="btn btn-primary">

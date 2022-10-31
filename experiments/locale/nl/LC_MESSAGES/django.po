@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 15:54+0200\n"
+"POT-Creation-Date: 2022-10-31 11:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,36 +162,64 @@ msgstr ""
 "invoegen' dialoogvenster)"
 
 #: experiments/forms/criteria_forms.py:75
-#: experiments/forms/criteria_forms.py:128
+#: experiments/forms/criteria_forms.py:133
 msgid "criteria:form:correct_value:error:not_a_value"
 msgstr "Deze waarde is niet opgegeven in 'Mogelijke waardes'!"
 
 #: experiments/forms/criteria_forms.py:83
 #: experiments/models/criteria_models.py:130
 msgid "criterion:attribute:name_form"
-msgstr "Form naam"
+msgstr "Codenaam"
 
-#: experiments/forms/criteria_forms.py:87
+#: experiments/forms/criteria_forms.py:84
+msgid "criterion:attribute:name_form:help"
+msgstr ""
+"Interne naam voor de criterion, moet uniek zijn. Het is aangeraden om alleen "
+"letters te gebruiken, geen spaties, nummers of speciale karakters."
+
+#: experiments/forms/criteria_forms.py:88
 #: experiments/models/criteria_models.py:134
 msgid "criterion:attribute:name_natural"
 msgstr "Weergave naam"
 
-#: experiments/forms/criteria_forms.py:91
+#: experiments/forms/criteria_forms.py:89
+msgid "criterion:attribute:name_natural:help"
+msgstr "Dit is de vraag die getoond wordt aan de participant"
+
+#: experiments/forms/criteria_forms.py:93
 #: experiments/models/criteria_models.py:138
 msgid "criterion:attribute:values"
-msgstr "Mogelijke waardes"
+msgstr "Mogelijke antwoorden (comma seperated)"
 
-#: experiments/forms/criteria_forms.py:95
+#: experiments/forms/criteria_forms.py:94
+msgid "criterion:attribute:values:help"
+msgstr "Alle mogelijke antwoorden op deze vraag, gescheiden met een comma."
+
+#: experiments/forms/criteria_forms.py:98
 #: experiments/models/criteria_models.py:172
-#: experiments/templates/criteria/specific_list.html:128
+#: experiments/templates/criteria/specific_list.html:122
 msgid "experiment_criterion:attribute:correct_value"
-msgstr "Correcte waarde"
+msgstr "Juist antwoord"
 
 #: experiments/forms/criteria_forms.py:99
+#: experiments/templates/criteria/specific_list.html:135
+msgid "experiment_criterion:attribute:correct_value:help"
+msgstr ""
+"Welk antwoord van de opgegeven antwoorden 'correct' is (voor dit experiment "
+"alleen)"
+
+#: experiments/forms/criteria_forms.py:103
 #: experiments/models/criteria_models.py:176
-#: experiments/templates/criteria/specific_list.html:146
+#: experiments/templates/criteria/specific_list.html:141
 msgid "experiment_criterion:attribute:message_failed"
 msgstr "Melding indien incorrect"
+
+#: experiments/forms/criteria_forms.py:104
+#: experiments/templates/criteria/specific_list.html:146
+msgid "experiment_criterion:attribute:message_failed:help"
+msgstr ""
+"Deze melding wordt getoond aan de participant als ze een 'verkeerd' antwoord "
+"hebben gegeven."
 
 #: experiments/forms/experiment_forms.py:35
 msgid "experiment:form:use_timeslots:true"
@@ -457,7 +485,7 @@ msgstr "Criterium aanpassen"
 #: experiments/templates/criteria/edit.html:27
 #: experiments/templates/criteria/new.html:27
 #: experiments/templates/criteria/update_default.html:28
-#: experiments/templates/experiments/edit.html:38
+#: experiments/templates/experiments/edit.html:42
 #: experiments/templates/experiments/email_templates.html:28
 #: experiments/templates/locations/edit.html:27
 #: experiments/templates/locations/new.html:27
@@ -491,7 +519,7 @@ msgstr "Aantal gelinkte experimenten"
 #: experiments/templates/experiments/detail_parts/comments.html:33
 #: experiments/templates/experiments/participants.html:64
 #: experiments/templates/locations/index.html:38
-#: experiments/templates/timeslots/index.html:68
+#: experiments/templates/timeslots/index.html:80
 msgid "experiments:globals:actions"
 msgstr "Acties"
 
@@ -499,7 +527,7 @@ msgstr "Acties"
 msgid "criteria:home:edit:title"
 msgstr "Criterium aanpassen"
 
-#: experiments/templates/criteria/index.html:94
+#: experiments/templates/criteria/index.html:95
 msgid "criteria:home:delete:title"
 msgstr "Criterium verwijderen"
 
@@ -518,22 +546,39 @@ msgid "criteria:specific_list:delete:title"
 msgstr "Verwijder criterium uit experiment"
 
 #: experiments/templates/criteria/specific_list.html:88
-msgid "criteria:specific_list:add_new:header"
-msgstr "Voeg nieuw criterium toe"
+msgid "criteria:specific_list:adding:header"
+msgstr "Nieuwe criteria koppelen"
 
-#: experiments/templates/criteria/specific_list.html:97
-#: experiments/templates/criteria/specific_list.html:156
-#: experiments/templates/timeslots/index.html:175
-msgid "experiments:globals:add_button"
-msgstr "Toevoegen"
+#: experiments/templates/criteria/specific_list.html:91
+msgid "criteria:specific_list:adding:p1"
+msgstr ""
+"Basiscriteria worden gedeeld tussen experimenten om uitsluiting efficiënter "
+"te maken. (bijv. deelnemers niet uitnodigen als we weten dat ze niet kunnen "
+"deelnemen). Elk experiment moet zijn eigen 'juiste antwoord' en 'melding "
+"indien incorrect' specificeren, dus je kunt 'het dragen van een bril' "
+"verplicht maken in experiment X en niet toegestaan in experiment Y.<br/> "
+"Hier kun je specifieke criteria aan dit experiment koppelen door een nieuw "
+"criterium aan te maken of door een bestaand criterium te selecteren. <br/"
+"><br/>Voordat je een nieuw criterium aanmaakt, kijk eerst of er al een "
+"passend criterium bestaat."
 
-#: experiments/templates/criteria/specific_list.html:104
+#: experiments/templates/criteria/specific_list.html:98
 msgid "criteria:specific_list:add_existing:header"
 msgstr "Voeg bestaand criterium toe"
 
-#: experiments/templates/criteria/specific_list.html:112
+#: experiments/templates/criteria/specific_list.html:106
 msgid "criteria:existing_form:criterion"
 msgstr "Criterium"
+
+#: experiments/templates/criteria/specific_list.html:152
+#: experiments/templates/criteria/specific_list.html:168
+#: experiments/templates/timeslots/index.html:43
+msgid "experiments:globals:add_button"
+msgstr "Toevoegen"
+
+#: experiments/templates/criteria/specific_list.html:159
+msgid "criteria:specific_list:add_new:header"
+msgstr "Voeg nieuw criterium toe"
 
 #: experiments/templates/criteria/update_default.html:9
 #: experiments/templates/criteria/update_default.html:15
@@ -748,7 +793,7 @@ msgid "experiments:detail:timeslots:taken_places"
 msgstr "Ingeplande plekken"
 
 #: experiments/templates/experiments/edit.html:8
-#: experiments/templates/experiments/edit.html:25
+#: experiments/templates/experiments/edit.html:29
 msgid "experiments:edit:header"
 msgstr "Wijzig experiment"
 
@@ -868,17 +913,17 @@ msgid "experiments:invite:invite_button"
 msgstr "Uitnodigen"
 
 #: experiments/templates/experiments/new.html:8
-#: experiments/templates/experiments/new.html:25
+#: experiments/templates/experiments/new.html:29
 msgid "experiments:new:header"
 msgstr "Nieuw experiment"
 
-#: experiments/templates/experiments/new.html:34
+#: experiments/templates/experiments/new.html:38
 msgid "experiments:new:info_text"
 msgstr ""
 "Hier kun je een nieuw experiment aanmaken. Criteria kun je op de volgende "
 "pagina instellen."
 
-#: experiments/templates/experiments/new.html:41
+#: experiments/templates/experiments/new.html:45
 msgid "experiments:globals:next_button"
 msgstr "Volgende >>"
 
@@ -893,7 +938,7 @@ msgstr " "
 
 #: experiments/templates/experiments/participants.html:51
 #: experiments/templates/experiments/participants.html:183
-#: experiments/templates/timeslots/index.html:50
+#: experiments/templates/timeslots/index.html:62
 msgid "timeslots:day"
 msgstr "Dag"
 
@@ -947,12 +992,12 @@ msgid "experiments:participants:sex"
 msgstr "Geslacht"
 
 #: experiments/templates/experiments/participants.html:123
-#: experiments/templates/timeslots/index.html:132
+#: experiments/templates/timeslots/index.html:144
 msgid "timeslots:remove_participant:title"
 msgstr "Verwijder participant uit dit timeslot."
 
 #: experiments/templates/experiments/participants.html:130
-#: experiments/templates/timeslots/index.html:139
+#: experiments/templates/timeslots/index.html:151
 msgid "timeslots:silent_remove_participant:title"
 msgstr ""
 "Verwijder participant uit dit timeslot (zonder automatische bevestigings-"
@@ -1008,29 +1053,29 @@ msgstr ""
 "tegenovergestelde effect hebben als de meeste van je tijdsloten slechts 1 "
 "plaats heeft."
 
-#: experiments/templates/timeslots/index.html:53
+#: experiments/templates/timeslots/index.html:37
+msgid "timeslots:home:new_timeslots:header"
+msgstr "Nieuw timeslot"
+
+#: experiments/templates/timeslots/index.html:65
 msgid "timeslots:date"
 msgstr "Datum"
 
-#: experiments/templates/timeslots/index.html:56
+#: experiments/templates/timeslots/index.html:68
 msgid "timeslots:time"
 msgstr "Tijd"
 
-#: experiments/templates/timeslots/index.html:59
+#: experiments/templates/timeslots/index.html:71
 msgid "timeslots:place"
 msgstr "Plaats #"
 
-#: experiments/templates/timeslots/index.html:62
+#: experiments/templates/timeslots/index.html:74
 msgid "timeslots:participant:name"
 msgstr "Participant"
 
-#: experiments/templates/timeslots/index.html:65
+#: experiments/templates/timeslots/index.html:77
 msgid "timeslots:participant:email"
 msgstr "Participant email"
-
-#: experiments/templates/timeslots/index.html:169
-msgid "timeslots:home:new_timeslots:header"
-msgstr "Nieuw timeslot"
 
 #: experiments/views/appointment_views.py:96
 msgid "timeslots:message:deleted_timeslot"
@@ -1132,19 +1177,3 @@ msgstr "Er is iets fout gegaan..."
 #: experiments/views/invite_views.py:69
 msgid "experiments:message:invite_success"
 msgstr "Participant(en) succesvol uitgenodigd!"
-
-#~ msgid "experiment:attribute:confirmation_email:help_text"
-#~ msgstr ""
-#~ "Er zijn enkele variabelen:<br/><code>{experiment_name}</code> De naam van "
-#~ "het experiment<br/><code>{experiment_location}</code> De locatie van het "
-#~ "experiment (indien ingesteld)<br/><code>{participant_name}</code> De naam "
-#~ "van de participant<br/><code>{date}</code> De datum van het gekozen "
-#~ "timeslot<br/><code>{time}</code> De tijd van het gekozen timeslot<br/"
-#~ "><code>{leader_name}</code> De naam van de proefleider<br/"
-#~ "><code>{leader_email}</code> De e-mail van de proefleider<br/"
-#~ "><code>{leader_phonenumber}</code> Het telefoonnummer van de "
-#~ "proefleider<br/><code>{all_leaders_name_list}</code> Een opsomming van "
-#~ "alle proefleiders, in goed Nederlands geformat<br/>"
-
-#~ msgid "experiments:home:edit_timeslots:title:disabled"
-#~ msgstr "Dit experiment gebruikt geen timeslots."

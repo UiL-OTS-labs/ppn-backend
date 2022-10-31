@@ -81,22 +81,27 @@ class ExperimentCriterionForm(TemplatedForm):
 
     name_form = forms.CharField(
         label=_('criterion:attribute:name_form'),
+        help_text=_('criterion:attribute:name_form:help'),
     )
 
     name_natural = forms.CharField(
         label=_('criterion:attribute:name_natural'),
+        help_text=_('criterion:attribute:name_natural:help'),
     )
 
     values = forms.CharField(
         label=_('criterion:attribute:values'),
+        help_text=_('criterion:attribute:values:help'),
     )
 
     correct_value = forms.CharField(
         label=_('experiment_criterion:attribute:correct_value'),
+        help_text=_('experiment_criterion:attribute:correct_value:help'),
     )
 
     message_failed = forms.CharField(
         label=_('experiment_criterion:attribute:message_failed'),
+        help_text=_('experiment_criterion:attribute:message_failed:help'),
         widget=forms.Textarea({'cols': 35}),
     )
 
