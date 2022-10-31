@@ -36,7 +36,7 @@ class ExperimentHomeView(braces.LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         qs = self.model.objects.select_related('location')
 
-        count_participants = Count('timeslot__appointments', distinct=True)
+        count_participants = Count('appointments', distinct=True)
         count_excluded_experiments = Count('excluded_experiments',
                                            distinct=True)
 
