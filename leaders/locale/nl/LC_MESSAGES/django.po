@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 15:54+0200\n"
+"POT-Creation-Date: 2022-10-31 13:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,9 +60,9 @@ msgstr "Informeer proefleider"
 #: leaders/forms.py:56
 msgid "leaders:forms:create_form:notify_user:help_text"
 msgstr ""
-"Als dit is aangevinkt zal het systeem een email sturen naar de over hun "
-"nieuwe account. Als er geen wachtwoord is opgegeven zal deze mail ook "
-"uitleggen hoe die zelf een wachtwoord kunnen instellen."
+"Als dit is aangevinkt zal het systeem een email sturen naar de proefleider "
+"over hun nieuwe account. Als er geen wachtwoord is opgegeven zal deze mail "
+"ook uitleggen hoe die zelf een wachtwoord kunnen instellen."
 
 #: leaders/forms.py:72 leaders/forms.py:122 leaders/forms.py:192
 #: leaders/forms.py:258
@@ -72,8 +72,8 @@ msgstr "Er bestaat al een proefleider met dit email adres!"
 #: leaders/forms.py:101
 msgid "leaders:forms:create_form:notify_user:help_text:ldap"
 msgstr ""
-"Als dit is aangevinkt zal het systeem een email sturen naar de over zijn/"
-"haar nieuwe account."
+"Als dit is aangevinkt zal het systeem een email sturen naar de proefleider "
+"over hun nieuwe account."
 
 #: leaders/forms.py:115 leaders/forms.py:250
 msgid "leader:form:email:error:not_uu_mail"
