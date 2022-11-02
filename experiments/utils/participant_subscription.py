@@ -49,7 +49,6 @@ def unsubscribe_participant(appointment_pk: int,
             html_template='timeslots/mail/unsubscribed.html',
             plain_template='timeslots/mail/unsubscribed.txt',
             template_context=context,
-            from_email=admin.email,
         )
 
 

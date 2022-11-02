@@ -184,7 +184,6 @@ def _create_new_account(participant: Participant, password: str = None) -> None:
         html_template='api/mail/new_account.html',
         plain_template='api/mail/new_account.txt',
         template_context=context,
-        from_email=get_supreme_admin().email
     )
 
 
@@ -224,7 +223,6 @@ def _send_existing_account_mail(
         html_template='api/mail/existing_leader_new_participant.html',
         plain_template='api/mail/existing_leader_new_participant.txt',
         template_context=context,
-        from_email=get_supreme_admin().email
     )
 
 

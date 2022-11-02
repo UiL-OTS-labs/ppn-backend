@@ -60,7 +60,6 @@ def _inform_leaders(appointment: Appointment) -> None:
             html_template='api/mail/participant_cancelled.html',
             plain_template='api/mail/participant_cancelled.txt',
             template_context=context,
-            from_email='no-reply@uu.nl'
         )
 
 
@@ -95,5 +94,4 @@ def _send_confirmation(appointment: Appointment) -> None:
         html_template='api/mail/cancelled_appointment.html',
         plain_template='api/mail/cancelled_appointment.txt',
         template_context=context,
-        from_email=admin.email,
     )

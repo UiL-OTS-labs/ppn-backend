@@ -174,7 +174,6 @@ def notify_new_leader(leader: Leader, existing=False) -> None:
         html_template=f"{template}.html",
         plain_template=f"{template}.html",
         template_context=context,
-        from_email='no-reply@uu.nl',
     )
 
 
@@ -192,7 +191,6 @@ def notify_new_ldap_leader(leader: Leader) -> None:
         html_template='leaders/mail/notify_new_ldap_leader.html',
         plain_template='leaders/mail/notify_new_ldap_leader.txt',
         template_context=context,
-        from_email='no-reply@uu.nl',
     )
 
 

@@ -25,7 +25,6 @@ def send_password_reset_mail(user: ApiUser, token: str) -> None:
         html_template='api/mail/password_reset.html',
         plain_template='api/mail/password_reset.txt',
         template_context=context,
-        from_email='no-reply@uu.nl'
     )
 
 
@@ -49,7 +48,6 @@ def send_cancel_token_mail(participant: Participant, token: str,
         html_template='api/mail/cancel_token.html',
         plain_template='api/mail/cancel_token.txt',
         template_context=context,
-        from_email='no-reply@uu.nl',
     )
 
 
