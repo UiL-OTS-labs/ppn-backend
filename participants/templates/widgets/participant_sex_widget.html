@@ -2,7 +2,7 @@
 <script nonce="{{ request.csp_nonce }}">
     $(function () {
         $('input[name="{{ widget.name }}_other"]').click(function () {
-            $('#id_sex_2').prop('checked', true);
+            $('#id_sex_3').prop('checked', true);
         });
         $('input[name="{{ widget.name }}"]').click(function () {
             $('input[name="{{ widget.name }}_other"]').val('');
