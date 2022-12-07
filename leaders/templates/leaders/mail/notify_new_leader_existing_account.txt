@@ -2,7 +2,7 @@
 
 Beste {{ name }},
 
-Een administrator heeft een proefleider profiel voor je aangemaakt voor het UiL OTS proefpersoonwervingssyteem!
+Een administrator heeft een proefleider profiel voor je aangemaakt voor het ILS Labs proefpersoonwervingssyteem!
 
 Je kan met je bestaande account ({{ email }}) inloggen op deze pagina:
 {{ login_link }}
@@ -11,7 +11,7 @@ Je kan met je bestaande account ({{ email }}) inloggen op deze pagina:
 
 Dear {{ name }},
 
-An administrator has created a test leader profile for your account for the UiL OTS participant recruitment system!
+An administrator has created a test leader profile for your account for the ILS Labs participant recruitment system!
 
 You can log in using your existing account ({{ email }}), using the following link:
 {{ login_link }}

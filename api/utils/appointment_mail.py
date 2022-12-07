@@ -24,7 +24,7 @@ def send_appointment_mail(
     admin = get_supreme_admin()
     template = 'api/mail/new_appointment'
 
-    subject = 'Bevestiging inschrijving experiment UiL OTS: {}'.format(
+    subject = 'Bevestiging inschrijving experiment ILS Labs: {}'.format(
         experiment.name
     )
 
