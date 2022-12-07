@@ -157,7 +157,7 @@ def notify_new_leader(leader: Leader, existing=False) -> None:
         link = None
         alternative_link = None
 
-    subject = 'UiL OTS Experimenten: new account'
+    subject = 'ILS Labs Experimenten: new account'
     context = {
         'has_password':     has_password,
         'token':            token,
@@ -178,7 +178,7 @@ def notify_new_leader(leader: Leader, existing=False) -> None:
 
 
 def notify_new_ldap_leader(leader: Leader) -> None:
-    subject = 'UiL OTS Experimenten: new account'
+    subject = 'ILS Labs Experimenten: new account'
     context = {
         'name':             leader.name,
         'email':            leader.api_user.email,

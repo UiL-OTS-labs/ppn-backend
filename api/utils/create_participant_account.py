@@ -179,7 +179,7 @@ def _create_new_account(participant: Participant, password: str = None) -> None:
 
     send_template_email(
         [participant.email],
-        "UiL OTS: Account aangemaakt",
+        "ILS Labs: Account aangemaakt",
         'api/mail/new_account',
         context,
         get_supreme_admin().email
@@ -218,7 +218,7 @@ def _send_existing_account_mail(
 
     send_template_email(
         [participant.email],
-        "UiL OTS: Account aangemaakt",
+        "ILS Labs: Account aangemaakt",
         'api/mail/existing_leader_new_participant',
         context,
         get_supreme_admin().email

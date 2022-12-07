@@ -11,7 +11,7 @@ def remind_participant(appointment: Appointment) -> None:
     experiment = appointment.timeslot.experiment
     admin = get_supreme_admin()
 
-    subject = 'UiL OTS *Reminder* opgave experiment: {}'.format(experiment.name)
+    subject = 'ILS Labs *Reminder* opgave experiment: {}'.format(experiment.name)
     context = {
         'participant':     appointment.participant,
         'time_slot':       appointment.timeslot,

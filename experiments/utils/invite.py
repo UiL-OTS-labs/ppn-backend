@@ -66,7 +66,7 @@ def mail_invite(
     participants = Participant.objects.filter(pk__in=participant_ids)
     participants.prefetch_related()
 
-    subject = 'UiL OTS uitnodiging deelname experiment: {}'.format(
+    subject = 'ILS Labs uitnodiging deelname experiment: {}'.format(
         experiment.name
     )
 
