@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 15:54+0200\n"
+"POT-Creation-Date: 2022-10-31 13:32+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgstr ""
 
 #: main/templates/base/ppn_base.html:32
 msgid "site:header:title"
-msgstr "UiL OTS Experiments Admin"
+msgstr "ILS Labs Experiments Admin"
 
 #: main/templates/base/ppn_base.html:52
 msgid "site:header:login"
@@ -226,15 +226,15 @@ msgstr "Name"
 msgid "users:home:actions"
 msgstr "Actions"
 
-#: main/templates/users/index.html:104 main/templates/users/index.html:112
+#: main/templates/users/index.html:118 main/templates/users/index.html:127
 msgid "users:home:edit:title"
 msgstr "Edit account"
 
-#: main/templates/users/index.html:119
+#: main/templates/users/index.html:135
 msgid "users:home:change_password:title"
 msgstr "Change password"
 
-#: main/templates/users/index.html:130
+#: main/templates/users/index.html:147
 msgid "users:home:delete:title"
 msgstr "Delete account"
 

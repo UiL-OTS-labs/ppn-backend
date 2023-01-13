@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-24 15:54+0200\n"
+"POT-Creation-Date: 2022-10-31 13:32+0100\n"
 "PO-Revision-Date: 2018-11-23 08:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -89,7 +89,7 @@ msgstr ""
 
 #: main/templates/base/ppn_base.html:32
 msgid "site:header:title"
-msgstr "Experimenten UiL OTS Admin"
+msgstr "Experimenten ILS Labs Admin"
 
 #: main/templates/base/ppn_base.html:52
 msgid "site:header:login"
@@ -228,15 +228,15 @@ msgstr "Naam"
 msgid "users:home:actions"
 msgstr "Acties"
 
-#: main/templates/users/index.html:104 main/templates/users/index.html:112
+#: main/templates/users/index.html:118 main/templates/users/index.html:127
 msgid "users:home:edit:title"
 msgstr "Wijzig account"
 
-#: main/templates/users/index.html:119
+#: main/templates/users/index.html:135
 msgid "users:home:change_password:title"
 msgstr "Wijzig wachtwoord"
 
-#: main/templates/users/index.html:130
+#: main/templates/users/index.html:147
 msgid "users:home:delete:title"
 msgstr "Verwijder account"
 
