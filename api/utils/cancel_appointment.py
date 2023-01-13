@@ -45,7 +45,7 @@ def _inform_leaders(appointment: Appointment) -> None:
         leaders.extend(experiment.additional_leaders.all())
 
     for leader in leaders:
-        subject = 'UiL OTS participant deregistered for experiment: {}'.format(
+        subject = 'ILS Labs participant deregistered for experiment: {}'.format(
             experiment.name)
         context = {
             'participant': appointment.participant,
@@ -74,7 +74,7 @@ def _send_confirmation(appointment: Appointment) -> None:
     experiment = appointment.experiment
     time_slot = appointment.timeslot
 
-    subject = 'UiL OTS uitschrijven experiment: {}'.format(experiment.name)
+    subject = 'ILS Labs uitschrijven experiment: {}'.format(experiment.name)
     context = {
         'participant':             appointment.participant,
         'time_slot':               time_slot,

@@ -180,7 +180,7 @@ def _create_new_account(participant: Participant, password: str = None) -> None:
 
     send_template_email(
         [participant.email],
-        "UiL OTS: Account aangemaakt",
+        "ILS Labs: Account aangemaakt",
         html_template='api/mail/new_account.html',
         plain_template='api/mail/new_account.txt',
         template_context=context,
@@ -219,7 +219,7 @@ def _send_existing_account_mail(
 
     send_template_email(
         [participant.email],
-        "UiL OTS: Account aangemaakt",
+        "ILS Labs: Account aangemaakt",
         html_template='api/mail/existing_leader_new_participant.html',
         plain_template='api/mail/existing_leader_new_participant.txt',
         template_context=context,

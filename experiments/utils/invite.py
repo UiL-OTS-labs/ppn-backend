@@ -45,7 +45,7 @@ def mail_invite(
     email = InviteEmail(
         to='',
         contents=content,
-        subject='UiL OTS uitnodiging deelname experiment: {}'.format(
+        subject='ILS Labs uitnodiging deelname experiment: {}'.format(
             experiment.name
         ),
     )

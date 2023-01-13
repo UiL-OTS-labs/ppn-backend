@@ -58,7 +58,7 @@ def send_appointment_mail(
 
     email = ConfirmationEmail(
         to=[participant.email],
-        subject='Bevestiging inschrijving experiment UiL OTS: {}'.format(
+        subject='Bevestiging inschrijving experiment ILS Labs: {}'.format(
             experiment.name
         ),
         contents=experiment.confirmation_email,
