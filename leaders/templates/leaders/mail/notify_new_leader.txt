@@ -22,7 +22,7 @@ Indien de bovenstaande link niet werkt, klik op de onderstaande link en vul je t
 
 Dear {{ name }},
 
-An administrator has created an account for you for the UiL OTS participant recruitment system!
+An administrator has created an account for you for the ILS Labs participant recruitment system!
 
 Login: {{ email }}><br/>
 {% if not has_password %}

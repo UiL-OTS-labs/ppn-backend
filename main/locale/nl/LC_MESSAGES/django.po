@@ -81,7 +81,7 @@ msgstr "Solis Account"
 #. Translators: This is the title that will end up in the tab of the browser
 #: main/templates/base/ppn_base.html:11
 msgid "site:name"
-msgstr "Experimenten UiL OTS Admin"
+msgstr "Experimenten ILS Labs Admin"
 
 #: main/templates/base/ppn_base.html:25 main/templates/base/ppn_base.html:26
 msgid "cdh.core:uu"

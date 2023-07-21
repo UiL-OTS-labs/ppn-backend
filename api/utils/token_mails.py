@@ -11,7 +11,7 @@ from participants.models import Participant
 def send_password_reset_mail(user: ApiUser, token: str) -> None:
     link, alternative_link = get_reset_links(token)
 
-    subject = 'UiL OTS Experimenten: password reset'
+    subject = 'ILS Labs Experimenten: password reset'
     context = {
         'token':            token,
         'name':             _get_name(user),
@@ -35,7 +35,7 @@ def send_cancel_token_mail(participant: Participant, token: str,
         "participant/appointments/{}/".format(token)
     )
 
-    subject = 'UiL OTS Experimenten: afspraak afzeggen'
+    subject = 'ILS Labs Experimenten: afspraak afzeggen'
     context = {
         'token': token,
         'name':  participant.name or 'proefpersoon',

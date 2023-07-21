@@ -32,7 +32,7 @@ def unsubscribe_participant(appointment_pk: int,
     if sent_email:
         admin = get_supreme_admin()
 
-        subject = 'UiL OTS uitschrijven experiment: {}'.format(experiment.name)
+        subject = 'ILS Labs uitschrijven experiment: {}'.format(experiment.name)
         context = {
             'participant':     appointment.participant,
             'time_slot':       time_slot,
