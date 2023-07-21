@@ -6,7 +6,7 @@ DEFAULT_SENDER = "Taal-experimenten"
 
 DEFAULT_INVITE_FOOTER = "<p>Je ontvangt deze e-mail omdat je je e-mailadres" \
                         " hebt opgegeven om informatie te ontvangen over " \
-                        "nieuwe experimenten in het UiL OTS. Indien je deze " \
+                        "nieuwe experimenten in de ILS Labs. Indien je deze " \
                         "e-mails niet meer wilt ontvangen klik dan " \
                         "<a href=\"{{ unsub_link }}\" " \
                         "style=\"color:#fff\">hier</a>.</p>"
@@ -38,7 +38,7 @@ DEFAULT_CONFIRMATION_CONTENT = """<p>Beste {{ name }},</p>
     </p>
     <p>
         Met vriendelijke groet,<br/>
-        het UiL OTS lab
+        de ILS Labs
     </p>"""
 
 DEFAULT_INVITE_CONTENT = """<p>Je kunt je weer opgeven voor een nieuw 
