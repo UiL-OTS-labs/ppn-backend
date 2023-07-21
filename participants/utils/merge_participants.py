@@ -81,8 +81,15 @@ def merge_participants(existing: Participant,
     existing.phonenumber = new.phonenumber
     existing.social_status = new.social_status
     existing.email = new.email
-    existing.save()
+    existing.email_subscription = new.email_subscription
 
+    # Only transfer these attributes if the existing object doesn't have a value
+    # for them.
+    for attr in ['birth_date', 'handedness', 'sex', 'dyslexic', 'multilingual']:
+        if getattr(existing, attr, None) is None:
+            setattr(existing, attr, getattr(new, attr, None))
+
+    existing.save()
 
     # Log the modification
     _log(existing, new, performing_user)
