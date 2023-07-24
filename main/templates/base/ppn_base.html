@@ -1,4 +1,4 @@
-{% extends 'base/base.html' %}
+{% extends 'base/tool_base.html' %}
 
 {% load static %}
 {% load i18n %}
@@ -14,6 +14,29 @@
 {% block html_head %}
     <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
     <link href="{%  static 'main/admin.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block uu-header-pre-menu %}
+    <div
+        class="navbar-text fs-4 text-black d-none d-lg-flex text-nowrap pe-4"
+    >
+        <a href="//{{ request.META.HTTP_HOST }}" class="d-none d-lg-flex text-decoration-none">
+            {% trans 'site:header:title' %}
+        </a>
+    </div>
+{% endblock %}
+
+{% block uu-header-post-menu %}
+    <div class="navbar-text border-left text-muted text-uppercase text-nowrap">
+        {% if request.user.is_authenticated %}
+            {% with request.user as user %}
+                <a href="{% url 'main:logout' %}" class="text-muted text-decoration-none">{% trans 'main:globals:logout' %}</a>
+            {% endwith %}
+        {% else %}
+            <a href="{% url 'main:login' %}" class="text-muted text-decoration-none">{% trans 'main:globals:login' %}</a>
+        {% endif %}
+    </div>
+    {% include 'base/tool_language_box.html' %}
 {% endblock %}
 
 {% block uu-header %}

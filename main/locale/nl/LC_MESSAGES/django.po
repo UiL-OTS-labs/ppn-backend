@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-31 13:32+0100\n"
+"POT-Creation-Date: 2023-07-24 12:22+0200\n"
 "PO-Revision-Date: 2018-11-23 08:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -30,43 +30,44 @@ msgstr ""
 msgid "mainmenu:home"
 msgstr "Home"
 
-#: main/menus.py:11
+#: main/menus.py:12
 msgid "mainmenu:experiments"
 msgstr "Experimenten"
 
-#: main/menus.py:16
+#: main/menus.py:17
 msgid "mainmenu:locations"
 msgstr "Locaties"
 
-#: main/menus.py:21
+#: main/menus.py:22
 msgid "mainmenu:criteria"
 msgstr "Criteria"
 
-#: main/menus.py:26
+#: main/menus.py:27
 msgid "mainmenu:leaders"
 msgstr "Proefleiders"
 
-#: main/menus.py:31
+#: main/menus.py:32
 msgid "mainmenu:participants"
 msgstr "Participanten"
 
-#: main/menus.py:36
+#: main/menus.py:37
 msgid "mainmenu:comments"
 msgstr "Opmerkingen"
 
-#: main/menus.py:41
+#: main/menus.py:42
 msgid "mainmenu:admins"
 msgstr "Admins"
 
-#: main/menus.py:47
+#: main/menus.py:48
 msgid "mainmenu:datamanagement"
 msgstr "Data management"
 
-#: main/menus.py:53
+#: main/menus.py:54
 msgid "footermenu:login"
 msgstr "Log in"
 
-#: main/menus.py:58 main/templates/base/ppn_base.html:54
+#: main/menus.py:59 main/templates/base/ppn_base.html:33
+#: main/templates/base/ppn_base.html:77
 msgid "main:globals:logout"
 msgstr "Log uit"
 
@@ -83,23 +84,27 @@ msgstr "Solis Account"
 msgid "site:name"
 msgstr "Experimenten ILS Labs Admin"
 
-#: main/templates/base/ppn_base.html:25 main/templates/base/ppn_base.html:26
+#: main/templates/base/ppn_base.html:24 main/templates/base/ppn_base.html:55
+msgid "site:header:title"
+msgstr "Experimenten Admin"
+
+#: main/templates/base/ppn_base.html:36
+msgid "main:globals:login"
+msgstr "Log in"
+
+#: main/templates/base/ppn_base.html:48 main/templates/base/ppn_base.html:49
 msgid "cdh.core:uu"
 msgstr ""
 
-#: main/templates/base/ppn_base.html:32
-msgid "site:header:title"
-msgstr "Experimenten ILS Labs Admin"
-
-#: main/templates/base/ppn_base.html:52
+#: main/templates/base/ppn_base.html:75
 msgid "site:header:login"
 msgstr "Welkom {}!"
 
-#: main/templates/base/ppn_base.html:65
+#: main/templates/base/ppn_base.html:88
 msgid "lang:en"
 msgstr ""
 
-#: main/templates/base/ppn_base.html:70
+#: main/templates/base/ppn_base.html:93
 msgid "lang:nl"
 msgstr ""
 

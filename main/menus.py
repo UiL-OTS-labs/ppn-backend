@@ -3,9 +3,10 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from menu import Menu, MenuItem
 
-Menu.add_item("home", MenuItem(_('mainmenu:home'),
+Menu.add_item("main", MenuItem(_('mainmenu:home'),
                                reverse('main:home'),
-                               exact_url=True
+                               exact_url=True,
+                               check=lambda x: x.user.is_authenticated,
                                ))
 
 Menu.add_item("main", MenuItem(_('mainmenu:experiments'),
