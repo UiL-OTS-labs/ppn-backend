@@ -14,7 +14,7 @@ bpython==0.24
     #   cdh-django-core
 build==0.10.0
     # via pip-tools
-cdh-django-core @ git+https://github.com/DH-IT-Portal-Development/django-shared-core.git@v3.1.0-alpha-5
+cdh-django-core @ git+https://github.com/DH-IT-Portal-Development/django-shared-core.git@v3.1.0-alpha-6
     # via -r requirements.in
 certifi==2023.7.22
     # via requests
