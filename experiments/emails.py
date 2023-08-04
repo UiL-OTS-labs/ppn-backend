@@ -17,7 +17,6 @@ DEFAULT_REMINDER_FOOTER = "Dit bericht is automatisch verzonden omdat je je " \
 DEFAULT_CONFIRMATION_FOOTER = "<p>Dit bericht is automatisch verzonden omdat " \
                               "je je hebt ingeschreven voor een experiment.</p>"
 
-
 DEFAULT_CONFIRMATION_CONTENT = """<p>Beste {{ name }},</p>
     <p>
         Je hebt een afspraak gemaakt om mee te doen met het experiment: 
@@ -86,24 +85,75 @@ DEFAULT_REMINDER_CONTENT = """<p>Beste {{ name }},</p>
 
 class InviteEmail(BaseCustomTemplateEmail):
     user_variable_defs = [
-        CTEVarDef('name', _("invite-email.vars.name"), "proefpersoon"),
-        CTEVarDef('duration', _("invite-email.vars.duration")),
-        CTEVarDef('compensation', _("invite-email.vars.compensation")),
-        CTEVarDef('task_description', _("invite-email.vars.task_description")),
-        CTEVarDef('additional_instructions', _("invite-email.vars.additional_instructions")),
-        CTEVarDef('experiment_name', _("invite-email.vars.experiment_name")),
-        CTEVarDef('experiment_location', _("invite-email.vars.experiment_location")),
-        CTEVarDef('leader_name', _("invite-email.vars.leader_name")),
-        CTEVarDef('leader_email', _("invite-email.vars.leader_email")),
-        CTEVarDef('leader_phonenumber', _("invite-email.vars.leader_phonenumber")),
-        CTEVarDef('all_leaders_name_list', _("invite-email.vars.all_leaders_name_list")),
-        CTEVarDef('admin', _("invite-email.vars.admin")),
-        CTEVarDef('reg_link', _("invite-email.vars.reg_link")),
+        CTEVarDef(
+            'name',
+            _("invite-email.vars.name"),
+            "proefpersoon",
+        ),
+        CTEVarDef(
+            'duration',
+            _("invite-email.vars.duration"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'compensation',
+            _("invite-email.vars.compensation"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'task_description',
+            _("invite-email.vars.task_description"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'additional_instructions',
+            _("invite-email.vars.additional_instructions"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'experiment_name',
+            _("invite-email.vars.experiment_name"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'experiment_location',
+            _("invite-email.vars.experiment_location"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'leader_name',
+            _("invite-email.vars.leader_name"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'leader_email',
+            _("invite-email.vars.leader_email"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'leader_phonenumber',
+            _("invite-email.vars.leader_phonenumber"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'all_leaders_name_list',
+            _("invite-email.vars.all_leaders_name_list"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'admin',
+            _("invite-email.vars.admin"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'reg_link',
+            _("invite-email.vars.reg_link"),
+            safe=True,
+        ),
     ]
     default_content = DEFAULT_INVITE_CONTENT
 
     def __init__(self, *args, **kwargs):
-
         super().__init__(*args, **kwargs)
         self.sender = DEFAULT_SENDER
         self.banner = "Uitnodiging deelname experiment: <strong>{{ " \
@@ -115,22 +165,67 @@ class InviteEmail(BaseCustomTemplateEmail):
 
 class ReminderEmail(BaseCustomTemplateEmail):
     user_variable_defs = [
-        CTEVarDef('name', _("reminder-email.vars.name"), "proefpersoon"),
-        CTEVarDef('experiment_name', _("reminder-email.vars.experiment_name")),
-        CTEVarDef('experiment_location', _("reminder-email.vars.experiment_location")),
-        CTEVarDef('date', _("reminder-email.vars.date"), "Dinsdag 10-11-2011"),
-        CTEVarDef('time', _("reminder-email.vars.time"), "13:40"),
-        CTEVarDef('leader_name', _("reminder-email.vars.leader_name")),
-        CTEVarDef('leader_email', _("reminder-email.vars.leader_email")),
-        CTEVarDef('leader_phonenumber', _("reminder-email.vars.leader_phonenumber")),
-        CTEVarDef('all_leaders_name_list', _("reminder-email.vars.all_leaders_name_list")),
-        CTEVarDef('admin', _("reminder-email.vars.admin")),
-        CTEVarDef('cancel_link', _("reminder-email.vars.cancel_link")),
+        CTEVarDef(
+            'name',
+            _("reminder-email.vars.name"),
+            "proefpersoon",
+        ),
+        CTEVarDef(
+            'experiment_name',
+            _("reminder-email.vars.experiment_name"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'experiment_location',
+            _("reminder-email.vars.experiment_location"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'date',
+            _("reminder-email.vars.date"),
+            "Dinsdag 10-11-2011",
+            safe=True,
+        ),
+        CTEVarDef(
+            'time',
+            _("reminder-email.vars.time"),
+            "13:40",
+            safe=True,
+        ),
+        CTEVarDef(
+            'leader_name',
+            _("reminder-email.vars.leader_name"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'leader_email',
+            _("reminder-email.vars.leader_email"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'leader_phonenumber',
+            _("reminder-email.vars.leader_phonenumber"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'all_leaders_name_list',
+            _("reminder-email.vars.all_leaders_name_list"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'admin',
+            _("reminder-email.vars.admin"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'cancel_link',
+            _("reminder-email.vars.cancel_link"),
+            safe=True,
+        ),
     ]
     default_content = DEFAULT_REMINDER_CONTENT
 
     def __init__(self, *args, **kwargs):
-
         super().__init__(*args, **kwargs)
         self.sender = DEFAULT_SENDER
         self.banner = "Herinnering afspraak experiment " \
@@ -150,28 +245,50 @@ class ConfirmationEmail(BaseCustomTemplateEmail):
         CTEVarDef(
             'experiment_name',
             _("confirmation-email.vars.experiment_name"),
+            safe=True,
         ),
         CTEVarDef(
             'experiment_location',
             _("confirmation-email.vars.experiment_location"),
+            safe=True,
         ),
         CTEVarDef(
             'date',
             _("confirmation-email.vars.date"),
-            "Dinsdag 10-11-2011"
+            "Dinsdag 10-11-2011",
+            safe=True,
         ),
-        CTEVarDef('time', _("confirmation-email.vars.time"), "13:40"),
-        CTEVarDef('leader_name', _("confirmation-email.vars.leader_name")),
-        CTEVarDef('leader_email', _("confirmation-email.vars.leader_email")),
+        CTEVarDef(
+            'time',
+            _("confirmation-email.vars.time"),
+            "13:40",
+            safe=True,
+        ),
+        CTEVarDef(
+            'leader_name',
+            _("confirmation-email.vars.leader_name"),
+            safe=True,
+        ),
+        CTEVarDef(
+            'leader_email',
+            _("confirmation-email.vars.leader_email"),
+            safe=True,
+        ),
         CTEVarDef(
             'leader_phonenumber',
-            _("confirmation-email.vars.leader_phonenumber")
+            _("confirmation-email.vars.leader_phonenumber"),
+            safe=True,
         ),
         CTEVarDef(
             'all_leaders_name_list',
-            _("confirmation-email.vars.all_leaders_name_list")
+            _("confirmation-email.vars.all_leaders_name_list"),
+            safe=True,
         ),
-        CTEVarDef('cancel_link', _("confirmation-email.vars.cancel_link")),
+        CTEVarDef(
+            'cancel_link',
+            _("confirmation-email.vars.cancel_link"),
+            safe=True,
+        ),
     ]
     default_content = DEFAULT_CONFIRMATION_CONTENT
 
