@@ -10,7 +10,6 @@ from api.utils import get_reset_links
 from comments.utils import add_system_comment
 from leaders.utils import _get_tomorrow
 from participants.models import Participant, SecondaryEmail
-from main.utils import get_supreme_admin
 from participants.utils import get_mailinglist_unsubscribe_url
 
 SYSTEM_MESSAGES = {
@@ -182,7 +181,7 @@ def _create_new_account(participant: Participant, password: str = None) -> None:
         "ILS Labs: Account aangemaakt",
         'api/mail/new_account',
         context,
-        get_supreme_admin().email
+        settings.EMAIL_FROM
     )
 
 
@@ -221,7 +220,7 @@ def _send_existing_account_mail(
         "ILS Labs: Account aangemaakt",
         'api/mail/existing_leader_new_participant',
         context,
-        get_supreme_admin().email
+        settings.EMAIL_FROM
     )
 
 

@@ -94,7 +94,7 @@ def mail_invite(
         data,
         'experiments/mail/invite',
         context,
-        admin.email,
+        settings.EMAIL_FROM,
         plain_context=plain_text_context
     )
 

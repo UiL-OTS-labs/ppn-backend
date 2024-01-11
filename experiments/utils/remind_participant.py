@@ -24,7 +24,7 @@ def remind_participant(appointment: Appointment) -> None:
         subject,
         'experiments/mail/reminder',
         context,
-        admin.email
+        settings.EMAIL_FROM
     )
 
 
