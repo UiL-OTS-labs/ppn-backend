@@ -74,7 +74,7 @@ def _send_confirmation(appointment: Appointment) -> None:
         'time_slot':               time_slot,
         'experiment':              experiment,
         'admin':                   admin.get_full_name(),
-        'admin_email':             admin.email,
+        'admin_email':             settings.EMAIL_FROM,
         'other_time_link':         get_register_link(experiment),
         'home_link':               settings.FRONTEND_URI,
         'mailinglist_unsubscribe': get_mailinglist_unsubscribe_url(
@@ -87,5 +87,5 @@ def _send_confirmation(appointment: Appointment) -> None:
         subject,
         'api/mail/cancelled_appointment',
         context,
-        admin.email
+        settings.EMAIL_FROM
     )

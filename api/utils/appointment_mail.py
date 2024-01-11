@@ -80,7 +80,7 @@ def send_appointment_mail(
                 replacements
             )
         },
-        admin.email
+        settings.EMAIL_FROM
     )
 
 
