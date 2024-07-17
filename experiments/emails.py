@@ -50,7 +50,7 @@ DEFAULT_INVITE_CONTENT = """<p>Je kunt je weer opgeven voor een nieuw
     <li>{{ additional_instructions }}</li>
 </ul>
 
-<p>Je kunt via <a href="{{ ref_link }}">deze link</a> inschrijven.</p>
+<p>Je kunt via <a href="{{ reg_link }}">deze link</a> inschrijven.</p>
 
 <p>Bedankt!</p>
 
