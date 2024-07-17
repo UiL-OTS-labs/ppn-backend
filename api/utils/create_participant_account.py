@@ -9,7 +9,7 @@ from api.auth.models import ApiUser, ApiGroup, UserToken
 from api.utils import get_reset_links
 from comments.utils import add_system_comment
 from leaders.utils import _get_tomorrow
-from participants.models import Participant
+from participants.models import Participant, SecondaryEmail
 from participants.utils import get_mailinglist_unsubscribe_url
 from participants.utils.switch_main_email import switch_main_email
 

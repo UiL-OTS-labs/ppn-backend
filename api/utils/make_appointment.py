@@ -9,6 +9,7 @@ Steps:
 """
 from typing import List, Tuple
 
+from django.conf import settings
 from django.core.exceptions import SuspiciousOperation
 from django.core.validators import ValidationError, validate_email
 from django.utils.dateparse import parse_date
@@ -552,7 +553,7 @@ def _format_messages(*messages: List[str]) -> list:
 def _format_message(message: str) -> str:
     admin = get_supreme_admin()
     contact_string = '<a href="mailto:{}">{}</a>'.format(
-        admin.email,
+        settings.EMAIL_FROM,
         admin.get_full_name()
     )
 

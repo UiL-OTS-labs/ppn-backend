@@ -84,7 +84,7 @@ def get_eligible_participants_for_experiment(experiment: Experiment,
 def check_participant_eligible(experiment: Experiment, participant:
 Participant) -> bool:
     """
-    This function checks if a given participant can participate in a given 
+    This function checks if a given participant can participate in a given
     experiment
     """
 
@@ -124,9 +124,10 @@ def build_exclusion_filters(default_criteria, filters=None) -> dict:
         if getattr(default_criteria, var) != 'I':
             filters[var] = getattr(default_criteria, var)
 
-    # Dyslexia is always a filter
-    expected_value = default_criteria.dyslexia == 'Y'
-    filters['dyslexic'] = expected_value
+    # Rewrite this expected to a boolean value, as it's stored as a boolean
+    if default_criteria.dyslexia != 'I':
+        expected_value = default_criteria.dyslexia == 'Y'
+        filters['dyslexic'] = expected_value
 
     # Rewrite this expected to a boolean value, as it's stored as a boolean
     if default_criteria.multilingual != 'I':
