@@ -39,3 +39,11 @@
 .uu-root-container .uu-unified-header .uu-unified-header-container .navbar-nav .nav-link:hover {
     --bs-nav-link-hover-border-color: var(--bs-blue);
 }
+
+/* Needed because we use a larger container width */
+@media (max-width: 100rem) {
+  .uu-root-container .uu-unified-header, .uu-root-container .uu-hero, .uu-root-container .uu-cover .uu-cover-hero, .uu-root-container .uu-container  {
+    padding-left: var(--bs-uu-container-padding-x) !important;
+    padding-right: var(--bs-uu-container-padding-x) !important;
+  }
+}
