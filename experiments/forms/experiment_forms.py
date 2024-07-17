@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 from cdh.core.forms import TemplatedModelForm, BootstrapCheckboxInput, \
     BootstrapRadioSelect, BootstrapSelect, TinyMCEWidget
-from cdh.core.mail.widgets import EmailContentEditWidget
+from cdh.mail.widgets import EmailContentEditWidget
 
 from ..models import Experiment
 

@@ -1,5 +1,5 @@
 import braces.views as braces
-from cdh.core.mail import BaseEmailPreviewView
+from cdh.mail.views import BaseEmailPreviewView
 from django.contrib.messages import error, success
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext as _
@@ -61,6 +61,7 @@ class InviteParticipantsForExperimentView(braces.LoginRequiredMixin,
                 self.experiment
             )
         except Exception as e:
+            print(e)
             failed = True
 
         if failed:

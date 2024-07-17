@@ -1,6 +1,6 @@
 import braces.views as braces
 from django.contrib import messages
-from django.contrib.auth.views import SuccessURLAllowedHostsMixin
+from django.contrib.auth.views import RedirectURLMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Count, F, Q
 from django.urls import reverse_lazy as reverse
@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
 from api.utils.appointment_mail import get_initial_confirmation_context
-from cdh.core.mail import BaseEmailPreviewView
+from cdh.mail.views import BaseEmailPreviewView
 from cdh.core.views import RedirectActionView
 from cdh.core.views.mixins import DeleteSuccessMessageMixin, \
     RedirectSuccessMessageMixin
@@ -57,7 +57,7 @@ class ExperimentCreateView(braces.LoginRequiredMixin, SuccessMessageMixin,
 
 
 class ExperimentUpdateView(braces.LoginRequiredMixin,
-                           SuccessURLAllowedHostsMixin,
+                           RedirectURLMixin,
                            SuccessMessageMixin,
                            generic.UpdateView):
     template_name = 'experiments/edit.html'
@@ -227,7 +227,7 @@ class ExperimentAppointmentsView(braces.LoginRequiredMixin,
 
 class ExperimentEmailTemplatesUpdateView(
     braces.LoginRequiredMixin,
-    SuccessURLAllowedHostsMixin,
+    RedirectURLMixin,
     SuccessMessageMixin,
     generic.UpdateView
 ):

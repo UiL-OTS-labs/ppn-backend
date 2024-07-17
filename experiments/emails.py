@@ -1,6 +1,6 @@
 from django.utils.translation import gettext_lazy as _
 
-from cdh.core.mail import BaseCustomTemplateEmail, CTEVarDef
+from cdh.mail.classes import BaseCustomTemplateEmail, CTEVarDef
 
 DEFAULT_SENDER = "Taal-experimenten"
 

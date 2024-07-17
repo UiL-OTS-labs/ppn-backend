@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     # local apps
     'cdh.vue',
+    'cdh.mail',
     'api',
     'api.auth',
     'main',

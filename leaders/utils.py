@@ -5,7 +5,7 @@ from typing import Optional
 
 from django.conf import settings
 from pytz import timezone
-from cdh.core.mail.utils import send_template_email
+from cdh.mail.utils import send_template_email
 
 from api.auth.ldap_backend import ApiLdapBackend
 from api.auth.models import ApiGroup, ApiUser, UserToken

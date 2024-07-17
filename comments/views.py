@@ -1,5 +1,5 @@
 import braces.views as braces
-from django.contrib.auth.views import SuccessURLAllowedHostsMixin
+from django.contrib.auth.views import RedirectURLMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy as reverse
 from django.utils.http import url_has_allowed_host_and_scheme
@@ -48,7 +48,7 @@ class CommentCreateView(braces.LoginRequiredMixin, SuccessMessageMixin,
 
 
 class CommentsDeleteView(braces.LoginRequiredMixin,
-                         SuccessURLAllowedHostsMixin,
+                         RedirectURLMixin,
                          DeleteSuccessMessageMixin,
                          generic.DeleteView):
     model = Comment

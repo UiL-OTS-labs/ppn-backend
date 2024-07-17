@@ -7,10 +7,10 @@ from participants.models import Participant
 
 def get_mailinglist_unsubscribe_token(participant: Participant) -> UserToken:
     try:
-        token = UserToken.objects.get(
+        token = UserToken.objects.filter(
             participant=participant,
             type=UserToken.MAILINGLIST_UNSUBSCRIBE
-        )
+        ).first()
 
     except UserToken.DoesNotExist:
         token = UserToken(

@@ -3,14 +3,13 @@ from enum import Enum
 from django.conf import settings
 
 from participants.utils.mailinglist_unsubscribe import get_login_page_url
-from cdh.core.mail.utils import send_template_email
+from cdh.mail.utils import send_template_email
 
 from api.auth.models import ApiUser, ApiGroup, UserToken
 from api.utils import get_reset_links
 from comments.utils import add_system_comment
 from leaders.utils import _get_tomorrow
 from participants.models import Participant
-from main.utils import get_supreme_admin
 from participants.utils import get_mailinglist_unsubscribe_url
 from participants.utils.switch_main_email import switch_main_email
 
