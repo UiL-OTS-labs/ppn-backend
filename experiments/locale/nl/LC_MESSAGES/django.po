@@ -1147,19 +1147,19 @@ msgstr "E-mail sjablonen aangepast"
 
 #: experiments/views/experiment_views.py:272
 msgid "experiments:message:switch_open:closed"
-msgstr "Experiment openbaar gemaakt"
+msgstr "Experiment gesloten"
 
 #: experiments/views/experiment_views.py:275
 msgid "experiments:message:switch_open:opened"
-msgstr "Experiment verborgen"
+msgstr "Experiment ge-opent"
 
 #: experiments/views/experiment_views.py:290
 msgid "experiments:message:switch_public:closed"
-msgstr "Experiment ge-opent"
+msgstr "Experiment verborgen"
 
 #: experiments/views/experiment_views.py:293
 msgid "experiments:message:switch_public:opened"
-msgstr "Experiment gesloten"
+msgstr "Experiment openbaar gemaakt"
 
 #: experiments/views/experiment_views.py:309
 msgid "experiments:message:switch_visible:invisible"
