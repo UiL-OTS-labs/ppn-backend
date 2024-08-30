@@ -2,13 +2,14 @@ from django import forms
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
-from cdh.core.forms import TemplatedModelForm, TemplatedForm, BootstrapRadioSelect
+from cdh.core.forms import BootstrapRadioSelect
+from main.forms import PPNTemplatedForm, PPNTemplatedModelForm
 
 from ..models import Criterion, DefaultCriteria
 from ..widgets import LanguageWidget
 
 
-class DefaultCriteriaForm(TemplatedModelForm):
+class DefaultCriteriaForm(PPNTemplatedModelForm):
     class Meta:
         model = DefaultCriteria
         fields = '__all__'
@@ -31,7 +32,7 @@ class DefaultCriteriaForm(TemplatedModelForm):
         super(DefaultCriteriaForm, self).__init__(*args, **kwargs)
 
 
-class CriterionForm(TemplatedModelForm):
+class CriterionForm(PPNTemplatedModelForm):
     class Meta:
         model = Criterion
         fields = ['name_form', 'name_natural', 'values']
@@ -77,7 +78,7 @@ class CriterionForm(TemplatedModelForm):
         return correct_value
 
 
-class ExperimentCriterionForm(TemplatedForm):
+class ExperimentCriterionForm(PPNTemplatedForm):
 
     name_form = forms.CharField(
         label=_('criterion:attribute:name_form'),

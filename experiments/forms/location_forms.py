@@ -1,11 +1,11 @@
 from django import forms
 
-from cdh.core.forms import TemplatedModelForm
+from main.forms import PPNTemplatedModelForm
 
 from ..models import Location
 
 
-class CreateLocationForm(TemplatedModelForm):
+class CreateLocationForm(PPNTemplatedModelForm):
     class Meta:
         model = Location
         fields = '__all__'

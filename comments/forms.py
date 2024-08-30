@@ -1,11 +1,10 @@
-from cdh.core.forms import TemplatedModelForm
-
 from experiments.models import Experiment
+from main.forms import PPNTemplatedModelForm
 from participants.models import Participant
 from .models import Comment
 
 
-class CommentForm(TemplatedModelForm):
+class CommentForm(PPNTemplatedModelForm):
     class Meta:
         model = Comment
         fields = ['participant', 'experiment', 'comment']

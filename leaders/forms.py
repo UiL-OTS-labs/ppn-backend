@@ -1,8 +1,9 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from cdh.core.forms import TemplatedModelForm, TemplatedForm, BootstrapCheckboxInput
+from cdh.core.forms import BootstrapCheckboxInput
 
 from api.auth.models import ApiUser
+from main.forms import PPNTemplatedForm
 from .models import Leader
 
 
@@ -19,7 +20,7 @@ def _clean_confirm_password(self):
     return ''
 
 
-class LeaderCreateForm(TemplatedForm):
+class LeaderCreateForm(PPNTemplatedForm):
     """This form is meant for creating Leaders
 
     We're using a regular form, as the info for Leaders are spread over multiple
@@ -77,7 +78,7 @@ class LeaderCreateForm(TemplatedForm):
         return _clean_confirm_password(self)
 
 
-class LDAPLeaderCreateForm(TemplatedForm):
+class LDAPLeaderCreateForm(PPNTemplatedForm):
     """This form is meant for creating Leaders
 
     We're using a regular form, as the info for Leaders are spread over multiple
@@ -124,7 +125,7 @@ class LDAPLeaderCreateForm(TemplatedForm):
         return data
 
 
-class LeaderUpdateForm(TemplatedForm):
+class LeaderUpdateForm(PPNTemplatedForm):
     """This form is meant for updating Leaders
 
     We're using a regular form, as the info for Leaders are spread over multiple
@@ -208,7 +209,7 @@ class LeaderUpdateForm(TemplatedForm):
         return password
 
 
-class LDAPLeaderUpdateForm(TemplatedForm):
+class LDAPLeaderUpdateForm(PPNTemplatedForm):
     """This form is meant for updating Leaders
 
     We're using a regular form, as the info for Leaders are spread over multiple

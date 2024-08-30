@@ -2,14 +2,15 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.text import gettext_lazy as _
 
-from cdh.core.forms import TemplatedModelForm, TemplatedForm, TelephoneInput,\
-    BootstrapRadioSelect, BootstrapCheckboxInput
+from cdh.core.forms import (TelephoneInput,BootstrapRadioSelect,
+                            BootstrapCheckboxInput)
+from main.forms import PPNTemplatedForm, PPNTemplatedModelForm
 
 from .models import CriterionAnswer, Participant
 from .widgets import ParticipantLanguageWidget, ParticipantSexWidget
 
 
-class ParticipantForm(TemplatedModelForm):
+class ParticipantForm(PPNTemplatedModelForm):
     class Meta:
         model = Participant
         fields = [
@@ -55,7 +56,7 @@ class CriterionAnswerForm(forms.ModelForm):
             self.instance.criterion.choices_tuple
 
 
-class ParticipantMergeForm(TemplatedForm):
+class ParticipantMergeForm(PPNTemplatedForm):
 
     old_participant = forms.ModelChoiceField(
         Participant.objects.all(),

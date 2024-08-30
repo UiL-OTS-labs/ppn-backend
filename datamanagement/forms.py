@@ -1,10 +1,9 @@
-from cdh.core.forms import TemplatedModelForm
-
 from datamanagement.models import Thresholds
 from datamanagement.widgets import TimespanWidget
+from main.forms import PPNTemplatedModelForm
 
 
-class ThresholdsEditForm(TemplatedModelForm):
+class ThresholdsEditForm(PPNTemplatedModelForm):
     class Meta:
         model = Thresholds
         fields = '__all__'

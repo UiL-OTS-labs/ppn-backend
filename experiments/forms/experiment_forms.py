@@ -1,14 +1,15 @@
 from django import forms
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
-from cdh.core.forms import TemplatedModelForm, BootstrapCheckboxInput, \
+from cdh.core.forms import BootstrapCheckboxInput, \
     BootstrapRadioSelect, BootstrapSelect, TinyMCEWidget
 from cdh.mail.widgets import EmailContentEditWidget
+from main.forms import PPNTemplatedModelForm
 
 from ..models import Experiment
 
 
-class ExperimentForm(TemplatedModelForm):
+class ExperimentForm(PPNTemplatedModelForm):
     class Meta:
         model = Experiment
         fields = [
@@ -62,7 +63,7 @@ class ExperimentForm(TemplatedModelForm):
             ]
 
 
-class ExperimentEmailTemplatesForm(TemplatedModelForm):
+class ExperimentEmailTemplatesForm(PPNTemplatedModelForm):
     class Meta:
         model = Experiment
         fields = [
