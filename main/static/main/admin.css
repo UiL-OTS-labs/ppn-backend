@@ -16,56 +16,34 @@
     color: green;
 }
 
-h1, h2, h3, h4 {
-    font-weight: normal;
+.dt-buttons {
+    float: left;
 }
 
-/* TODO: remove this when we switch to Django Core 3 */
-:root {
-    /* Message background colors */
-    --uu-message-success-background: #28a745;
-    --uu-message-failed-background: #dc3545;
-    --uu-message-warning-background: #ffc107;
-    --uu-message-info-background: #17a2b8;
+.dt-buttons .btn {
+    --bs-btn-padding-y: 0.25rem !important;
+    --bs-btn-padding-x: 0.5rem !important;
+    --bs-btn-font-size: 0.875rem !important;
+    --bs-btn-border-radius: 0.25rem !important;
 }
 
-div#messages {
-    background: transparent;
-    padding: 0;
-    color: #fff;
-    font-weight: bold;
+.uu-root-container {
+    --bs-uu-hero-bg: var(--bs-blue);
+    --bs-uu-hero-color: var(--bs-white);
+
+    --bs-uu-container-width: 115rem;
+    --bs-uu-content-width: 100rem;
 }
 
-#messages .success {
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--uu-message-success-background);
-    list-style-type: none;
+.uu-root-container .uu-unified-header .uu-unified-header-container .navbar-nav .nav-link.active,
+.uu-root-container .uu-unified-header .uu-unified-header-container .navbar-nav .nav-link:hover {
+    --bs-nav-link-hover-border-color: var(--bs-blue);
 }
 
-#messages .failed,
-#messages .error {
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--uu-message-failed-background);
-    list-style-type: none;
-}
-
-#messages .warning {
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--uu-message-warning-background);
-    list-style-type: none;
-    color: #333;
-}
-
-#messages .info {
-    text-align: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: var(--uu-message-info-background);
-    list-style-type: none;
+/* Needed because we use a larger container width */
+@media (max-width: 100rem) {
+  .uu-root-container .uu-unified-header, .uu-root-container .uu-hero, .uu-root-container .uu-cover .uu-cover-hero, .uu-root-container .uu-container  {
+    padding-left: var(--bs-uu-container-padding-x) !important;
+    padding-right: var(--bs-uu-container-padding-x) !important;
+  }
 }

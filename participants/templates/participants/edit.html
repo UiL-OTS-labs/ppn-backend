@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block html_head %}
+    {{ block.super }}
     <script nonce="{{ request.csp_nonce }}">
         function hideExtraForms(numExisting) {
             $('.se-form').each((idx, el) => {
@@ -57,22 +58,26 @@
     </style>
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
+{% block pre-messages-content %}
+    <div class="uu-hero">
         <h1>
             {% trans 'participants:update:header' %}
         </h1>
-        <p>
-            {% trans 'participants:update:info_text' %}
-        </p>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <form method="post">
             {% csrf_token %}
-            <table width="100%">
+            <table class="table w-100">
                 {{ form.as_table }}
             </table>
             <br/>
-            <h4 class="mb-4">{% trans 'participants:update:header:secondary_email' %}</h4>
+            <h2 class="mb-4">
+                {% trans 'participants:update:header:secondary_email' %}
+            </h2>
             {{ secondary_email_formset.management_form }}
             {% for se_form in secondary_email_formset %}
                 <div class="se-form">
@@ -82,11 +87,11 @@
                 </div>
             {% endfor %}
             <a href="#" id="add_se">+ {% trans 'participants:update:add_secondary_email' %}</a>
-            <div class="float-right">
-                <button type="submit">{% trans 'participants:globals:save_button' %}</button>
+            <div class="float-end">
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'participants:globals:save_button' %}
+                </button>
             </div>
-            <br/>
-            <br/>
         </form>
     </div>
 </div>

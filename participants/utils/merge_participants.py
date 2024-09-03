@@ -80,7 +80,8 @@ def merge_participants(existing: Participant,
     existing.name = new.name
     existing.phonenumber = new.phonenumber
     existing.social_status = new.social_status
-    existing.email = new.email
+    if new.email:
+        existing.email = new.email
     existing.email_subscription = new.email_subscription
 
     # Only transfer these attributes if the existing object doesn't have a value

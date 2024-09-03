@@ -13,25 +13,61 @@
     });
 </script>
 
-<ul id="id_language">
+<div id="id_language">
 
-    <li>
-        <label for="id_language_0">
-            <input type="radio" name="{{ widget.name }}" value="nl" id="id_language_0" required="" {% if widget.value == 'nl' %}checked="checked"{% endif %}>
+    <div class="input-group">
+        <div class="input-group-text">
+            <input
+                type="radio"
+                class="form-check-input mt-0"
+                name="{{ widget.name }}"
+                value="nl"
+                id="id_language_0"
+                required=""
+                {% if widget.value == 'nl' %}checked="checked"{% endif %}
+            />
+        </div>
+        <label id="id_language_0" class="form-control" type="text" for="id_language_0">
             Nederlands
         </label>
-    </li>
-    <li>
-        <label for="id_language_1">
-            <input type="radio" name="{{ widget.name }}" value="OTHER" id="id_language_1" required="" {% if widget.value != 'nl' and widget.value != 'I' %}checked="checked"{% endif %}>
-            <input name="{{ widget.name }}_other" id="id_language_1_other" value="{{ widget.other_value }}">
-        </label>
-    </li>
-    <li>
-        <label for="id_language_2">
-            <input type="radio" name="{{ widget.name }}" value="I" id="id_language_2" required="" {% if widget.value == 'I' %}checked="checked"{% endif %}>
+    </div>
+
+    <div class="input-group mt-1">
+        <div class="input-group-text">
+            <input
+                type="radio"
+                name="{{ widget.name }}"
+                class="form-check-input mt-0"
+                value="OTHER"
+                id="id_language_1"
+                required=""
+                {% if widget.value != 'nl' and widget.value != 'I' %}checked="checked"{% endif %}
+            />
+        </div>
+        <input
+            name="{{ widget.name }}_other"
+            id="id_language_1_other"
+            class="form-control"
+            value="{{ widget.other_value|default_if_none:"" }}"
+            placeholder="Other..."
+        />
+    </div>
+
+
+    <div class="input-group mt-1">
+        <div class="input-group-text">
+            <input
+                type="radio"
+                class="form-check-input mt-0"
+                name="{{ widget.name }}"
+                value="I"
+                id="id_language_2"
+                required=""
+                {% if widget.value == 'I' %}checked="checked"{% endif %}
+            />
+        </div>
+        <label id="id_language_2" class="form-control" type="text" for="id_language_2">
             {% trans 'experiments:globals:indifferent' %}
         </label>
-    </li>
-
-</ul>
+    </div>
+</div>

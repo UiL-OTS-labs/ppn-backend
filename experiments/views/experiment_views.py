@@ -1,20 +1,25 @@
 import braces.views as braces
 from django.contrib import messages
-from django.contrib.auth.views import SuccessURLAllowedHostsMixin
+from django.contrib.auth.views import RedirectURLMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Count, F, Q
 from django.urls import reverse_lazy as reverse
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views import generic
-from uil.core.views import RedirectActionView
-from uil.core.views.mixins import DeleteSuccessMessageMixin, \
+
+from api.utils.appointment_mail import get_initial_confirmation_context
+from cdh.mail.views import BaseEmailPreviewView
+from cdh.core.views import RedirectActionView
+from cdh.core.views.mixins import DeleteSuccessMessageMixin, \
     RedirectSuccessMessageMixin
 
 from comments.models import Comment
-from experiments.utils.remind_participant import remind_participant
+from experiments.utils.remind_participant import get_initial_reminder_context, \
+    send_reminder_mail
 from .mixins import ExperimentObjectMixin
-from ..forms import ExperimentForm
+from ..emails import ReminderEmail, ConfirmationEmail
+from ..forms import ExperimentEmailTemplatesForm, ExperimentForm
 from ..models import Appointment, Experiment
 
 from django.core.exceptions import SuspiciousOperation
@@ -31,7 +36,7 @@ class ExperimentHomeView(braces.LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         qs = self.model.objects.select_related('location')
 
-        count_participants = Count('timeslot__appointments', distinct=True)
+        count_participants = Count('appointments', distinct=True)
         count_excluded_experiments = Count('excluded_experiments',
                                            distinct=True)
 
@@ -52,7 +57,7 @@ class ExperimentCreateView(braces.LoginRequiredMixin, SuccessMessageMixin,
 
 
 class ExperimentUpdateView(braces.LoginRequiredMixin,
-                           SuccessURLAllowedHostsMixin,
+                           RedirectURLMixin,
                            SuccessMessageMixin,
                            generic.UpdateView):
     template_name = 'experiments/edit.html'
@@ -64,7 +69,7 @@ class ExperimentUpdateView(braces.LoginRequiredMixin,
         url = reverse('experiments:home')
         redirect_to = self.request.GET.get('next', url)
 
-        url_is_safe = is_safe_url(
+        url_is_safe = url_has_allowed_host_and_scheme(
             url=redirect_to,
             allowed_hosts=self.get_success_url_allowed_hosts(),
             require_https=self.request.is_secure(),
@@ -220,6 +225,35 @@ class ExperimentAppointmentsView(braces.LoginRequiredMixin,
         return qs.annotate(n=count)
 
 
+class ExperimentEmailTemplatesUpdateView(
+    braces.LoginRequiredMixin,
+    RedirectURLMixin,
+    SuccessMessageMixin,
+    generic.UpdateView
+):
+    template_name = 'experiments/email_templates.html'
+    form_class = ExperimentEmailTemplatesForm
+    model = Experiment
+    success_message = _('experiments:message:update_emails:success')
+    success_url = reverse('experiments:home')
+
+
+class ConfirmationEmailPreviewView(ExperimentObjectMixin, BaseEmailPreviewView):
+    email_class = ConfirmationEmail
+    experiment_kwargs_name = 'pk'
+
+    def get_preview_context(self):
+        return get_initial_confirmation_context(self.experiment)
+
+
+class ReminderEmailPreviewView(ExperimentObjectMixin, BaseEmailPreviewView):
+    email_class = ReminderEmail
+    experiment_kwargs_name = 'pk'
+
+    def get_preview_context(self):
+        return get_initial_reminder_context(self.experiment)
+
+
 # -------------------
 # Action views
 # -------------------
@@ -296,7 +330,7 @@ class RemindParticipantsView(braces.LoginRequiredMixin,
 
             for reminder in reminders:
                 appointment = Appointment.objects.get(pk=reminder)
-                remind_participant(appointment)
+                send_reminder_mail(appointment)
 
             messages.success(self.request,
                              str(

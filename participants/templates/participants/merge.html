@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -8,26 +8,23 @@
     {% trans 'participants:merge:header' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <h1>
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h2">
             {% trans 'participants:merge:header' %}
         </h1>
-        <p>
-            {% trans 'participants:merge:info_text' %}
-        </p>
-        <form method="post">
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <form method="post" class="uu-form uu-form-no-gap uu-form-no-help">
             {% csrf_token %}
-            <table width="100%">
-                {{ form.as_table }}
-            </table>
-            <br/>
-            <div class="float-right">
-                <button type="submit">{% trans 'participants:merge:merge_button' %}</button>
-            </div>
-            <br/>
-            <br/>
+            {{ form }}
+            <button type="submit" class="btn btn-primary float-end mt-3">
+                {% trans 'participants:merge:merge_button' %}
+            </button>
         </form>
     </div>
 </div>

@@ -1,17 +1,27 @@
 {% load i18n %}
 {% load display_threshold %}
 {% load transformat %}
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h5 class="panel-title">
-            <a class="collapsed" data-toggle="collapse" href="#collapse-invites">
-                {% trans 'datamanagement:home:invites:header' %}
-                ({{ invites|length }})
-            </a>
-        </h5>
+<div class="accordion-item">
+    <div class="accordion-header" id="invites-header">
+        <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-invites"
+                aria-expanded="true"
+                aria-controls="collapse-invites"
+        >
+            {% trans 'datamanagement:home:invites:header' %}
+            ({{ invites|length }})
+        </button>
     </div>
-    <div id="collapse-invites" class="panel-collapse collapse">
-        <div class="panel-body">
+    <div
+            id="collapse-invites"
+            class="accordion-collapse collapse"
+            aria-labelledby="invites-header"
+            data-bs-parent="#datamanagement-accordion"
+    >
+        <div class="accordion-body">
             <h3>
                 {% trans 'datamanagement:home:invites:header' %}
             </h3>

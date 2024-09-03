@@ -1,17 +1,27 @@
 {% load i18n %}
 {% load display_threshold %}
 {% load transformat %}
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h5 class="panel-title">
-            <a class="collapsed" data-toggle="collapse" href="#collapse-participants">
+<div class="accordion-item">
+    <div class="accordion-header" id="participants-header">
+        <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse-participants"
+                aria-expanded="true"
+                aria-controls="collapse-participants"
+        >
                 {% trans 'datamanagement:home:participants:header' %}
                 ({{ participants_num }})
-            </a>
-        </h5>
+        </button>
     </div>
-    <div id="collapse-participants" class="panel-collapse collapse">
-        <div class="panel-body">
+    <div
+            id="collapse-participants"
+            class="accordion-collapse collapse"
+            aria-labelledby="participants-header"
+            data-bs-parent="#datamanagement-accordion"
+    >
+        <div class="accordion-body">
             <h3>
                 {% trans 'datamanagement:home:participants:header' %}
             </h3>

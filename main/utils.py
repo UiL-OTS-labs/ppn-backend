@@ -1,11 +1,7 @@
 import urllib.parse as parse
 from functools import lru_cache
-from typing import List, Tuple
 
 from django.conf import settings
-from django.core.mail import EmailMultiAlternatives, get_connection, send_mail
-from django.template.loader import render_to_string
-from django.utils import translation
 
 from experiments.models import Experiment
 from .models import User

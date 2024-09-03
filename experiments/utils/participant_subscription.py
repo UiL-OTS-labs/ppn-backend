@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from uil.core.utils.mail import send_template_email
+from cdh.mail.utils import send_template_email
 
 import auditlog.utils.log as auditlog
 from api.auth.models import ApiUser
@@ -46,9 +46,9 @@ def unsubscribe_participant(appointment_pk: int,
         send_template_email(
             [appointment.participant.email],
             subject,
-            'timeslots/mail/unsubscribed',
-            context,
-            settings.EMAIL_FROM
+            html_template='timeslots/mail/unsubscribed.html',
+            plain_template='timeslots/mail/unsubscribed.txt',
+            template_context=context,
         )
 
 

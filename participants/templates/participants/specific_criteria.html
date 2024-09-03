@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -8,28 +8,30 @@
     {% transformat 'participants:specific_criteria:header' participant.fullname %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <h1>
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h2">
             {% transformat 'participants:specific_criteria:header' participant.fullname %}
         </h1>
-        <p>
-            {% trans 'participants:specific_criteria:info_text' %}
-        </p>
+    </div>
+{% endblock %}
 
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <form method="post" enctype="multipart/form-data">{% csrf_token %}
             {{ formset.management_form }}
 
-
-            <table width="100%">
+            <table class="table w-100">
                 {% for form in formset %}
                     {{ form.as_table }}
                 {% endfor %}
             </table>
 
-            <div class="float-right">
-                <button type="submit">{% trans 'participants:globals:save_button' %}</button>
+            <div class="float-end">
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'participants:globals:save_button' %}
+                </button>
             </div>
         </form>
     </div>

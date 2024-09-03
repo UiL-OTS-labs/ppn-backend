@@ -1,4 +1,6 @@
+import string
 from datetime import datetime
+from random import choice
 
 from pytz import timezone
 from dateutil.relativedelta import relativedelta
@@ -83,7 +85,8 @@ class ExclusionTests(TestCase):
                                         for excluded_experiment in \
                                                 self.excluded_experiment_options:
                                             p = Participant.objects.create(
-                                                name="test {}".format(i),
+                                                name=f"test {i}",
+                                                email=f"{i}@example.org",
                                                 dyslexic=dyslexic,
                                                 birth_date=age,
                                                 multilingual=multilingual,

@@ -1,0 +1,34 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load datatables %}
+{% load get_field_name %}
+{% load transformat %}
+
+{% block header_title %}
+     {% transformat 'experiments:edit_email_templates:header' form.instance.name %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="text-truncate h2">
+            {% transformat 'experiments:edit_email_templates:header' form.instance.name %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <form method="post" class="uu-form">
+            {% csrf_token %}
+            {{ form }}
+            <div class="float-end mt-2">
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'experiments:globals:save_button' %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

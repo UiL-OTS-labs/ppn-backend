@@ -7,8 +7,8 @@ from main.models import User
 
 class UserCreationForm(auth_forms.UserCreationForm):
     class Meta:
-        fields = ('username', 'first_name', 'last_name', 'is_supreme_admin',
-                  'is_active')
+        fields = ('username', 'first_name', 'last_name',
+                  'email', 'is_supreme_admin', 'is_active')
         model = User
         field_classes = {
             'username': auth_forms.UsernameField
@@ -33,8 +33,8 @@ class UserUpdateForm(auth_forms.UserChangeForm):
     password = None
 
     class Meta:
-        fields = ('username', 'first_name', 'last_name', 'is_supreme_admin',
-                  'is_active')
+        fields = ('username', 'first_name', 'last_name',
+                  'email', 'is_supreme_admin', 'is_active')
         model = User
         field_classes = {
             'username': auth_forms.UsernameField

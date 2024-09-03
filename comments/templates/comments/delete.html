@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
 {% load datatables %}
@@ -8,22 +8,28 @@
     {% trans 'comments:delete:header' %} - {{ block.super }}
 {% endblock %}
 
-{% block content %}
-<div class="uu-inner-container">
-    <div class="col-12">
-        <h1>
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h2">
             {% trans 'comments:delete:header' %}
         </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
         <form method="post">{% csrf_token %}
             <p>{% trans 'comments:delete:text' %}</p>
-            <div class="button" style="display: inline-block">
-                <a href="{% url 'comments:home' %}" >
+            <div class="btn-group">
+                <a href="{% url 'comments:home' %}" class="btn btn-secondary">
                     {% trans 'comments:delete:cancel' %}
                 </a>
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'comments:delete:confirm' %}
+                </button>
             </div>
-            <input type="submit" value="{% trans 'comments:delete:confirm' %}">
         </form>
-        <br/>
     </div>
 </div>
 {% endblock %}

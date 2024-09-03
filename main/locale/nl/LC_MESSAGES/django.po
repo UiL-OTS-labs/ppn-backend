@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 11:10+0000\n"
+"POT-Creation-Date: 2023-07-24 12:22+0200\n"
 "PO-Revision-Date: 2018-11-23 08:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -30,43 +30,44 @@ msgstr ""
 msgid "mainmenu:home"
 msgstr "Home"
 
-#: main/menus.py:11
+#: main/menus.py:12
 msgid "mainmenu:experiments"
 msgstr "Experimenten"
 
-#: main/menus.py:16
+#: main/menus.py:17
 msgid "mainmenu:locations"
 msgstr "Locaties"
 
-#: main/menus.py:21
+#: main/menus.py:22
 msgid "mainmenu:criteria"
 msgstr "Criteria"
 
-#: main/menus.py:26
+#: main/menus.py:27
 msgid "mainmenu:leaders"
 msgstr "Proefleiders"
 
-#: main/menus.py:31
+#: main/menus.py:32
 msgid "mainmenu:participants"
 msgstr "Participanten"
 
-#: main/menus.py:36
+#: main/menus.py:37
 msgid "mainmenu:comments"
 msgstr "Opmerkingen"
 
-#: main/menus.py:41
+#: main/menus.py:42
 msgid "mainmenu:admins"
 msgstr "Admins"
 
-#: main/menus.py:47
+#: main/menus.py:48
 msgid "mainmenu:datamanagement"
 msgstr "Data management"
 
-#: main/menus.py:53
+#: main/menus.py:54
 msgid "footermenu:login"
 msgstr "Log in"
 
-#: main/menus.py:58 main/templates/base/login_header.html:7
+#: main/menus.py:59 main/templates/base/ppn_base.html:33
+#: main/templates/base/ppn_base.html:77
 msgid "main:globals:logout"
 msgstr "Log uit"
 
@@ -78,108 +79,129 @@ msgstr "Hoofd admin"
 msgid "user:is_ldap_account"
 msgstr "Solis Account"
 
-#: main/templates/base/login_header.html:6
-msgid "site:header:login"
-msgstr "Welkom {}!"
-
-#. Translators: This is the title that will end up in the header (in blue)
-#: main/templates/base/site_header.html:4
-msgid "site:header:title"
-msgstr "Experimenten ILS Labs Admin"
-
 #. Translators: This is the title that will end up in the tab of the browser
-#: main/templates/base/site_title.html:5
+#: main/templates/base/ppn_base.html:11
 msgid "site:name"
 msgstr "Experimenten ILS Labs Admin"
 
-#: main/templates/main/index.html:6 main/templates/main/index.html:13
+#: main/templates/base/ppn_base.html:24 main/templates/base/ppn_base.html:55
+msgid "site:header:title"
+msgstr "Experimenten Admin"
+
+#: main/templates/base/ppn_base.html:36
+msgid "main:globals:login"
+msgstr "Log in"
+
+#: main/templates/base/ppn_base.html:48 main/templates/base/ppn_base.html:49
+msgid "cdh.core:uu"
+msgstr ""
+
+#: main/templates/base/ppn_base.html:75
+msgid "site:header:login"
+msgstr "Welkom {}!"
+
+#: main/templates/base/ppn_base.html:88
+msgid "lang:en"
+msgstr ""
+
+#: main/templates/base/ppn_base.html:93
+msgid "lang:nl"
+msgstr ""
+
+#: main/templates/main/index.html:7 main/templates/main/index.html:13
 msgid "main:home:header"
 msgstr "Home"
 
-#: main/templates/main/index.html:15
+#: main/templates/main/index.html:23
 msgid "main:home:text"
 msgstr ""
 "Welkom {},<br/><br/>Op dit moment zijn er {} open experimenten, met {} open "
 "slots. "
 
-#: main/templates/main/index.html:20
+#: main/templates/main/index.html:28
 msgid "main:home:experiments:name"
 msgstr "Experimenten"
 
-#: main/templates/main/index.html:23
+#: main/templates/main/index.html:31
 msgid "main:globals:actions"
 msgstr "Acties"
 
-#: main/templates/main/index.html:43
+#: main/templates/main/index.html:53
 msgid "main:home:menu"
 msgstr "Menu"
 
 #: main/templates/main/login_lockout.html:9
-#: main/templates/main/login_lockout.html:17
+#: main/templates/main/login_lockout.html:15
 msgid "main:login_lockout:header"
 msgstr "Te veel login pogingen"
 
-#: main/templates/main/login_lockout.html:20
+#: main/templates/main/login_lockout.html:24
 msgid "main:login_lockout:info_text"
 msgstr ""
 "Vanwege veel mislukte inlogpogingen is inloggen een uur lang uitgeschakeld "
 "voor deze computer."
 
-#: main/templates/registration/logged_out.html:8
+#: main/templates/registration/logged_out.html:7
 msgid "main:logged_out_title"
 msgstr "Uitgelogd"
 
-#: main/templates/registration/logged_out.html:9
+#: main/templates/registration/logged_out.html:15
 msgid "main:logged_out_text"
 msgstr "U bent succesvol uitgelogd!"
 
-#: main/templates/registration/login.html:9
+#: main/templates/registration/login.html:7
 msgid "login:header:login"
 msgstr "Log in"
 
-#: main/templates/registration/login.html:15
+#: main/templates/registration/login.html:17
+#, fuzzy
+#| msgid "main:login_lockout:header"
+msgid "main:login:error"
+msgstr "Te veel login pogingen"
+
+#: main/templates/registration/login.html:51
 msgid "login:button:login"
 msgstr "Log in"
 
 #: main/templates/users/change_password.html:9
-#: main/templates/users/change_password.html:23
+#: main/templates/users/change_password.html:15
 msgid "users:change_password:header"
 msgstr "Verander wachtwoord voor '{}'"
 
-#: main/templates/users/change_password.html:26
+#: main/templates/users/change_password.html:24
 msgid "users:change_password:info_text"
 msgstr " "
 
-#: main/templates/users/change_password.html:35
-#: main/templates/users/create.html:34 main/templates/users/update.html:35
+#: main/templates/users/change_password.html:32
+#: main/templates/users/create.html:44 main/templates/users/update.html:45
 msgid "main:globals:save_button"
 msgstr "Opslaan"
 
-#: main/templates/users/create.html:8 main/templates/users/create.html:22
+#: main/templates/users/create.html:8 main/templates/users/create.html:26
 msgid "users:create:header"
 msgstr "Maak nieuw admin account aan"
 
-#: main/templates/users/create.html:25
+#: main/templates/users/create.html:35
 msgid "users:create:info_text"
 msgstr " "
 
-#: main/templates/users/delete.html:8 main/templates/users/delete.html:16
+#: main/templates/users/delete.html:8 main/templates/users/delete.html:14
 msgid "users:delete:header"
 msgstr "Verwijder admin account"
 
-#: main/templates/users/delete.html:19
+#: main/templates/users/delete.html:23
 msgid "users:delete:text"
 msgstr "Weet je zeker dat je het admin account '{}' wilt verwijderen?"
 
-#: main/templates/users/delete.html:22
+#: main/templates/users/delete.html:27
 msgid "global:delete:cancel"
 msgstr "Annuleer"
 
-#: main/templates/users/delete.html:25
+#: main/templates/users/delete.html:30
 msgid "global:delete:confirm"
 msgstr "Bevestig"
 
-#: main/templates/users/index.html:8 main/templates/users/index.html:35
+#: main/templates/users/index.html:8 main/templates/users/index.html:14
 msgid "users:home:header"
 msgstr "Administrator accounts"
 
@@ -191,11 +213,11 @@ msgstr "Nieuw non-Solis admin account"
 msgid "users:home:create_user"
 msgstr "Nieuw admin account"
 
-#: main/templates/users/index.html:29
+#: main/templates/users/index.html:26
 msgid "users:home:create_user:ldap"
 msgstr "Nieuw Solis admin account"
 
-#: main/templates/users/index.html:38
+#: main/templates/users/index.html:37
 msgid "users:home:info_text"
 msgstr ""
 "Het hoofd admin account is het account dat gebruikt zal worden als contact "
@@ -203,31 +225,31 @@ msgstr ""
 "account, dan zal er eentje pseudo-willekeurig gekozen worden. (Het is dus "
 "aan te raden om maar 1 account als hoofd account te markeren). <br/>"
 
-#: main/templates/users/index.html:51
+#: main/templates/users/index.html:50
 msgid "users:home:name"
 msgstr "Naam"
 
-#: main/templates/users/index.html:70
+#: main/templates/users/index.html:69
 msgid "users:home:actions"
 msgstr "Acties"
 
-#: main/templates/users/index.html:105 main/templates/users/index.html:113
+#: main/templates/users/index.html:118 main/templates/users/index.html:127
 msgid "users:home:edit:title"
 msgstr "Wijzig account"
 
-#: main/templates/users/index.html:120
+#: main/templates/users/index.html:135
 msgid "users:home:change_password:title"
 msgstr "Wijzig wachtwoord"
 
-#: main/templates/users/index.html:131
+#: main/templates/users/index.html:147
 msgid "users:home:delete:title"
 msgstr "Verwijder account"
 
-#: main/templates/users/update.html:9 main/templates/users/update.html:23
+#: main/templates/users/update.html:9 main/templates/users/update.html:27
 msgid "users:update:header"
 msgstr "Pas admin account '{}' aan"
 
-#: main/templates/users/update.html:26
+#: main/templates/users/update.html:36
 msgid "users:update:info_text"
 msgstr " "
 
