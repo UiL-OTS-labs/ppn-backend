@@ -1,7 +1,9 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
+from cdh.core.forms import BootstrapCheckboxInput
 
 from api.auth.models import ApiUser
+from main.forms import PPNTemplatedForm
 from .models import Leader
 
 
@@ -18,7 +20,7 @@ def _clean_confirm_password(self):
     return ''
 
 
-class LeaderCreateForm(forms.Form):
+class LeaderCreateForm(PPNTemplatedForm):
     """This form is meant for creating Leaders
 
     We're using a regular form, as the info for Leaders are spread over multiple
@@ -55,6 +57,7 @@ class LeaderCreateForm(forms.Form):
         help_text=_('leaders:forms:create_form:notify_user:help_text'),
         required=False,  # Bit of a misnomer, it means False is a valid value
         initial=True,
+        widget=BootstrapCheckboxInput
     )
 
     def clean_email(self):
@@ -75,7 +78,7 @@ class LeaderCreateForm(forms.Form):
         return _clean_confirm_password(self)
 
 
-class LDAPLeaderCreateForm(forms.Form):
+class LDAPLeaderCreateForm(PPNTemplatedForm):
     """This form is meant for creating Leaders
 
     We're using a regular form, as the info for Leaders are spread over multiple
@@ -99,6 +102,7 @@ class LDAPLeaderCreateForm(forms.Form):
         help_text=_('leaders:forms:create_form:notify_user:help_text:ldap'),
         required=False,  # Bit of a misnomer, it means False is a valid value
         initial=True,
+        widget=BootstrapCheckboxInput
     )
 
     def clean_email(self):
@@ -121,7 +125,7 @@ class LDAPLeaderCreateForm(forms.Form):
         return data
 
 
-class LeaderUpdateForm(forms.Form):
+class LeaderUpdateForm(PPNTemplatedForm):
     """This form is meant for updating Leaders
 
     We're using a regular form, as the info for Leaders are spread over multiple
@@ -136,6 +140,7 @@ class LeaderUpdateForm(forms.Form):
     active = forms.BooleanField(
         label=_('leader:form:active'),
         required=False,
+        widget=BootstrapCheckboxInput
     )
 
     name = forms.Field(
@@ -156,6 +161,7 @@ class LeaderUpdateForm(forms.Form):
             'leaders:forms:create_form:keep_current_password:help_text'),
         required=False,  # Bit of a misnomer, it means False is a valid value
         initial=True,
+        widget=BootstrapCheckboxInput
     )
 
     password = forms.Field(
@@ -203,7 +209,7 @@ class LeaderUpdateForm(forms.Form):
         return password
 
 
-class LDAPLeaderUpdateForm(forms.Form):
+class LDAPLeaderUpdateForm(PPNTemplatedForm):
     """This form is meant for updating Leaders
 
     We're using a regular form, as the info for Leaders are spread over multiple
@@ -218,6 +224,7 @@ class LDAPLeaderUpdateForm(forms.Form):
     active = forms.BooleanField(
         label=_('leader:form:active'),
         required=False,
+        widget=BootstrapCheckboxInput
     )
 
     name = forms.Field(

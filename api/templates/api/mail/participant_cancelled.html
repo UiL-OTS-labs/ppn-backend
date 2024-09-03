@@ -1,6 +1,10 @@
-{% extends 'mail/base.html' %}
+{% extends 'cdh.mail/mail_template.html' %}
 
-{% block subtitle %}
+{% block sender %}
+    Taal-experimenten
+{% endblock %}
+
+{% block banner %}
     Participant deregistered for experiment: <strong>{{ experiment.name }}</strong>
 {% endblock %}
 

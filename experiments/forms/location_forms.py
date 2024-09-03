@@ -1,9 +1,11 @@
 from django import forms
 
+from main.forms import PPNTemplatedModelForm
+
 from ..models import Location
 
 
-class CreateLocationForm(forms.ModelForm):
+class CreateLocationForm(PPNTemplatedModelForm):
     class Meta:
         model = Location
         fields = '__all__'

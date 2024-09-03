@@ -4,7 +4,7 @@ from typing import List, Optional
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-import uil.core.fields as e_fields
+import cdh.core.fields as e_fields
 from api.auth.models import ApiUser
 from experiments.models.criteria_models import Criterion
 
@@ -19,7 +19,10 @@ class ParticipantManager(models.Manager):
         python instead of the database!
         """
 
-        def to_lower(string: str) -> str:
+        def to_lower(string: Optional[str]) -> str:
+            if string is None:
+                return ""
+
             return str(string).lower()
 
         email = email.strip().lower()
@@ -53,6 +56,8 @@ class Participant(models.Model):
 
     email = e_fields.EncryptedEmailField(
         _('participant:attribute:email'),
+        blank=True,
+        null=True,
     )
 
     name = e_fields.EncryptedTextField(

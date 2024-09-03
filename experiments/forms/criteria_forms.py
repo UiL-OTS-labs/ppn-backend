@@ -2,23 +2,28 @@ from django import forms
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
+from cdh.core.forms import BootstrapRadioSelect
+from main.forms import PPNTemplatedForm, PPNTemplatedModelForm
+
 from ..models import Criterion, DefaultCriteria
 from ..widgets import LanguageWidget
 
 
-class DefaultCriteriaForm(forms.ModelForm):
+class DefaultCriteriaForm(PPNTemplatedModelForm):
     class Meta:
         model = DefaultCriteria
         fields = '__all__'
         widgets = {
             'experiment':    forms.HiddenInput,
             'language':      LanguageWidget,
-            'multilingual':  forms.RadioSelect,
-            'sex':           forms.RadioSelect,
-            'handedness':    forms.RadioSelect,
-            'dyslexia':      forms.RadioSelect,
-            'social_status': forms.RadioSelect,
+            'multilingual':  BootstrapRadioSelect,
+            'sex':           BootstrapRadioSelect,
+            'handedness':    BootstrapRadioSelect,
+            'dyslexia':      BootstrapRadioSelect,
+            'social_status': BootstrapRadioSelect,
         }
+
+    always_show_help_column = False
 
     def __init__(self, *args, **kwargs):
         # This removes the colon from the labels. Without it Django is very
@@ -27,7 +32,7 @@ class DefaultCriteriaForm(forms.ModelForm):
         super(DefaultCriteriaForm, self).__init__(*args, **kwargs)
 
 
-class CriterionForm(forms.ModelForm):
+class CriterionForm(PPNTemplatedModelForm):
     class Meta:
         model = Criterion
         fields = ['name_form', 'name_natural', 'values']
@@ -73,26 +78,31 @@ class CriterionForm(forms.ModelForm):
         return correct_value
 
 
-class ExperimentCriterionForm(forms.Form):
+class ExperimentCriterionForm(PPNTemplatedForm):
 
     name_form = forms.CharField(
         label=_('criterion:attribute:name_form'),
+        help_text=_('criterion:attribute:name_form:help'),
     )
 
     name_natural = forms.CharField(
         label=_('criterion:attribute:name_natural'),
+        help_text=_('criterion:attribute:name_natural:help'),
     )
 
     values = forms.CharField(
         label=_('criterion:attribute:values'),
+        help_text=_('criterion:attribute:values:help'),
     )
 
     correct_value = forms.CharField(
         label=_('experiment_criterion:attribute:correct_value'),
+        help_text=_('experiment_criterion:attribute:correct_value:help'),
     )
 
     message_failed = forms.CharField(
         label=_('experiment_criterion:attribute:message_failed'),
+        help_text=_('experiment_criterion:attribute:message_failed:help'),
         widget=forms.Textarea({'cols': 35}),
     )
 

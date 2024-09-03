@@ -1,9 +1,10 @@
-Django>=3.2,<3.3
+Django>=4.2,<4.3
 django-axes
 django-braces
 django-csp
 django-simple-menu
 django-extensions # QoF for the admin, adds a lot of useful manage.py commands
+django-impersonate
 pip-tools
 cryptography
 PyJWT
@@ -12,6 +13,6 @@ djangorestframework
 django-debug-toolbar
 cryptography
 python-dateutil
--e git+https://github.com/UiL-OTS-labs/django-shared-core.git@v2.0.9#egg=uil-django-core
+cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.2.0-alpha.0
 mysqlclient
 django-auth-ldap

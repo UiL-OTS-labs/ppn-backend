@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 11:42+0000\n"
+"POT-Creation-Date: 2023-07-24 12:22+0200\n"
 "PO-Revision-Date: 2018-11-23 08:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,43 +18,211 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: experiments/forms/criteria_forms.py:71
-#: experiments/forms/criteria_forms.py:124
+#: experiments/emails.py:89
+msgid "invite-email.vars.name"
+msgstr "The name of the participant. 'proefpersoon' if the name is not known."
+
+#: experiments/emails.py:90
+msgid "invite-email.vars.duration"
+msgstr "The set duration of the experiment"
+
+#: experiments/emails.py:91
+msgid "invite-email.vars.compensation"
+msgstr "The set compensation of the experiment"
+
+#: experiments/emails.py:92
+msgid "invite-email.vars.task_description"
+msgstr "The task description of the experiment"
+
+#: experiments/emails.py:93
+msgid "invite-email.vars.additional_instructions"
+msgstr "Any set additional Instructions"
+
+#: experiments/emails.py:94
+msgid "invite-email.vars.experiment_name"
+msgstr "The name of the experiment"
+
+#: experiments/emails.py:95
+msgid "invite-email.vars.experiment_location"
+msgstr "The location of the experiment (if set)"
+
+#: experiments/emails.py:96
+msgid "invite-email.vars.leader_name"
+msgstr "The name of the primary leader"
+
+#: experiments/emails.py:97
+msgid "invite-email.vars.leader_email"
+msgstr "The email of the primary leader"
+
+#: experiments/emails.py:98
+msgid "invite-email.vars.leader_phonenumber"
+msgstr "The phone number of the primary leader"
+
+#: experiments/emails.py:99
+msgid "invite-email.vars.all_leaders_name_list"
+msgstr "A list of all leaders, nicely formatted for humans"
+
+#: experiments/emails.py:100
+msgid "invite-email.vars.admin"
+msgstr "The name of the current main admin"
+
+#: experiments/emails.py:101
+msgid "invite-email.vars.reg_link"
+msgstr ""
+"The url of the register page (set this as 'URL' in the insert/edit link "
+"dialog)"
+
+#: experiments/emails.py:118
+msgid "reminder-email.vars.name"
+msgstr "The name of the participant. 'proefpersoon' if the name is not known."
+
+#: experiments/emails.py:119
+msgid "reminder-email.vars.experiment_name"
+msgstr "The name of the experiment"
+
+#: experiments/emails.py:120
+msgid "reminder-email.vars.experiment_location"
+msgstr "The location of the experiment (if set)"
+
+#: experiments/emails.py:121
+msgid "reminder-email.vars.date"
+msgstr "The date of the appointment. (If experiment is using timeslots)"
+
+#: experiments/emails.py:122
+msgid "reminder-email.vars.time"
+msgstr "The time of the appointment. (If experiment is using timeslots)"
+
+#: experiments/emails.py:123
+msgid "reminder-email.vars.leader_name"
+msgstr "The name of the primary leader"
+
+#: experiments/emails.py:124
+msgid "reminder-email.vars.leader_email"
+msgstr "The email of the primary leader"
+
+#: experiments/emails.py:125
+msgid "reminder-email.vars.leader_phonenumber"
+msgstr "The phone number of the primary leader"
+
+#: experiments/emails.py:126
+msgid "reminder-email.vars.all_leaders_name_list"
+msgstr "A list of all leaders, nicely formatted for humans"
+
+#: experiments/emails.py:127
+msgid "reminder-email.vars.admin"
+msgstr "The name of the current main admin"
+
+#: experiments/emails.py:128
+msgid "reminder-email.vars.cancel_link"
+msgstr ""
+"The url of the cancel page (set this as 'URL' in the insert/edit link dialog)"
+
+#: experiments/emails.py:147
+msgid "confirmation-email.vars.name"
+msgstr "The name of the participant. 'proefpersoon' if the name is not known."
+
+#: experiments/emails.py:152
+msgid "confirmation-email.vars.experiment_name"
+msgstr "The name of the experiment"
+
+#: experiments/emails.py:156
+msgid "confirmation-email.vars.experiment_location"
+msgstr "The location of the experiment (if set)"
+
+#: experiments/emails.py:160
+msgid "confirmation-email.vars.date"
+msgstr "The date of the appointment. (If experiment is using timeslots)"
+
+#: experiments/emails.py:163
+msgid "confirmation-email.vars.time"
+msgstr "The time of the appointment. (If experiment is using timeslots)"
+
+#: experiments/emails.py:164
+msgid "confirmation-email.vars.leader_name"
+msgstr "The name of the primary leader"
+
+#: experiments/emails.py:165
+msgid "confirmation-email.vars.leader_email"
+msgstr "The email of the primary leader"
+
+#: experiments/emails.py:168
+msgid "confirmation-email.vars.leader_phonenumber"
+msgstr "The phone number of the primary leader"
+
+#: experiments/emails.py:172
+msgid "confirmation-email.vars.all_leaders_name_list"
+msgstr "A list of all leaders, nicely formatted for humans"
+
+#: experiments/emails.py:174
+msgid "confirmation-email.vars.cancel_link"
+msgstr ""
+"The url of the cancel page (set this as 'URL' in the insert/edit link dialog)"
+
+#: experiments/forms/criteria_forms.py:75
+#: experiments/forms/criteria_forms.py:133
 msgid "criteria:form:correct_value:error:not_a_value"
 msgstr "This is not a value as specified in 'values'!"
 
-#: experiments/forms/criteria_forms.py:79
+#: experiments/forms/criteria_forms.py:83
 #: experiments/models/criteria_models.py:130
 msgid "criterion:attribute:name_form"
-msgstr "Form name"
+msgstr "Code name"
 
-#: experiments/forms/criteria_forms.py:83
+#: experiments/forms/criteria_forms.py:84
+msgid "criterion:attribute:name_form:help"
+msgstr ""
+"Internal name for this attribute, has to be unique. It's recommended to only "
+"use letters; no spaces, numbers and/or special characters"
+
+#: experiments/forms/criteria_forms.py:88
 #: experiments/models/criteria_models.py:134
 msgid "criterion:attribute:name_natural"
 msgstr "Display name"
 
-#: experiments/forms/criteria_forms.py:87
+#: experiments/forms/criteria_forms.py:89
+msgid "criterion:attribute:name_natural:help"
+msgstr ""
+"The 'question'; this will be displayed to the user as the text above the "
+"answer options."
+
+#: experiments/forms/criteria_forms.py:93
 #: experiments/models/criteria_models.py:138
 msgid "criterion:attribute:values"
-msgstr "Values (comma separated)"
+msgstr "Options (comma separated)"
 
-#: experiments/forms/criteria_forms.py:91
+#: experiments/forms/criteria_forms.py:94
+msgid "criterion:attribute:values:help"
+msgstr "All possible options a participant can pick, comma separated"
+
+#: experiments/forms/criteria_forms.py:98
 #: experiments/models/criteria_models.py:172
-#: experiments/templates/criteria/specific_list.html:125
+#: experiments/templates/criteria/specific_list.html:122
 msgid "experiment_criterion:attribute:correct_value"
-msgstr "Correct value"
+msgstr "Correct option"
 
-#: experiments/forms/criteria_forms.py:95
+#: experiments/forms/criteria_forms.py:99
+#: experiments/templates/criteria/specific_list.html:135
+msgid "experiment_criterion:attribute:correct_value:help"
+msgstr "Which of the options is the correct one (for this experiment only)"
+
+#: experiments/forms/criteria_forms.py:103
 #: experiments/models/criteria_models.py:176
-#: experiments/templates/criteria/specific_list.html:143
+#: experiments/templates/criteria/specific_list.html:141
 msgid "experiment_criterion:attribute:message_failed"
 msgstr "Message when failed"
 
-#: experiments/forms/experiment_forms.py:16
+#: experiments/forms/criteria_forms.py:104
+#: experiments/templates/criteria/specific_list.html:146
+msgid "experiment_criterion:attribute:message_failed:help"
+msgstr ""
+"The message presented to the participant if they didn't pick a 'correct' "
+"option."
+
+#: experiments/forms/experiment_forms.py:35
 msgid "experiment:form:use_timeslots:true"
 msgstr "On location"
 
-#: experiments/forms/experiment_forms.py:17
+#: experiments/forms/experiment_forms.py:36
 msgid "experiment:form:use_timeslots:false"
 msgstr "Online"
 
@@ -81,7 +249,7 @@ msgstr "Many"
 #: experiments/models/criteria_models.py:105
 #: experiments/models/criteria_models.py:111
 #: experiments/models/criteria_models.py:117
-#: experiments/templates/widgets/language_widget.html:33
+#: experiments/templates/widgets/language_widget.html:70
 msgid "experiments:globals:indifferent"
 msgstr "Indifferent"
 
@@ -157,105 +325,77 @@ msgstr "What should the upper bound of the participant's age be?"
 msgid "default_criteria:attribute:max_age:help_text"
 msgstr "Set to -1 if this criterion doesn't matter"
 
-#: experiments/models/experiment_models.py:61
+#: experiments/models/experiment_models.py:21
 msgid "experiment:attribute:name"
 msgstr "Name"
 
-#: experiments/models/experiment_models.py:65
+#: experiments/models/experiment_models.py:25
 msgid "experiment:attribute:duration"
 msgstr "Duration"
 
-#: experiments/models/experiment_models.py:69
+#: experiments/models/experiment_models.py:29
 msgid "experiment:attribute:compensation"
 msgstr "Compensation"
 
-#: experiments/models/experiment_models.py:73
+#: experiments/models/experiment_models.py:33
 msgid "experiment:attribute:task_description"
 msgstr "Task description"
 
-#: experiments/models/experiment_models.py:77
+#: experiments/models/experiment_models.py:37
 msgid "experiment:attribute:additional_instructions"
 msgstr "Additional Instructions"
 
-#: experiments/models/experiment_models.py:82
+#: experiments/models/experiment_models.py:42
 msgid "experiment:attribute:confirmation_email"
-msgstr "Confirmation mail text"
+msgstr "Confirmation mail template"
 
-#: experiments/models/experiment_models.py:83
-msgid "experiment:attribute:confirmation_email:help_text"
-msgstr ""
-"There are several variables you can use:<br/><code>{experiment_name}</code> "
-"The name of the experiment<br/><code>{experiment_location}</code> The "
-"location of the experiment (if set)<br/><code>{participant_name}</code> The "
-"name of the participant<br/><code>{date}</code> The date of the chosen "
-"timeslot<br/><code>{time}</code> The time of the chosen timeslot<br/"
-"><code>{leader_name}</code> The name of the leader<br/><code>{leader_email}</"
-"code> The e-mail of the leader<br/><code>{leader_phonenumber}</code> The "
-"phonenumber of the leader<br/><code>{all_leaders_name_list}</code> A list of "
-"all leaders, nicely formatted for humans<br/>"
-
-#: experiments/models/experiment_models.py:88
+#: experiments/models/experiment_models.py:48
 msgid "experiment:attribute:invite_email"
 msgstr "Invite mail template"
 
-#: experiments/models/experiment_models.py:89
-msgid "experiment:attribute:invite_email:help_text"
-msgstr ""
-"The template used to create the invite e-mail; the result can be edited "
-"before sending. There are several variables you can use:<br/"
-"><code>{experiment_name}</code> The name of the experiment<br/"
-"><code>{experiment_location}</code> The location of the experiment (if "
-"set)<br/><code>{duration}</code> The set duration of the experiment<br/"
-"><code>{compensation}</code> The set compensation for this experiment<br/"
-"><code>{task_description}</code> The contents of the task description field."
-"<br/><code>{additional_instructions}</code> The contents of the additional "
-"instructions field<br/><code>{leader_name}</code> The name of the leader<br/"
-"><code>{leader_email}</code> The e-mail of the leader<br/"
-"><code>{leader_phonenumber}</code> The phonenumber of the leader<br/"
-"><code>{all_leaders_name_list}</code> A list of all leaders, nicely "
-"formatted for humans<br/><code>{admin}</code> The name of the current main "
-"admin<br/><code>{link_to_subscribe:\"deze link\"}</code> A link to the "
-"register page. Text after the : will be inserted as the linktext"
+#: experiments/models/experiment_models.py:54
+msgid "experiment:attribute:reminder_email"
+msgstr "Reminder email template"
 
-#: experiments/models/experiment_models.py:95
+#: experiments/models/experiment_models.py:61
 msgid "experiment:attribute:location"
 msgstr "Location"
 
-#: experiments/models/experiment_models.py:102
+#: experiments/models/experiment_models.py:68
 msgid "experiment:attribute:use_timeslots"
 msgstr "Type"
 
-#: experiments/models/experiment_models.py:104
+#: experiments/models/experiment_models.py:70
 msgid "experiment:attribute:use_timeslots:help_text"
 msgstr ""
 "If 'on location' is selected, a participant must choose a timeslot when "
 "registering for an experiment. When 'online' is selected, they only have to "
 "register for the experiment.  "
 
-#: experiments/models/experiment_models.py:108
+#: experiments/models/experiment_models.py:74
 msgid "experiment:attribute:default_max_places"
 msgstr "Default number of places."
 
-#: experiments/models/experiment_models.py:112
+#: experiments/models/experiment_models.py:78
 msgid "experiment:attribute:default_max_places:help_text"
 msgstr ""
 "Determines the default number of places for the timeslots. Can be overridden "
 "on a per-slot basis. If the experiment doesn't use timeslots, this is the "
 "max number of participants that can take part in this experiment."
 
-#: experiments/models/experiment_models.py:117
+#: experiments/models/experiment_models.py:83
 msgid "experiment:attribute:open"
 msgstr "Open"
 
-#: experiments/models/experiment_models.py:119
+#: experiments/models/experiment_models.py:85
 msgid "experiment:attribute:open:help_text"
 msgstr "Determines if the experiment is open for new participants."
 
-#: experiments/models/experiment_models.py:123
+#: experiments/models/experiment_models.py:89
 msgid "experiment:attribute:public"
 msgstr "Public"
 
-#: experiments/models/experiment_models.py:125
+#: experiments/models/experiment_models.py:91
 msgid "experiment:attribute:public:help_text"
 msgstr ""
 "Determines if the experiment should be advertised on the front page. If not, "
@@ -263,20 +403,20 @@ msgstr ""
 "used for follow-up experiments where only participants who have participated "
 "in the original experiment should register."
 
-#: experiments/models/experiment_models.py:129
+#: experiments/models/experiment_models.py:95
 msgid "experiment:attribute:participants_visible"
 msgstr "Participants Visible"
 
-#: experiments/models/experiment_models.py:131
+#: experiments/models/experiment_models.py:97
 msgid "experiment:attribute:participants_visible:help_text"
 msgstr ""
 "If unchecked, participant data will be hidden from the experiment leader(s)."
 
-#: experiments/models/experiment_models.py:136
+#: experiments/models/experiment_models.py:102
 msgid "experiment:attribute:excluded_experiments"
 msgstr "Excluded experiment"
 
-#: experiments/models/experiment_models.py:138
+#: experiments/models/experiment_models.py:104
 msgid "experiment:attribute:excluded_experiments:help_text"
 msgstr ""
 "Any experiments that should exclude a participant if they have been a "
@@ -284,21 +424,22 @@ msgstr ""
 "search through the list. Once selected, the experiment should show up in the "
 "field as a box."
 
-#: experiments/models/experiment_models.py:143
+#: experiments/models/experiment_models.py:109
 msgid "experiment:attribute:leader"
 msgstr "Leader"
 
-#: experiments/models/experiment_models.py:147
+#: experiments/models/experiment_models.py:113
 msgid "experiment:attribute:leader:help_text"
 msgstr ""
 "The main experiment leader, who will be displayed as the contact on the "
-"experiment page."
+"experiment page, and whose contact details will appear in confirmation and "
+"reminder emails to the participant."
 
-#: experiments/models/experiment_models.py:152
+#: experiments/models/experiment_models.py:118
 msgid "experiment:attribute:additional_leaders"
 msgstr "Additional leaders"
 
-#: experiments/models/experiment_models.py:155
+#: experiments/models/experiment_models.py:121
 msgid "experiment:attribute:additional_leaders:help_text"
 msgstr ""
 "Any additional leaders for this experiment. They will be able to login and "
@@ -315,53 +456,50 @@ msgid "location:attribute:route_url"
 msgstr "Routedescription URL"
 
 #: experiments/templates/criteria/delete.html:8
-#: experiments/templates/criteria/delete.html:16
+#: experiments/templates/criteria/delete.html:14
 msgid "criteria:delete:header"
 msgstr "Delete criterion"
 
-#: experiments/templates/criteria/delete.html:19
+#: experiments/templates/criteria/delete.html:23
 msgid "criteria:delete:text"
 msgstr ""
 "Are you sure you want to delete the criterion '{}'? It is currently used in "
 "{} experiment(s)! Deleting this criterion will also remove it from any "
 "experiment it is linked to."
 
-#: experiments/templates/criteria/delete.html:22
+#: experiments/templates/criteria/delete.html:26
 msgid "criteria:delete:cancel"
 msgstr "Cancel"
 
-#: experiments/templates/criteria/delete.html:25
+#: experiments/templates/criteria/delete.html:29
 msgid "criteria:delete:confirm"
 msgstr "Delete criterion"
 
 #: experiments/templates/criteria/edit.html:8
-#: experiments/templates/criteria/edit.html:15
+#: experiments/templates/criteria/edit.html:14
 msgid "criteria:edit:header"
 msgstr "Edit criterion"
-
-#: experiments/templates/criteria/edit.html:18
-msgid "criteria:edit:info_text"
-msgstr "<br/>"
 
 #: experiments/templates/criteria/edit.html:27
 #: experiments/templates/criteria/new.html:27
 #: experiments/templates/criteria/update_default.html:28
-#: experiments/templates/experiments/edit.html:27
+#: experiments/templates/experiments/edit.html:42
+#: experiments/templates/experiments/email_templates.html:28
 #: experiments/templates/locations/edit.html:27
-#: experiments/templates/locations/new.html:28
+#: experiments/templates/locations/new.html:27
 msgid "experiments:globals:save_button"
 msgstr "Save"
 
 #: experiments/templates/criteria/index.html:8
-#: experiments/templates/criteria/index.html:20
+#: experiments/templates/criteria/index.html:14
 msgid "criteria:home:header"
 msgstr "Criteria"
 
-#: experiments/templates/criteria/index.html:16
+#: experiments/templates/criteria/index.html:17
 msgid "criteria:home:create_criterion"
 msgstr "New criterion"
 
-#: experiments/templates/criteria/index.html:23
+#: experiments/templates/criteria/index.html:26
 msgid "criteria:home:info_text"
 msgstr ""
 "Here you will find an overview of existing criteria and how many experiments "
@@ -370,75 +508,81 @@ msgstr ""
 "message, this will be specified when adding a criterion to an experiment. "
 "This is in order to promote re-using criteria."
 
-#: experiments/templates/criteria/index.html:41
+#: experiments/templates/criteria/index.html:44
 msgid "criteria:home:num_experiment"
 msgstr "Number of linked experiments"
 
-#: experiments/templates/criteria/index.html:44
-#: experiments/templates/criteria/specific_list.html:44
-#: experiments/templates/experiments/detail_parts/comments.html:32
+#: experiments/templates/criteria/index.html:47
+#: experiments/templates/criteria/specific_list.html:47
+#: experiments/templates/experiments/detail_parts/comments.html:33
 #: experiments/templates/experiments/participants.html:64
-#: experiments/templates/locations/index.html:39
-#: experiments/templates/timeslots/index.html:59
+#: experiments/templates/locations/index.html:38
+#: experiments/templates/timeslots/index.html:80
 msgid "experiments:globals:actions"
 msgstr "Actions"
 
-#: experiments/templates/criteria/index.html:69
+#: experiments/templates/criteria/index.html:85
 msgid "criteria:home:edit:title"
 msgstr "Edit criterion"
 
-#: experiments/templates/criteria/index.html:76
+#: experiments/templates/criteria/index.html:95
 msgid "criteria:home:delete:title"
 msgstr "Delete criterion"
 
 #: experiments/templates/criteria/new.html:8
-#: experiments/templates/criteria/new.html:15
+#: experiments/templates/criteria/new.html:14
 msgid "criteria:new:header"
 msgstr "New criterion"
-
-#: experiments/templates/criteria/new.html:18
-msgid "criteria:new:info_text"
-msgstr "<br/>"
 
 #: experiments/templates/criteria/specific_list.html:9
 #: experiments/templates/criteria/specific_list.html:20
 msgid "criteria:specific_list:header"
 msgstr "Specific criteria for '{}'"
 
-#: experiments/templates/criteria/specific_list.html:23
-msgid "criteria:specific_list:info_text"
-msgstr "<br/>"
-
-#: experiments/templates/criteria/specific_list.html:71
+#: experiments/templates/criteria/specific_list.html:74
 msgid "criteria:specific_list:delete:title"
 msgstr "Remove this criterion from this experiment"
 
-#: experiments/templates/criteria/specific_list.html:84
-msgid "criteria:specific_list:add_new:header"
-msgstr "Add new criterion"
+#: experiments/templates/criteria/specific_list.html:88
+msgid "criteria:specific_list:adding:header"
+msgstr "Linking criteria"
 
-#: experiments/templates/criteria/specific_list.html:93
-#: experiments/templates/criteria/specific_list.html:153
-#: experiments/templates/timeslots/index.html:172
-msgid "experiments:globals:add_button"
-msgstr "Add"
+#: experiments/templates/criteria/specific_list.html:91
+msgid "criteria:specific_list:adding:p1"
+msgstr ""
+"Base criteria are shared between experiments, in order to make exclusion "
+"more efficient. (e.g. not inviting participants if we know they will not be "
+"able to participate), and to collect demographic information that will need "
+"to be reported for every experiment upon publication (e.g. handedness, "
+"biological sex).<br/>Here you can link specific criteria to this experiment, "
+"either by creating a new criterion or by selecting an existing one. Every "
+"experiment has to specify their own 'correct answer' and 'message when "
+"failed', so you can make 'wearing glasses' mandatory in experiment X and not "
+"allowed in experiment Y.<br/><br/>Before you create a new criterion, please "
+"see if a fitting criterion already exists."
 
-#: experiments/templates/criteria/specific_list.html:101
+#: experiments/templates/criteria/specific_list.html:98
 msgid "criteria:specific_list:add_existing:header"
 msgstr "Add existing criterion"
 
-#: experiments/templates/criteria/specific_list.html:109
+#: experiments/templates/criteria/specific_list.html:106
 msgid "criteria:existing_form:criterion"
 msgstr "Criterion"
 
+#: experiments/templates/criteria/specific_list.html:152
+#: experiments/templates/criteria/specific_list.html:168
+#: experiments/templates/timeslots/index.html:43
+msgid "experiments:globals:add_button"
+msgstr "Add"
+
+#: experiments/templates/criteria/specific_list.html:159
+msgid "criteria:specific_list:add_new:header"
+msgstr "Add new criterion"
+
 #: experiments/templates/criteria/update_default.html:9
-#: experiments/templates/criteria/update_default.html:16
+#: experiments/templates/criteria/update_default.html:15
 msgid "criteria:new_default_criteria:header"
 msgstr "Default criteria for {}"
-
-#: experiments/templates/criteria/update_default.html:19
-msgid "criteria:new_default_criteria:info_text"
-msgstr " "
 
 #: experiments/templates/experiments/criteria_snippit.html:11
 msgid "criteria_snippit:dyslexia"
@@ -473,64 +617,64 @@ msgid "criteria_snippit:max_age"
 msgstr "Max Age:"
 
 #: experiments/templates/experiments/delete.html:8
-#: experiments/templates/experiments/delete.html:16
+#: experiments/templates/experiments/delete.html:14
 msgid "experiments:delete:header"
 msgstr "Delete experiment"
 
-#: experiments/templates/experiments/delete.html:19
+#: experiments/templates/experiments/delete.html:23
 msgid "experiments:delete:text"
 msgstr "Are you sure you want to delete the experiment '{}'?"
 
-#: experiments/templates/experiments/delete.html:22
+#: experiments/templates/experiments/delete.html:26
 msgid "experiments:delete:cancel"
 msgstr "Cancel"
 
-#: experiments/templates/experiments/delete.html:25
+#: experiments/templates/experiments/delete.html:29
 msgid "experiments:delete:confirm"
 msgstr "Delete experiment"
 
 #: experiments/templates/experiments/detail.html:9
-#: experiments/templates/experiments/detail.html:21
+#: experiments/templates/experiments/detail.html:15
 msgid "experiments:detail:header"
 msgstr "Experiment '{}'"
 
-#: experiments/templates/experiments/detail.html:17
+#: experiments/templates/experiments/detail.html:19
 msgid "experiments:detail:all_experiments"
 msgstr "All experiments"
 
-#: experiments/templates/experiments/detail_parts/comments.html:10
+#: experiments/templates/experiments/detail_parts/comments.html:9
 msgid "experiments:detail:comments"
 msgstr "Comments"
 
-#: experiments/templates/experiments/detail_parts/comments.html:17
+#: experiments/templates/experiments/detail_parts/comments.html:18
 msgid "experiments:detail:comments:participant"
 msgstr "Participant"
 
-#: experiments/templates/experiments/detail_parts/comments.html:20
+#: experiments/templates/experiments/detail_parts/comments.html:21
 msgid "experiments:detail:comments:email"
 msgstr "E-mail"
 
-#: experiments/templates/experiments/detail_parts/comments.html:23
+#: experiments/templates/experiments/detail_parts/comments.html:24
 msgid "experiments:detail:comments:added_by"
 msgstr "Added by"
 
-#: experiments/templates/experiments/detail_parts/comments.html:26
+#: experiments/templates/experiments/detail_parts/comments.html:27
 msgid "experiments:detail:comments:added_on"
 msgstr "Added on"
 
-#: experiments/templates/experiments/detail_parts/comments.html:29
+#: experiments/templates/experiments/detail_parts/comments.html:30
 msgid "experiments:detail:comments:comment"
 msgstr "Comment"
 
-#: experiments/templates/experiments/detail_parts/comments.html:46
+#: experiments/templates/experiments/detail_parts/comments.html:47
 msgid "experiments:detail:comment:system_user"
 msgstr "System"
 
-#: experiments/templates/experiments/detail_parts/comments.html:50
+#: experiments/templates/experiments/detail_parts/comments.html:51
 msgid "experiments:detail:comment:admin_user"
 msgstr "Admin user"
 
-#: experiments/templates/experiments/detail_parts/comments.html:61
+#: experiments/templates/experiments/detail_parts/comments.html:62
 msgid "experiments:detail:comment:delete"
 msgstr "Delete comment"
 
@@ -538,88 +682,92 @@ msgstr "Delete comment"
 msgid "experiments:detail:info"
 msgstr "General info"
 
-#: experiments/templates/experiments/detail_parts/info.html:14
+#: experiments/templates/experiments/detail_parts/info.html:15
 msgid "experiments:detail:edit_info"
 msgstr "Edit"
 
-#: experiments/templates/experiments/detail_parts/info.html:21
+#: experiments/templates/experiments/detail_parts/info.html:18
+msgid "experiments:detail:edit_emails"
+msgstr "Edit email templates"
+
+#: experiments/templates/experiments/detail_parts/info.html:26
 msgid "experiments:detail:info:duration"
 msgstr "Duration"
 
-#: experiments/templates/experiments/detail_parts/info.html:29
+#: experiments/templates/experiments/detail_parts/info.html:34
 msgid "experiments:detail:info:compensation"
 msgstr "Compensation"
 
-#: experiments/templates/experiments/detail_parts/info.html:37
+#: experiments/templates/experiments/detail_parts/info.html:42
 msgid "experiments:detail:info:task_description"
 msgstr "Task description"
 
-#: experiments/templates/experiments/detail_parts/info.html:45
+#: experiments/templates/experiments/detail_parts/info.html:50
 msgid "experiments:detail:info:additional_instructions"
 msgstr "Additional Instructions"
 
-#: experiments/templates/experiments/detail_parts/info.html:53
+#: experiments/templates/experiments/detail_parts/info.html:58
 msgid "experiments:detail:info:use_timeslots"
 msgstr "Location study"
 
-#: experiments/templates/experiments/detail_parts/info.html:56
-#: experiments/templates/experiments/detail_parts/info.html:72
-#: experiments/templates/experiments/detail_parts/info.html:80
-#: experiments/templates/experiments/detail_parts/info.html:88
+#: experiments/templates/experiments/detail_parts/info.html:61
+#: experiments/templates/experiments/detail_parts/info.html:77
+#: experiments/templates/experiments/detail_parts/info.html:85
+#: experiments/templates/experiments/detail_parts/info.html:93
 #: experiments/templates/experiments/participants.html:153
 #: experiments/templates/experiments/participants.html:171
 msgid "yes,no"
 msgstr "yes,no"
 
-#: experiments/templates/experiments/detail_parts/info.html:61
+#: experiments/templates/experiments/detail_parts/info.html:66
 msgid "experiments:detail:info:location"
 msgstr "Location"
 
-#: experiments/templates/experiments/detail_parts/info.html:69
+#: experiments/templates/experiments/detail_parts/info.html:74
 msgid "experiments:detail:info:open"
 msgstr "Open"
 
-#: experiments/templates/experiments/detail_parts/info.html:77
+#: experiments/templates/experiments/detail_parts/info.html:82
 msgid "experiments:detail:info:public"
 msgstr "Public"
 
-#: experiments/templates/experiments/detail_parts/info.html:85
+#: experiments/templates/experiments/detail_parts/info.html:90
 msgid "experiments:detail:info:participants_visible"
 msgstr "Participants Visible"
 
-#: experiments/templates/experiments/detail_parts/info.html:93
+#: experiments/templates/experiments/detail_parts/info.html:98
 msgid "experiments:detail:info:leader"
 msgstr "Main leader"
 
-#: experiments/templates/experiments/detail_parts/info.html:104
+#: experiments/templates/experiments/detail_parts/info.html:110
 msgid "experiments:detail:criteria"
 msgstr "Criteria"
 
-#: experiments/templates/experiments/detail_parts/info.html:107
+#: experiments/templates/experiments/detail_parts/info.html:114
 msgid "experiments:detail:edit_default_criteria"
 msgstr "Edit default criteria"
 
-#: experiments/templates/experiments/detail_parts/info.html:111
+#: experiments/templates/experiments/detail_parts/info.html:118
 msgid "experiments:detail:edit_specific_criteria"
 msgstr "Edit specific criteria"
 
-#: experiments/templates/experiments/detail_parts/participants.html:10
+#: experiments/templates/experiments/detail_parts/participants.html:9
 msgid "experiments:detail:participants"
 msgstr "Participants"
 
-#: experiments/templates/experiments/detail_parts/participants.html:13
+#: experiments/templates/experiments/detail_parts/participants.html:12
 msgid "experiments:detail:participants:view_details"
 msgstr "View details"
 
-#: experiments/templates/experiments/detail_parts/participants.html:21
+#: experiments/templates/experiments/detail_parts/participants.html:22
 msgid "experiments:detail:participants:name"
 msgstr "Name"
 
-#: experiments/templates/experiments/detail_parts/participants.html:24
+#: experiments/templates/experiments/detail_parts/participants.html:25
 msgid "experiments:detail:participants:date_added"
 msgstr "Date registered"
 
-#: experiments/templates/experiments/detail_parts/timeslots.html:10
+#: experiments/templates/experiments/detail_parts/timeslots.html:9
 msgid "experiments:detail:timeslots"
 msgstr "Timeslots"
 
@@ -631,175 +779,164 @@ msgstr "Edit timeslots"
 msgid "experiments:detail:timeslots:view_participants"
 msgstr "View participants"
 
-#: experiments/templates/experiments/detail_parts/timeslots.html:25
+#: experiments/templates/experiments/detail_parts/timeslots.html:28
 msgid "experiments:detail:timeslots:datetime"
 msgstr "Date & Time"
 
-#: experiments/templates/experiments/detail_parts/timeslots.html:28
+#: experiments/templates/experiments/detail_parts/timeslots.html:31
 msgid "experiments:detail:timeslots:free_places"
 msgstr "Free places"
 
-#: experiments/templates/experiments/detail_parts/timeslots.html:31
+#: experiments/templates/experiments/detail_parts/timeslots.html:34
 msgid "experiments:detail:timeslots:taken_places"
 msgstr "Taken places"
 
 #: experiments/templates/experiments/edit.html:8
-#: experiments/templates/experiments/edit.html:15
+#: experiments/templates/experiments/edit.html:29
 msgid "experiments:edit:header"
 msgstr "Edit experiment"
 
-#: experiments/templates/experiments/edit.html:18
-msgid "experiments:edit:info_text"
-msgstr " "
+#: experiments/templates/experiments/email_templates.html:9
+#: experiments/templates/experiments/email_templates.html:15
+msgid "experiments:edit_email_templates:header"
+msgstr "Edit email templates for '{}'"
 
 #: experiments/templates/experiments/excluded_experiments.html:8
-#: experiments/templates/experiments/excluded_experiments.html:15
+#: experiments/templates/experiments/excluded_experiments.html:14
 msgid "experiments:excluded_experiments:header"
 msgstr "Excluded experiments"
 
-#: experiments/templates/experiments/excluded_experiments.html:18
-msgid "experiments:excluded_experiments:info_text"
-msgstr " "
-
-#: experiments/templates/experiments/excluded_experiments.html:36
+#: experiments/templates/experiments/excluded_experiments.html:38
 msgid "experiments:excluded_experiments:toggle_header"
 msgstr "Participants may have taken part in experiment"
 
-#: experiments/templates/experiments/excluded_experiments.html:63
+#: experiments/templates/experiments/excluded_experiments.html:65
 msgid "experiments:excluded_experiments:excluded:title"
 msgstr "Exclude experiment"
 
-#: experiments/templates/experiments/excluded_experiments.html:71
+#: experiments/templates/experiments/excluded_experiments.html:73
 msgid "experiments:excluded_experiments:included:title"
 msgstr "Include experiment"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:7
-msgid "experiments:home:edit_timeslots:title"
-msgstr "Edit timeslots"
-
-#: experiments/templates/experiments/experiment_actions_snippit.html:14
-msgid "experiments:home:edit_timeslots:title:disabled"
-msgstr "This experiment does not use timeslots."
-
-#: experiments/templates/experiments/experiment_actions_snippit.html:22
+#: experiments/templates/experiments/experiment_actions_snippit.html:16
 msgid "experiments:home:edit_experiment:title"
 msgstr "Edit experiment"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:29
+#: experiments/templates/experiments/experiment_actions_snippit.html:24
 msgid "experiments:home:edit_default_criteria:title"
 msgstr "Edit default criteria"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:36
+#: experiments/templates/experiments/experiment_actions_snippit.html:32
 msgid "experiments:home:edit_specific_criteria:title"
 msgstr "Edit specific criteria"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:43
+#: experiments/templates/experiments/experiment_actions_snippit.html:40
+msgid "experiments:home:edit_email_templates:title"
+msgstr "Edit email templates"
+
+#: experiments/templates/experiments/experiment_actions_snippit.html:49
+msgid "experiments:home:edit_timeslots:title"
+msgstr "Edit timeslots"
+
+#: experiments/templates/experiments/experiment_actions_snippit.html:59
 msgid "experiments:home:exclude_experiments:title"
-msgstr "Exclude experiments"
+msgstr "Excluded experiments"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:50
-msgid "experiments:home:invite:title"
-msgstr "Invite participants"
-
-#: experiments/templates/experiments/experiment_actions_snippit.html:57
+#: experiments/templates/experiments/experiment_actions_snippit.html:68
 msgid "experiments:home:participants:title"
 msgstr "Participants"
 
-#: experiments/templates/experiments/experiment_actions_snippit.html:64
+#: experiments/templates/experiments/experiment_actions_snippit.html:76
+msgid "experiments:home:invite:title"
+msgstr "Invite participants"
+
+#: experiments/templates/experiments/experiment_actions_snippit.html:85
 msgid "experiments:home:delete:title"
 msgstr "Delete experiment"
 
 #: experiments/templates/experiments/index.html:8
-#: experiments/templates/experiments/index.html:20
+#: experiments/templates/experiments/index.html:14
 msgid "experiments:home:header"
 msgstr "Experiments"
 
-#: experiments/templates/experiments/index.html:16
+#: experiments/templates/experiments/index.html:18
 msgid "experiments:home:create_experiment"
 msgstr "Create experiment"
 
-#: experiments/templates/experiments/index.html:23
-msgid "experiments:home:info_text"
-msgstr "<br/>"
-
-#: experiments/templates/experiments/index.html:38
+#: experiments/templates/experiments/index.html:39
 msgid "experiments:global:slots"
 msgstr "Slots"
 
-#: experiments/templates/experiments/index.html:41
+#: experiments/templates/experiments/index.html:42
 msgid "experiments:global:participants"
 msgstr "Participants"
 
-#: experiments/templates/experiments/index.html:90
+#: experiments/templates/experiments/index.html:91
 msgid "experiments:home:switch_open:title"
 msgstr "Open/close experiment"
 
-#: experiments/templates/experiments/index.html:99
+#: experiments/templates/experiments/index.html:100
 msgid "experiments:home:switch_public:title"
 msgstr "Make experiment public/private"
 
-#: experiments/templates/experiments/index.html:108
+#: experiments/templates/experiments/index.html:109
 msgid "experiments:home:switch_visible:title"
 msgstr "Toggle participant details visibility"
 
-#: experiments/templates/experiments/invite.html:13
-#: experiments/templates/experiments/invite.html:20
+#: experiments/templates/experiments/invite.html:18
+#: experiments/templates/experiments/invite.html:24
 msgid "experiments:invite:header"
 msgstr "Invite Participants - Experiment: {}"
 
-#: experiments/templates/experiments/invite.html:30
+#: experiments/templates/experiments/invite.html:36
 msgid "experiments:invite:info_text"
 msgstr " "
 
-#: experiments/templates/experiments/invite.html:49
+#: experiments/templates/experiments/invite.html:54
 msgid "experiments:invite:secondary_emails"
 msgstr "Secondary emails"
 
-#: experiments/templates/experiments/invite.html:52
+#: experiments/templates/experiments/invite.html:57
 msgid "experiments:invite:already_invited"
 msgstr "Invited on"
 
-#: experiments/templates/experiments/invite.html:97
+#: experiments/templates/experiments/invite.html:117
 msgid "experiments:invite:text:help"
 msgstr ""
-"The invite text has been generated from this experiment's invite mail "
-"template. This template can be edited on the <a href=\"{}\">experiment edit "
-"page</a>."
+"Here you can make changes to the invitation email before it is sent. Changes "
+"will not be saved for next time, that can be done on the <a "
+"href=\"{}\">'Edit email templates' page</a>."
 
-#: experiments/templates/experiments/invite.html:100
-msgid "experiments:invite:preview_button"
-msgstr "Preview"
-
-#: experiments/templates/experiments/invite.html:103
+#: experiments/templates/experiments/invite.html:121
 msgid "experiments:invite:invite_button"
 msgstr "Invite participants"
 
 #: experiments/templates/experiments/new.html:8
-#: experiments/templates/experiments/new.html:15
+#: experiments/templates/experiments/new.html:29
 msgid "experiments:new:header"
 msgstr "New Experiment"
 
-#: experiments/templates/experiments/new.html:18
+#: experiments/templates/experiments/new.html:38
 msgid "experiments:new:info_text"
 msgstr ""
 "You can create new experiments here. Criteria are set on the next page."
 
-#: experiments/templates/experiments/new.html:27
+#: experiments/templates/experiments/new.html:45
 msgid "experiments:globals:next_button"
 msgstr "Next >>"
 
 #: experiments/templates/experiments/participants.html:11
-#: experiments/templates/experiments/participants.html:24
+#: experiments/templates/experiments/participants.html:23
 msgid "experiments:participants:header"
 msgstr "participants - Experiment '{}'"
 
-#: experiments/templates/experiments/participants.html:34
+#: experiments/templates/experiments/participants.html:35
 msgid "experiments:participants:info_text"
 msgstr " "
 
 #: experiments/templates/experiments/participants.html:51
 #: experiments/templates/experiments/participants.html:183
-#: experiments/templates/timeslots/index.html:41
+#: experiments/templates/timeslots/index.html:62
 msgid "timeslots:day"
 msgstr "Day"
 
@@ -853,12 +990,12 @@ msgid "experiments:participants:sex"
 msgstr "Sex (M/F)"
 
 #: experiments/templates/experiments/participants.html:123
-#: experiments/templates/timeslots/index.html:123
+#: experiments/templates/timeslots/index.html:144
 msgid "timeslots:remove_participant:title"
 msgstr "Unsubscribe participant"
 
 #: experiments/templates/experiments/participants.html:130
-#: experiments/templates/timeslots/index.html:130
+#: experiments/templates/timeslots/index.html:151
 msgid "timeslots:silent_remove_participant:title"
 msgstr ""
 "Unsubscribe participant (without sending an automatic confirmation email)"
@@ -872,16 +1009,12 @@ msgid "experiments:participants:send"
 msgstr "Send"
 
 #: experiments/templates/locations/edit.html:8
-#: experiments/templates/locations/edit.html:15
+#: experiments/templates/locations/edit.html:14
 msgid "locations:update:header"
 msgstr "Update Location"
 
-#: experiments/templates/locations/edit.html:18
-msgid "locations:update:info_text"
-msgstr " "
-
 #: experiments/templates/locations/index.html:8
-#: experiments/templates/locations/index.html:21
+#: experiments/templates/locations/index.html:14
 msgid "locations:home:header"
 msgstr "Locations"
 
@@ -889,25 +1022,21 @@ msgstr "Locations"
 msgid "locations:home:create_location"
 msgstr "Create location"
 
-#: experiments/templates/locations/index.html:24
-msgid "locations:home:info_text"
-msgstr "<br/>"
+#: experiments/templates/locations/index.html:59
+msgid "experiments:globals:edit"
+msgstr "Edit"
 
 #: experiments/templates/locations/new.html:8
-#: experiments/templates/locations/new.html:16
+#: experiments/templates/locations/new.html:14
 msgid "locations:new:header"
 msgstr "New Location"
 
-#: experiments/templates/locations/new.html:19
-msgid "locations:new:info_text"
-msgstr " "
-
 #: experiments/templates/timeslots/index.html:9
-#: experiments/templates/timeslots/index.html:24
+#: experiments/templates/timeslots/index.html:23
 msgid "timeslots:home:header"
 msgstr "Timeslots for experiment '{}'"
 
-#: experiments/templates/timeslots/index.html:27
+#: experiments/templates/timeslots/index.html:32
 msgid "timeslots:home:info_text"
 msgstr ""
 "Timeslots can be edited here.<br/>If your timeslot has multiple 'places', "
@@ -921,29 +1050,29 @@ msgstr ""
 "readability if your timeslots have multiple places, but it can have the "
 "opposite effect if most of your timeslots only have 1 place."
 
-#: experiments/templates/timeslots/index.html:44
+#: experiments/templates/timeslots/index.html:37
+msgid "timeslots:home:new_timeslots:header"
+msgstr "New timeslot"
+
+#: experiments/templates/timeslots/index.html:65
 msgid "timeslots:date"
 msgstr "Date"
 
-#: experiments/templates/timeslots/index.html:47
+#: experiments/templates/timeslots/index.html:68
 msgid "timeslots:time"
 msgstr "Time"
 
-#: experiments/templates/timeslots/index.html:50
+#: experiments/templates/timeslots/index.html:71
 msgid "timeslots:place"
 msgstr "Place #"
 
-#: experiments/templates/timeslots/index.html:53
+#: experiments/templates/timeslots/index.html:74
 msgid "timeslots:participant:name"
 msgstr "Participant"
 
-#: experiments/templates/timeslots/index.html:56
+#: experiments/templates/timeslots/index.html:77
 msgid "timeslots:participant:email"
 msgstr "Participant email"
-
-#: experiments/templates/timeslots/index.html:166
-msgid "timeslots:home:new_timeslots:header"
-msgstr "New timeslot"
 
 #: experiments/views/appointment_views.py:96
 msgid "timeslots:message:deleted_timeslot"
@@ -986,61 +1115,62 @@ msgstr "Criterion successfully added to experiment!"
 msgid "criteria:messages:removed_from_experiment"
 msgstr "Criterion successfully removed from experiment!"
 
-#: experiments/views/experiment_views.py:50
+#: experiments/views/experiment_views.py:53
 msgid "experiments:message:create:success"
 msgstr "Successfully created experiment"
 
-#: experiments/views/experiment_views.py:63
+#: experiments/views/experiment_views.py:66
 msgid "experiments:message:update:success"
 msgstr "Successfully updated experiment"
 
-#: experiments/views/experiment_views.py:108
+#: experiments/views/experiment_views.py:111
 msgid "experiments:message:deleted_experiment"
 msgstr "Experiment deleted!"
 
-#: experiments/views/experiment_views.py:154
+#: experiments/views/experiment_views.py:157
 msgid "experiments:message:exclude:included"
 msgstr "Successfully included experiment"
 
-#: experiments/views/experiment_views.py:157
+#: experiments/views/experiment_views.py:160
 msgid "experiments:message:exclude:excluded"
 msgstr "Successfully excluded experiment"
 
-#: experiments/views/experiment_views.py:240
+#: experiments/views/experiment_views.py:237
+msgid "experiments:message:update_emails:success"
+msgstr "Successfully updated email templates"
+
+#: experiments/views/experiment_views.py:272
 msgid "experiments:message:switch_open:closed"
 msgstr "Successfully closed experiment"
 
-#: experiments/views/experiment_views.py:243
+#: experiments/views/experiment_views.py:275
 msgid "experiments:message:switch_open:opened"
 msgstr "Successfully opened experiment"
 
-#: experiments/views/experiment_views.py:258
+#: experiments/views/experiment_views.py:290
 msgid "experiments:message:switch_public:closed"
 msgstr "Successfully hid experiment"
 
-#: experiments/views/experiment_views.py:261
+#: experiments/views/experiment_views.py:293
 msgid "experiments:message:switch_public:opened"
 msgstr "Successfully made experiment public"
 
-#: experiments/views/experiment_views.py:277
+#: experiments/views/experiment_views.py:309
 msgid "experiments:message:switch_visible:invisible"
 msgstr "Successfully hid participants from leaders"
 
-#: experiments/views/experiment_views.py:282
+#: experiments/views/experiment_views.py:314
 msgid "experiments:message:switch_visible:visible"
 msgstr "Successfully changed participant visibility to visible"
 
-#: experiments/views/experiment_views.py:305
+#: experiments/views/experiment_views.py:337
 msgid "experiments:message:sent_reminders"
 msgstr "Sent reminders to {} participant(s)"
 
-#: experiments/views/invite_views.py:51
+#: experiments/views/invite_views.py:67
 msgid "experiments:message:invite_failure"
 msgstr "Something went wrong!"
 
-#: experiments/views/invite_views.py:53
+#: experiments/views/invite_views.py:69
 msgid "experiments:message:invite_success"
 msgstr "Successfully invited participants!"
-
-#~ msgid "experiments:detail:appointments"
-#~ msgstr "Appointments"

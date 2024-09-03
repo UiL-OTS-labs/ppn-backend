@@ -1,11 +1,10 @@
-from django import forms
-
 from experiments.models import Experiment
+from main.forms import PPNTemplatedModelForm
 from participants.models import Participant
 from .models import Comment
 
 
-class CommentForm(forms.ModelForm):
+class CommentForm(PPNTemplatedModelForm):
     class Meta:
         model = Comment
         fields = ['participant', 'experiment', 'comment']

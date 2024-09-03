@@ -1,10 +1,9 @@
-from django import forms
-
 from datamanagement.models import Thresholds
 from datamanagement.widgets import TimespanWidget
+from main.forms import PPNTemplatedModelForm
 
 
-class ThresholdsEditForm(forms.ModelForm):
+class ThresholdsEditForm(PPNTemplatedModelForm):
     class Meta:
         model = Thresholds
         fields = '__all__'

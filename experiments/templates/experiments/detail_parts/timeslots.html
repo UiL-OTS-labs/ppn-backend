@@ -4,20 +4,23 @@
 {% load get_field_name %}
 {% load static %}
 
-<div class="uu-inner-container">
-    <div class="col-12">
-        <h3 class="d-inline">
+<div class="uu-hero text-bg-light justify-content-between align-items-center">
+        <h3>
             {% trans 'experiments:detail:timeslots' %}
         </h3>
-        <a href="{% url 'experiments:timeslots' experiment.pk %}">
-            {% trans 'experiments:detail:timeslots:edit_timeslots' %}
-        </a>
-        -
-        <a href="{% url 'experiments:participants' experiment.pk %}">
-            {% trans 'experiments:detail:timeslots:view_participants' %}
-        </a>
-        <br/>
-        <br/>
+        <div class="btn-group">
+            <a href="{% url 'experiments:timeslots' experiment.pk %}" class="btn btn-secondary btn-sm">
+                {% trans 'experiments:detail:timeslots:edit_timeslots' %}
+            </a>
+
+            <a href="{% url 'experiments:participants' experiment.pk %}" class="btn btn-secondary btn-sm">
+                {% trans 'experiments:detail:timeslots:view_participants' %}
+            </a>
+        </div>
+</div>
+
+<div class="uu-container">
+    <div class="col-12">
         <table class="w-100 dt">
             <thead>
                 <tr>

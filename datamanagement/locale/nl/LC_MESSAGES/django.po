@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-12 11:42+0000\n"
+"POT-Creation-Date: 2023-07-24 12:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "datamanagement:thresholds:edit:header"
 msgstr "Verander drempelwaarden"
 
-#: datamanagement/templates/datamanagement/edit_thresholds.html:23
+#: datamanagement/templates/datamanagement/edit_thresholds.html:29
 msgid "datamanagement:thresholds:edit:info_text"
 msgstr ""
 "Hier kun je de drempel waardes beheren die de applicatie gebruikt voor zijn "
@@ -31,32 +31,32 @@ msgstr ""
 "> In het selectie veld kun je bepalen of het in dagen, weken, maanden of "
 "jaren wordt gezien. De waarde wordt direct omgerekend naar de nieuwe eenheid."
 
-#: datamanagement/templates/datamanagement/edit_thresholds.html:32
+#: datamanagement/templates/datamanagement/edit_thresholds.html:36
 msgid "datamanagement:global:save_button"
 msgstr "Opslaan"
 
 #: datamanagement/templates/datamanagement/index.html:8
-#: datamanagement/templates/datamanagement/index.html:24
+#: datamanagement/templates/datamanagement/index.html:19
 msgid "datamanagement:home:header"
 msgstr "Data management"
 
-#: datamanagement/templates/datamanagement/index.html:20
+#: datamanagement/templates/datamanagement/index.html:23
 msgid "datamanagement:home:edit_thresholds"
 msgstr "Grenswaardes veranderen"
 
-#: datamanagement/templates/datamanagement/index.html:27
+#: datamanagement/templates/datamanagement/index.html:32
 msgid "datamanagement:home:info_text"
 msgstr ""
 "Deze pagina is bedoeld om de gegevens in de database bij te houden, en zal "
 "adviseren over welke gegevens mogelijk kunnen worden verwijderd en/of "
 "geanonimiseerd. Dit is bedoeld als hulpmiddel, geen complete oplossing!"
 
-#: datamanagement/templates/datamanagement/index_parts/comments.html:8
-#: datamanagement/templates/datamanagement/index_parts/comments.html:16
+#: datamanagement/templates/datamanagement/index_parts/comments.html:14
+#: datamanagement/templates/datamanagement/index_parts/comments.html:26
 msgid "datamanagement:home:comments:header"
 msgstr "Opmerkingen"
 
-#: datamanagement/templates/datamanagement/index_parts/comments.html:20
+#: datamanagement/templates/datamanagement/index_parts/comments.html:30
 msgid "datamanagement:home:comments:info_text"
 msgstr ""
 "Deze experimenten hebben opmerkingen die ouder zijn dan {}, het kan een goed "
@@ -64,122 +64,122 @@ msgstr ""
 "bekijken op de experiment details pagina (klik op de naam van het "
 "experiment). Je kunt ze daar ook individueel verwijderen."
 
-#: datamanagement/templates/datamanagement/index_parts/comments.html:26
-#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:26
-#: datamanagement/templates/datamanagement/index_parts/invites.html:26
+#: datamanagement/templates/datamanagement/index_parts/comments.html:36
+#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:36
+#: datamanagement/templates/datamanagement/index_parts/invites.html:36
 msgid "datamanagement:global:experiment"
 msgstr "Experiment"
 
-#: datamanagement/templates/datamanagement/index_parts/comments.html:29
-#: datamanagement/templates/datamanagement/index_parts/invites.html:29
+#: datamanagement/templates/datamanagement/index_parts/comments.html:39
+#: datamanagement/templates/datamanagement/index_parts/invites.html:39
 msgid "datamanagement:global:num"
 msgstr "Aantal"
 
-#: datamanagement/templates/datamanagement/index_parts/comments.html:33
-#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:33
-#: datamanagement/templates/datamanagement/index_parts/invites.html:33
-#: datamanagement/templates/datamanagement/index_parts/participants.html:38
-#: datamanagement/templates/datamanagement/index_parts/participants.html:90
+#: datamanagement/templates/datamanagement/index_parts/comments.html:43
+#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:43
+#: datamanagement/templates/datamanagement/index_parts/invites.html:43
+#: datamanagement/templates/datamanagement/index_parts/participants.html:48
+#: datamanagement/templates/datamanagement/index_parts/participants.html:100
 msgid "datamanagement:global:actions"
 msgstr "Acties"
 
-#: datamanagement/templates/datamanagement/index_parts/comments.html:49
+#: datamanagement/templates/datamanagement/index_parts/comments.html:59
 msgid "datamanagement:home:delete_comments"
 msgstr "Verwijder opmerkingen van dit experiment"
 
-#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:8
-#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:16
+#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:14
+#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:26
 msgid "datamanagement:home:exp_part_visibility:header"
 msgstr "Participant zichtbaarheid"
 
-#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:20
+#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:30
 msgid "datamanagement:home:exp_part_visibility:info_text"
 msgstr ""
 "Deze experimenten hebben de persoonlijke informatie van de participant "
 "zichtbaar voor de leiders, maar hun laatste tijdslot was {} geleden."
 
-#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:29
-#: datamanagement/templates/datamanagement/index_parts/participants.html:29
+#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:39
+#: datamanagement/templates/datamanagement/index_parts/participants.html:39
 msgid "datamanagement:global:last_appointment"
 msgstr "Laatste afspraak"
 
-#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:49
+#: datamanagement/templates/datamanagement/index_parts/exp_part_visibility.html:59
 msgid "datamanagement:home:delete_exp_part_visibility"
 msgstr "Verberg participant gegevens"
 
-#: datamanagement/templates/datamanagement/index_parts/invites.html:8
-#: datamanagement/templates/datamanagement/index_parts/invites.html:16
+#: datamanagement/templates/datamanagement/index_parts/invites.html:14
+#: datamanagement/templates/datamanagement/index_parts/invites.html:26
 msgid "datamanagement:home:invites:header"
 msgstr "Experiment uitnodigingen"
 
-#: datamanagement/templates/datamanagement/index_parts/invites.html:20
+#: datamanagement/templates/datamanagement/index_parts/invites.html:30
 msgid "datamanagement:home:invites:info_text"
 msgstr ""
 "Hier kun je 'reeds uitgenodigde' trackers voor participanten verwijderen van "
 "een experiment. Huidige drempelwaarde: {}. Hoewel niet nodig voor "
 "gegevensbescherming, houdt het de database wel schoon."
 
-#: datamanagement/templates/datamanagement/index_parts/invites.html:49
+#: datamanagement/templates/datamanagement/index_parts/invites.html:59
 msgid "datamanagement:home:delete_invites"
 msgstr "Verwijder trackers voor dit experiment"
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:8
-#: datamanagement/templates/datamanagement/index_parts/participants.html:16
+#: datamanagement/templates/datamanagement/index_parts/participants.html:14
+#: datamanagement/templates/datamanagement/index_parts/participants.html:26
 msgid "datamanagement:home:participants:header"
 msgstr "Participanten"
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:20
+#: datamanagement/templates/datamanagement/index_parts/participants.html:30
 msgid "datamanagement:home:participants:info_text"
 msgstr "Deze participanten hebben {} niet meer meegedaan in een experiment."
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:26
-#: datamanagement/templates/datamanagement/index_parts/participants.html:81
+#: datamanagement/templates/datamanagement/index_parts/participants.html:36
+#: datamanagement/templates/datamanagement/index_parts/participants.html:91
 msgid "datamanagement:global:participant"
 msgstr "Participant"
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:32
+#: datamanagement/templates/datamanagement/index_parts/participants.html:42
 msgid "datamanagement:home:participants:num_appointments"
 msgstr "Aantal afspraken"
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:35
-#: datamanagement/templates/datamanagement/index_parts/participants.html:87
+#: datamanagement/templates/datamanagement/index_parts/participants.html:45
+#: datamanagement/templates/datamanagement/index_parts/participants.html:97
 msgid "datamanagement:home:participants:has_account"
 msgstr "Heeft account"
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:71
+#: datamanagement/templates/datamanagement/index_parts/participants.html:81
 msgid "datamanagement:home:participants:header2"
 msgstr "Participanten zonder afspraak"
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:75
+#: datamanagement/templates/datamanagement/index_parts/participants.html:85
 msgid "datamanagement:home:participants:info_text2"
 msgstr ""
 "Deze participanten hebben nooit aan een experiment mee gedaan en zijn {} "
 "geleden aangemaakt."
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:84
+#: datamanagement/templates/datamanagement/index_parts/participants.html:94
 msgid "datamanagement:home:participants:registered"
 msgstr "Aangemaakt op"
 
-#: datamanagement/templates/datamanagement/index_parts/participants.html:109
+#: datamanagement/templates/datamanagement/index_parts/participants.html:119
 msgid "datamanagement:home:delete_participant"
 msgstr "Verwijder participant"
 
-#: datamanagement/templates/widgets/timespan_widget.html:10
+#: datamanagement/templates/widgets/timespan_widget.html:11
 #: datamanagement/templatetags/display_threshold.py:14
 msgid "datamanagement:global:days"
 msgstr "Data management"
 
-#: datamanagement/templates/widgets/timespan_widget.html:13
+#: datamanagement/templates/widgets/timespan_widget.html:14
 #: datamanagement/templatetags/display_threshold.py:13
 msgid "datamanagement:global:weeks"
 msgstr "weken"
 
-#: datamanagement/templates/widgets/timespan_widget.html:16
+#: datamanagement/templates/widgets/timespan_widget.html:17
 #: datamanagement/templatetags/display_threshold.py:12
 msgid "datamanagement:global:months"
 msgstr "maanden"
 
-#: datamanagement/templates/widgets/timespan_widget.html:19
+#: datamanagement/templates/widgets/timespan_widget.html:20
 #: datamanagement/templatetags/display_threshold.py:11
 msgid "datamanagement:global:years"
 msgstr "jaar"

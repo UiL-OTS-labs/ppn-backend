@@ -3,7 +3,7 @@ from enum import Enum
 from django.conf import settings
 
 from participants.utils.mailinglist_unsubscribe import get_login_page_url
-from uil.core.utils.mail import send_template_email
+from cdh.mail.utils import send_template_email
 
 from api.auth.models import ApiUser, ApiGroup, UserToken
 from api.utils import get_reset_links
@@ -11,6 +11,7 @@ from comments.utils import add_system_comment
 from leaders.utils import _get_tomorrow
 from participants.models import Participant, SecondaryEmail
 from participants.utils import get_mailinglist_unsubscribe_url
+from participants.utils.switch_main_email import switch_main_email
 
 SYSTEM_MESSAGES = {
     'multiple_participants': "A user tried to create an account, but the "
@@ -71,7 +72,7 @@ def create_participant_account(email: str,
 
         # Switch emails if needed
         if _to_lower(participant.email) != _to_lower(email):
-            _switch_main_email(participant, email)
+            switch_main_email(participant, email)
 
     # Create a queryset to check if this email is already used
     api_user = ApiUser.objects.get_by_email(email)
@@ -179,9 +180,9 @@ def _create_new_account(participant: Participant, password: str = None) -> None:
     send_template_email(
         [participant.email],
         "ILS Labs: Account aangemaakt",
-        'api/mail/new_account',
-        context,
-        settings.EMAIL_FROM
+        html_template='api/mail/new_account.html',
+        plain_template='api/mail/new_account.txt',
+        template_context=context,
     )
 
 
@@ -218,9 +219,9 @@ def _send_existing_account_mail(
     send_template_email(
         [participant.email],
         "ILS Labs: Account aangemaakt",
-        'api/mail/existing_leader_new_participant',
-        context,
-        settings.EMAIL_FROM
+        html_template='api/mail/existing_leader_new_participant.html',
+        plain_template='api/mail/existing_leader_new_participant.txt',
+        template_context=context,
     )
 
 
@@ -235,35 +236,3 @@ def _add_participant_group(api_user: ApiUser) -> None:
     api_user.groups.add(group)
     api_user.save()
 
-
-def _switch_main_email(participant: Participant, new_email: str) -> None:
-    """
-    This function switches the main email of a participant with one of it's
-    secondary emails. The old secondary email object is used to store the
-    previous main email.
-
-    :param participant: A participant object
-    :param new_email: An email string that corresponds to a secondary email
-    :return: Nothing
-    """
-    # Get the secondary email that now houses the new main email
-    secondary_emails = participant.secondaryemail_set.all()
-    try:
-        existing_new_email = next(
-            iter([x for x in secondary_emails if _to_lower(x.email) ==
-                  _to_lower(new_email)])
-        )
-    except StopIteration:
-        # Should not happen, but if it happens it can ruin one's day so we
-        # need to have a fallback
-        existing_new_email = SecondaryEmail()
-        existing_new_email.participant = participant
-
-    # Set the old main email as this object's email address
-    existing_new_email.email = participant.email
-    existing_new_email.save()
-
-    # Set the new email (same as the original value of the secondary email
-    # above) as the main email
-    participant.email = new_email
-    participant.save()

@@ -1,9 +1,11 @@
 from django import forms
 
+from main.forms import PPNTemplatedModelForm
+
 from ..models import TimeSlot
 
 
-class TimeSlotForm(forms.ModelForm):
+class TimeSlotForm(PPNTemplatedModelForm):
 
     class Meta:
         model = TimeSlot

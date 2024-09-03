@@ -62,6 +62,10 @@ def get_eligible_participants_for_experiment(experiment: Experiment,
 
     for participant in participants:
 
+        # If we don't have a primary email we can't really invite them, so skip!
+        if participant.email is None:
+            continue
+
         if check_default_criteria(participant, filters):
             continue
 
