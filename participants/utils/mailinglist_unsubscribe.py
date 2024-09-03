@@ -6,13 +6,12 @@ from participants.models import Participant
 
 
 def get_mailinglist_unsubscribe_token(participant: Participant) -> UserToken:
-    try:
-        token = UserToken.objects.filter(
-            participant=participant,
-            type=UserToken.MAILINGLIST_UNSUBSCRIBE
-        ).first()
+    token = UserToken.objects.filter(
+        participant=participant,
+        type=UserToken.MAILINGLIST_UNSUBSCRIBE
+    ).first()
 
-    except UserToken.DoesNotExist:
+    if token is None:
         token = UserToken(
             participant=participant,
             type=UserToken.MAILINGLIST_UNSUBSCRIBE,
