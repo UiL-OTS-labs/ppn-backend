@@ -24,14 +24,14 @@ class RegistrationTests(TestCase):
         self.exp = Experiment.objects.create(leader=leader, default_max_places=10, use_timeslots=False)
 
     def test_new_participant(self):
-        success, _, messages = register_participant(dict(email=self.pp.email, specific_criteria=[]), self.exp)
+        success, _, messages = register_participant(dict(email=self.pp.email, specific_criteria=[], language='nl'), self.exp)
         assert success, messages
 
     def test_new_participant_specific_criteria(self):
         criterion = Criterion.objects.create(name_form='test_crit', values='yes,no')
-        self.exp.experimentcriterion_set.create(criterion=criterion, correct_value='no')
+        self.exp.experimentcriterion_set.create(criterion=criterion, correct_value='yes')
         self.exp.save()
         specific_criteria = [dict(name='test_crit', value='0')]
-        success, _, messages = register_participant(dict(email=self.pp.email, specific_criteria=specific_criteria),
+        success, _, messages = register_participant(dict(email=self.pp.email, specific_criteria=specific_criteria, language='nl'),
                                                     self.exp)
         assert success, messages
