@@ -1,7 +1,6 @@
 import string
 from datetime import datetime
 from random import choice
-from unittest import skip
 
 from pytz import timezone
 from dateutil.relativedelta import relativedelta
@@ -13,7 +12,6 @@ from experiments.utils.exclusion import get_eligible_participants_for_experiment
 from participants.models import Participant, CriterionAnswer
 
 
-@skip
 class ExclusionTests(TestCase):
 
     def setUp(self):
