@@ -366,9 +366,11 @@ def _handle_specific_criteria(
             messages.append(specific_criterion.message_failed)
             continue
 
-        existing_answer = participant.criterionanswer_set.filter(
-            criterion=specific_criterion.criterion
-        ).first()
+        existing_answer = None
+        if participant.pk:
+            existing_answer = participant.criterionanswer_set.filter(
+                criterion=specific_criterion.criterion
+            ).first()
 
         value = data.get(name_form, None)
 
@@ -429,7 +431,7 @@ def _handle_excluded_experiments(
     :return:
     """
     invalid_experiments = []
-    appointments = participant.appointments.all()
+    appointments = participant.appointments.all() if participant.pk else []
     participated_experiments = [x.experiment for x in appointments]
 
     for excluded_experiment in experiment.excluded_experiments.all():
