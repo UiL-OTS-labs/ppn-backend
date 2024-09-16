@@ -430,6 +430,12 @@ def _handle_excluded_experiments(
     :param participant:
     :return:
     """
+    # We cannot do this check if the participant is not saved yet
+    # It's also not necessary, as we can't have any appointments if we have
+    # a new participant
+    if not participant.pk:
+        return [], []
+
     invalid_experiments = []
     appointments = participant.appointments.all() if participant.pk else []
     participated_experiments = [x.experiment for x in appointments]
