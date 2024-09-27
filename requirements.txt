@@ -101,6 +101,8 @@ djangosaml2==1.9.3
     # via cdh-django-core
 elementpath==4.4.0
     # via xmlschema
+freezegun==1.5.1
+    # via -r requirements.in
 greenlet==3.0.3
     # via bpython
 idna==3.7
@@ -146,6 +148,7 @@ pyscss==1.4.0
 python-dateutil==2.9.0.post0
     # via
     #   -r requirements.in
+    #   freezegun
     #   pysaml2
 python-ldap==3.4.4
     # via django-auth-ldap
