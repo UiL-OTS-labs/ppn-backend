@@ -6,10 +6,12 @@ straightforward as you'd expect.
 Also, because we use application-level database encryption, we cannot compare
 inside the database. This is why everything is done in python.
 """
-from typing import List
+import datetime
+from typing import List, Optional
 from django.db.models.expressions import RawSQL
 
 from experiments.models import Experiment, ExperimentCriterion
+from experiments.models.criteria_models import DefaultCriteria
 from participants.models import CriterionAnswer, Participant
 
 # List of vars that can have the same values as the participant model
@@ -203,7 +205,8 @@ def _get_specific_criterion(specific_experiment_criteria, criterion) -> \
             return x
 
 
-def should_exclude_by_age(participant: Participant, default_criteria) -> bool:
+def should_exclude_by_age(participant: Participant, default_criteria: DefaultCriteria,
+                          appointment_date: Optional[datetime.date]=None) -> bool:
     """
     Determines if a participant should be excluded based upon their age
 
@@ -211,20 +214,17 @@ def should_exclude_by_age(participant: Participant, default_criteria) -> bool:
     :param default_criteria:
     :return:
     """
+    age = participant.age_at(appointment_date) if appointment_date else participant.age
+
     # If we don't know the age, assume it's allowed
-    if participant.age is None:
+    if age is None:
         return False
 
-    if participant.age < default_criteria.min_age:
+    if age < default_criteria.min_age:
         return True
 
-    # We could do this with a different if statement in the loop, but this
-    # makes the loop look cleaner
     max_age = default_criteria.max_age
-    if max_age == -1:
-        max_age = 9000  # we assume no-one is older than 9000 years old....
+    if max_age == -1:  # no max
+        return False
 
-    if participant.age > max_age:
-        return True
-
-    return False
+    return age > max_age

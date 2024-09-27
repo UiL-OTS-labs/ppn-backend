@@ -153,9 +153,17 @@ class Participant(models.Model):
         if self.birth_date:
             today = date.today()
 
-            return today.year - self.birth_date.year - (
-                    (today.month, today.day) < (
-            self.birth_date.month, self.birth_date.day))
+            if (today.month, today.day) < (self.birth_date.month, self.birth_date.day):
+                return today.year - self.birth_date.year - 1
+            return today.year - self.birth_date.year
+
+        return None
+
+    def age_at(self, dt: date) -> Optional[int]:
+        if self.birth_date:
+            if (dt.month, dt.day) < (self.birth_date.month, self.birth_date.day):
+                return dt.year - self.birth_date.year - 1
+            return dt.year - self.birth_date.year
 
         return None
 
