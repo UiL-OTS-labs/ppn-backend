@@ -437,7 +437,7 @@ def _handle_excluded_experiments(
         return [], []
 
     invalid_experiments = []
-    appointments = participant.appointments.all() if participant.pk else []
+    appointments = participant.appointments.all()
     participated_experiments = [x.experiment for x in appointments]
 
     for excluded_experiment in experiment.excluded_experiments.all():
