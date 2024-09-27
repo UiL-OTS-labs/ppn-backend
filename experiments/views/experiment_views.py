@@ -1,6 +1,5 @@
 import braces.views as braces
 from django.contrib import messages
-from django.contrib.auth.views import RedirectURLMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Count, F, Q
 from django.urls import reverse_lazy as reverse
@@ -57,24 +56,13 @@ class ExperimentCreateView(braces.LoginRequiredMixin, SuccessMessageMixin,
 
 
 class ExperimentUpdateView(braces.LoginRequiredMixin,
-                           RedirectURLMixin,
                            SuccessMessageMixin,
                            generic.UpdateView):
     template_name = 'experiments/edit.html'
     form_class = ExperimentForm
     model = Experiment
     success_message = _('experiments:message:update:success')
-
-    def get_success_url(self):
-        url = reverse('experiments:home')
-        redirect_to = self.request.GET.get('next', url)
-
-        url_is_safe = url_has_allowed_host_and_scheme(
-            url=redirect_to,
-            allowed_hosts=self.get_success_url_allowed_hosts(),
-            require_https=self.request.is_secure(),
-        )
-        return redirect_to if url_is_safe else ''
+    success_url = reverse('experiments:home')
 
 
 class ExperimentDetailView(braces.LoginRequiredMixin, generic.DetailView):
@@ -227,7 +215,6 @@ class ExperimentAppointmentsView(braces.LoginRequiredMixin,
 
 class ExperimentEmailTemplatesUpdateView(
     braces.LoginRequiredMixin,
-    RedirectURLMixin,
     SuccessMessageMixin,
     generic.UpdateView
 ):
@@ -236,7 +223,6 @@ class ExperimentEmailTemplatesUpdateView(
     model = Experiment
     success_message = _('experiments:message:update_emails:success')
     success_url = reverse('experiments:home')
-
 
 class ConfirmationEmailPreviewView(ExperimentObjectMixin, BaseEmailPreviewView):
     email_class = ConfirmationEmail
