@@ -309,10 +309,8 @@ def _handle_default_criteria(
         else:
             messages.append(DEFAULT_INVALID_MESSAGES[failed_criterion])
 
-    if time_slot and should_exclude_by_age(participant, default_criteria, time_slot.datetime.date()):
-        failed_criteria.append('age')
-        messages.append(DEFAULT_INVALID_MESSAGES['age'])
-    elif not time_slot and should_exclude_by_age(participant, default_criteria):
+    test_date = time_slot.datetime.date() if time_slot else date.today()
+    if should_exclude_by_age(participant, default_criteria, test_date):
         failed_criteria.append('age')
         messages.append(DEFAULT_INVALID_MESSAGES['age'])
 
