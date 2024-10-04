@@ -7,7 +7,7 @@ Steps:
 3. If yes, create the appointment
 4. If no, return human friendly explanations why the participant is not eligible
 """
-from datetime import time
+from datetime import date, time
 from typing import List, Tuple, Optional
 
 from django.conf import settings
