@@ -148,17 +148,6 @@ class Participant(models.Model):
 
         return 'proefpersoon'
 
-    @property
-    def age(self) -> Optional[int]:
-        if self.birth_date:
-            today = date.today()
-
-            if (today.month, today.day) < (self.birth_date.month, self.birth_date.day):
-                return today.year - self.birth_date.year - 1
-            return today.year - self.birth_date.year
-
-        return None
-
     def age_at(self, dt: date) -> Optional[int]:
         if self.birth_date:
             if (dt.month, dt.day) < (self.birth_date.month, self.birth_date.day):
@@ -166,6 +155,10 @@ class Participant(models.Model):
             return dt.year - self.birth_date.year
 
         return None
+
+    @property
+    def age(self) -> Optional[int]:
+        return self.age_at(date.today())
 
     def get_sex_display(self):
         mappings = {
