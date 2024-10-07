@@ -5,7 +5,6 @@ django-csp
 django-simple-menu
 django-extensions # QoF for the admin, adds a lot of useful manage.py commands
 django-impersonate
-pip-tools
 cryptography
 PyJWT
 bpython
@@ -16,3 +15,7 @@ python-dateutil
 cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.2.0-alpha.0
 mysqlclient
 django-auth-ldap
+
+# dev only
+pip-tools
+freezegun

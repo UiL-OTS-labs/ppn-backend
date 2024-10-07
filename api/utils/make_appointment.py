@@ -7,7 +7,8 @@ Steps:
 3. If yes, create the appointment
 4. If no, return human friendly explanations why the participant is not eligible
 """
-from typing import List, Tuple
+from datetime import date, time
+from typing import List, Tuple, Optional
 
 from django.conf import settings
 from django.core.exceptions import SuspiciousOperation
@@ -120,7 +121,8 @@ def register_participant(data: dict, experiment: Experiment) -> Tuple[bool,
     invalid_default_criteria, \
     default_criteria_messages = _handle_default_criteria(
         default_criteria,
-        participant
+        participant,
+        time_slot
     )
 
     invalid_specific_criteria, \
@@ -275,6 +277,7 @@ def _get_participant(data: dict) -> Participant:
 def _handle_default_criteria(
         default_criteria: DefaultCriteria,
         participant: Participant,
+        time_slot: Optional[TimeSlot]=None
 ) -> Tuple[list, list]:
     messages = []
 
@@ -306,7 +309,8 @@ def _handle_default_criteria(
         else:
             messages.append(DEFAULT_INVALID_MESSAGES[failed_criterion])
 
-    if should_exclude_by_age(participant, default_criteria):
+    test_date = time_slot.datetime.date() if time_slot else date.today()
+    if should_exclude_by_age(participant, default_criteria, test_date):
         failed_criteria.append('age')
         messages.append(DEFAULT_INVALID_MESSAGES['age'])
 
