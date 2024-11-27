@@ -2,8 +2,9 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.text import gettext_lazy as _
 
-from cdh.core.forms import (TelephoneInput,BootstrapRadioSelect,
-                            BootstrapCheckboxInput)
+from cdh.core.forms import (SearchableSelectWidget, TelephoneInput,
+                            BootstrapRadioSelect,
+                            BootstrapCheckboxInput, )
 from main.forms import PPNTemplatedForm, PPNTemplatedModelForm
 
 from .models import CriterionAnswer, Participant
@@ -61,11 +62,13 @@ class ParticipantMergeForm(PPNTemplatedForm):
     old_participant = forms.ModelChoiceField(
         Participant.objects.all(),
         label=_('participants:merge_form:field:old_participant'),
+        widget=SearchableSelectWidget,
     )
 
     new_participant = forms.ModelChoiceField(
         Participant.objects.all(),
         label=_('participants:merge_form:field:new_participant'),
+        widget=SearchableSelectWidget,
     )
 
     def clean_new_participant(self):
