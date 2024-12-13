@@ -288,4 +288,4 @@ class AppointmentsView(rest_mixins.ListModelMixin,
         raise PermissionDenied
 
     def get_queryset(self):
-        return Appointment.objects.filter(participant=self._get_participant())
+        return Appointment.objects.filter(participant=self._get_participant()).order_by('-timeslot__datetime')
