@@ -90,7 +90,7 @@ msgstr "Behoud huidig wachtwoord"
 #: leaders/forms.py:160
 msgid "leaders:forms:create_form:keep_current_password:help_text"
 msgstr ""
-"Indien dit is aangevinkt worden de wachtwoord velden genegeerd en het "
+"Indien dit is aangevinkt worden de wachtwoord-velden genegeerd en het "
 "huidige wachtwoord behouden."
 
 #: leaders/forms.py:206

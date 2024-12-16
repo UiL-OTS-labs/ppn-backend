@@ -57,14 +57,14 @@ msgstr ""
 #: experiments/static/experiments/timeslots/timeslot_table.js:131
 msgid "timeslot:warning:deleting_timeslots"
 msgstr ""
-"Are you sure you want to delete this these timeslots? (An automatic email "
+"Are you sure you want to delete these timeslots? (An automatic email "
 "will be sent to any participants affected, but be sure to send a personal "
 "mail as well, if you haven't done so already.)"
 
 #: experiments/static/experiments/timeslots/timeslot_table.js:139
 msgid "timeslot:warning:deleting_timeslot"
 msgstr ""
-"Are you sure you want to delete this this timeslot? (An automatic email will "
+"Are you sure you want to delete this timeslot? (An automatic email will "
 "be sent to any participants affected, but be sure to send a personal mail as "
 "well, if you haven't done so already.)"
 

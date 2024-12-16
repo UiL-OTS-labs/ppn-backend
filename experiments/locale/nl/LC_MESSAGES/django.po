@@ -403,7 +403,7 @@ msgid "experiment:attribute:public:help_text"
 msgstr ""
 "Bepaalt of dit experiment op de voorpagina komt te staan. Indien dit is "
 "uitgevinkt, kunnen participanten zich alleen opgeven indien ze een directe "
-"link hebben. Dit is voornamelijk bedoeld voor vervolg experimenten waarbij "
+"link hebben. Dit is voornamelijk bedoeld voor vervolg-experimenten waarbij "
 "alleen participanten uit de originele studie mee mogen doen.."
 
 #: experiments/models/experiment_models.py:95
@@ -507,7 +507,7 @@ msgid "criteria:home:info_text"
 msgstr ""
 "Hier kun je zien welke losse criteria al bestaan, criteria aanmaken en "
 "wijzigen. Ook kun je zien in hoeveel experimenten een criterium wordt "
-"gebruikt. <br/>  Criteria hebben geen correctie waarde of een ingestelde "
+"gebruikt. <br/>  Criteria hebben geen correctie-waarde of een ingestelde "
 "foutmelding, dit wordt aangegeven bij het toevoegen van een criterium aan "
 "een experiment. Op deze manier kunnen criteria beter hergebruikt worden. "
 
@@ -692,7 +692,7 @@ msgstr "Bewerk"
 
 #: experiments/templates/experiments/detail_parts/info.html:18
 msgid "experiments:detail:edit_emails"
-msgstr "Bewerk email sjablonen"
+msgstr "Bewerk email-sjablonen"
 
 #: experiments/templates/experiments/detail_parts/info.html:26
 msgid "experiments:detail:info:duration"
@@ -1054,7 +1054,7 @@ msgstr ""
 "plaatsen onder het tijdstip groeperen. Het is bedoeld om de leesbaarheid te "
 "verbeteren als je tijdsloten meerdere plaatsen hebben, maar het kan het "
 "tegenovergestelde effect hebben als de meeste van je tijdsloten slechts 1 "
-"plaats heeft."
+"plaats hebben."
 
 #: experiments/templates/timeslots/index.html:37
 msgid "timeslots:home:new_timeslots:header"
@@ -1151,7 +1151,7 @@ msgstr "Experiment gesloten"
 
 #: experiments/views/experiment_views.py:275
 msgid "experiments:message:switch_open:opened"
-msgstr "Experiment ge-opent"
+msgstr "Experiment geopend"
 
 #: experiments/views/experiment_views.py:290
 msgid "experiments:message:switch_public:closed"
