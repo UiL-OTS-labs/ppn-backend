@@ -5,6 +5,7 @@ import urllib.parse as parse
 
 from experiments.emails import ConfirmationEmail
 
+from api.auth.models import UserToken
 from experiments.models import Experiment, TimeSlot
 from participants.models import Participant
 
@@ -19,10 +20,6 @@ def get_initial_confirmation_context(experiment: Experiment) -> dict:
         'leader_email': experiment.leader.api_user.email,
         'leader_phonenumber': experiment.leader.phonenumber,
         'all_leaders_name_list': experiment.all_leaders_str,
-        'cancel_link': parse.urljoin(
-            settings.FRONTEND_URI,
-            'participant/cancel/'
-        ),
     }
 
     if experiment.location:
@@ -42,9 +39,20 @@ def send_appointment_mail(
     if participant.email is None:
         return
 
+    # create login token for cancelation link
+    token = UserToken.objects.create(
+        participant=participant,
+        type=UserToken.CANCEL_APPOINTMENTS,
+    )
+    cancel_link = parse.urljoin(
+        settings.FRONTEND_URI,
+        "participant/appointments/{}/".format(token.token)
+    )
+
     context = get_initial_confirmation_context(experiment)
     context.update({
         'name': participant.mail_name,
+        'cancel_link': cancel_link
     })
 
     if experiment.use_timeslots:
@@ -65,4 +73,3 @@ def send_appointment_mail(
         context=context,
     )
     email.send()
-
