@@ -13,7 +13,7 @@ cryptography
 PyJWT
 bpython
 pillow
-cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.1.0
+cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.2.0
 mysqlclient
 backports-datetime-fromisoformat
 babel
