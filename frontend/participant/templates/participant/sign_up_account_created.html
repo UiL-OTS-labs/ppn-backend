@@ -1,0 +1,23 @@
+{% extends 'base/ppn_base.html' %}
+
+{% block header_title %}
+    Opgeven voor mailing list en/of account aanmaken - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>Account aangemaakt</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="uu-container">
+        <div class="col-12">
+            <p>Je account is succesvol aangemaakt!</p>
+            <p>
+                We hebben je een e-mail gestuurd met instructies voor het
+                instellen van je wachtwoord.
+            </p>
+        </div>
+    </div>
+{% endblock %}

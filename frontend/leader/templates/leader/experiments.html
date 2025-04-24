@@ -1,0 +1,100 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+
+{% block header_title %}
+    {% trans 'experiments:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            {% trans 'experiments:content:header' %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <table class="dt" width="100%">
+            <thead>
+                <tr>
+                    <th>
+                        {% trans 'experiments:table:name' %}
+                    </th>
+                    <th>
+                        {% trans 'experiments:table:timeslots' %}
+                    </th>
+                    <th>
+                        {% trans 'experiments:table:participants' %}
+                    </th>
+                    <th>
+                        {% trans 'experiments:table:status' %}
+                    </th>
+                    <th>
+                        {% trans 'global:actions' %}
+                    </th>
+                </tr>
+            </thead>
+            {% for experiment in experiments %}
+                <tr>
+                    <td>
+                        {% if experiment.open %}
+                            <a href="{% url 'participant:register' experiment.id %}">
+                                {{ experiment.name }}
+                            </a>
+                        {% else %}
+                            {{ experiment.name }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if experiment.use_timeslots %}
+                            {{ experiment.n_timeslots }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ experiment.n_participants }}
+                    </td>
+                    <td>
+                        <a
+                            href="{% url 'leader:experiment_switch_open' experiment.id %}"
+                            class="icon-open"
+                            title="{% trans 'experiment:switch_open:title' %}"
+                        >
+                            {{ experiment.open|yesno:"," }}
+                        </a>
+                    </td>
+                    <td>
+
+                        {% if experiment.use_timeslots %}
+                            <a
+                                href="{% url 'leader:timeslots' experiment.id %}"
+                                class="icon-timeslot"
+                                title="{% trans 'experiment:timeslots:title' %}"
+                            >
+                                
+                            </a>
+                        {% else %}
+                            <span
+                                class="icon-timeslots disabled-icon"
+                                title="{% trans 'experiments:timeslots:title:disabled' %}"
+                            >
+                                
+                            </span>
+                        {% endif %}
+                        <a
+                            href="{% url 'leader:participants' experiment.id %}"
+                            class="icon-participants"
+                            title="{% trans 'experiment:participants:title' %}"
+                        >
+                            
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}

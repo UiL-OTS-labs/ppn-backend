@@ -1,0 +1,35 @@
+
+tfoot input {
+    /* 100% - padding (10 px) - border (2px) */
+    width: calc(100% - 22px);
+    padding: 5px;
+    font-size: 0.8rem;
+}
+
+table {
+    font-size: 0.8rem;
+}
+
+ tfoot button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    line-height: initial;
+}
+
+.criteria-table {
+    font-size: 0.7rem;
+}
+
+.criteria-table td {
+    padding: 1px 5px;
+}
+
+.criteria-table td:nth-child(2)  {
+    color: green;
+}
+
+
+.uu-root-container {
+    --bs-uu-container-width: 115rem;
+    --bs-uu-content-width: 100rem;
+}

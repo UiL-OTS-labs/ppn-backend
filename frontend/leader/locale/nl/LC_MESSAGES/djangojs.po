@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-26 14:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "timeslot:error:cannot_validate_datetime"
+msgstr ""
+"Er is een error opgetreden tijdens het valideren van de datum en tijd. "
+"Dit betekend hoogstwaarschijnlijk dat je een fout hebt gemaakt bij het "
+"intypen. Controleer of je een valide datum en tijd hebt ingevuld in 'yyyy-"
+"mm-dd hh:mm' formaat."
+
+msgid "timeslot:error:invalid_date"
+msgstr ""
+"De ingevoerde datum kon niet gevalideerd worden! Controleer of je een "
+"valide datum hebt ingevuld in 'yyyy-mm-dd' formaat."
+
+msgid "timeslot:error:invalid_time"
+msgstr ""
+"De ingevoerde tijd kon niet gevalideerd worden! Controleer of je een "
+"valide tijd hebt ingevuld in 'hh:mm' formaat."
+
+msgid "timeslot:error:invalid_datetime"
+msgstr ""
+"De ingevoerde datum en/of tijd kon niet gevalideerd worden! Controleer of "
+"je een valide datum en/of tijd hebt ingevuld in 'yyyy-mm-dd hh:mm' "
+"formaat."
+
+msgid "timeslot:warning:deleting_timeslot"
+msgstr ""
+"Weet je zeker dat je dit timeslot wilt verwijderen? (Indien nodig wordt "
+"er een mail naar de proefpersoon gestuurd, maar stuur toch nog een "
+"persoonlijke mail als je dit nog niet gedaan hebt."
+
+msgid "timeslot:warning:deleting_timeslots"
+msgstr ""
+"Weet je zeker dat je deze timeslots wilt verwijderen? (Indien nodig wordt "
+"er een mail naar de proefpersoon(en) gestuurd, maar stuur toch nog een "
+"persoonlijke mail als je dit nog niet hebt gedaan."
+
+msgid "timeslot:warning:confirm_remove_participant"
+msgstr ""
+"Weet je zeker dat je dit proefpersoon wilt verwijderen? (Er zal een "
+"bevestigingsmail naar de proefpersoon worden gestuurd, maar stuur toch nog "
+"een persoonlijke mail als je dit nog niet hebt gedaan.)"
+
+msgid "timeslot:warning:download_csv"
+msgstr ""
+"U staat op het punt deelnemergegevens te downloaden, houd er rekening mee "
+"dat deze gegevens vertrouwelijk zijn! Zorg ervoor dat je deze gegevens "
+"veilig verwerkt. Als dit mogelijk is, anonymiseer en/of verwijder deze "
+"data zo snel mogelijk. "

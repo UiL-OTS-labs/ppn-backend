@@ -1,0 +1,78 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+{% load datatables %}
+
+{% block html_head %}
+    <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+    <script nonce="{{ request.csp_nonce }}">
+    $(function () {
+        $('.dt_custom').DataTable({
+            order: [[2, 'asc'], [3, 'asc']],
+            lengthMenu: [
+                [10, 25, 50, 100, -1],
+                ["10", "25", "50", "100", "\u221e"]
+            ],
+            responsive: true,
+            paginationType: "full_numbers",
+        });
+    });
+    </script>
+    <style>
+      a[href^="tel:"] {
+          text-decoration: none;
+      }
+    </style>
+{% endblock%}
+
+{% block header_title %}
+    {% trans 'appointments:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            {% trans 'appointments:content:header' %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        {% for appointment in appointments %}
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title"> {{ appointment.experiment.name }}</h5>
+                {% if appointment.experiment.use_timeslots %}
+                <div>{% trans 'appointments:thead:date' %}: {{ appointment.timeslot.datetime|date:"l d-m-Y" }}</div>
+                <div>{% trans 'appointments:thead:time' %}: {{ appointment.timeslot.datetime|date:'H.i' }}</div>
+                {% endif %}
+                <div class="mt-3">
+                    {% trans 'appointments:thead:leader' %}: {{ appointment.experiment.leader.name }}
+                </div>
+                <div>
+                    <a href="mailto:{{ appointment.experiment.leader.email }}">{{ appointment.experiment.leader.email }}</a>
+                </div>
+                <div>
+                    <a href="tel:{{ appointment.experiment.leader.phonenumber }}">{{ appointment.experiment.leader.phonenumber }}</a>
+                </div>
+
+                <div class="mt-3">
+                    {% if appointment.can_cancel %}
+                        <a href="{% url 'participant:cancel_appointment' token appointment.id %}" class="btn btn-danger">
+                            {% trans 'appointments:content:cancel' %}
+                        </a>
+                    {% else %}
+                        {% trans 'appointments:content:cannot_cancel' %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+            {% translate 'appointments:content:no_appointments' %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

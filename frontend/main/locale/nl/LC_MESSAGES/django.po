@@ -1,0 +1,466 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 15:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: main/forms.py:15
+msgid ""
+"Please enter a correct email address and password. Note that both fields may "
+"be case-sensitive."
+msgstr ""
+"Voer een juist emailadres en wachtwoord in. Let op dat beide velden "
+"hoofdlettergevoelig zijn."
+
+#: main/forms.py:21
+msgid "Email"
+msgstr ""
+
+#: main/forms.py:38
+msgid "forms:forgot_password:token_placeholder"
+msgstr "Vul je token in"
+
+#: main/forms.py:47
+msgid "forms:forgot_password:email_placeholder"
+msgstr "Vul je e-mailadres in"
+
+#: main/forms.py:67
+msgid "form:forgot_password:email_incorrect"
+msgstr ""
+"Het e-mailadres dat je hebt ingevoerd is ongeldig of niet gekoppeld aan een "
+"account"
+
+#: main/forms.py:78 main/forms.py:130
+msgid "forms:change_password:password_mismatch"
+msgstr "De twee wachtwoordvelden komen niet overeen."
+
+#: main/forms.py:79
+msgid "forms:change_password:token_incorrect"
+msgstr "Het token is verlopen!"
+
+#: main/forms.py:87 main/forms.py:135
+msgid "forms:change_password:new1"
+msgstr "Nieuw wachtwoord"
+
+#: main/forms.py:93 main/forms.py:141
+msgid "forms:change_password:new2"
+msgstr "Bevestig nieuw wachtwoord"
+
+#: main/forms.py:131
+msgid "forms:change_password:password_incorrect"
+msgstr "Je oude wachtwoord is verkeerd ingevoerd. Voer het opnieuw in."
+
+#: main/forms.py:147
+msgid "forms:change_password:old"
+msgstr "Huidig wachtwoord"
+
+#: main/menus.py:5
+msgid "mainmenu:home"
+msgstr "Home"
+
+#: main/menus.py:10
+msgid "mainmenu:leader_experiments"
+msgstr "Mijn experimenten"
+
+#: main/menus.py:16
+msgid "mainmenu:leader_profile"
+msgstr "Verander profiel"
+
+#: main/menus.py:22
+msgid "mainmenu:sign_up"
+msgstr "Mailing list en/of account"
+
+#: main/menus.py:27
+msgid "mainmenu:cancel_appointment"
+msgstr "Afspraak afzeggen"
+
+#: main/menus.py:32
+msgid "mainmenu:my_appointments"
+msgstr "Mijn afspraken"
+
+#: main/menus.py:39 main/menus.py:66
+msgid "menu:privacy"
+msgstr "Privacy-verklaring"
+
+#: main/menus.py:46 main/menus.py:61 main/templates/base/login_header.html:12
+msgid "main:globals:login"
+msgstr "Log in"
+
+#: main/menus.py:51
+msgid "mainmenu:change_password"
+msgstr "Verander wachtwoord"
+
+#: main/menus.py:56 main/menus.py:70 main/templates/base/login_header.html:7
+msgid "main:globals:logout"
+msgstr "Log uit"
+
+#: main/templates/403_csrf.html:7 main/templates/403_csrf.html:12
+#: main/templates/base/500.html:5 main/templates/base/500.html:10
+msgid "500:header"
+msgstr "Er is iets fout gegaan"
+
+#: main/templates/403_csrf.html:23 main/templates/base/500.html:18
+msgid "500:p1"
+msgstr "Sorry! Het lijkt er op dat wij iets fout hebben gedaan aan onze kant!"
+
+#: main/templates/403_csrf.html:26 main/templates/base/500.html:21
+msgid "500:p2"
+msgstr "In de tussentijd is dit wat je kunt doen:"
+
+#: main/templates/403_csrf.html:30 main/templates/base/500.html:25
+msgid "500:advice:reload"
+msgstr "<strong>De pagina verversen</strong> (dit helpt soms)"
+
+#: main/templates/base/403.html:9 main/templates/base/403.html:14
+msgid "403:header"
+msgstr "Geen toegang"
+
+#: main/templates/base/403.html:22
+msgid "403:p1"
+msgstr "Het lijkt er op dat je een pagina wilt bezoeken waar je niet bij mag."
+
+#: main/templates/base/403.html:25
+msgid "403:p2"
+msgstr "Als je denkt dat dit een fout is, neem contact op met de lab technici."
+
+#: main/templates/base/404.html:10 main/templates/base/404.html:15
+msgid "404:header"
+msgstr "Pagina niet gevonden"
+
+#: main/templates/base/404.html:23
+msgid "404:p1"
+msgstr "We kunnen de pagina waarnaar je op zoek bent niet vinden."
+
+#: main/templates/base/404.html:26
+msgid "404:p2"
+msgstr ""
+"De link waarop je hebt geklikt is mogelijk incorrect of de pagina is "
+"verplaatst."
+
+#: main/templates/base/500.html:28
+msgid "500:advice:wait"
+msgstr "<strong>Probeer het later nog een keer</strong>"
+
+#: main/templates/base/500.html:32
+#, python-format
+msgid "500:advice:contact %(technician_contact)s"
+msgstr ""
+"<strong>Neem contact op</strong> met <a href=\"%(technician_contact)s\">de "
+"lab technici</a> en vertel aan hen wat je aan het doen was."
+
+#: main/templates/base/login_header.html:6
+msgid "site:header:login"
+msgstr "Welkom {}"
+
+#. Translators: This is the title that will end up in the tab of the browser
+#: main/templates/base/ppn_base.html:11 main/templates/base/site_title.html:5
+msgid "site:name"
+msgstr "Experimenten ILS Labs"
+
+#: main/templates/base/ppn_base.html:25 main/templates/base/ppn_base.html:26
+#: main/templates/base/ppn_base.html:79
+msgid "cdh.core:uu"
+msgstr ""
+
+#. Translators: This is the title that will end up in the header (in blue)
+#: main/templates/base/ppn_base.html:34 main/templates/base/site_header.html:4
+msgid "site:header:title"
+msgstr "Experimenten ILS Labs"
+
+#: main/templates/base/ppn_base.html:59
+msgid "lang:en"
+msgstr "English"
+
+#: main/templates/base/ppn_base.html:64
+msgid "lang:nl"
+msgstr "Nederlands"
+
+#: main/templates/main/change_password.html:14
+#: main/templates/main/change_password.html:20
+msgid "change_password:content:header"
+msgstr "Verander wachtwoord"
+
+#: main/templates/main/change_password.html:30
+msgid "change_password:content:forced_change"
+msgstr ""
+"Je huidige wachtwoord is ingesteld door een beheerder. Om veiligheidsredenen "
+"vragen we je dit wachtwoord te wijzigen naar iets anders."
+
+#: main/templates/main/change_password.html:39
+msgid "globals:save_button"
+msgstr "Opslaan"
+
+#: main/templates/main/enter_reset_token.html:5
+#: main/templates/main/enter_reset_token.html:11
+msgid "enter_reset_token:content:header"
+msgstr "Wachtwoord (opnieuw) instellen "
+
+#: main/templates/main/enter_reset_token.html:20
+msgid "enter_reset_token:content:help_text"
+msgstr "Voer je reset-token in."
+
+#: main/templates/main/enter_reset_token.html:26
+msgid "enter_reset_token:content:continue"
+msgstr "Volgende"
+
+#: main/templates/main/forgot_password.html:5
+#: main/templates/main/forgot_password.html:11
+msgid "forgot_password:content:header"
+msgstr "Wachtwoord vergeten"
+
+#: main/templates/main/forgot_password.html:20
+msgid "forgot_password:content:help_text"
+msgstr "Volg deze instructies om je wachtwoord opnieuw in te stellen."
+
+#: main/templates/main/forgot_password.html:25
+msgid "forgot_password:content:request_button"
+msgstr "Vraag wachtwoord reset aan"
+
+#: main/templates/main/index.html:45
+msgid "index:content:intro1"
+msgstr ""
+"Aan het Institute for Language Sciences onderzoeken we hoe mensen gesproken "
+"en geschreven taal begrijpen en produceren. In het kader daarvan worden er "
+"regelmatig lees-, luister- en spraakexperimenten uitgevoerd. We zijn altijd "
+"op zoek naar proefpersonen om deel te nemen aan die experimenten. Op deze "
+"website kun je je hiervoor opgeven. "
+
+#: main/templates/main/index.html:48
+msgid "index:content:intro2"
+msgstr ""
+"Zo’n experiment bestaat er meestal uit dat je een aantal woorden, zinnen of "
+"verhaaltjes leest of beluistert, en daar een eenvoudig taakje bij uitvoert "
+"(bijvoorbeeld vragen beantwoorden, of een plaatje kiezen dat het beste past "
+"bij wat je gehoord hebt). Soms meten we ondertussen je hersenactiviteit "
+"(EEG), of oogbewegingen. Het kost je ca. twintig minuten tot anderhalf uur "
+"om mee te doen aan een experiment; de vergoeding varieert van 7,50 tot 10 "
+"euro per uur. "
+
+#: main/templates/main/index.html:52
+msgid "index:content:intro3"
+msgstr ""
+"De experimenten worden afgenomen op locatie in het lab op Janskerkhof 13A "
+"(in de binnenstad van Utrecht), of online."
+
+#: main/templates/main/index.html:58
+msgid "index:header:open_experiments"
+msgstr "Je kunt je nu opgeven voor de volgende experimenten:"
+
+#: main/templates/main/index.html:62
+msgid "index:content:cancel"
+msgstr ""
+"Heb je je opgegeven voor een experiment maar kun je toch niet komen, dan kun "
+"je je <a href=\"{}\">hier afmelden</a>."
+
+#: main/templates/main/index.html:70
+msgid "index:header:maillinglist"
+msgstr "Mailing list ILS Labs experimenten"
+
+#: main/templates/main/index.html:74
+msgid "index:content:maillinglist1"
+msgstr ""
+" Wil je op de hoogte gehouden worden van nieuwe experimenten bij de ILS "
+"Labs?  <a href=\"{}\">Geef dan hier je emailadres op.</a> Je kunt op "
+"dezelfde pagina ook een account aanmaken waarmee je je sneller kunt opgeven "
+"voor een experiment. "
+
+#: main/templates/main/ldap_password.html:6
+#: main/templates/main/ldap_password.html:12
+msgid "ldap_password:header"
+msgstr "Solis account"
+
+#: main/templates/main/ldap_password.html:21
+msgid "ldap_password:content"
+msgstr ""
+"Je account is gelinkt aan je Solis account. Dit betekent dat je je "
+"wachtwoord niet kunt aanpassen/resetten in deze applicatie. Je kunt dit wel "
+"doen via het 'MySolisID' portaal van de universiteit."
+
+#: main/templates/main/ldap_password.html:25
+msgid "ldap_password:link"
+msgstr "Klik hier om naar het 'MySolisID' portaal te gaan."
+
+#: main/templates/main/login_lockout.html:9
+#: main/templates/main/login_lockout.html:17
+msgid "main:login_lockout:header"
+msgstr "Te veel login pogingen"
+
+#: main/templates/main/login_lockout.html:20
+msgid "main:login_lockout:info_text"
+msgstr ""
+"Vanwege (te) veel mislukte inlogpogingen is inloggen een uur lang "
+"uitgeschakeld voor deze computer."
+
+#: main/templates/main/privacy.html:9 main/templates/main/privacy.html:14
+msgid "main:privacy:header"
+msgstr "Privacy-verklaring"
+
+#: main/templates/main/privacy.html:22
+msgid "main:privacy:subheader1"
+msgstr "Registratiegegevens"
+
+#: main/templates/main/privacy.html:25
+msgid "main:privacy:p1"
+msgstr ""
+"Als je je opgeeft voor een experiment, vragen we altijd de volgende "
+"persoonsgegevens:<ul>\t<li>naam – zodat we je kunnen begroeten in het lab.</"
+"li>\t<li>emailadres – om je een bevestiging van je afspraak te kunnen sturen."
+"</li>\t<li>telefoonnummer – zodat we je kunnen bellen als bijvoorbeeld je "
+"afspraak op het laatste moment niet door kan gaan of je de weg niet kunt "
+"vinden in het lab.</li>\t<li>geboortedatum – het is gebruikelijk om in "
+"wetenschappelijke publicaties de gemiddelde leeftijd van de proefpersonen te "
+"rapporteren. Bovendien kun je alleen meedoen als je minstens 18 jaar oud "
+"bent, en hebben we voor sommige experimenten deelnemers nodig van een "
+"bepaalde leeftijd.</li>\t<li>de moedertaal waarmee je bent opgegroeid – aan "
+"de meeste van onze experimenten kun je alleen meedoen als je bent opgegroeid "
+"met het Nederlands als moedertaal.</li>\t<li>of je eentalig of meertalig "
+"bent opgegroeid.</li>\t<li id=\"biological-sex\">je biologisch geslacht – "
+"geslachtshormonen zijn van invloed op de ontwikkeling en het functioneren "
+"van de hersenen, en kunnen dus ook invloed hebben op hoe de hersenen met "
+"taal omgaan. Het is daarom gebruikelijk om op groepsniveau te rapporteren "
+"hoeveel mannen en hoeveel vrouwen aan een studie hebben deelgenomen. Soms "
+"worden de resultaten ook per groep geanalyseerd. Je hoeft je biologisch "
+"geslacht niet met ons te delen, maar het is voor onze rapportages erg fijn "
+"als je dat wel doet.</li>\t<li>of je links- of rechtshandig bent – links- "
+"danwel rechtshandigheid gaat gepaard met verschillen in de hersenen, die ook "
+"van invloed zouden kunnen zijn op hoe de hersenen met taal omgaan. Het is "
+"daarom gebruikelijk om op groepsniveau te rapporteren hoeveel links- en "
+"rechtshandigen aan een studie hebben deelgenomen. Soms worden de resultaten "
+"ook per groep geanalyseerd.</li>\t<li>of je dyslectisch bent of niet – "
+"dyslexie is uiteraard van invloed op hoe de hersenen taal verwerken.</"
+"li>\t<li>of je student bent of niet – aan sommige van onze experimenten "
+"kunnen alleen studenten meedoen, om de proefpersoongroep homogener te maken."
+"</li></ul>"
+
+#: main/templates/main/privacy.html:28
+msgid "main:privacy:p2"
+msgstr ""
+"We gebruiken bovenstaande gegevens om je uitnodigingen te sturen voor "
+"experimenten die voor jou relevant zijn, zodat je geen uitnodigingen krijgt "
+"voor experimenten waar je toch niet aan mee kunt doen. Onderaan elke "
+"uitnodigingsmail staat een link waarmee je kunt aangeven dat je dergelijke "
+"mails niet meer wilt krijgen."
+
+#: main/templates/main/privacy.html:31
+msgid "main:privacy:p3"
+msgstr ""
+"Daarnaast gebruiken we bovenstaande persoonsgegevens om ons "
+"proefpersonenbestand te ‘ontdubbelen’ – het komt namelijk vaak voor dat je "
+"alleen aan een bepaald experiment kunt meedoen als je niet eerder al aan een "
+"ander experiment hebt meegedaan."
+
+#: main/templates/main/privacy.html:34
+msgid "main:privacy:p4"
+msgstr ""
+"Naast de bovenstaande persoonsgegevens, waar altijd naar gevraagd wordt als "
+"je je inschrijft voor een experiment, kunnen er voor bepaalde experimenten "
+"ook nog 'bijzondere' criteria gelden waaraan je moet voldoen om mee te "
+"kunnen doen – aan onderzoek naar toontalen bijvoorbeeld, kun je meestal niet "
+"meedoen als je veel muziekles hebt gehad."
+
+#: main/templates/main/privacy.html:37
+msgid "main:privacy:p5"
+msgstr ""
+"We bewaren je persoonsgegevens tien jaar, tenzij je ons eerder vraagt om ze "
+"te verwijderen. Als je je persoonsgegevens wilt inzien of laten verwijderen, "
+"kun je een mailtje sturen naar <a href=\"mailto:{}\">{}</a>."
+
+#: main/templates/main/privacy.html:41
+msgid "main:privacy:subheader2"
+msgstr "Onderzoeksgegevens"
+
+#: main/templates/main/privacy.html:44
+msgid "main:privacy:p6"
+msgstr ""
+"Tijdens de experimenten verzamelen we onderzoeksgegevens, zoals bijvoorbeeld "
+"reactietijden, knopdrukken, of metingen van oogbewegingen. Deze "
+"onderzoeksgegevens worden geanalyseerd en gebruikt voor publicatie in "
+"wetenschappelijke tijdschriften. In zo’n publicatie worden bijna altijd "
+"alleen groepsgemiddelden gerapporteerd, waardoor de gegevens niet meer "
+"herleidbaar zijn tot individuele personen."
+
+#: main/templates/main/privacy.html:47
+msgid "main:privacy:p7"
+msgstr ""
+"In het kader van 'open science' worden de onderzoeksgegevens tegenwoordig "
+"vaak ook in ruwe vorm met andere onderzoekers gedeeld, en/of openbaar "
+"beschikbaar gesteld, bijvoorbeeld om de analyses te controleren, of om "
+"andere onderzoeksvragen te beantwoorden. Het verschilt per experiment of dit "
+"gebeurt, en zo ja, welke gegevens er precies gedeeld worden. Voordat je "
+"meedoet aan een experiment, krijg je een informatiebrief die hier meer "
+"duidelijkheid over geeft, en wordt je instemming gevraagd."
+
+#: main/templates/main/privacy.html:51
+msgid "main:privacy:subheader3"
+msgstr "Meer informatie"
+
+#: main/templates/main/privacy.html:54
+msgid "main:privacy:p8"
+msgstr ""
+"Voor meer informatie kun je contact opnemen met <a href=\"mailto:{}\">{}</"
+"a>, en kun je <a href=\"https://www.uu.nl/organisatie/praktische-zaken/"
+"privacy/privacyverklaring\" target=\"_blank\">de privacyverklaring van de "
+"UU</a> raadplegen."
+
+#: main/templates/main/reset_password.html:5
+#: main/templates/main/reset_password.html:11
+msgid "reset_password:content:header"
+msgstr "Wachtwoord (opnieuw) instellen"
+
+#: main/templates/main/reset_password.html:21
+msgid "reset_password:content:help_text"
+msgstr "Voer het nieuwe wachtwoord in dat je wilt gebruiken."
+
+#: main/templates/main/reset_password.html:27
+msgid "reset_password:content:change_button"
+msgstr "Verander wachtwoord"
+
+#: main/templates/main/reset_password.html:32
+msgid "reset_password:content:invalid_token"
+msgstr ""
+"Je token voor het opnieuw instellen van je wachtwoord is ongeldig of is "
+"verlopen!"
+
+#: main/templates/registration/logged_out.html:6
+msgid "main:logged_out_title"
+msgstr "Uitgelogd"
+
+#: main/templates/registration/logged_out.html:13
+msgid "main:logged_out_text"
+msgstr "Je bent succesvol uitgelogd!"
+
+#: main/templates/registration/login.html:7
+msgid "login:header:login"
+msgstr "Log in"
+
+#: main/templates/registration/login.html:20
+msgid "login:content:forgot_password"
+msgstr "Wachtwoord vergeten?"
+
+#: main/templates/registration/login.html:22
+msgid "login:button:login"
+msgstr "Log in"
+
+#: main/views.py:88
+msgid "password:message:updated"
+msgstr "Wachtwoord veranderd!"
+
+#: main/views.py:123
+msgid "password:message:reset_requested"
+msgstr "We hebben je een e-mail gestuurd met verdere instructies!"
+
+#: main/views.py:146
+msgid "password:message:reset_successful"
+msgstr "Wachtwoord veranderd!"

@@ -1,0 +1,31 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+        <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+{% endblock%}
+
+{% block header_title %}
+    {% trans 'closed:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            {% trans 'closed:content:header' %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <p>
+            {% url "main:home" as home %}
+            {% transformat 'closed:content:p1' home %}
+        </p>
+    </div>
+</div>
+{% endblock %}

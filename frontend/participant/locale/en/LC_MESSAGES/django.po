@@ -1,0 +1,181 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 15:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: participant/templates/participant/appointments/appointments.html:25
+#: participant/templates/participant/appointments/appointments.html:31
+msgid "appointments:content:header"
+msgstr "My appointments"
+
+#: participant/templates/participant/appointments/appointments.html:40
+msgid "appointments:content:p1"
+msgstr ""
+
+#: participant/templates/participant/appointments/appointments.html:46
+msgid "appointments:thead:experiment"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:49
+msgid "appointments:thead:day"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/appointments/appointments.html:52
+msgid "appointments:thead:date"
+msgstr "Date"
+
+#: participant/templates/participant/appointments/appointments.html:55
+msgid "appointments:thead:time"
+msgstr "Time"
+
+#: participant/templates/participant/appointments/appointments.html:58
+msgid "appointments:thead:leader"
+msgstr "Experiment leader"
+
+#: participant/templates/participant/appointments/appointments.html:61
+msgid "appointments:thead:leader_email"
+msgstr "Exp. Led. Email"
+
+#: participant/templates/participant/appointments/appointments.html:64
+msgid "appointments:thead:actions"
+msgstr "Actions"
+
+#: participant/templates/participant/appointments/appointments.html:92
+#: participant/templates/participant/appointments/appointments.html:96
+msgid "appointments:content:cancel"
+msgstr "Cancel appointment"
+
+#: participant/templates/participant/appointments/appointments.html:100
+msgid "appointments:content:cannot_cancel"
+msgstr "Canceling is no longer possible"
+
+#: participant/templates/participant/appointments/cancel_landing.html:7
+#: participant/templates/participant/appointments/cancel_landing.html:13
+msgid "cancel_landing:content:header"
+msgstr "Cancel appointment"
+
+#: participant/templates/participant/appointments/cancel_landing.html:22
+msgid "cancel_landing:content:p1"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:25
+msgid "cancel_landing:content:p2"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:31
+msgid "cancel_landing:content:email:header"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:36
+#: participant/templates/participant/appointments/cancel_landing.html:37
+#: participant/templates/participant/appointments/cancel_landing.html:52
+#: participant/templates/participant/appointments/cancel_landing.html:53
+msgid "cancel_landing:form:email"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:41
+msgid "cancel_landing:content:email:send_button"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:46
+msgid "cancel_landing:content:account:header"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:58
+#: participant/templates/participant/appointments/cancel_landing.html:59
+msgid "cancel_landing:form:password"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:64
+msgid "login:content:forgot_password"
+msgstr ""
+
+#: participant/templates/participant/appointments/cancel_landing.html:66
+msgid "login:button:login"
+msgstr ""
+
+#: participant/templates/participant/closed_experiment.html:11
+#: participant/templates/participant/closed_experiment.html:17
+msgid "closed:content:header"
+msgstr ""
+
+#: participant/templates/participant/closed_experiment.html:26
+msgid "closed:content:p1"
+msgstr ""
+
+#: participant/templates/participant/exp_info.html:7
+msgid "register:content:duration"
+msgstr "This experiment will take {}."
+
+#: participant/templates/participant/exp_info.html:9
+msgid "register:content:location"
+msgstr "It will be held at "
+
+#: participant/templates/participant/exp_info.html:22
+msgid "register:content:details"
+msgstr "Details:"
+
+#: participant/templates/participant/exp_info.html:26
+msgid "register:content:compensation"
+msgstr "You will receive {} for participating."
+
+#: participant/templates/participant/exp_info.html:46
+msgid "register:content:leader"
+msgstr "Experiment leader:"
+
+#: participant/templates/participant/exp_info.html:54
+msgid "register:content:other_leaders"
+msgstr "Other experiment leaders:"
+
+#: participant/templates/participant/register.html:55
+#: participant/templates/participant/register.html:61
+#: participant/templates/participant/register_success.html:8
+#: participant/templates/participant/register_success.html:14
+msgid "register:content:header"
+msgstr "Participation form experiment"
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:11
+#: participant/templates/participant/unsubscribe_mailinglist.html:17
+msgid "unsubscribe_mailinglist:content:title"
+msgstr ""
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:26
+msgid "unsubscribe_mailinglist:content:p1"
+msgstr ""
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:30
+msgid "unsubscribe_mailinglist:content:email"
+msgstr ""
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:35
+msgid "unsubscribe_mailinglist:button:unsubscribe"
+msgstr ""
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:40
+msgid "unsubscribe_mailinglist:content:invalid_token"
+msgstr ""
+
+#: participant/views/appointments_views.py:31
+msgid "cancel_landing:message:send_token"
+msgstr ""
+
+#: participant/views/appointments_views.py:91
+msgid "cancel:message:cancelled"
+msgstr ""
+
+#: participant/views/mailinglist_views.py:48
+msgid "unsubscribe_mailinglist:messages:unsubscribed"
+msgstr "Participation form experiment"

@@ -1,0 +1,112 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+    <script src="{% static 'uil.core/js/form_helpers.js' %}"></script>
+    <script nonce="{{ request.csp_nonce }}">
+        $(function () {
+            depends_on_value('account', 'True', 'name');
+
+            $('form').submit((e) => {
+                let el = $('#submit');
+
+                if($('form')[0].checkValidity()) {
+                    el.prop('disabled', true);
+                    el.toggleClass('btn-loading')
+                }
+            });
+        });
+    </script>
+    {# Redicilous display fix because Django cannot <label> right #}
+    </style>
+{% endblock %}
+
+{% block header_title %}
+    Opgeven voor mailing list en/of account aanmaken - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            Opgeven voor mailing list en/of account aanmaken
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="uu-container">
+        <div class="col-12">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <p>
+                    Op deze pagina kun je je opgeven om mailtjes te
+                    krijgen over nieuwe experimenten, en/of een account
+                    aanmaken zodat je je makkelijker kunt inschrijven
+                    voor een experiment.
+                </p>
+                <h2>
+                    Emailadres opgeven voor bericht over nieuwe experimenten
+                </h2>
+                <p>
+                    Je kunt hier je emailadres opgeven als je op de hoogte
+                    gehouden wilt worden van nieuwe experimenten bij de
+                    ILS Labs.
+                    Voor de meeste experimenten zoeken we proefpersonen
+                    tussen de 18 en de 35 jaar. Veel van ons onderzoek
+                    wordt uitgevoerd met niet-dyslectische
+                    moedertaalsprekers van het Nederlands, maar we zijn ook
+                    erg blij met proefpersonen die dyslectisch zijn, of
+                    Nederlands als tweede taal spreken. Daarom vragen we
+                    je bij inschrijving voor de mailinglist ook naar je
+                    moederta(a)l(en) en naar dyslexie; je krijgt dan
+                    alleen bericht over voor jou relevante experimenten.
+                </p>
+                {{ form.mailing_list }}
+                <br/>
+                <h2>Account aanmaken</h2>
+                <p>
+                    Met een account schrijf je je makkelijker in bij nieuwe
+                    experimenten. Als je bent ingelogd, tonen we alleen de
+                    experimenten waar je aan mee kunt doen, en je hoeft bij
+                    het inschrijven alleen je gegevens in te vullen die nog
+                    niet bij ons bekend zijn. Als je al eerder meegedaan
+                    hebt voordat je een account maakt, zul je je oude
+                    afspraken ook terug zien in jouw overzicht.<br/>
+                    Een account aanmaken is natuurlijk niet verplicht om mee
+                    te kunnen doen aan een experiment.
+                </p>
+                {{ form.account }}
+                <br/>
+                <h2>Gegevens</h2>
+                <div class="uu-form uu-form-no-gap uu-form-no-help">
+                    {{ form }}
+                </div>
+                {# Sorry for this custom HTML, its template is being annoying when automatically rendered #}
+                <p class="mt-4">
+                    <label for="id_consent_0">
+                        <input type="radio" name="consent" value="True" required="" id="id_consent_0">
+                        Ja, ik geef uitdrukkelijke toestemming om mijn gegevens (inclusief antwoorden op eventuele
+                        gevoelige vragen) op te slaan t.b.v. van het verwerken van mijn aanmelding, en om deze gegevens
+                        te delen met de proefleider.
+                    </label>
+                </p>
+                <p>
+                    Je gegevens worden vertrouwelijk behandeld, en je kunt
+                    je op elk moment weer uitschrijven door een mailtje te
+                    sturen aan
+                    <a href="mailto:{{ admin_email }}">{{ admin.name }}</a>.
+                    Zie onze
+                    <a href="{% url 'main:privacy' %}">
+                        privacy-verklaring
+                    </a>
+                    voor meer informatie.
+                </p>
+                <button id="submit" type="submit" class="btn btn-primary">
+                    Opgeven
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

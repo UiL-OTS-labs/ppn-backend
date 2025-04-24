@@ -1,0 +1,29 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            {% trans 'login:header:login' %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="uu-container">
+        <div class="col-12 col-md-5">
+            <form method="post" >
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="{% url 'main:forgot_password' %}">
+                        {% trans 'login:content:forgot_password' %}</a>
+                    <button type="submit" class="btn btn-primary float-end">
+                        {% trans 'login:button:login' %}
+                    </button>
+                </div>
+            </form>
+            <br/>
+        </div>
+    </div>
+{% endblock %}

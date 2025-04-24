@@ -1,0 +1,94 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load include_if_exists %}
+{% load menu %}
+{% load transformat %}
+
+{% block header_title %}
+    {# Translators: This is the title that will end up in the tab of the browser  #}
+    {% trans 'site:name' %}
+{% endblock %}
+
+{% block html_head %}
+    <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+    <link href="{%  static 'main/frontend.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block uu-header %}
+    {% get_current_language as LANGUAGE_CODE %}
+    <div class="uu-header-row">
+        <div class="uu-logo">
+            {% with 'cdh.core/images/logo-header-'|add:LANGUAGE_CODE|add:'.svg' as header_image %}
+                <a href="https://www.uu.nl" target="_blank">
+                    <img src="{% static header_image %}" alt="{% trans 'cdh.core:uu' %}"
+                         title="{% trans 'cdh.core:uu' %}"/>
+                </a>
+            {% endwith %}
+        </div>
+
+        <div class="uu-header-title ms-4 ps-1 me-auto ">
+            {% if request.path != '/' %}
+                <a href="//{{ request.META.HTTP_HOST }}" class="d-none d-lg-flex">
+                    {% trans 'site:header:title' %}
+                </a>
+            {% endif %}
+        </div>
+
+        {% if request.user.is_impersonate or acceptation or debug %}
+            <div class="text-red fw-semibold me-3 ps-3 fs-4 border-left">
+                {% if request.user.is_impersonate %}
+                    Impersonating user -
+                    <a href="{% url 'impersonate-stop' %}" class="uu-red-text">Stop</a>
+                {% elif acceptation %}
+                    Acceptation server
+                {% elif debug %}
+                    Local development server
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if not language_override %}
+            <div class="border-left">
+                <form method="post" action="{% url 'set_language' %}" class="inline language-form">
+                    {% csrf_token %}
+                    {% if LANGUAGE_CODE == 'nl' %}
+                        <input type="hidden" name="language" value="en">
+                        <button type="submit" name="submit_param" value="submit_value">
+                            {% trans 'lang:en' %}
+                        </button>
+                    {% else %}
+                        <input type="hidden" name="language" value="nl">
+                        <button type="submit" name="submit_param" value="submit_value">
+                            {% trans 'lang:nl' %}
+                        </button>
+                    {% endif %}
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+{% block uu-footer %}
+    {% generate_menu %}
+    {% get_current_language as LANGUAGE_CODE %}
+    <div class="col-12 order-1 col-md-8 order-md-0">
+        {% with 'cdh.core/images/logo-footer-'|add:LANGUAGE_CODE|add:'.svg' as header_image %}
+            <img src="{% static header_image %}" alt="{% trans 'cdh.core:uu' %}" title="{% trans 'cdh.core:uu' %}"/>
+        {% endwith %}
+    </div>
+
+    <div class="col-12 order-0 col-md-4 text-md-end order-md-1">
+        <div class="h4">Institute for Language Sciences Labs</div>
+        <p>
+        Janskerkhof 13A<br/>
+        3512 BL Utrecht
+        </p>
+        {% for item in menus.footer %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            {% if not forloop.last %}|{% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
