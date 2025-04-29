@@ -52,3 +52,19 @@ used). It's listed as a dependency, so it will be installed automatically.
 ``requirements.in`` lists the actual dependency and their version constraints. 
 To update ``requirements.txt`` just run ``pip-compile -U``. Don't forget to test 
 with the new versions!
+
+## Further
+To complete the setup, follow these additional steps:
+
+* Access the Django admin interface by logging into the backend at /admin.
+
+* Create two API groups:
+
+    - leader
+
+    - participant
+  These groups are required for the system to function correctly.
+
+  * Ensure that all users have both a first and last name.
+    If either is missing, certain parts of the system may throw an error.
+
