@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 12:22+0200\n"
+"POT-Creation-Date: 2025-05-01 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,23 +16,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participants/forms.py:37
+#: participants/forms.py:39
 msgid "participants:multilingual:many"
 msgstr "Meerdere"
 
-#: participants/forms.py:38
+#: participants/forms.py:40
 msgid "participants:multilingual:one"
 msgstr "Een"
 
-#: participants/forms.py:62
+#: participants/forms.py:64
 msgid "participants:merge_form:field:old_participant"
 msgstr "Oude participant"
 
-#: participants/forms.py:67
+#: participants/forms.py:70
 msgid "participants:merge_form:field:new_participant"
 msgstr "Participant om mee samen te voegen"
 
-#: participants/forms.py:76
+#: participants/forms.py:80
 msgid "participants:merge_form:validation:are_equal"
 msgstr "Dit is dezelfde participant als hierboven gekozen!"
 
@@ -104,30 +104,30 @@ msgstr "Bekwaam"
 msgid "participant:attribute:created"
 msgstr "Aangemaakt op"
 
-#: participants/models.py:142 participants/models.py:183
+#: participants/models.py:142 participants/models.py:184
 msgid "participant:name:unknown"
 msgstr "naam onbekend"
 
-#: participants/models.py:164
+#: participants/models.py:165
 #: participants/templates/widgets/participant_sex_widget.html:42
 msgid "participant:attribute:sex:male"
 msgstr "Man"
 
-#: participants/models.py:165
+#: participants/models.py:166
 #: participants/templates/widgets/participant_sex_widget.html:58
 msgid "participant:attribute:sex:female"
 msgstr "Vrouw"
 
-#: participants/models.py:166
+#: participants/models.py:167
 #: participants/templates/widgets/participant_sex_widget.html:94
 msgid "participant:attribute:sex:prefer_not_to_answer"
 msgstr "Antwoordde liever niet"
 
-#: participants/models.py:195
+#: participants/models.py:196
 msgid "secondary_email:attribute:email"
 msgstr "Secundaire e-mailadres"
 
-#: participants/models.py:213
+#: participants/models.py:214
 msgid "criterion_answer:attribute:answer"
 msgstr "Antwoord"
 

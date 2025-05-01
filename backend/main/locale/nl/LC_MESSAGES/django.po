@@ -23,7 +23,7 @@ msgstr ""
 msgid "main:forms:error:no_supreme_admin"
 msgstr ""
 "Als je de hoofd-admin-status voor deze gebruiker uitschakelt, zijn er geen "
-"hoof admins meer ingesteld. Maak een andere gebruiker hoofd admin voordat je "
+"hoofd admins meer ingesteld. Maak een andere gebruiker hoofd admin voordat je "
 "de hoofd admin status van deze gebruiker uitschakelt. "
 
 #: main/menus.py:6
@@ -154,10 +154,8 @@ msgid "login:header:login"
 msgstr "Log in"
 
 #: main/templates/registration/login.html:17
-#, fuzzy
-#| msgid "main:login_lockout:header"
 msgid "main:login:error"
-msgstr "Te veel login pogingen"
+msgstr "Inlog gegevens incorrect"
 
 #: main/templates/registration/login.html:51
 msgid "login:button:login"

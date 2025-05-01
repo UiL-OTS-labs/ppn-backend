@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 12:22+0200\n"
+"POT-Creation-Date: 2025-05-01 12:11+0200\n"
 "PO-Revision-Date: 2018-11-23 08:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,211 +18,211 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: experiments/emails.py:89
+#: experiments/emails.py:90
 msgid "invite-email.vars.name"
 msgstr "The name of the participant. 'proefpersoon' if the name is not known."
 
-#: experiments/emails.py:90
+#: experiments/emails.py:95
 msgid "invite-email.vars.duration"
 msgstr "The set duration of the experiment"
 
-#: experiments/emails.py:91
+#: experiments/emails.py:100
 msgid "invite-email.vars.compensation"
 msgstr "The set compensation of the experiment"
 
-#: experiments/emails.py:92
+#: experiments/emails.py:105
 msgid "invite-email.vars.task_description"
 msgstr "The task description of the experiment"
 
-#: experiments/emails.py:93
+#: experiments/emails.py:110
 msgid "invite-email.vars.additional_instructions"
 msgstr "Any set additional Instructions"
 
-#: experiments/emails.py:94
+#: experiments/emails.py:115
 msgid "invite-email.vars.experiment_name"
 msgstr "The name of the experiment"
 
-#: experiments/emails.py:95
+#: experiments/emails.py:120
 msgid "invite-email.vars.experiment_location"
 msgstr "The location of the experiment (if set)"
 
-#: experiments/emails.py:96
+#: experiments/emails.py:125
 msgid "invite-email.vars.leader_name"
 msgstr "The name of the primary leader"
 
-#: experiments/emails.py:97
+#: experiments/emails.py:130
 msgid "invite-email.vars.leader_email"
 msgstr "The email of the primary leader"
 
-#: experiments/emails.py:98
+#: experiments/emails.py:135
 msgid "invite-email.vars.leader_phonenumber"
 msgstr "The phone number of the primary leader"
 
-#: experiments/emails.py:99
+#: experiments/emails.py:140
 msgid "invite-email.vars.all_leaders_name_list"
 msgstr "A list of all leaders, nicely formatted for humans"
 
-#: experiments/emails.py:100
+#: experiments/emails.py:145
 msgid "invite-email.vars.admin"
 msgstr "The name of the current main admin"
 
-#: experiments/emails.py:101
+#: experiments/emails.py:150
 msgid "invite-email.vars.reg_link"
 msgstr ""
 "The url of the register page (set this as 'URL' in the insert/edit link "
 "dialog)"
 
-#: experiments/emails.py:118
+#: experiments/emails.py:170
 msgid "reminder-email.vars.name"
 msgstr "The name of the participant. 'proefpersoon' if the name is not known."
 
-#: experiments/emails.py:119
+#: experiments/emails.py:175
 msgid "reminder-email.vars.experiment_name"
 msgstr "The name of the experiment"
 
-#: experiments/emails.py:120
+#: experiments/emails.py:180
 msgid "reminder-email.vars.experiment_location"
 msgstr "The location of the experiment (if set)"
 
-#: experiments/emails.py:121
+#: experiments/emails.py:185
 msgid "reminder-email.vars.date"
 msgstr "The date of the appointment. (If experiment is using timeslots)"
 
-#: experiments/emails.py:122
+#: experiments/emails.py:191
 msgid "reminder-email.vars.time"
 msgstr "The time of the appointment. (If experiment is using timeslots)"
 
-#: experiments/emails.py:123
+#: experiments/emails.py:197
 msgid "reminder-email.vars.leader_name"
 msgstr "The name of the primary leader"
 
-#: experiments/emails.py:124
+#: experiments/emails.py:202
 msgid "reminder-email.vars.leader_email"
 msgstr "The email of the primary leader"
 
-#: experiments/emails.py:125
+#: experiments/emails.py:207
 msgid "reminder-email.vars.leader_phonenumber"
 msgstr "The phone number of the primary leader"
 
-#: experiments/emails.py:126
+#: experiments/emails.py:212
 msgid "reminder-email.vars.all_leaders_name_list"
 msgstr "A list of all leaders, nicely formatted for humans"
 
-#: experiments/emails.py:127
+#: experiments/emails.py:217
 msgid "reminder-email.vars.admin"
 msgstr "The name of the current main admin"
 
-#: experiments/emails.py:128
+#: experiments/emails.py:222
 msgid "reminder-email.vars.cancel_link"
 msgstr ""
 "The url of the cancel page (set this as 'URL' in the insert/edit link dialog)"
 
-#: experiments/emails.py:147
+#: experiments/emails.py:242
 msgid "confirmation-email.vars.name"
 msgstr "The name of the participant. 'proefpersoon' if the name is not known."
 
-#: experiments/emails.py:152
+#: experiments/emails.py:247
 msgid "confirmation-email.vars.experiment_name"
 msgstr "The name of the experiment"
 
-#: experiments/emails.py:156
+#: experiments/emails.py:252
 msgid "confirmation-email.vars.experiment_location"
 msgstr "The location of the experiment (if set)"
 
-#: experiments/emails.py:160
+#: experiments/emails.py:257
 msgid "confirmation-email.vars.date"
 msgstr "The date of the appointment. (If experiment is using timeslots)"
 
-#: experiments/emails.py:163
+#: experiments/emails.py:263
 msgid "confirmation-email.vars.time"
 msgstr "The time of the appointment. (If experiment is using timeslots)"
 
-#: experiments/emails.py:164
+#: experiments/emails.py:269
 msgid "confirmation-email.vars.leader_name"
 msgstr "The name of the primary leader"
 
-#: experiments/emails.py:165
+#: experiments/emails.py:274
 msgid "confirmation-email.vars.leader_email"
 msgstr "The email of the primary leader"
 
-#: experiments/emails.py:168
+#: experiments/emails.py:279
 msgid "confirmation-email.vars.leader_phonenumber"
 msgstr "The phone number of the primary leader"
 
-#: experiments/emails.py:172
+#: experiments/emails.py:284
 msgid "confirmation-email.vars.all_leaders_name_list"
 msgstr "A list of all leaders, nicely formatted for humans"
 
-#: experiments/emails.py:174
+#: experiments/emails.py:289
 msgid "confirmation-email.vars.cancel_link"
 msgstr ""
 "The url of the cancel page (set this as 'URL' in the insert/edit link dialog)"
 
-#: experiments/forms/criteria_forms.py:75
-#: experiments/forms/criteria_forms.py:133
+#: experiments/forms/criteria_forms.py:76
+#: experiments/forms/criteria_forms.py:134
 msgid "criteria:form:correct_value:error:not_a_value"
 msgstr "This is not a value as specified in 'values'!"
 
-#: experiments/forms/criteria_forms.py:83
+#: experiments/forms/criteria_forms.py:84
 #: experiments/models/criteria_models.py:130
 msgid "criterion:attribute:name_form"
 msgstr "Code name"
 
-#: experiments/forms/criteria_forms.py:84
+#: experiments/forms/criteria_forms.py:85
 msgid "criterion:attribute:name_form:help"
 msgstr ""
 "Internal name for this attribute, has to be unique. It's recommended to only "
 "use letters; no spaces, numbers and/or special characters"
 
-#: experiments/forms/criteria_forms.py:88
+#: experiments/forms/criteria_forms.py:89
 #: experiments/models/criteria_models.py:134
 msgid "criterion:attribute:name_natural"
 msgstr "Display name"
 
-#: experiments/forms/criteria_forms.py:89
+#: experiments/forms/criteria_forms.py:90
 msgid "criterion:attribute:name_natural:help"
 msgstr ""
 "The 'question'; this will be displayed to the user as the text above the "
 "answer options."
 
-#: experiments/forms/criteria_forms.py:93
+#: experiments/forms/criteria_forms.py:94
 #: experiments/models/criteria_models.py:138
 msgid "criterion:attribute:values"
 msgstr "Options (comma separated)"
 
-#: experiments/forms/criteria_forms.py:94
+#: experiments/forms/criteria_forms.py:95
 msgid "criterion:attribute:values:help"
 msgstr "All possible options a participant can pick, comma separated"
 
-#: experiments/forms/criteria_forms.py:98
+#: experiments/forms/criteria_forms.py:99
 #: experiments/models/criteria_models.py:172
 #: experiments/templates/criteria/specific_list.html:122
 msgid "experiment_criterion:attribute:correct_value"
 msgstr "Correct option"
 
-#: experiments/forms/criteria_forms.py:99
+#: experiments/forms/criteria_forms.py:100
 #: experiments/templates/criteria/specific_list.html:135
 msgid "experiment_criterion:attribute:correct_value:help"
 msgstr "Which of the options is the correct one (for this experiment only)"
 
-#: experiments/forms/criteria_forms.py:103
+#: experiments/forms/criteria_forms.py:104
 #: experiments/models/criteria_models.py:176
 #: experiments/templates/criteria/specific_list.html:141
 msgid "experiment_criterion:attribute:message_failed"
 msgstr "Message when failed"
 
-#: experiments/forms/criteria_forms.py:104
+#: experiments/forms/criteria_forms.py:105
 #: experiments/templates/criteria/specific_list.html:146
 msgid "experiment_criterion:attribute:message_failed:help"
 msgstr ""
 "The message presented to the participant if they didn't pick a 'correct' "
 "option."
 
-#: experiments/forms/experiment_forms.py:35
+#: experiments/forms/experiment_forms.py:36
 msgid "experiment:form:use_timeslots:true"
 msgstr "On location"
 
-#: experiments/forms/experiment_forms.py:36
+#: experiments/forms/experiment_forms.py:37
 msgid "experiment:form:use_timeslots:false"
 msgstr "Online"
 
@@ -245,6 +245,7 @@ msgstr "Many"
 #: experiments/models/criteria_models.py:12
 #: experiments/models/criteria_models.py:18
 #: experiments/models/criteria_models.py:24
+#: experiments/models/criteria_models.py:30
 #: experiments/models/criteria_models.py:36
 #: experiments/models/criteria_models.py:105
 #: experiments/models/criteria_models.py:111
@@ -1115,62 +1116,62 @@ msgstr "Criterion successfully added to experiment!"
 msgid "criteria:messages:removed_from_experiment"
 msgstr "Criterion successfully removed from experiment!"
 
-#: experiments/views/experiment_views.py:53
+#: experiments/views/experiment_views.py:52
 msgid "experiments:message:create:success"
 msgstr "Successfully created experiment"
 
-#: experiments/views/experiment_views.py:66
+#: experiments/views/experiment_views.py:64
 msgid "experiments:message:update:success"
 msgstr "Successfully updated experiment"
 
-#: experiments/views/experiment_views.py:111
+#: experiments/views/experiment_views.py:99
 msgid "experiments:message:deleted_experiment"
 msgstr "Experiment deleted!"
 
-#: experiments/views/experiment_views.py:157
+#: experiments/views/experiment_views.py:145
 msgid "experiments:message:exclude:included"
 msgstr "Successfully included experiment"
 
-#: experiments/views/experiment_views.py:160
+#: experiments/views/experiment_views.py:148
 msgid "experiments:message:exclude:excluded"
 msgstr "Successfully excluded experiment"
 
-#: experiments/views/experiment_views.py:237
+#: experiments/views/experiment_views.py:224
 msgid "experiments:message:update_emails:success"
 msgstr "Successfully updated email templates"
 
-#: experiments/views/experiment_views.py:272
+#: experiments/views/experiment_views.py:258
 msgid "experiments:message:switch_open:closed"
 msgstr "Successfully closed experiment"
 
-#: experiments/views/experiment_views.py:275
+#: experiments/views/experiment_views.py:261
 msgid "experiments:message:switch_open:opened"
 msgstr "Successfully opened experiment"
 
-#: experiments/views/experiment_views.py:290
+#: experiments/views/experiment_views.py:276
 msgid "experiments:message:switch_public:closed"
 msgstr "Successfully hid experiment"
 
-#: experiments/views/experiment_views.py:293
+#: experiments/views/experiment_views.py:279
 msgid "experiments:message:switch_public:opened"
 msgstr "Successfully made experiment public"
 
-#: experiments/views/experiment_views.py:309
+#: experiments/views/experiment_views.py:295
 msgid "experiments:message:switch_visible:invisible"
 msgstr "Successfully hid participants from leaders"
 
-#: experiments/views/experiment_views.py:314
+#: experiments/views/experiment_views.py:300
 msgid "experiments:message:switch_visible:visible"
 msgstr "Successfully changed participant visibility to visible"
 
-#: experiments/views/experiment_views.py:337
+#: experiments/views/experiment_views.py:323
 msgid "experiments:message:sent_reminders"
 msgstr "Sent reminders to {} participant(s)"
 
-#: experiments/views/invite_views.py:67
+#: experiments/views/invite_views.py:68
 msgid "experiments:message:invite_failure"
 msgstr "Something went wrong!"
 
-#: experiments/views/invite_views.py:69
+#: experiments/views/invite_views.py:70
 msgid "experiments:message:invite_success"
 msgstr "Successfully invited participants!"

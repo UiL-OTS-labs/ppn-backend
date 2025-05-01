@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 12:22+0200\n"
+"POT-Creation-Date: 2025-05-01 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,80 +16,80 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: leaders/forms.py:16
+#: leaders/forms.py:17
 msgid "leader:form:password:error:not_equal"
 msgstr "The supplied passwords don't match!"
 
-#: leaders/forms.py:29 leaders/forms.py:88 leaders/forms.py:146
-#: leaders/forms.py:230
+#: leaders/forms.py:30 leaders/forms.py:89 leaders/forms.py:147
+#: leaders/forms.py:231
 msgid "leader:form:name"
 msgstr "(Full) name"
 
-#: leaders/forms.py:33 leaders/forms.py:92 leaders/forms.py:150
-#: leaders/forms.py:234
+#: leaders/forms.py:34 leaders/forms.py:93 leaders/forms.py:151
+#: leaders/forms.py:235
 msgid "leader:form:email"
 msgstr "E-mail address"
 
-#: leaders/forms.py:37 leaders/forms.py:96 leaders/forms.py:154
-#: leaders/forms.py:238
+#: leaders/forms.py:38 leaders/forms.py:97 leaders/forms.py:155
+#: leaders/forms.py:239
 msgid "leader:form:phonenumber"
 msgstr "Phone number"
 
-#: leaders/forms.py:41 leaders/forms.py:167
+#: leaders/forms.py:42 leaders/forms.py:168
 msgid "leader:form:password"
 msgstr "Password"
 
-#: leaders/forms.py:42 leaders/forms.py:168
+#: leaders/forms.py:43 leaders/forms.py:169
 msgid "leader:form:password:help_text"
 msgstr "You can leave this empty if you don't want to set/change a password"
 
-#: leaders/forms.py:48 leaders/forms.py:174
+#: leaders/forms.py:49 leaders/forms.py:175
 msgid "leader:form:confirm_password:label"
 msgstr "Confirm password"
 
-#: leaders/forms.py:49 leaders/forms.py:175
+#: leaders/forms.py:50 leaders/forms.py:176
 msgid "leader:form:confirm_password:help_text"
 msgstr "You can leave this empty if you don't want to set/change a password"
 
-#: leaders/forms.py:55 leaders/forms.py:100
+#: leaders/forms.py:56 leaders/forms.py:101
 msgid "leaders:forms:create_form:notify_user:label"
 msgstr "Notify user"
 
-#: leaders/forms.py:56
+#: leaders/forms.py:57
 msgid "leaders:forms:create_form:notify_user:help_text"
 msgstr ""
 "If checked, the system will sent out an email to this user informing them of "
 "their new account. If no password was set, this email will contain "
 "instructions on how to set a password on their own."
 
-#: leaders/forms.py:72 leaders/forms.py:122 leaders/forms.py:192
-#: leaders/forms.py:258
+#: leaders/forms.py:73 leaders/forms.py:123 leaders/forms.py:193
+#: leaders/forms.py:259
 msgid "leader:form:email:error:user_exists"
 msgstr "There already is a leader with this email address!"
 
-#: leaders/forms.py:101
+#: leaders/forms.py:102
 msgid "leaders:forms:create_form:notify_user:help_text:ldap"
 msgstr ""
 "If checked, the system will sent out an email to this user informing them of "
 "their new account."
 
-#: leaders/forms.py:115 leaders/forms.py:250
+#: leaders/forms.py:116 leaders/forms.py:251
 msgid "leader:form:email:error:not_uu_mail"
 msgstr "This email address is not a valid UU email address!"
 
-#: leaders/forms.py:140 leaders/forms.py:224
+#: leaders/forms.py:141 leaders/forms.py:225
 msgid "leader:form:active"
 msgstr "Account active"
 
-#: leaders/forms.py:158
+#: leaders/forms.py:159
 msgid "leaders:forms:create_form:keep_current_password:label"
 msgstr "Keep current password"
 
-#: leaders/forms.py:160
+#: leaders/forms.py:161
 msgid "leaders:forms:create_form:keep_current_password:help_text"
 msgstr "If checked, no changes will be made to the user's password."
 
-#: leaders/forms.py:206
+#: leaders/forms.py:207
 msgid "leader:form:password:error:empty"
 msgstr "This field cannot be empty when 'Keep current password' is unchecked!"
 

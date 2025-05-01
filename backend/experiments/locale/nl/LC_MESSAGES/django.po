@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 12:22+0200\n"
+"POT-Creation-Date: 2025-05-01 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,216 +16,216 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: experiments/emails.py:89
+#: experiments/emails.py:90
 msgid "invite-email.vars.name"
 msgstr ""
 "De naam van de proefpersoon. 'proefpersoon' indien de naam niet bekend is."
 
-#: experiments/emails.py:90
+#: experiments/emails.py:95
 msgid "invite-email.vars.duration"
 msgstr "De opgegeven tijdsduur van het experiment"
 
-#: experiments/emails.py:91
+#: experiments/emails.py:100
 msgid "invite-email.vars.compensation"
 msgstr "De opgegeven compensatie van het experiment"
 
-#: experiments/emails.py:92
+#: experiments/emails.py:105
 msgid "invite-email.vars.task_description"
 msgstr "De opgegeven taak omschrijving"
 
-#: experiments/emails.py:93
+#: experiments/emails.py:110
 msgid "invite-email.vars.additional_instructions"
 msgstr "De opgegeven extra instructies"
 
-#: experiments/emails.py:94
+#: experiments/emails.py:115
 msgid "invite-email.vars.experiment_name"
 msgstr "De naam van het experiment"
 
-#: experiments/emails.py:95
+#: experiments/emails.py:120
 msgid "invite-email.vars.experiment_location"
 msgstr "De locatie van het experiment (indien opgegeven)"
 
-#: experiments/emails.py:96
+#: experiments/emails.py:125
 msgid "invite-email.vars.leader_name"
 msgstr "De naam van de primaire proefleider"
 
-#: experiments/emails.py:97
+#: experiments/emails.py:130
 msgid "invite-email.vars.leader_email"
 msgstr "Het e-mailadres van de primaire proefleider"
 
-#: experiments/emails.py:98
+#: experiments/emails.py:135
 msgid "invite-email.vars.leader_phonenumber"
 msgstr "Het telefoonnummer van de primaire proefleider"
 
-#: experiments/emails.py:99
+#: experiments/emails.py:140
 msgid "invite-email.vars.all_leaders_name_list"
 msgstr "Een opsomming van alle proefleiders, in goed Nederlands geformat"
 
-#: experiments/emails.py:100
+#: experiments/emails.py:145
 msgid "invite-email.vars.admin"
 msgstr "De naam van de huidige 'hoofd admin'"
 
-#: experiments/emails.py:101
+#: experiments/emails.py:150
 msgid "invite-email.vars.reg_link"
 msgstr ""
 "De URL naar de inschrijf pagina (gebruik als waarde voor 'URL' in het 'link "
 "invoegen' dialoogvenster)"
 
-#: experiments/emails.py:118
+#: experiments/emails.py:170
 msgid "reminder-email.vars.name"
 msgstr ""
 "De naam van de proefpersoon. 'proefpersoon' indien de naam niet bekend is."
 
-#: experiments/emails.py:119
+#: experiments/emails.py:175
 msgid "reminder-email.vars.experiment_name"
 msgstr "De naam van het experiment"
 
-#: experiments/emails.py:120
+#: experiments/emails.py:180
 msgid "reminder-email.vars.experiment_location"
 msgstr "De locatie van het experiment (indien opgegeven)"
 
-#: experiments/emails.py:121
+#: experiments/emails.py:185
 msgid "reminder-email.vars.date"
 msgstr "De datum van de afspraak. (Indien timeslots worden gebruikt)"
 
-#: experiments/emails.py:122
+#: experiments/emails.py:191
 msgid "reminder-email.vars.time"
 msgstr "De tijd van de afspraak. (Indien timeslots worden gebruikt)"
 
-#: experiments/emails.py:123
+#: experiments/emails.py:197
 msgid "reminder-email.vars.leader_name"
 msgstr "De naam van de primaire proefleider"
 
-#: experiments/emails.py:124
+#: experiments/emails.py:202
 msgid "reminder-email.vars.leader_email"
 msgstr "Het e-mailadres van de primaire proefleider"
 
-#: experiments/emails.py:125
+#: experiments/emails.py:207
 msgid "reminder-email.vars.leader_phonenumber"
 msgstr "Het telefoonnummer van de primaire proefleider"
 
-#: experiments/emails.py:126
+#: experiments/emails.py:212
 msgid "reminder-email.vars.all_leaders_name_list"
 msgstr "Een opsomming van alle proefleiders, in goed Nederlands geformat"
 
-#: experiments/emails.py:127
+#: experiments/emails.py:217
 msgid "reminder-email.vars.admin"
 msgstr "De naam van de huidige 'hoofd admin'"
 
-#: experiments/emails.py:128
+#: experiments/emails.py:222
 msgid "reminder-email.vars.cancel_link"
 msgstr ""
 "De URL naar de afzeg pagina (gebruik als waarde voor 'URL' in het 'link "
 "invoegen' dialoogvenster)"
 
-#: experiments/emails.py:147
+#: experiments/emails.py:242
 msgid "confirmation-email.vars.name"
 msgstr ""
 "De naam van de proefpersoon. 'proefpersoon' indien de naam niet bekend is."
 
-#: experiments/emails.py:152
+#: experiments/emails.py:247
 msgid "confirmation-email.vars.experiment_name"
 msgstr "De naam van het experiment"
 
-#: experiments/emails.py:156
+#: experiments/emails.py:252
 msgid "confirmation-email.vars.experiment_location"
 msgstr "De locatie van het experiment (indien opgegeven)"
 
-#: experiments/emails.py:160
+#: experiments/emails.py:257
 msgid "confirmation-email.vars.date"
 msgstr "De datum van de afspraak. (Indien timeslots worden gebruikt)"
 
-#: experiments/emails.py:163
+#: experiments/emails.py:263
 msgid "confirmation-email.vars.time"
 msgstr "De tijd van de afspraak. (Indien timeslots worden gebruikt)"
 
-#: experiments/emails.py:164
+#: experiments/emails.py:269
 msgid "confirmation-email.vars.leader_name"
 msgstr "De naam van de primaire proefleider"
 
-#: experiments/emails.py:165
+#: experiments/emails.py:274
 msgid "confirmation-email.vars.leader_email"
 msgstr "Het e-mailadres van de primaire proefleider"
 
-#: experiments/emails.py:168
+#: experiments/emails.py:279
 msgid "confirmation-email.vars.leader_phonenumber"
 msgstr "Het telefoonnummer van de primaire proefleider"
 
-#: experiments/emails.py:172
+#: experiments/emails.py:284
 msgid "confirmation-email.vars.all_leaders_name_list"
 msgstr "Een opsomming van alle proefleiders, in goed Nederlands geformat"
 
-#: experiments/emails.py:174
+#: experiments/emails.py:289
 msgid "confirmation-email.vars.cancel_link"
 msgstr ""
 "De URL naar de afzeg pagina (gebruik als waarde voor 'URL' in het 'link "
 "invoegen' dialoogvenster)"
 
-#: experiments/forms/criteria_forms.py:75
-#: experiments/forms/criteria_forms.py:133
+#: experiments/forms/criteria_forms.py:76
+#: experiments/forms/criteria_forms.py:134
 msgid "criteria:form:correct_value:error:not_a_value"
 msgstr "Deze waarde is niet opgegeven in 'Mogelijke waardes'!"
 
-#: experiments/forms/criteria_forms.py:83
+#: experiments/forms/criteria_forms.py:84
 #: experiments/models/criteria_models.py:130
 msgid "criterion:attribute:name_form"
 msgstr "Codenaam"
 
-#: experiments/forms/criteria_forms.py:84
+#: experiments/forms/criteria_forms.py:85
 msgid "criterion:attribute:name_form:help"
 msgstr ""
 "Interne naam voor de criterion, moet uniek zijn. Het is aangeraden om alleen "
 "letters te gebruiken, geen spaties, nummers of speciale karakters."
 
-#: experiments/forms/criteria_forms.py:88
+#: experiments/forms/criteria_forms.py:89
 #: experiments/models/criteria_models.py:134
 msgid "criterion:attribute:name_natural"
 msgstr "Weergave naam"
 
-#: experiments/forms/criteria_forms.py:89
+#: experiments/forms/criteria_forms.py:90
 msgid "criterion:attribute:name_natural:help"
 msgstr "Dit is de vraag die getoond wordt aan de participant"
 
-#: experiments/forms/criteria_forms.py:93
+#: experiments/forms/criteria_forms.py:94
 #: experiments/models/criteria_models.py:138
 msgid "criterion:attribute:values"
 msgstr "Mogelijke antwoorden (comma seperated)"
 
-#: experiments/forms/criteria_forms.py:94
+#: experiments/forms/criteria_forms.py:95
 msgid "criterion:attribute:values:help"
 msgstr "Alle mogelijke antwoorden op deze vraag, gescheiden met een comma."
 
-#: experiments/forms/criteria_forms.py:98
+#: experiments/forms/criteria_forms.py:99
 #: experiments/models/criteria_models.py:172
 #: experiments/templates/criteria/specific_list.html:122
 msgid "experiment_criterion:attribute:correct_value"
 msgstr "Juist antwoord"
 
-#: experiments/forms/criteria_forms.py:99
+#: experiments/forms/criteria_forms.py:100
 #: experiments/templates/criteria/specific_list.html:135
 msgid "experiment_criterion:attribute:correct_value:help"
 msgstr ""
 "Welk antwoord van de opgegeven antwoorden 'correct' is (voor dit experiment "
 "alleen)"
 
-#: experiments/forms/criteria_forms.py:103
+#: experiments/forms/criteria_forms.py:104
 #: experiments/models/criteria_models.py:176
 #: experiments/templates/criteria/specific_list.html:141
 msgid "experiment_criterion:attribute:message_failed"
 msgstr "Melding indien incorrect"
 
-#: experiments/forms/criteria_forms.py:104
+#: experiments/forms/criteria_forms.py:105
 #: experiments/templates/criteria/specific_list.html:146
 msgid "experiment_criterion:attribute:message_failed:help"
 msgstr ""
 "Deze melding wordt getoond aan de participant als ze een 'verkeerd' antwoord "
 "hebben gegeven."
 
-#: experiments/forms/experiment_forms.py:35
+#: experiments/forms/experiment_forms.py:36
 msgid "experiment:form:use_timeslots:true"
 msgstr "Op locatie"
 
-#: experiments/forms/experiment_forms.py:36
+#: experiments/forms/experiment_forms.py:37
 msgid "experiment:form:use_timeslots:false"
 msgstr "Online"
 
@@ -248,6 +248,7 @@ msgstr "Meerdere"
 #: experiments/models/criteria_models.py:12
 #: experiments/models/criteria_models.py:18
 #: experiments/models/criteria_models.py:24
+#: experiments/models/criteria_models.py:30
 #: experiments/models/criteria_models.py:36
 #: experiments/models/criteria_models.py:105
 #: experiments/models/criteria_models.py:111
@@ -1121,62 +1122,62 @@ msgstr "Criterium toegevoegd aan experiment!"
 msgid "criteria:messages:removed_from_experiment"
 msgstr "Criterium verwijderd uit experiment!"
 
-#: experiments/views/experiment_views.py:53
+#: experiments/views/experiment_views.py:52
 msgid "experiments:message:create:success"
 msgstr "Nieuw experiment succesvol aangemaakt"
 
-#: experiments/views/experiment_views.py:66
+#: experiments/views/experiment_views.py:64
 msgid "experiments:message:update:success"
 msgstr "Experiment aangepast"
 
-#: experiments/views/experiment_views.py:111
+#: experiments/views/experiment_views.py:99
 msgid "experiments:message:deleted_experiment"
 msgstr "Experiment verwijderd!"
 
-#: experiments/views/experiment_views.py:157
+#: experiments/views/experiment_views.py:145
 msgid "experiments:message:exclude:included"
 msgstr "Experiment succesvol opgenomen"
 
-#: experiments/views/experiment_views.py:160
+#: experiments/views/experiment_views.py:148
 msgid "experiments:message:exclude:excluded"
 msgstr "Experiment succesvol uitgesloten"
 
-#: experiments/views/experiment_views.py:237
+#: experiments/views/experiment_views.py:224
 msgid "experiments:message:update_emails:success"
 msgstr "E-mail sjablonen aangepast"
 
-#: experiments/views/experiment_views.py:272
+#: experiments/views/experiment_views.py:258
 msgid "experiments:message:switch_open:closed"
 msgstr "Experiment gesloten"
 
-#: experiments/views/experiment_views.py:275
+#: experiments/views/experiment_views.py:261
 msgid "experiments:message:switch_open:opened"
 msgstr "Experiment geopend"
 
-#: experiments/views/experiment_views.py:290
+#: experiments/views/experiment_views.py:276
 msgid "experiments:message:switch_public:closed"
 msgstr "Experiment verborgen"
 
-#: experiments/views/experiment_views.py:293
+#: experiments/views/experiment_views.py:279
 msgid "experiments:message:switch_public:opened"
 msgstr "Experiment openbaar gemaakt"
 
-#: experiments/views/experiment_views.py:309
+#: experiments/views/experiment_views.py:295
 msgid "experiments:message:switch_visible:invisible"
 msgstr "Participant informatie verborgen voor proefleiders"
 
-#: experiments/views/experiment_views.py:314
+#: experiments/views/experiment_views.py:300
 msgid "experiments:message:switch_visible:visible"
 msgstr "Participant informatie zichtbaar gemaakt voor proefleiders"
 
-#: experiments/views/experiment_views.py:337
+#: experiments/views/experiment_views.py:323
 msgid "experiments:message:sent_reminders"
 msgstr "Herinneringen gestuurd naar {} participant(en)"
 
-#: experiments/views/invite_views.py:67
+#: experiments/views/invite_views.py:68
 msgid "experiments:message:invite_failure"
 msgstr "Er is iets fout gegaan..."
 
-#: experiments/views/invite_views.py:69
+#: experiments/views/invite_views.py:70
 msgid "experiments:message:invite_success"
 msgstr "Participant(en) succesvol uitgenodigd!"
