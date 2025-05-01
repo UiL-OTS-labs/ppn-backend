@@ -1,0 +1,53 @@
+{% load i18n %}
+<script nonce="{{ request.csp_nonce }}">
+    $(function () {
+        $('input[name="{{ widget.name }}_other"]').click(function () {
+            $('#id_language_1').prop('checked', true);
+        });
+        $('#id_language_0').click(function () {
+            $('input[name="{{ widget.name }}_other"]').val('');
+        });
+    });
+</script>
+
+<div id="id_language">
+
+    <div class="input-group">
+        <div class="input-group-text">
+            <input
+                type="radio"
+                class="form-check-input mt-0"
+                name="{{ widget.name }}"
+                value="nl"
+                id="id_language_0"
+                required=""
+                {% if widget.value == 'nl' %}checked="checked"{% endif %}
+            />
+        </div>
+        <label id="id_language_0" class="form-control" type="text" for="id_language_0">
+            Nederlands
+        </label>
+    </div>
+
+    <div class="input-group mt-1">
+        <div class="input-group-text">
+            <input
+                type="radio"
+                name="{{ widget.name }}"
+                class="form-check-input mt-0"
+                value="OTHER"
+                id="id_language_1"
+                required=""
+                {% if widget.value != 'nl' and widget.value != None %}checked="checked"{% endif %}
+            />
+        </div>
+        <input
+            name="{{ widget.name }}_other"
+            id="id_language_1_other"
+            class="form-control"
+            value="{{ widget.other_value|default_if_none:"" }}"
+            placeholder="een andere taal, namelijk..."
+        />
+    </div>
+
+</div>

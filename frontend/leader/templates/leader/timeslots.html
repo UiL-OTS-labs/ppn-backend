@@ -1,0 +1,170 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load datatables %}
+{% load get_field_name %}
+{% load static %}
+
+{% block header_title %}
+    {% transformat 'timeslots:home:header' experiment %} - {{ block.super }}
+{% endblock %}
+
+{% block html_head %}
+    <script src="{% static 'cdh.core/js/bootstrap-datetimepicker.min.js' %}"></script>
+    <link href="{% static 'leader/timeslots/datetimepicker.css' %}" rel="stylesheet"/>
+    <script src="{% static 'leader/timeslots/timeslot_table.js' %}"></script>
+    <script src="{% static 'leader/timeslots/new-slot.js' %}"></script>
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="text-truncate">
+            {% transformat 'timeslots:home:header' experiment %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="uu-container">
+        <div class="col-12 col-lg-8 pe-lg-3">
+            <p>
+                {% trans 'timeslots:home:info_text' %}
+            </p>
+        </div>
+        <div class="col-12 col-lg-4 text-bg-light p-3">
+            <h3>
+                {% trans 'timeslots:home:new_timeslots:header' %}
+            </h3>
+            <form method="post" class="oneline-form">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="btn btn-primary mt-3" id="save-new-slot">
+                    {% trans 'timeslotss:add_button' %}
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="uu-container">
+        <div class="col-12">
+            <form method="post" action="{% url 'leader:delete_timeslots' experiment.id %}">
+                {% csrf_token %}
+                <table class="dt_custom table w-100" data-language="{% datatables_lang %}">
+                    <thead>
+                    <tr>
+                        <th>
+                            {% trans 'timeslots:id' %}
+                        </th>
+                        <th> {# This column is not visible directly, but used for the grouped view. The header is never visible #}
+                            group
+                        </th>
+                        <th>
+                            {% trans 'timeslots:day' %}
+                        </th>
+                        <th>
+                            {% trans 'timeslots:date' %}
+                        </th>
+                        <th>
+                            {% trans 'timeslots:time' %}
+                        </th>
+                        <th>
+                            {% trans 'timeslots:place' %}
+                        </th>
+                        <th>
+                            {% trans 'timeslots:participant:name' %}
+                        </th>
+                        <th>
+                            {% trans 'timeslots:participant:email' %}
+                        </th>
+                        <th>
+                            {% trans 'global:actions' %}
+                        </th>
+                        <th class="text-center">
+                            <input type="checkbox" id="master_checkbox">
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for timeslot in experiment.timeslots %}
+                        {# a timeslot can have multiple places, which we want to display seperately #}
+                        {% for place in timeslot.places %}
+                            <tr>
+                                <td data-order="{{ timeslot.id }}">
+                                    {% if place.n == 1 %}
+                                        {{ timeslot.id }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{ timeslot.datetime|date:'N j Y - H:i (l)' }}
+                                </td>
+                                <td data-order="{{ timeslot.datetime|date:'l' }}">
+                                    {% if place.n == 1 %}
+                                        {{ timeslot.datetime|date:'l' }}
+                                    {% endif %}
+                                </td>
+                                <td data-order="{{ timeslot.datetime|date:'Y-m-d' }}">
+                                    {% if place.n == 1 %}
+                                        {{ timeslot.datetime|date:'Y-m-d' }}
+                                    {% endif %}
+                                </td>
+                                <td data-order="{{ timeslot.datetime|date:'H:i' }}">
+                                    {% if place.n == 1 %}
+                                        {{ timeslot.datetime|date:'H:i' }}
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{ place.n }}
+                                </td>
+                                {% if place.appointment %}
+                                    <td>
+                                        {{ place.appointment.participant.name }}
+                                    </td>
+                                    <td>
+                                        {{ place.appointment.participant.email }}
+                                    </td>
+                                {% else %}
+                                    <td>
+                                        -
+                                    </td>
+                                    <td>
+                                        -
+                                    </td>
+                                {% endif %}
+                                <td>
+                                    {% if place.n == timeslot.max_places %}
+                                        <a href="{% url 'leader:delete_timeslot' experiment.id timeslot.id %}" class="icon-delete">
+                                            
+                                        </a>
+                                    {% endif %}
+                                    {% if place.appointment %}
+                                        <a
+                                            href="{% url 'leader:delete_appointment' experiment.id place.appointment.id %}"
+                                            class="icon-remove-participant"
+                                            title="{% trans 'timeslots:remove_participant:title' %}"
+                                        >
+                                            
+                                        </a>
+                                    {% endif %}
+                                </td>
+                                <td class="text-center">
+                                    <input type="checkbox" class="timeslot_checkbox" name="timeslot_{{ timeslot.id }}[]" value="{{ place.n }}" data-timeslot="{{ timeslot.id }}" data-n="{{ place.n }}" data-participant="{{ place.participant.id }}" data-last="{{ timeslot.max_places }}" id="{{ timeslot.id }}-{{ place.n }}">
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="9"></td>
+                        <td class="text-center">
+                            <button type="submit" class="btn btn-primary btn-sm" id="delete-all-selected">
+                                {% trans 'global:delete' %}
+                            </button>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </form>
+        </div>
+    </div>
+{% endblock %}

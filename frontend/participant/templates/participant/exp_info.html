@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+<div class="col-12 col-sm-8 pe-sm-3">
+    <p>
+        {% transformat 'register:content:duration' experiment.duration %}.
+        {% if experiment.location %}
+            {% trans 'register:content:location' %}
+            {% if experiment.location.route_url %}
+                <a href="{{ experiment.location.route_url }}" target="_blank">
+                    {{ experiment.location.name }}
+                </a>
+            {% else %}
+                {% autoescape off %}
+                {{ experiment.location.name }}
+                {% endautoescape %}
+            {% endif %}.
+        {% endif %}
+    </p>
+    <p>
+        {% trans 'register:content:details' %}
+    </p>
+    <ul>
+        <li>
+            {% transformat 'register:content:compensation' experiment.compensation %}
+        </li>
+        {% if experiment.task_description %}
+            <li>
+                {% autoescape off %}
+                    {{ experiment.task_description }}
+                {% endautoescape %}
+            </li>
+        {% endif %}
+        {% if experiment.additional_instructions %}
+            <li>
+                {% autoescape off %}
+                    {{ experiment.additional_instructions }}
+                {% endautoescape %}
+            </li>
+        {% endif %}
+    </ul>
+</div>
+<div class="col-sm-4 col-12">
+    <h4 >
+        {% trans 'register:content:leader' %} {{ experiment.leader.name }}
+    </h4>
+    {% if experiment.leader.photo %}
+        <img src="{{ experiment.leader.photo.url }}" title="{{ experiment.leader.name }}"
+             alt="{{ experiment.leader.name }}" class="leader-image"/>
+    {% endif %}
+    {% if experiment.additional_leaders %}
+        <p>
+            {% transformat 'register:content:other_leaders' %}
+            {{ experiment.display_additional_leaders }}
+        </p>
+    {% endif %}
+</div>

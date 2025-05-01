@@ -1,0 +1,45 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-02 10:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: api/auth/admin.py:44
+msgid "Permissions"
+msgstr ""
+
+#: api/auth/admin.py:46
+msgid "Important dates"
+msgstr ""
+
+#: api/resources/criteria_resources.py:34
+#: api/resources/criteria_resources.py:40
+#: api/resources/criteria_resources.py:46
+#: api/resources/criteria_resources.py:52
+#: api/resources/criteria_resources.py:58
+#: api/resources/criteria_resources.py:64
+#: api/resources/criteria_resources.py:70
+msgid "globals:indifferent"
+msgstr "Maakt niet uit"
+
+#~ msgid "Other"
+#~ msgstr "Overig"
+
+#~ msgid "api:host_unreachable"
+#~ msgstr ""
+#~ "Kon geen connectie maken met de data server. Functionaliteit van deze "
+#~ "site is gelimiteerd."

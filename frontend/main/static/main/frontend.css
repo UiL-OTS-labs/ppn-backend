@@ -1,0 +1,5 @@
+@media (min-width: 767px) {
+    .nav-item.privacy {
+        margin-left: auto;
+    }
+}

@@ -1,0 +1,119 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+    <script src="{% static 'cdh.core/js/form_helpers.js' %}"></script>
+    <script src="{% static 'cdh.core/js/jquery.mask.min.js' %}"></script>
+
+    <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
+    <script src="{% static 'participant/register/birthdate.js' %}"></script>
+
+    <script nonce="{{ request.csp_nonce }}">
+
+    function add_title(field, title)
+    {
+        let insert = $('<div class="mt-3">').append($('<h3>').text(title));
+        $('#id_' + field).parents('div.uu-form-row').before(insert);
+    }
+
+    $(function () {
+        add_title('timeslot', 'Kies hieronder een tijdstip:');
+
+        // Add a small gap between the more personal questions and these
+        let gapQuestion = $("#id_mailinglist");
+        // Sometimes we don't ask the mailinglist question, thus we then select the other one
+        if (gapQuestion.length === 0)
+            gapQuestion = $('#id_consent')
+
+        gapQuestion.parents('div.uu-form-row').before($('<div class="mt-4">'))
+
+        // Disable the submit button after successful validation and present
+        // a loading animation. This is done to make it harder to resubmit a form
+        // and also indicate it's actually doing something
+        $('form').submit((e) => {
+            let el = $('#submit');
+
+            if($('form')[0].checkValidity()) {
+                el.prop('disabled', true);
+                el.toggleClass('btn-loading')
+            }
+        });
+    });
+    </script>
+    <style nonce="{{ request.csp_nonce }}">
+    @media (min-width: 869px) {
+        th, td {
+            padding: 20px 0;
+        }
+    }
+    </style>
+{% endblock%}
+
+{% block header_title %}
+    {% trans 'register:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h3 text-truncate">
+            {% trans 'register:content:header' %} '{{ experiment.name }}'
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    {% include 'participant/exp_info.html' %}
+</div>
+{%  if not already_registered %}
+    {% if api_messages %}
+        <div class="uu-hero {% if not success and not recoverable %}text-bg-warning{% endif %}">
+            <div class="col-12">
+                {% if success %}
+                    <h3>Aangemeld</h3>
+                {% else %}
+                    <h3>Je bent {% if recoverable == True %}(nog){% endif %} niet aangemeld!</h3>
+                {% endif %}
+                {% if api_messages %}
+                    {% if not success %}
+                        <p>
+                            Helaas, de inschrijving is mislukt om de volgende reden(en):
+                        </p>
+                    {% endif %}
+                    <p>
+                        {% for message in api_messages %}
+                            {{ message }} <br/>
+                        {% endfor %}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+    {% if success == None or recoverable == True %}
+        <div class="uu-hero">
+            <h2 >Inschrijven</h2>
+        </div>
+        <div class="uu-container">
+            <span>
+                Zie ook onze <a href="{% url 'main:privacy' %}">privacy-verklaring</a>
+                voor meer informatie over waarom we deze gegevens nodig hebben en hoe
+                wij hier mee om gaan.
+            </span>
+        </div>
+        <div class="uu-container">
+            <div class="col-12">
+                <form method="post" class="uu-form uu-form-no-gap">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="btn-group mt-3">
+                        <button class="btn btn-secondary" type="reset">Reset</button>
+                        <button class="btn btn-primary" type="submit" id="submit">Schrijf je in!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}
+{% endblock %}

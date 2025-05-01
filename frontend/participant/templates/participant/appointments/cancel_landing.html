@@ -1,0 +1,73 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block header_title %}
+    {% trans 'cancel_landing:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            {% trans 'cancel_landing:content:header' %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <p>
+            {% trans 'cancel_landing:content:p1' %}
+        </p>
+        <p>
+            {% trans 'cancel_landing:content:p2' %}
+        </p>
+    </div>
+</div>
+<div class="uu-container">
+    <div class="col-lg-6 col-12 pe-lg-3">
+        <h4>{% trans 'cancel_landing:content:email:header' %}</h4>
+        <form method="post" class="uu-form uu-form-no-gap uu-form-no-help w-100">
+            {% csrf_token %}
+            <div class="uu-form-row">
+                <div class="uu-form-field">
+                    <label for="id_email" class="form-label">{% trans 'cancel_landing:form:email' %}:</label>
+                    <input type="email" name="email" required="" class="form-control" placeholder="{% trans 'cancel_landing:form:email' %}" maxlength="254" id="id_email">
+                </div>
+            </div>
+            <button type="submit" class="float-end btn btn-primary mt-3">
+                {% trans 'cancel_landing:content:email:send_button' %}
+            </button>
+        </form>
+    </div>
+    <div class="col-lg-6 col-12 ps-lg-3">
+        <h4>{% trans 'cancel_landing:content:account:header' %}</h4>
+        {% url 'participant:appointments' as redirect_url %}
+        <form method="post" action="{% url 'main:login' %}?next={{ redirect_url }}" class="uu-form uu-form-no-gap uu-form-no-help w-100">
+            {% csrf_token %}
+            <div class="uu-form-row">
+                <div class="uu-form-field">
+                    <label for="id_username" class="form-label">{% trans 'cancel_landing:form:email' %}:</label>
+                    <input type="email" name="username" required="" class="form-control" placeholder="{% trans 'cancel_landing:form:email' %}" maxlength="254" id="id_username">
+                </div>
+            </div>
+            <div class="uu-form-row">
+                <div class="uu-form-field">
+                    <label for="id_password" class="form-label">{% trans 'cancel_landing:form:password' %}:</label>
+                    <input type="password" name="password" required="" class="form-control" placeholder="{% trans 'cancel_landing:form:password' %}" maxlength="254" id="id_password">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <a href="{% url 'main:forgot_password' %}">
+                    {% trans 'login:content:forgot_password' %}</a>
+                <button type="submit" class="btn btn-primary">
+                    {% trans 'login:button:login' %}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<br/>
+{% endblock %}

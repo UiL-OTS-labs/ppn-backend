@@ -1,0 +1,32 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+
+{% block header_title %}
+    {% trans 'register:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1 class="h3 text-truncate">
+            {% trans 'register:content:header' %} '{{ experiment.name }}'
+        </h1>
+    </div>
+    <div class="uu-container alert alert-success">
+        <div class="col-12">
+            <h3>Aangemeld</h3>
+            <p>Je bent ingeschreven voor het experiment! Je krijgt een bevestiging per email.</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <h3>Experiment details</h3>
+    </div>
+    {% include 'participant/exp_info.html' %}
+</div>
+{% endblock %}
