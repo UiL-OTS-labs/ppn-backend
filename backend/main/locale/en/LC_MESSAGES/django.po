@@ -155,7 +155,7 @@ msgstr "Log in"
 
 #: main/templates/registration/login.html:17
 msgid "main:login:error"
-msgstr "Login disabled"
+msgstr "Login data incorrect"
 
 #: main/templates/registration/login.html:51
 msgid "login:button:login"

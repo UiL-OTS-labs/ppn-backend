@@ -61,7 +61,6 @@ To complete the setup, follow these additional steps:
 * Create two API groups:
 
     - leader
-
     - participant
   These groups are required for the system to function correctly.
 
