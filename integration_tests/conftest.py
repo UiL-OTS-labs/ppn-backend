@@ -62,6 +62,7 @@ class DjangoServerProcess:
             "--settings",
             self.settings,
         ]
+        print(cmd)
         process = subprocess.run(cmd, env=self.env)
 
         if process.returncode != 0:
@@ -150,6 +151,7 @@ def as_admin(browser: Browser, backend_app):
     page_admin = context.new_page()
     page_admin.goto(backend_app.url + '/login')
     set_language_english(page_admin)
+    page_admin.click('#djHideToolBarButton')
     page_admin.fill("#id_username", "admin")
     page_admin.fill("#id_password", "admin")
     page_admin.locator('button').get_by_text("Log in").click()

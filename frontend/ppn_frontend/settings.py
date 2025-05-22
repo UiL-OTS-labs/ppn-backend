@@ -251,6 +251,6 @@ TECHNICIAN_CONTACT = 'mailto:t.d.mees@uu.nl'
 EMAIL_FROM = 'nope@example.org'
 
 # PPN API
-API_HOST = 'http://localhost:8000/'
+API_HOST = 'http://localhost:18000/'
 GROUPS_LEADER = 'leader'
 GROUPS_PARTICIPANT = 'participant'

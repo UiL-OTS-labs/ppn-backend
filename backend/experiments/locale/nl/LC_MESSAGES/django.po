@@ -225,9 +225,6 @@ msgstr ""
 msgid "experiment:form:use_timeslots:true"
 msgstr "Op locatie"
 
-#: experiments/forms/experiment_forms.py:37
-msgid "experiment:form:use_timeslots:false"
-msgstr "Online"
 
 #: experiments/models/appointment_models.py:18
 msgid "time_slot:attribute:datetime"
@@ -373,8 +370,7 @@ msgstr "Type"
 msgid "experiment:attribute:use_timeslots:help_text"
 msgstr ""
 "Indien 'op locatie' is gekozen, moeten participanten voor een tijdslot "
-"inschrijven. Als 'online' is gekozen, schrijven participanten alleen in voor "
-"een experiment."
+"inschrijven. 
 
 #: experiments/models/experiment_models.py:74
 msgid "experiment:attribute:default_max_places"

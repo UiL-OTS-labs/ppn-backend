@@ -252,7 +252,7 @@ msgstr ""
 msgid "index:content:intro3"
 msgstr ""
 "De experimenten worden afgenomen op locatie in het lab op Janskerkhof 13A "
-"(in de binnenstad van Utrecht), of online."
+"(in de binnenstad van Utrecht)"
 
 #: main/templates/main/index.html:58
 msgid "index:header:open_experiments"

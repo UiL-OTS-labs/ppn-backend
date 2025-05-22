@@ -222,9 +222,6 @@ msgstr ""
 msgid "experiment:form:use_timeslots:true"
 msgstr "On location"
 
-#: experiments/forms/experiment_forms.py:37
-msgid "experiment:form:use_timeslots:false"
-msgstr "Online"
 
 #: experiments/models/appointment_models.py:18
 msgid "time_slot:attribute:datetime"
@@ -370,8 +367,7 @@ msgstr "Type"
 msgid "experiment:attribute:use_timeslots:help_text"
 msgstr ""
 "If 'on location' is selected, a participant must choose a timeslot when "
-"registering for an experiment. When 'online' is selected, they only have to "
-"register for the experiment.  "
+"registering for an experiment. 
 
 #: experiments/models/experiment_models.py:74
 msgid "experiment:attribute:default_max_places"
