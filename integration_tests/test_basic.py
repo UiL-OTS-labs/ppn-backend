@@ -1,11 +1,11 @@
 #html text weghalen 
-#account make proefpersoon
 #mail laten werken
 #html test
 
 
 import uuid
 import pytest
+from playwright.sync_api import expect
 
 
 def set_language_english(page):
@@ -65,7 +65,7 @@ def test_create_easy_experiment(apps, as_admin):
     page.fill('input[name="min_age"]', '18')       # min age
     page.fill('input[name="max_age"]', '60')       # max age
 
-    page.locator('button:has-text("Save")').click()  # Click the button by its text
+    page.locator('button:has-text("Save")').click()  
  
     page.goto(f"{apps.backend.url}/experiments/1/timeslots/")
     page.click ('#save-new-slot')
@@ -112,7 +112,7 @@ def test_create_difficutlt_experiment(apps, as_admin):
     page.fill('input[name="min_age"]', '18')       # min age
     page.fill('input[name="max_age"]', '20')       # max age
 
-    page.locator('button:has-text("Save")').click()  # Click the button by its text
+    page.locator('button:has-text("Save")').click()  
     
     page.goto(f"{apps.backend.url}/experiments/2/timeslots/")
     page.click ('#save-new-slot')
@@ -187,23 +187,21 @@ def test_create_user_account(page, apps):
     assert page.url == (f"{apps.frontend.url}participant/sign_up/account_created/")
 
 
-'''def test_remove_from_timeslot(apps, as_admin):
+def test_remove_from_timeslot(apps, as_admin):
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
     location = Location.objects.create(name="Test Lab")
     page = as_admin
-    breakpoint()
-    page.goto(f"{apps.backend.url}/experiments/1/timeslots/")
-    page.locator("a.icon-delete[href='/experiments/2/timeslots/delete/3/']").click()
-    page.click("text='OK'")
-    success_alert = page.locator("text='Timeslot removed!'")
-
-    assert success_alert.count() > 0'''
+    page.goto(f"{apps.backend.url}/experiments/1/timeslots/delete/1")
+    page.locator('#delete-all-selected').click() 
+    success_alert = page.locator(".alert")
+    expect(success_alert).to_have_text('Timeslot removed!')
+    assert success_alert.is_visible()
     
 
-'''def test_delete_participant(apps, as_admin):
+def test_delete_participant(apps, as_admin):
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
@@ -212,9 +210,11 @@ def test_create_user_account(page, apps):
     page = as_admin
     
     page.goto(f"{apps.backend.url}/participants/1/del/")
-    breakpoint()
     page.get_by_role("button", name="Delete participant").click()
 
-    cell = page.locator("td.dtr-control.sorting_1", has_text="2")
+    cell = page.locator("td.dtr-control.sorting_1", has_text="1")
 
-    assert cell.count() > 0, "ID 2 is niet gevonden in de ID-kolom"'''
+    assert cell.count() == 0
+
+
+    
