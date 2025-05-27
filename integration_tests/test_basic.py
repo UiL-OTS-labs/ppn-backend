@@ -8,23 +8,15 @@ import pytest
 from playwright.sync_api import expect
 
 
-def set_language_english(page):
-    loc = page.locator("button").get_by_text("ENGLISH")
-    if loc.count():
-        loc.click()
-
-def test_backend_starts(page, backend_app):
-    page.goto(backend_app.url)
-    set_language_english(page)  
-    assert page.title() == 'ILS Labs Experiments Admin'
+def test_backend_starts(page_en, backend_app):
+    page_en.goto(backend_app.url)
+    assert page_en.title() == 'ILS Labs Experiments Admin'
 
 
+def test_frontend_starts(page_en, as_admin, frontend_app):
+    page_en.goto(frontend_app.url)
+    assert page_en.title() == 'Experimenten ILS Labs'
 
-def test_frontend_starts(page, as_admin, frontend_app):
-    page.goto(frontend_app.url)
-    assert page.title() == 'Experimenten ILS Labs'
-
-    
 
 def test_create_easy_experiment(apps, as_admin):
     """ Simple test with few harsh criteria """

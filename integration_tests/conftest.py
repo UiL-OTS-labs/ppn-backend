@@ -138,24 +138,26 @@ def apps(backend_app, frontend_app):
     return namedtuple("Apps", "backend,frontend")(backend_app, frontend_app)
 
 
-def set_language_english(page):
-    loc = page.locator("button").get_by_text("English")
-    if loc.count():
-        loc.click()
-
-
 @pytest.fixture
 def as_admin(browser: Browser, backend_app):
     backend_app.load("admin")
-    context = browser.new_context()
+    context = browser.new_context(locale='en-US')
     page_admin = context.new_page()
     page_admin.goto(backend_app.url + '/login')
-    set_language_english(page_admin)
     page_admin.click('#djHideToolBarButton')
     page_admin.fill("#id_username", "admin")
     page_admin.fill("#id_password", "admin")
     page_admin.locator('button').get_by_text("Log in").click()
-    return page_admin
+    yield page_admin
+    page_admin.close()
+
+
+@pytest.fixture
+def page_en(browser: Browser):
+    context = browser.new_context(locale='en-US')
+    page = context.new_page()
+    yield page
+    page.close()
 
 
 def read_mail(address):
