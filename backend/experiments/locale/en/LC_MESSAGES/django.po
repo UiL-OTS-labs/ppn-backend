@@ -367,7 +367,7 @@ msgstr "Type"
 msgid "experiment:attribute:use_timeslots:help_text"
 msgstr ""
 "If 'on location' is selected, a participant must choose a timeslot when "
-"registering for an experiment. 
+"registering for an experiment."
 
 #: experiments/models/experiment_models.py:74
 msgid "experiment:attribute:default_max_places"

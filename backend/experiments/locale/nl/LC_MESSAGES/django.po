@@ -370,7 +370,7 @@ msgstr "Type"
 msgid "experiment:attribute:use_timeslots:help_text"
 msgstr ""
 "Indien 'op locatie' is gekozen, moeten participanten voor een tijdslot "
-"inschrijven. 
+"inschrijven."
 
 #: experiments/models/experiment_models.py:74
 msgid "experiment:attribute:default_max_places"
