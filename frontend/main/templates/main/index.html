@@ -41,39 +41,31 @@
 {% block content %}
 <div class="uu-container">
     <div class="col-12">
-        <p>
-            {% trans 'index:content:intro1' %}
-        </p>
-        <p>
-            {% trans 'index:content:intro2' %}
-        </p>
+        <h1>{% trans "index:header:welkom_intro" %}</h1>
+        <p>{% trans "index:content:intro1" %}</p>
+        {% url 'participant:sign_up' as mailinglist_url %}
+<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+    <p style="margin: 0;"><strong>{% transformat 'index:content:maillinglist1' mailinglist_url %}</strong></p>
+    <img src="{% static 'main/mail.png' %}" alt="Mailinglijst icoon" style="height: 180px;" />
+</div>
 
-        <p class="mb-4">
-            {% trans 'index:content:intro3' %}
-        </p>
+        <h2>{% trans "index:header:intro2" %}</h2>
+        <p>{% trans "index:content:intro2" %}</p>
+        <p>{% trans "index:content:intro3" %}</p>
+        <p>{% trans "index:content:intro4" %}</p>
+        <p>{% trans "index:content:intro5" %}</p>
+        <p class="mb-4">{% trans "index:content:intro6" %}</p>
     </div>
 </div>
 <div class="uu-container">
     <div class="col-12">
         <h2>{% trans 'index:header:open_experiments' %}</h2>
             <div id="list"></div>
-        <p class="mb-4">
-            {% url 'participant:cancel_landing' as cancel_url %}
-            {% transformat 'index:content:cancel' cancel_url %}
-        </p>
+         {% url 'participant:sign_up' as mailinglist_url %}
+         <p class="mb-4">{% transformat "index:content:mailinglist2" mailinglist_url %}</p>
+
     </div>
 </div>
 {% if request.user.is_anonymous or not request.user.is_participant %}
-    <div class="uu-container">
-        <div class="col-12">
-            <h2>
-                {% trans 'index:header:maillinglist' %}
-            </h2>
-            <p>
-                {% url 'participant:sign_up' as mailinglist_url %}
-                {% transformat 'index:content:maillinglist1' mailinglist_url %}
-            </p>
-        </div>
-    </div>
 {% endif %}
 {% endblock %}
