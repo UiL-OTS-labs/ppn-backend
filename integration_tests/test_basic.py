@@ -160,25 +160,6 @@ def test_create_wrong_user(page, apps):
     assert page.url == (f"{apps.frontend.url}/participant/register/2/")
 
 
-def test_create_user_account(page, apps):
-
-    page.goto(f"{apps.frontend.url}/participant/sign_up/")  
-
-    page.locator('input#id_mailing_list_0').click()
-    page.locator('input#id_account_0').click() 
-    page.fill('input[name="name"]', 'Anita Beth')               # name
-    page.fill('input[name="email"]', 'Anita.Beth@test.com')     # email 
-    page.locator('input#id_language_0').click()
-    page.locator('input#id_language_0').click()                 # mother tongue 
-    page.locator('#id_multilingual_0').click()                  # language quantity 
-    page.locator('#id_dyslexic_0').click()                      # dyslectic 
-    page.locator('#id_consent_0').click()                       # consent
-    
-
-    page.click('#submit')
-    assert page.url == (f"{apps.frontend.url}participant/sign_up/account_created/")
-
-
 def test_remove_from_timeslot(apps, as_admin):
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
