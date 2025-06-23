@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.text import gettext_lazy as _
 
-from cdh.core.forms import (SearchableSelectWidget, TelephoneInput,
+from cdh.core.forms import (TextInput, TelephoneInput,
                             BootstrapRadioSelect,
                             BootstrapCheckboxInput, )
 from main.forms import PPNTemplatedForm, PPNTemplatedModelForm
@@ -31,6 +31,8 @@ class ParticipantForm(PPNTemplatedModelForm):
             'capable': BootstrapCheckboxInput,
         }
 
+
+
     def __init__(self, *args, **kwargs):
         super(ParticipantForm, self).__init__(*args, **kwargs)
 
@@ -39,7 +41,20 @@ class ParticipantForm(PPNTemplatedModelForm):
             (True, _("participants:multilingual:many")),
             (False, _("participants:multilingual:one")),
         ))
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')      
+        filtered = Participant.objects.find_by_email(email)
 
+        already_known = len(filtered) != 0
+        if already_known:
+            same_user = self.instance.id == filtered[0].id
+            if not same_user:
+                raise ValidationError(
+                    _('Deze email is al in gebruik door een andere participant.'),
+                    code='email_exists'
+                )
+        return email
 
 class CriterionAnswerForm(forms.ModelForm):
     class Meta:
@@ -59,17 +74,19 @@ class CriterionAnswerForm(forms.ModelForm):
 
 class ParticipantMergeForm(PPNTemplatedForm):
 
-    old_participant = forms.ModelChoiceField(
-        Participant.objects.all(),
-        label=_('participants:merge_form:field:old_participant'),
-        widget=SearchableSelectWidget,
-    )
+    old_participant = forms.CharField(
+            label=_('participants:merge_form:field:old_participant'),
+            widget=TextInput(attrs={
+                'placeholder': 'Typ the name of old participant...',
+            })
+        )
 
-    new_participant = forms.ModelChoiceField(
-        Participant.objects.all(),
-        label=_('participants:merge_form:field:new_participant'),
-        widget=SearchableSelectWidget,
-    )
+    new_participant = forms.CharField(
+            label=_('participants:merge_form:field:new_participant'),
+            widget=TextInput(attrs={
+                'placeholder': 'Typ the name of the to be merged participant...',
+            })
+        )
 
     def clean_new_participant(self):
         """This checks if two unique participants have been chosen"""
