@@ -31,11 +31,6 @@ class SignUpForm(TemplatedForm):
         ),
     )
 
-    name = forms.Field(
-        label="Voor- en achternaam",
-        required=False,
-    )
-
     email = forms.EmailField(
         label="Emailadres",
     )
@@ -93,23 +88,7 @@ class SignUpForm(TemplatedForm):
         required=True,
     )
 
-    consent = forms.BooleanField(
-        label='Dataverwerking',
-        widget=BootstrapRadioSelect(
-            choices=(
-                (
-                    True,
-                    ('Ja!!, Ik wil graag proefpersoon worden en geef toestemming om mijn e-mailadres te gebruiken zodat ik uitnodigingen kan ontvangen voor leuke en interessante experimenten.'
-                     'Ook geef ik toestemming dat mijn gegevens – inclusief eventuele gevoelige antwoorden die ik tijdens een experiment geef – veilig worden opgeslagen bij het verwerken van mijn aanmelding.'
-                     'Ik begrijp dat deze gegevens gedeeld mogen worden met de onderzoeker (proefleider) van het betreffende experiment.')
-                ),
-            ),
-            attrs={
-                'required': 'required'
-            }
-        ),
-        required=True
-    )
+
 
     def clean(self):
         mailing_list = self.cleaned_data.get('mailing_list', False)

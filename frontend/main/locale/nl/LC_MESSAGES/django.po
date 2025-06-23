@@ -255,8 +255,13 @@ msgstr ""
 "Dat hangt een beetje af van het soort experiment. Soms vragen we nog wat extra info,"
 " zoals of je links- of rechtshandig bent, of je student bent, enzovoort."
 " Een experiment bestaat meestal uit het lezen of beluisteren van woorden, zinnen of korte"
-" verhaaltjes, en daarbij voer je een eenvoudige taak uit. Bijvoorbeeld een vraag beantwoorden, of een plaatje kiezen dat past bij wat je hoorde. Soms meten we ondertussen ook je <strong>oogbewegingen of je hersenactiviteit</strong>"
-"<strong>(EEG)</strong>. Dit is vaak het geval:"
+" verhaaltjes, en daarbij voer je een eenvoudige taak uit. Bijvoorbeeld een vraag beantwoorden, of een plaatje kiezen dat past bij wat je hoorde. Soms meten we ondertussen ook je <strong>oogbewegingen of je hersenactiviteit </strong>"
+"<strong>(EEG)</strong>."
+
+#: main/templates/main/index.html:52
+msgid "index:content:introk"
+msgstr ""
+"Dit is vaak het geval:"
 
 #: main/templates/main/index.html:52
 msgid "index:content:intro3"
@@ -266,12 +271,7 @@ msgstr ""
 #: main/templates/main/index.html:52
 msgid "index:content:intro4"
 msgstr ""
-"<strong>*  Vergoeding:</strong> tussen de €7,50 en €10 per uur"
-
-#: main/templates/main/index.html:52
-msgid "index:content:intro5"
-msgstr ""
-"(cashen in je tussen-uur dus)"
+"<strong>*  Vergoeding:</strong> tussen de €7,50 en €10 per uur   (cashen in je tussen-uur dus)"
 
 #: main/templates/main/index.html:52
 msgid "index:content:intro6"
