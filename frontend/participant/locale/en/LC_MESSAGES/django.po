@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:04+0000\n"
+"POT-Creation-Date: 2025-06-06 08:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,50 +16,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participant/templates/participant/appointments/appointments.html:25
-#: participant/templates/participant/appointments/appointments.html:31
+#: participant/templates/participant/appointments/appointments.html:30
+#: participant/templates/participant/appointments/appointments.html:36
 msgid "appointments:content:header"
 msgstr "My appointments"
 
-#: participant/templates/participant/appointments/appointments.html:40
-msgid "appointments:content:p1"
-msgstr ""
-
-#: participant/templates/participant/appointments/appointments.html:46
-msgid "appointments:thead:experiment"
-msgstr "Participation form experiment"
-
 #: participant/templates/participant/appointments/appointments.html:49
-msgid "appointments:thead:day"
-msgstr "Participation form experiment"
-
-#: participant/templates/participant/appointments/appointments.html:52
 msgid "appointments:thead:date"
 msgstr "Date"
 
-#: participant/templates/participant/appointments/appointments.html:55
+#: participant/templates/participant/appointments/appointments.html:50
 msgid "appointments:thead:time"
 msgstr "Time"
 
-#: participant/templates/participant/appointments/appointments.html:58
+#: participant/templates/participant/appointments/appointments.html:53
 msgid "appointments:thead:leader"
 msgstr "Experiment leader"
 
-#: participant/templates/participant/appointments/appointments.html:61
-msgid "appointments:thead:leader_email"
-msgstr "Exp. Led. Email"
-
-#: participant/templates/participant/appointments/appointments.html:64
-msgid "appointments:thead:actions"
-msgstr "Actions"
-
-#: participant/templates/participant/appointments/appointments.html:92
-#: participant/templates/participant/appointments/appointments.html:96
+#: participant/templates/participant/appointments/appointments.html:65
 msgid "appointments:content:cancel"
 msgstr "Cancel appointment"
 
-#: participant/templates/participant/appointments/appointments.html:100
+#: participant/templates/participant/appointments/appointments.html:68
 msgid "appointments:content:cannot_cancel"
+msgstr "Canceling is no longer possible"
+
+#: participant/templates/participant/appointments/appointments.html:74
+#, fuzzy
+#| msgid "appointments:content:cannot_cancel"
+msgid "appointments:content:no_appointments"
 msgstr "Canceling is no longer possible"
 
 #: participant/templates/participant/appointments/cancel_landing.html:7
@@ -112,7 +97,7 @@ msgstr ""
 msgid "closed:content:header"
 msgstr ""
 
-#: participant/templates/participant/closed_experiment.html:26
+#: participant/templates/participant/closed_experiment.html:27
 msgid "closed:content:p1"
 msgstr ""
 
@@ -179,3 +164,15 @@ msgstr ""
 #: participant/views/mailinglist_views.py:48
 msgid "unsubscribe_mailinglist:messages:unsubscribed"
 msgstr "Participation form experiment"
+
+#~ msgid "appointments:thead:experiment"
+#~ msgstr "Participation form experiment"
+
+#~ msgid "appointments:thead:day"
+#~ msgstr "Participation form experiment"
+
+#~ msgid "appointments:thead:leader_email"
+#~ msgstr "Exp. Led. Email"
+
+#~ msgid "appointments:thead:actions"
+#~ msgstr "Actions"
