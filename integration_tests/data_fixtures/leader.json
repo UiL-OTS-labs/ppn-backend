@@ -1,0 +1,30 @@
+[
+	{
+	  "model": "leaders.leader",
+	  "pk": 1,
+	  "fields": {
+		"name": "Ben",
+		"phonenumber": "064-123456",
+		"api_user": 1
+	  }
+	},
+	{
+	  "model": "apiauth.apiuser",
+	  "pk": 1,
+	  "fields": {
+		"email": "ben@localhost.localdomain",
+		"password": "pbkdf2_sha256$600000$CnewYfTQP1MGJus6IGAReY$tdv6zbckI082dQ6ClPYwjXhDKy7U1SXke++v5cSE3qw=",
+		"is_active": true,
+		"is_frontend_admin": false,
+		"passwords_needs_change": true,
+		"is_ldap_account": false,
+		"date_joined": "2022-10-18T12:52:07.255Z",
+		"last_login": null,
+		"groups": [
+		  1
+		]
+	  }
+	}
+  ]
+  
+   

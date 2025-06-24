@@ -1,0 +1,48 @@
+[
+	{
+	  "model": "experiments.experiment",
+	  "pk": 1,
+	  "fields": {
+		"name": "Verhalen en emotie 4: De buurman is een klootzak",
+		"duration": "ongeveer twee uur",
+		"compensation": "20 euro",
+		"task_description": "De sessie bestaat uit 3 delen, waarvan het eerste deel het langste duurt. In deel 1 lees je op een computerscherm 64 korte verhaaltjes opgedeeld in kleine fragmenten. Bij elk verhaaltje wordt je gevraagd om het gedrag van de hoofdpersoon te beoordelen met een rating. Tijdens deze eerste taak meten we ook de activiteit van je gezichtsspieren.\r\n\r\nHet tweede deel is een vragenlijst waarbij je dezelfde verhaaltjes te zien krijgt, maar nu in hun geheel. We vragen dan of je met behulp van een ratingschaal wilt aangeven wat je van de afloop van het verhaaltje vindt.\r\nDeel 3 bestaat uit een korte vragenlijst over jouw perspectief op menselijk gedrag.\r\n\r\nIn totaal zul je voor dit experiment circa 2 uur in het lab zijn.",
+		"additional_instructions": "Je kunt alleen meedoen met dit experiment als je voldoet aan de volgende criteria:\r\n<ul><li>bent opgegroeid met het Nederlands als moedertaal (meerdere moedertalen is geen bezwaar)</li>\r\n<li>je bent niet dyslectisch</li>\r\n<li>je bent tussen de 18 en 30 jaar oud</li>\r\n<li>je bent student</li>\r\n<li>je hebt niet eerder deelgenomen aan een van de volgende experimenten: Verhalen en emotie (november 2014-januari 2015), Verhalen en emotie 2 (oktober-november 2015), Persoonlijkheid en lezen (juni 2016)</li>\r\n<li>je bent op dit moment geen eerste- of tweedejaars student in de RMA linguistics (want dan heb je weleens een presentatie over dit onderzoek gehoord, en als je weet waar het over gaat kun je niet meedoen)</li>\r\n<li>je hebt geen botox-behandeling in je gezicht gehad</li>\r\n<li>je hebt geen baardgroei op de diagonale lijn tussen je mondhoek en de bovenste aanzet van je oor, dus waar je oor aan je hoofd vastzit, zie plaatje:<br/> <img src=\"https://resources.lab.hum.uu.nl/resources/plaatjes_voor_ppnsysteem/baardgroei_diagonaal_cirkel.png\"alt=\"Diagonale lijn van mondhoek naar bovenkant oor\" style=\"width:236px;height:225px;\">\r\n</li>\r\n</ul>",
+		"confirmation_email": "<p>Beste {participant_name},</p>\r\n    <p>\r\n        Je hebt een afspraak gemaakt om mee te doen met het experiment: \r\n        <strong>{experiment_name}</strong><br/><br/>\r\n        We verwachten je op:<br/><br/>\r\n        Datum: <strong>{date}</strong><br/>\r\n        Tijd: <strong>{time} uur</strong><br/>\r\n        Locatie: <strong>{experiment_location}</strong><br/>\r\n    </p>\r\n    <p>\r\n        Als je deze afspraak wilt afzeggen, kun je dat doen via \r\n        {cancel_link:\"deze link\"}.\r\n        Doe dat alsjeblieft minstens 24 uur vantevoren. Als je vlak vantevoren \r\n        ontdekt dat je verhinderd bent, neem dan svp even persoonlijk contact \r\n        op met de proefleider \r\n        ({leader_name}, email: {leader_email} tel.: {leader_phonenumber}).\r\n    </p>\r\n    <p>\r\n        Met vriendelijke groet,<br/>\r\n        het UiL OTS lab\r\n    </p>",
+		"invite_email": "<p>Je kunt je weer opgeven voor nieuwe tijdstippen voor het volgende  \r\n    experiment: <strong>{experiment_name}</strong>.</p>\r\n<p>De proefleider is <strong>{leader_name}</strong>.\r\n<ul>\r\n    <li>Duur: {duration}.</li>\r\n    <li>Vergoeding: {compensation}.</li>\r\n    <li>{task_description}</li>\r\n    <li>{additional_instructions}</li>\r\n</ul>\r\n\r\n<p>Je kunt via {link_to_subscribe:\"deze link\"} inschrijven. Voor andere experimenten zie ook <a href=\"https://experimenten.lab.hum.uu.nl/\">https://experimenten.lab.hum.uu.nl/</a>.</p>\r\n\r\n<p>Bedankt!</p>\r\n\r\n<p>\r\nMet vriendelijke groet,<br/>\r\n{admin}\r\n</p>",
+		"reminder_email": "<p>Beste {{ participant_name }},</p>\n    <p>\n        <strong>Dit is een reminder!</strong>\n    </p>\n    <p>\n        Je hebt een afspraak gemaakt om mee te doen met het experiment: <strong> {{ experiment.name }}</strong>.\n    </p>\n    <p>\n        We verwachten je op: <br/>\n        Datum: <strong>{{ date }}</strong><br/>\n        Tijd: <strong>{{ time }} uur</strong><br/>\n        Locatie: <strong>{{ location }}</strong><br/>\n    </p>\n    <p>\n        Als je deze afspraak wilt afzeggen, kun je dat doen via <a href=\"{{ cancel_link }}\">deze link</a>. Doe dat\n        alsjeblieft minstens 24 uur vantevoren. Als je vlak vantevoren ontdekt dat je verhinderd bent, neem dan svp even\n        persoonlijk contact op met de proefleider ({{ leader_name }}, email: {{ \n        leader_email }}\n        tel.: {{ leader_phone }}).\n    </p>",
+		"location": 1,
+		"use_timeslots": true,
+		"default_max_places": 1,
+		"open": false,
+		"public": true,
+		"participants_visible": false,
+		"leader": 1,
+		"excluded_experiments": [],
+		"additional_leaders": []
+	  }
+	},
+	{
+	  "model": "experiments.experiment",
+	  "pk": 2,
+	  "fields": {
+		"name": "Leer een taal van een andere planeet",
+		"duration": "ongeveer 30 minuten",
+		"compensation": "een <a href=\"https://cadeau.yesty.nl/\">yesty cadeaubon</a> van 5 euro",
+		"task_description": "<p>In dit experiment hoor je eerst woorden uit een taal van een andere planeet. Daarna hoor je nieuwe woorden uit dezelfde taal en krijg je vragen over wat je net gehoord hebt.</p>",
+		"additional_instructions": "<p>Je kunt alleen meedoen met dit experiment als je bent opgegroeid met het Nederlands als moedertaal (meerdere moedertalen is geen bezwaar), en als je tussen de 18 en 69 jaar oud bent.<br>Je kunt niet meedoen aan dit onderzoek als je een aandachtsstoornis hebt, of als je dyslectisch bent.<br>Bovendien kun je niet meedoen als je al hebt meegedaan aan de onderzoeken \"Leer een buitenaardse taal\" (vanaf maart 2023) of \"Een fantasietaal\" (vanaf mei 2024).</p>",
+		"confirmation_email": "<p>Beste {{name}},</p>\r\n<p>Je hebt een afspraak gemaakt om mee te doen met het experiment: <strong>{{experiment_name}}</strong><br><br>We verwachten je op:<br><br>Datum: <strong>{{date}}</strong><br>Tijd: <strong>{{time}} uur</strong><br>Locatie: <strong>{{experiment_location}}</strong></p>\r\n<p>Als je deze afspraak wilt afzeggen, kun je dat doen via <a title=\"deze link\" href=\"{{cancel_link}}\">deze link</a>. Doe dat alsjeblieft minstens 24 uur vantevoren. Als je vlak vantevoren ontdekt dat je verhinderd bent, neem dan svp even persoonlijk contact op met de proefleider ({{leader_name}}, email: {{leader_email}} tel.: {{leader_phonenumber}}).</p>\r\n<p>Met vriendelijke groet,<br>de ILS Labs</p>",
+		"invite_email": "<p>Je kunt je weer opgeven voor een nieuw experiment: <strong>{{experiment_name}}</strong>.</p>\r\n<p>De proefleider is <strong>{{leader_name}}</strong>.</p>\r\n<ul>\r\n<li>Duur: {{duration}}.</li>\r\n<li>Vergoeding: {{compensation}}.</li>\r\n<li>{{task_description}}</li>\r\n<li>{{additional_instructions}}</li>\r\n</ul>\r\n<p>Je kunt via <a title=\"deze link\" href=\"{{reg_link}}\">deze link</a> inschrijven.</p>\r\n<p>Bedankt!</p>\r\n<p>Met vriendelijke groet,<br>{{admin}}</p>",
+		"reminder_email": "<p>Beste {{ name }},</p>\r\n<p><strong>Dit is een reminder!</strong></p>\r\n<p>Je hebt een afspraak gemaakt om mee te doen met het experiment: <strong> {{ experiment_name }}</strong>.</p>\r\n<p>We verwachten je op: <br>Datum: <strong>{{ date }}</strong><br>Tijd: <strong>{{ time }} uur</strong><br>Locatie: <strong>{{ experiment_location }}</strong></p>\r\n<p>Als je deze afspraak wilt afzeggen, kun je dat doen via <a href=\"{{ cancel_link }}\">deze link</a>. Doe dat alsjeblieft minstens 24 uur vantevoren. Als je vlak vantevoren ontdekt dat je verhinderd bent, neem dan svp even persoonlijk contact op met de proefleider ({{ leader_name }}, email: {{ leader_email }} tel.: {{ leader_phonenumber }}).</p>",
+		"location": 2,
+		"use_timeslots": true,
+		"default_max_places": 1,
+		"open": false,
+		"public": true,
+		"participants_visible": false,
+		"leader": 1,
+		"excluded_experiments": [],
+		"additional_leaders": []
+	  }
+	}
+  ]

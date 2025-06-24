@@ -25,7 +25,7 @@
 
     <template #undertitle="{ item: experiment, context }">
       <div class="ufl-undertitle-line">
-        Type: {{ experiment.use_timeslots ? "op locatie" : "online" }}
+        Type: {{ experiment.use_timeslots ? "op locatie" : "" }}
       </div>
       <div class="ufl-undertitle-line">
         Compensatie: <span v-html="experiment.compensation" />
