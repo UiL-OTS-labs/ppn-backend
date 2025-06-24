@@ -246,10 +246,6 @@ msgstr ""
 "<a href=\"{}\">MELD JE NU AAN!</a>"
 
 #: main/templates/main/index.html:48
-msgid "index:header:intro2"
-msgstr"Hoe verloopt zo’n experiment?"
-
-#: main/templates/main/index.html:48
 msgid "index:content:intro2"
 msgstr ""
 "Dat hangt een beetje af van het soort experiment. Soms vragen we nog wat extra info,"

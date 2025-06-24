@@ -119,7 +119,7 @@ class SignUpForm(TemplatedForm):
         # Remove the fields we add manually from the context
         context['fields'] = [
             x for x in context['fields']
-            if x[0].name not in ['account', 'mailing_list', 'consent']
+            if x[0].name not in ['account', 'mailing_list']
         ]
         return context
 
