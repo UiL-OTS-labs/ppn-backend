@@ -31,6 +31,8 @@ class ParticipantForm(PPNTemplatedModelForm):
             'capable': BootstrapCheckboxInput,
         }
 
+
+
     def __init__(self, *args, **kwargs):
         super(ParticipantForm, self).__init__(*args, **kwargs)
 
@@ -39,7 +41,20 @@ class ParticipantForm(PPNTemplatedModelForm):
             (True, _("participants:multilingual:many")),
             (False, _("participants:multilingual:one")),
         ))
+    
+    def clean_email(self):
+        email = self.cleaned_data.get('email')      
+        filtered = Participant.objects.find_by_email(email)
 
+        already_known = len(filtered) != 0
+        if already_known:
+            same_user = self.instance.id == filtered[0].id
+            if not same_user:
+                raise ValidationError(
+                    _('Deze email is al in gebruik door een andere participant.'),
+                    code='email_exists'
+                )
+        return email
 
 class CriterionAnswerForm(forms.ModelForm):
     class Meta:
