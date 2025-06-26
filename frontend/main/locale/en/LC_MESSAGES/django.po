@@ -225,45 +225,6 @@ msgid "forgot_password:content:request_button"
 msgstr "Request password reset"
 
 
-#: main/templates/main/index.html:45
-msgid "index:content:intro1"
-msgstr ""
-"The Institute for Language Sciences is conducting research into how people "
-"understand and produce spoken and written language. In this context, "
-"reading, listening and speech experiments are regularly performed. We are "
-"always looking for subjects to participate in those experiments. You can "
-"sign up for this on this website."
-
-#: main/templates/main/index.html:48
-msgid "index:content:maillinglist1"
-msgstr ""
-"Do you want to be kept informed about new experiments at the ILS Labs? Enter "
-"your email address here. Your personal data will of course be treated "
-"confidentially. Research data is not accessible to third parties, and in "
-"publications usually only group averages are reported. If individual results "
-"are mentioned, this is always done anonymously."
-
-
-#: main/templates/main/index.html:53
-msgid "index:content:intro2"
-msgstr ""
-"The experiments are conducted at Janskerkhof 13 (in the city center). An "
-"experiment usually consists of reading or listening to a number of words, "
-"sentences or stories, and carrying out a simple task (for example answering "
-"questions, or choosing a picture that best fits what you have heard). It "
-"takes you about twenty minutes to one and a half hours to participate in an "
-"experiment; the reimbursement varies from 7.50 to 10 euros per hour.<br/"
-">Please note that most experiments require native Dutch speakers."
-
-#: main/templates/main/index.html:54
-msgid "index:content:intro3"
-msgstr ""
-"The Institute for language sciences is conducting research into how people "
-"understand and produce spoken and written language. In this context, "
-"reading, listening and speech experiments are regularly performed. We are "
-"always looking for subjects to participate in those experiments. You can "
-"sign up for this on this website."
-
 #: main/templates/main/index.html:62
 msgid "index:header:open_experiments"
 msgstr "Open experiments"

@@ -228,67 +228,15 @@ msgstr "Volg deze instructies om je wachtwoord opnieuw in te stellen."
 msgid "forgot_password:content:request_button"
 msgstr "Vraag wachtwoord reset aan"
 
-#: main/templates/main/index.html:58
-msgid "index:header:welkom_intro"
-msgstr "Welkom toekomstig proefpersoon!"
-
-#: main/templates/main/index.html:45
-msgid "index:content:intro1"
-msgstr ""
-"Wat leuk dat je er bent. Bij het Institute for Language Sciences (ILS) van de Universiteit Utrecht doen we onderzoek naar hoe mensen taal begrijpen en gebruiken. Daarvoor hebben we regelmatig experimenten waarbij je iets leest, luistert of zegt — en jij kunt meedoen!"
-" Hoe doe je mee?"
-" <strong>Vul een paar gegevens in via het linkje hieronder</strong>. Daarna hoef je niks meer te doen: wij sturen je vanzelf een mail zodra er een experiment openstaat dat bij jou past. Je mag natuurlijk ook kijken wat voor experimenten er al open staan hieronder!"
-" Bedenk je je later? Geen probleem — uitschrijven kan altijd. Kan geen kwaad dus!"
-
 #: main/templates/main/index.html:74
 msgid "index:content:maillinglist1"
 msgstr ""
 "<a href=\"{}\">MELD JE NU AAN!</a>"
 
-#: main/templates/main/index.html:48
-msgid "index:content:intro2"
-msgstr ""
-"Dat hangt een beetje af van het soort experiment. Soms vragen we nog wat extra info,"
-" zoals of je links- of rechtshandig bent, of je student bent, enzovoort."
-" Een experiment bestaat meestal uit het lezen of beluisteren van woorden, zinnen of korte"
-" verhaaltjes, en daarbij voer je een eenvoudige taak uit. Bijvoorbeeld een vraag beantwoorden, of een plaatje kiezen dat past bij wat je hoorde. Soms meten we ondertussen ook je <strong>oogbewegingen of je hersenactiviteit </strong>"
-"<strong>(EEG)</strong>."
-
-#: main/templates/main/index.html:52
-msgid "index:content:introk"
-msgstr ""
-"Dit is vaak het geval:"
-
-#: main/templates/main/index.html:52
-msgid "index:content:intro3"
-msgstr ""
-"<strong>*  Duur:</strong> ca. 20 minuten tot 1,5 uur"
-
-#: main/templates/main/index.html:52
-msgid "index:content:intro4"
-msgstr ""
-"<strong>*  Vergoeding:</strong> tussen de €7,50 en €10 per uur   (cashen in je tussen-uur dus)"
-
-#: main/templates/main/index.html:52
-msgid "index:content:intro6"
-msgstr ""
-"De experimenten vinden plaats in ons lab op <strong>Janskerkhof 13A</strong>, midden in de "
-"binnenstad van Utrecht (naast de Drift, lekker dichtbij)."
-
-#: main/templates/main/index.html:58
-msgid "index:header:open_experiments"
-msgstr "Dit zijn de experimenten waarvoor we je op dit moment zoeken:"
-
 #: main/templates/main/index.html:62
-msgid "index:content:mailinglist2"
+msgid "index:content:mailinglist"
 msgstr ""
 "Staat er nu niets tussen wat je aanspreekt? Geen zorgen — elk experiment is anders, en we zijn nooit klaar met experimenteren. <a href=\"{}\">Meld je aan</a>, dan komt er vanzelf iets leuks jouw kant op."
-
-
-#: main/templates/main/index.html:70
-msgid "index:header:exp_worden1"
-msgstr "Zelf experimenteren?"
-
 
 #: main/templates/main/ldap_password.html:6
 #: main/templates/main/ldap_password.html:12
