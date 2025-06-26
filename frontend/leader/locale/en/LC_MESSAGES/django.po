@@ -205,8 +205,6 @@ msgid "experiment:timeslots:title"
 msgstr "Edit/view timeslots"
 
 #: leader/templates/leader/experiments.html:82
-#, fuzzy
-#| msgid "experiment:timeslots:title"
 msgid "experiments:timeslots:title:disabled"
 msgstr "Edit/view timeslots"
 

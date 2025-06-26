@@ -42,8 +42,6 @@ msgid "appointments:content:cannot_cancel"
 msgstr "Canceling is no longer possible"
 
 #: participant/templates/participant/appointments/appointments.html:74
-#, fuzzy
-#| msgid "appointments:content:cannot_cancel"
 msgid "appointments:content:no_appointments"
 msgstr "Canceling is no longer possible"
 

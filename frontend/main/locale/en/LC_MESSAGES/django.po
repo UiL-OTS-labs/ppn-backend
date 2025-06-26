@@ -224,11 +224,6 @@ msgstr "Follow these instructions to reset your password."
 msgid "forgot_password:content:request_button"
 msgstr "Request password reset"
 
-#: main/templates/main/index.html:44
-#, fuzzy
-#| msgid "index:header:maillinglist"
-msgid "index:header:welkom_intro"
-msgstr "Mailing list ILS Labs experiments"
 
 #: main/templates/main/index.html:45
 msgid "index:content:intro1"
@@ -248,11 +243,6 @@ msgstr ""
 "publications usually only group averages are reported. If individual results "
 "are mentioned, this is always done anonymously."
 
-#: main/templates/main/index.html:52
-#, fuzzy
-#| msgid "index:header:maillinglist"
-msgid "index:header:intro2"
-msgstr "Mailing list ILS Labs experiments"
 
 #: main/templates/main/index.html:53
 msgid "index:content:intro2"
@@ -274,53 +264,9 @@ msgstr ""
 "always looking for subjects to participate in those experiments. You can "
 "sign up for this on this website."
 
-#: main/templates/main/index.html:55
-#, fuzzy
-#| msgid "index:content:intro1"
-msgid "index:content:intro4"
-msgstr ""
-"The Institute for Language Sciences is conducting research into how people "
-"understand and produce spoken and written language. In this context, "
-"reading, listening and speech experiments are regularly performed. We are "
-"always looking for subjects to participate in those experiments. You can "
-"sign up for this on this website."
-
-#: main/templates/main/index.html:56
-#, fuzzy
-#| msgid "index:content:intro1"
-msgid "index:content:intro5"
-msgstr ""
-"The Institute for Language Sciences is conducting research into how people "
-"understand and produce spoken and written language. In this context, "
-"reading, listening and speech experiments are regularly performed. We are "
-"always looking for subjects to participate in those experiments. You can "
-"sign up for this on this website."
-
-#: main/templates/main/index.html:57
-#, fuzzy
-#| msgid "index:content:intro1"
-msgid "index:content:intro6"
-msgstr ""
-"The Institute for Language Sciences is conducting research into how people "
-"understand and produce spoken and written language. In this context, "
-"reading, listening and speech experiments are regularly performed. We are "
-"always looking for subjects to participate in those experiments. You can "
-"sign up for this on this website."
-
 #: main/templates/main/index.html:62
 msgid "index:header:open_experiments"
 msgstr "Open experiments"
-
-#: main/templates/main/index.html:65
-#, fuzzy
-#| msgid "index:content:maillinglist1"
-msgid "index:content:mailinglist2"
-msgstr ""
-"Do you want to be kept informed about new experiments at the ILS Labs? Enter "
-"your email address here. Your personal data will of course be treated "
-"confidentially. Research data is not accessible to third parties, and in "
-"publications usually only group averages are reported. If individual results "
-"are mentioned, this is always done anonymously."
 
 #: main/templates/main/ldap_password.html:6
 #: main/templates/main/ldap_password.html:12
@@ -348,18 +294,6 @@ msgid "main:login_lockout:info_text"
 msgstr ""
 "Due to many failed login attempts, logging in has been disabled for one hour."
 
-#: main/templates/main/privacy.html:9 main/templates/main/privacy.html:14
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:header"
-msgstr "Login disabled"
-
-#: main/templates/main/privacy.html:22
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:subheader1"
-msgstr "Login disabled"
-
 #: main/templates/main/privacy.html:25
 msgid "main:privacy:p1"
 msgstr ""
@@ -367,54 +301,6 @@ msgstr ""
 #: main/templates/main/privacy.html:28
 msgid "main:privacy:p2"
 msgstr ""
-
-#: main/templates/main/privacy.html:31
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:p3"
-msgstr "Login disabled"
-
-#: main/templates/main/privacy.html:34
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:p4"
-msgstr "Login disabled"
-
-#: main/templates/main/privacy.html:37
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:p5"
-msgstr "Login disabled"
-
-#: main/templates/main/privacy.html:41
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:subheader2"
-msgstr "Login disabled"
-
-#: main/templates/main/privacy.html:44
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:p6"
-msgstr "Login disabled"
-
-#: main/templates/main/privacy.html:47
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:p7"
-msgstr "Login disabled"
-
-#: main/templates/main/privacy.html:51
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:subheader3"
-msgstr "Login disabled"
-
-#: main/templates/main/privacy.html:54
-#, fuzzy
-#| msgid "main:login_lockout:header"
-msgid "main:privacy:p8"
-msgstr "Login disabled"
 
 #: main/templates/main/reset_password.html:5
 #: main/templates/main/reset_password.html:11
