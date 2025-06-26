@@ -156,8 +156,22 @@ def test_create_wrong_user(page, apps):
     page.locator('#id_consent_0').click()                       # consent
     
 
+    
+    reasons = [
+        "omdat je geslacht niet overeen komt",
+        "omdat je voorkeurshand niet overeen komt",
+        "omdat je volgens onze gegevens student bent",
+        "omdat je volgens onze gegevens dyslectisch bent", 
+        "omdat je meertalig bent",
+        "omdat je leeftijd niet overeen komt"
+    ]
+   
     page.click('#submit')
-    assert page.url == (f"{apps.frontend.url}/participant/register/2/")
+    text = page.locator(".uu-hero.text-bg-warning").text_content()
+    text = " ".join(text.split())
+    
+    for reason in reasons:
+        assert reason in text, f"Reden niet gevonden: {reason}"
 
 
 def test_remove_from_timeslot(apps, as_admin):
