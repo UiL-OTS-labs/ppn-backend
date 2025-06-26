@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.text import gettext_lazy as _
 
-from cdh.core.forms import (SearchableSelectWidget, TelephoneInput,
+from cdh.core.forms import (TextInput, TelephoneInput,
                             BootstrapRadioSelect,
                             BootstrapCheckboxInput, )
 from main.forms import PPNTemplatedForm, PPNTemplatedModelForm
@@ -74,17 +74,19 @@ class CriterionAnswerForm(forms.ModelForm):
 
 class ParticipantMergeForm(PPNTemplatedForm):
 
-    old_participant = forms.ModelChoiceField(
-        Participant.objects.all(),
-        label=_('participants:merge_form:field:old_participant'),
-        widget=SearchableSelectWidget,
-    )
+    old_participant = forms.CharField(
+            label=_('participants:merge_form:field:old_participant'),
+            widget=TextInput(attrs={
+                'placeholder': 'Typ the name of old participant...',
+            })
+        )
 
-    new_participant = forms.ModelChoiceField(
-        Participant.objects.all(),
-        label=_('participants:merge_form:field:new_participant'),
-        widget=SearchableSelectWidget,
-    )
+    new_participant = forms.CharField(
+            label=_('participants:merge_form:field:new_participant'),
+            widget=TextInput(attrs={
+                'placeholder': 'Typ the name of the to be merged participant...',
+            })
+        )
 
     def clean_new_participant(self):
         """This checks if two unique participants have been chosen"""

@@ -12,17 +12,7 @@ from .widgets import LanguageWidget, SexWidget
 
 class SignUpForm(TemplatedForm):
 
-    ACCOUNT_CHOICES = (
-        (
-            True,
-            "Ja, ik wil een account aanmaken"
-        ),
-        (
-            False,
-            "Nee, ik wil geen account aanmaken"
-        ),
-    )
-
+    
     MULTILINGUAL_CHOICES = (
         (
             False,
@@ -37,17 +27,8 @@ class SignUpForm(TemplatedForm):
     MAILING_LIST_CHOICES = (
         (
             True,
-            "Ja, ik wil graag bericht krijgen over nieuwe experimenten"
+            "Ja!!, Ik wil graag proefpersoon worden en geef toestemming om mijn e-mailadres te gebruiken zodat ik uitnodigingen kan ontvangen voor leuke en interessante experimenten."
         ),
-        (
-            False,
-            "Nee, ik wil geen bericht krijgen over nieuwe experimenten"
-        ),
-    )
-
-    name = forms.Field(
-        label="Voor- en achternaam",
-        required=False,
     )
 
     email = forms.EmailField(
@@ -69,17 +50,7 @@ class SignUpForm(TemplatedForm):
     # prompting the user to pick the right answer for them.
     # Why this is the default behaviour of BooleanField is above me...
     #
-
-    account = forms.BooleanField(
-        label='Ik ben',
-        widget=BootstrapRadioSelect(
-            choices=ACCOUNT_CHOICES,
-            attrs={
-                'required': True,
-            }
-        ),
-        required=False,
-    )
+    
 
     multilingual = forms.BooleanField(
         label='Ik ben',
@@ -114,53 +85,19 @@ class SignUpForm(TemplatedForm):
                 'required': True,
             }
         ),
-        required=False,
+        required=True,
     )
 
-    consent = forms.BooleanField(
-        label='Dataverwerking',
-        widget=BootstrapRadioSelect(
-            choices=(
-                (
-                    True,
-                    ('Ja, ik geef uitdrukkelijke toestemming om mijn gegevens '
-                     '(inclusief antwoorden op eventuele gevoelige vragen) op '
-                     'te slaan t.b.v. van het verwerken van mijn aanmelding, '
-                     'en om deze gegevens te delen met de proefleider.')
-                ),
-            ),
-            attrs={
-                'required': 'required'
-            }
-        ),
-        required=True
-    )
+
 
     def clean(self):
-        """
-        Two tasks:
-
-        Make sure the user has entered a name if creating an account.
-        The field is not marked as required, as the requirement is conditional.
-
-        Make sure the user has selected at least one of account/mailinglist
-        """
-        account = self.cleaned_data.get('account', False)
-        name = self.cleaned_data.get('name', None)
-
-        if account and not name:
-            self.add_error('name', "Dit veld is verplicht")
-
         mailing_list = self.cleaned_data.get('mailing_list', False)
 
-        if not account and not mailing_list:
-            # It's an error on both, but we'll just add it to account as twice
-            # is redundant
-            self.add_error('account', "Kies a.u.b. om je in te schrijven voor "
-                                      "de mailinglist en/of om een account aan "
-                                      "te maken.")
+        if not mailing_list:
+            self.add_error('mailing_list', "Kies a.u.b. om je in te schrijven voor de mailinglist.")
 
         return self.cleaned_data
+
 
     def clean_email(self):
         data = self.cleaned_data.get('email')
@@ -182,7 +119,7 @@ class SignUpForm(TemplatedForm):
         # Remove the fields we add manually from the context
         context['fields'] = [
             x for x in context['fields']
-            if x[0].name not in ['account', 'mailing_list', 'consent']
+            if x[0].name not in ['account', 'mailing_list']
         ]
         return context
 

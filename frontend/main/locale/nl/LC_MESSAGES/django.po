@@ -228,53 +228,15 @@ msgstr "Volg deze instructies om je wachtwoord opnieuw in te stellen."
 msgid "forgot_password:content:request_button"
 msgstr "Vraag wachtwoord reset aan"
 
-#: main/templates/main/index.html:45
-msgid "index:content:intro1"
-msgstr ""
-"Aan het Institute for Language Sciences onderzoeken we hoe mensen gesproken "
-"en geschreven taal begrijpen en produceren. In het kader daarvan worden er "
-"regelmatig lees-, luister- en spraakexperimenten uitgevoerd. We zijn altijd "
-"op zoek naar proefpersonen om deel te nemen aan die experimenten. Op deze "
-"website kun je je hiervoor opgeven. "
-
-#: main/templates/main/index.html:48
-msgid "index:content:intro2"
-msgstr ""
-"Zo’n experiment bestaat er meestal uit dat je een aantal woorden, zinnen of "
-"verhaaltjes leest of beluistert, en daar een eenvoudig taakje bij uitvoert "
-"(bijvoorbeeld vragen beantwoorden, of een plaatje kiezen dat het beste past "
-"bij wat je gehoord hebt). Soms meten we ondertussen je hersenactiviteit "
-"(EEG), of oogbewegingen. Het kost je ca. twintig minuten tot anderhalf uur "
-"om mee te doen aan een experiment; de vergoeding varieert van 7,50 tot 10 "
-"euro per uur. "
-
-#: main/templates/main/index.html:52
-msgid "index:content:intro3"
-msgstr ""
-"De experimenten worden afgenomen op locatie in het lab op Janskerkhof 13A "
-"(in de binnenstad van Utrecht)"
-
-#: main/templates/main/index.html:58
-msgid "index:header:open_experiments"
-msgstr "Je kunt je nu opgeven voor de volgende experimenten:"
-
-#: main/templates/main/index.html:62
-msgid "index:content:cancel"
-msgstr ""
-"Heb je je opgegeven voor een experiment maar kun je toch niet komen, dan kun "
-"je je <a href=\"{}\">hier afmelden</a>."
-
-#: main/templates/main/index.html:70
-msgid "index:header:maillinglist"
-msgstr "Mailing list ILS Labs experimenten"
-
 #: main/templates/main/index.html:74
 msgid "index:content:maillinglist1"
 msgstr ""
-" Wil je op de hoogte gehouden worden van nieuwe experimenten bij de ILS "
-"Labs?  <a href=\"{}\">Geef dan hier je emailadres op.</a> Je kunt op "
-"dezelfde pagina ook een account aanmaken waarmee je je sneller kunt opgeven "
-"voor een experiment. "
+"<a href=\"{}\">MELD JE NU AAN!</a>"
+
+#: main/templates/main/index.html:62
+msgid "index:content:mailinglist"
+msgstr ""
+"Staat er nu niets tussen wat je aanspreekt? Geen zorgen — elk experiment is anders, en we zijn nooit klaar met experimenteren. <a href=\"{}\">Meld je aan</a>, dan komt er vanzelf iets leuks jouw kant op."
 
 #: main/templates/main/ldap_password.html:6
 #: main/templates/main/ldap_password.html:12
