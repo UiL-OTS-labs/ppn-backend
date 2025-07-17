@@ -165,10 +165,10 @@ def test_create_right_user_two(page, apps):
     page.fill('input[name="name"]', 'Han S. Olo')           # name
     page.fill('input[name="email"]', 'HanS.Olo@test.com')   # email
     page.fill('input[name="phone"]', '0610032023')              # number
-    page.fill('input[name="birth_date"]', '15-09-2003')         # birthday
+    page.fill('input[name="birth_date"]', '15-09-2005')         # birthday
     page.locator('input#id_language_0').click()
     page.locator('input#id_language_0').click()                 # mother tongue 
-    page.locator('#id_multilingual_1').click()                  # language quantity 
+    page.locator('#id_multilingual_0').click()                  # language quantity 
     page.locator('#id_sex_0').click()                           # sex (Indifferent)
     page.locator('#id_handedness_1').click()                    # left/right handed 
     page.locator('#id_dyslexic_1').click()                      # dyslectic 
