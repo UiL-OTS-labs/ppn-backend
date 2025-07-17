@@ -159,6 +159,7 @@ def test_create_right_user(page, apps):
     assert page.url == (f"{apps.frontend.url}participant/register/1/success/")
 
 def test_create_right_user_two(page, apps):
+    '''Added second right user so another timeslot can be taken and an invite can be send'''
 
     page.goto(f"{apps.frontend.url}/participant/register/1/")
 
