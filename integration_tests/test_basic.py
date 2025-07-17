@@ -8,6 +8,7 @@ import pytest
 from playwright.sync_api import expect
 
 
+
 def test_backend_starts(page_en, backend_app):
     page_en.goto(backend_app.url)
     assert page_en.title() == 'ILS Labs Experiments Admin'
@@ -60,7 +61,18 @@ def test_create_easy_experiment(apps, as_admin):
     page.locator('button:has-text("Save")').click()  
  
     page.goto(f"{apps.backend.url}/experiments/1/timeslots/")
+    input = page.locator("#id_datetime")
+    current_value = input.input_value()  
+    date = current_value.split(" ")[0]  
+    input.fill(f"{date} 9:45")
+    page.click ('#save-new-slot')      
+    input.fill(f"{date} 23:59") 
     page.click ('#save-new-slot')
+    input.fill(f"{date} 11:32")
+    page.click ('#save-new-slot')
+    input.fill(f"{date} 15:11")
+    page.click ('#save-new-slot')
+    
 
     assert Experiment.objects.filter(name="Verhalen en emotie 4: De buurman is een klootzak").exists()
 
@@ -84,7 +96,6 @@ def test_create_difficutlt_experiment(apps, as_admin):
     frame.locator('body').fill("<p>In dit experiment hoor je eerst woorden uit een taal van een andere planeet. Daarna hoor je nieuwe woorden uit dezelfde taal en krijg je vragen over wat je net gehoord hebt.</p>")
     frame = page.frame_locator('#id_additional_instructions_ifr')
     frame.locator('body').fill("<p>Je kunt alleen meedoen met dit experiment als je bent opgegroeid met het Nederlands als moedertaal (meerdere moedertalen is geen bezwaar), en als je tussen de 18 en 69 jaar oud bent.<br>Je kunt niet meedoen aan dit onderzoek als je een aandachtsstoornis hebt, of als je dyslectisch bent.<br>Bovendien kun je niet meedoen als je al hebt meegedaan aan de onderzoeken \"Leer een buitenaardse taal\" (vanaf maart 2023) of \"Een fantasietaal\" (vanaf mei 2024).</p>")
-
     page.select_option('select[name="location"]', label='Test Lab')
     page.check('input[name="use_timeslots"]')
     page.fill('input[name="default_max_places"]', '1')
@@ -105,9 +116,21 @@ def test_create_difficutlt_experiment(apps, as_admin):
     page.fill('input[name="max_age"]', '20')       # max age
 
     page.locator('button:has-text("Save")').click()  
-    
     page.goto(f"{apps.backend.url}/experiments/2/timeslots/")
+    input = page.locator("#id_datetime")
+    current_value = input.input_value()  
+    date = current_value.split(" ")[0]
+
+    input.fill(f"{date} 23:59")
+    page.click ('#save-new-slot')  
+    input.fill(f"{date} 9:45")
+    page.click ('#save-new-slot')      
+    input.fill(f"{date} 11:32")
     page.click ('#save-new-slot')
+    input.fill(f"{date} 15:11")
+    page.click ('#save-new-slot')
+    
+    
 
     assert Experiment.objects.filter(name="Leer een taal van een andere planeet").exists()
     
@@ -135,6 +158,30 @@ def test_create_right_user(page, apps):
     page.click('#submit')
     assert page.url == (f"{apps.frontend.url}participant/register/1/success/")
 
+def test_create_right_user_two(page, apps):
+    '''Added second right user so another timeslot can be taken and an invite can be send'''
+
+    page.goto(f"{apps.frontend.url}/participant/register/1/")
+
+    page.fill('input[name="name"]', 'Han S. Olo')           # name
+    page.fill('input[name="email"]', 'HanS.Olo@test.com')   # email
+    page.fill('input[name="phone"]', '0610032023')              # number
+    page.fill('input[name="birth_date"]', '15-09-2005')         # birthday
+    page.locator('input#id_language_0').click()
+    page.locator('input#id_language_0').click()                 # mother tongue 
+    page.locator('#id_multilingual_0').click()                  # language quantity 
+    page.locator('#id_sex_0').click()                           # sex (Indifferent)
+    page.locator('#id_handedness_1').click()                    # left/right handed 
+    page.locator('#id_dyslexic_1').click()                      # dyslectic 
+    page.locator('#id_social_status_0').click()                 # student
+    page.locator('#id_timeslot_0').click()                      # timeslot
+    page.locator('#id_mailinglist_1').click()                   # recieve message
+    page.locator('#id_consent_0').click()                       # consent
+    assert page.get_by_text(", 9:45 uur").count() == 0
+    assert page.get_by_text(", 15:11 uur").count() == 1
+    page.click('#submit')
+    assert page.url == (f"{apps.frontend.url}participant/register/1/success/")
+     
 
 def test_create_wrong_user(page, apps):
 
