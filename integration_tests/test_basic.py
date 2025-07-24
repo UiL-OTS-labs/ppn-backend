@@ -20,7 +20,9 @@ def test_frontend_starts(page_en, as_admin, frontend_app):
 
 
 def test_create_easy_experiment(apps, as_admin):
-    """ Simple test with few harsh criteria """
+
+    """ Test if a researcher can create a simple test 
+    with mild criteria """
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
@@ -76,8 +78,10 @@ def test_create_easy_experiment(apps, as_admin):
 
     assert Experiment.objects.filter(name="Verhalen en emotie 4: De buurman is een klootzak").exists()
 
-def test_create_difficutlt_experiment(apps, as_admin):
-    """ Complex test with harsh criteria """
+def test_create_difficult_experiment(apps, as_admin):
+
+    """ Test if a researcher can make a complex test 
+    with harsh criteria """
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
@@ -129,37 +133,32 @@ def test_create_difficutlt_experiment(apps, as_admin):
     page.click ('#save-new-slot')
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
-    
-    
+
 
     assert Experiment.objects.filter(name="Leer een taal van een andere planeet").exists()
     
    
 def test_create_right_user(page, apps):
 
-    page.goto(f"{apps.frontend.url}/participant/register/1/")
+    ''' Test if a participant can sign up as participant without 
+    registering for an experiment'''
 
-    page.fill('input[name="name"]', 'Chris P. Bacon')           # name
+    page.goto(f"{apps.frontend.url}/participant/sign_up/")
+        
     page.fill('input[name="email"]', 'ChrisP.Bacon@test.com')   # email
-    page.fill('input[name="phone"]', '0610032023')              # number
-    page.fill('input[name="birth_date"]', '15-08-2003')         # birthday
     page.locator('input#id_language_0').click()
     page.locator('input#id_language_0').click()                 # mother tongue 
-    page.locator('#id_multilingual_1').click()                  # language quantity 
-    page.locator('#id_sex_0').click()                           # sex (Indifferent)
-    page.locator('#id_handedness_1').click()                    # left/right handed 
+    page.locator('#id_multilingual_0').click()                  # language quantity 
     page.locator('#id_dyslexic_1').click()                      # dyslectic 
-    page.locator('#id_social_status_0').click()                 # student
-    page.locator('#id_timeslot_0').click()                      # timeslot
-    page.locator('#id_mailinglist_1').click()                   # recieve message
-    page.locator('#id_consent_0').click()                       # consent
-    
+    page.locator('label[for="id_mailing_list_0"]').click()
+
 
     page.click('#submit')
-    assert page.url == (f"{apps.frontend.url}participant/register/1/success/")
+    assert page.url == (f"{apps.frontend.url}participant/sign_up/subscribed/")
 
 def test_create_right_user_two(page, apps):
-    '''Added second right user so another timeslot can be taken and an invite can be send'''
+
+    ''' Test if a participant can sign up for a specific experiment and timeslot'''
 
     page.goto(f"{apps.frontend.url}/participant/register/1/")
 
@@ -184,6 +183,9 @@ def test_create_right_user_two(page, apps):
      
 
 def test_create_wrong_user(page, apps):
+
+    ''' Test if a participant can't join an experiment 
+    they're not qualified for with all the reasons why'''
 
     page.goto(f"{apps.frontend.url}/participant/register/2/")
 
@@ -223,6 +225,8 @@ def test_create_wrong_user(page, apps):
 
 def test_remove_from_timeslot(apps, as_admin):
 
+    ''' Test if the researcher can delete a timeslot'''
+
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
@@ -237,18 +241,39 @@ def test_remove_from_timeslot(apps, as_admin):
 
 def test_delete_participant(apps, as_admin):
 
+    ''' Test if the researcher can delete a participant'''
+
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
     location = Location.objects.create(name="Test Lab")
     page = as_admin
     
-    page.goto(f"{apps.backend.url}/participants/1/del/")
+    page.goto(f"{apps.backend.url}/participants/2/del/")
     page.get_by_role("button", name="Delete participant").click()
 
     cell = page.locator("td.dtr-control.sorting_1", has_text="1")
 
     assert cell.count() == 0
 
+def test_invite_participant(apps, as_admin):
 
+    ''' Testing if the researcher can invite participants and only the right participant
+    is in the list of avaible participants'''
+    
+    Experiment = apps.backend.get_model('experiments', 'Experiment')
+    Location = apps.backend.get_model('experiments', 'Location')
+    apps.backend.load('leader.json')
+    location = Location.objects.create(name="Test Lab")
+    page = as_admin
+    
+    page.goto(f"{apps.backend.url}/experiments/2/invite/")
+    assert page.locator("text=Han S. Olo").count() == 0
+
+    page.check('input[name="participants[]"]')
+    page.get_by_role("button", name="Invite participants").click()
+    success_alert = page.locator(".alert")
+    expect(success_alert).to_have_text('Successfully invited participants!')
+    assert success_alert.is_visible()
+    
     
