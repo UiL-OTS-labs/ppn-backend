@@ -277,8 +277,29 @@ def test_merge_participant(apps, as_admin):
     success_alert = page.locator("div.alert.alert-success")
     expect(success_alert).to_have_text("Participant merged!")
     assert success_alert.is_visible()
-
     page.goto(f"{apps.backend.url}/participants/")
     table_body = page.locator("#DataTables_Table_0 tbody")
     rows_count = table_body.locator("tr").count()
     assert rows_count == 1, f"Expected 1 participant, but found {rows_count}"
+
+def test_comment(apps,as_admin):
+
+    """ Test if comments can be placed and are visible """
+
+    Experiment = apps.backend.get_model('experiments', 'Experiment')
+    Location = apps.backend.get_model('experiments', 'Location')
+    apps.backend.load('leader.json')
+    location = Location.objects.create(name="Test Lab")
+    page = as_admin
+
+    page.goto(f"{apps.backend.url}/comments/new/2/1")
+    page.fill('textarea[name="comment"]', 'is vervelend') 
+    page.click("button.btn.btn-primary:has-text('Add')")
+
+    success_alert = page.locator("div.alert.alert-success")
+    expect(success_alert).to_have_text("Comment added!")
+    assert success_alert.is_visible()
+
+    page.goto(f"{apps.backend.url}/comments/")
+    row_with_comment = page.locator("#DataTables_Table_0 tbody tr", has_text="is vervelend")
+    expect(row_with_comment).to_have_count(1)
