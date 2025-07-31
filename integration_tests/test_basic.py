@@ -51,14 +51,14 @@ def test_create_easy_experiment(apps, as_admin):
     page.click('#submit')
 
     # Criteria for experiment
-    page.locator('input#id_language_2').click()    # mother tongue (Dutch)
-    page.locator('#id_multilingual_2').click()     # language quantity (Indifferent)
-    page.locator('#id_sex_2').click()              # sex (Indifferent)
-    page.locator('#id_handedness_2').click()       # left/right handed (Indifferent)
-    page.locator('#id_dyslexia_2').click()         # dyslectic (No)
-    page.locator('#id_social_status_2').click()    # student (Student)
-    page.fill('input[name="min_age"]', '18')       # min age
-    page.fill('input[name="max_age"]', '60')       # max age
+    page.locator('input#id_language_2').click()    
+    page.locator('#id_multilingual_2').click()     
+    page.locator('#id_sex_2').click()              
+    page.locator('#id_handedness_2').click()      
+    page.locator('#id_dyslexia_2').click()        
+    page.locator('#id_social_status_2').click()   
+    page.fill('input[name="min_age"]', '18')      
+    page.fill('input[name="max_age"]', '60')      
 
     page.locator('button:has-text("Save")').click()  
  
@@ -110,14 +110,14 @@ def test_create_difficult_experiment(apps, as_admin):
     page.click('#submit')
 
     # Criteria for experiment
-    page.locator('input#id_language_0').click()    # mother tongue (Dutch)
-    page.locator('#id_multilingual_0').click()     # language quantity (Indifferent)
-    page.locator('#id_sex_0').click()              # sex (Indifferent)
-    page.locator('#id_handedness_0').click()       # left/right handed (Indifferent)
-    page.locator('#id_dyslexia_1').click()         # dyslectic (No)
-    page.locator('#id_social_status_1').click()    # student (Student)
-    page.fill('input[name="min_age"]', '18')       # min age
-    page.fill('input[name="max_age"]', '20')       # max age
+    page.locator('input#id_language_0').click()    
+    page.locator('#id_multilingual_0').click()     
+    page.locator('#id_sex_0').click()              
+    page.locator('#id_handedness_0').click()      
+    page.locator('#id_dyslexia_1').click()      
+    page.locator('#id_social_status_1').click()   
+    page.fill('input[name="min_age"]', '18')      
+    page.fill('input[name="max_age"]', '20')     
 
     page.locator('button:has-text("Save")').click()  
     page.goto(f"{apps.backend.url}/experiments/2/timeslots/")
@@ -138,44 +138,51 @@ def test_create_difficult_experiment(apps, as_admin):
     assert Experiment.objects.filter(name="Leer een taal van een andere planeet").exists()
     
    
-def test_create_right_user(page, apps):
-
-    ''' Test if a participant can sign up as participant without 
-    registering for an experiment'''
+def test_create_users(page, apps):
+    """ Test if you can create multiple users with sign up form """
 
     page.goto(f"{apps.frontend.url}/participant/sign_up/")
-        
-    page.fill('input[name="email"]', 'ChrisP.Bacon@test.com')   # email
-    page.locator('input#id_language_0').click()
-    page.locator('input#id_language_0').click()                 # mother tongue 
-    page.locator('#id_multilingual_0').click()                  # language quantity 
-    page.locator('#id_dyslexic_1').click()                      # dyslectic 
-    page.locator('label[for="id_mailing_list_0"]').click()
 
+    page.fill('input[name="email"]', 'Alberta.Bacon@test.com')   
+    page.locator('input#id_language_0').click()
+    page.locator('#id_multilingual_0').click()                 
+    page.locator('#id_dyslexic_1').click()                       
+    page.locator('#id_mailing_list_0').click() 
 
     page.click('#submit')
     assert page.url == (f"{apps.frontend.url}participant/sign_up/subscribed/")
 
-def test_create_right_user_two(page, apps):
+    page.goto(f"{apps.frontend.url}/participant/sign_up/")
 
-    ''' Test if a participant can sign up for a specific experiment and timeslot'''
+    page.fill('input[name="email"]', 'ChrisP.Bacon@test.com')   
+    page.locator('input#id_language_0').click()
+    page.locator('#id_multilingual_0').click()                 
+    page.locator('#id_dyslexic_1').click()                       
+    page.locator('#id_mailing_list_0').click()                   
+
+    page.click('#submit')
+    assert page.url == (f"{apps.frontend.url}participant/sign_up/subscribed/")
+
+    
+def test_create_right_user(page, apps):
+    ''' Test if a user can sign up using the specific experiment sign up form '''
 
     page.goto(f"{apps.frontend.url}/participant/register/1/")
 
-    page.fill('input[name="name"]', 'Han S. Olo')           # name
-    page.fill('input[name="email"]', 'HanS.Olo@test.com')   # email
-    page.fill('input[name="phone"]', '0610032023')              # number
-    page.fill('input[name="birth_date"]', '15-09-2005')         # birthday
+    page.fill('input[name="name"]', 'Han S. Olo')           
+    page.fill('input[name="email"]', 'HanS.Olo@test.com')   
+    page.fill('input[name="phone"]', '0610032023')             
+    page.fill('input[name="birth_date"]', '15-09-2005')         
     page.locator('input#id_language_0').click()
-    page.locator('input#id_language_0').click()                 # mother tongue 
-    page.locator('#id_multilingual_0').click()                  # language quantity 
-    page.locator('#id_sex_0').click()                           # sex (Indifferent)
-    page.locator('#id_handedness_1').click()                    # left/right handed 
-    page.locator('#id_dyslexic_1').click()                      # dyslectic 
-    page.locator('#id_social_status_0').click()                 # student
-    page.locator('#id_timeslot_0').click()                      # timeslot
-    page.locator('#id_mailinglist_1').click()                   # recieve message
-    page.locator('#id_consent_0').click()                       # consent
+    page.locator('input#id_language_0').click()                
+    page.locator('#id_multilingual_0').click()                  
+    page.locator('#id_sex_0').click()                           
+    page.locator('#id_handedness_1').click()                    
+    page.locator('#id_dyslexic_1').click()                      
+    page.locator('#id_social_status_0').click()                 
+    page.locator('#id_timeslot_0').click()                     
+    page.locator('#id_mailinglist_1').click()                   
+    page.locator('#id_consent_0').click()                       
     assert page.get_by_text(", 9:45 uur").count() == 0
     assert page.get_by_text(", 15:11 uur").count() == 1
     page.click('#submit')
@@ -189,20 +196,20 @@ def test_create_wrong_user(page, apps):
 
     page.goto(f"{apps.frontend.url}/participant/register/2/")
 
-    page.fill('input[name="name"]', 'Anita Beth')               # name
-    page.fill('input[name="email"]', 'Anita.Beth@test.com')     # email
-    page.fill('input[name="phone"]', '0613052004')              # number
-    page.fill('input[name="birth_date"]', '15-08-2003')         # birthday
+    page.fill('input[name="name"]', 'Anita Beth')              
+    page.fill('input[name="email"]', 'Anita.Beth@test.com')    
+    page.fill('input[name="phone"]', '0613052004')              
+    page.fill('input[name="birth_date"]', '15-08-2003')         
     page.locator('input#id_language_0').click()
-    page.locator('input#id_language_0').click()                 # mother tongue 
-    page.locator('#id_multilingual_1').click()                  # language quantity 
-    page.locator('#id_sex_1').click()                           # sex (Indifferent)
-    page.locator('#id_handedness_1').click()                    # left/right handed 
-    page.locator('#id_dyslexic_0').click()                      # dyslectic 
-    page.locator('#id_social_status_0').click()                 # student
-    page.locator('#id_timeslot_0').click()                      # timeslot
-    page.locator('#id_mailinglist_1').click()                   # recieve message
-    page.locator('#id_consent_0').click()                       # consent
+    page.locator('input#id_language_0').click()                
+    page.locator('#id_multilingual_1').click()                 
+    page.locator('#id_sex_1').click()                          
+    page.locator('#id_handedness_1').click()               
+    page.locator('#id_dyslexic_0').click()                  
+    page.locator('#id_social_status_0').click()                 
+    page.locator('#id_timeslot_0').click()                      
+    page.locator('#id_mailinglist_1').click()                   
+    page.locator('#id_consent_0').click()                       
     
 
     
@@ -256,6 +263,7 @@ def test_delete_participant(apps, as_admin):
 
     assert cell.count() == 0
 
+    
 def test_invite_participant(apps, as_admin):
 
     ''' Testing if the researcher can invite participants and only the right participant
@@ -277,3 +285,54 @@ def test_invite_participant(apps, as_admin):
     assert success_alert.is_visible()
     
     
+def test_merge_participant(apps, as_admin):
+
+    """ Test if two participant merge succesfully """
+
+    Experiment = apps.backend.get_model('experiments', 'Experiment')
+    Location = apps.backend.get_model('experiments', 'Location')
+    apps.backend.load('leader.json')
+    location = Location.objects.create(name="Test Lab")
+    page = as_admin
+
+    page.goto(f"{apps.backend.url}/participants/merge/")
+
+    page.click("#select2-id_old_participant-container")
+    old_option = page.locator("li.select2-results__option", has_text="[2] name unknown")
+    old_option.click()
+
+    page.click("#select2-id_new_participant-container")
+    new_option = page.locator("li.select2-results__option", has_text="[3] Han S. Olo")
+    new_option.click()
+
+    page.click("button.btn.btn-primary:has-text('Merge participants')")
+
+    success_alert = page.locator("div.alert.alert-success")
+    expect(success_alert).to_have_text("Participant merged!")
+    assert success_alert.is_visible()
+    page.goto(f"{apps.backend.url}/participants/")
+    table_body = page.locator("#DataTables_Table_0 tbody")
+    rows_count = table_body.locator("tr").count()
+    assert rows_count == 1, f"Expected 1 participant, but found {rows_count}"
+
+def test_comment(apps,as_admin):
+
+    """ Test if comments can be placed and are visible """
+
+    Experiment = apps.backend.get_model('experiments', 'Experiment')
+    Location = apps.backend.get_model('experiments', 'Location')
+    apps.backend.load('leader.json')
+    location = Location.objects.create(name="Test Lab")
+    page = as_admin
+
+    page.goto(f"{apps.backend.url}/comments/new/2/1")
+    page.fill('textarea[name="comment"]', 'is vervelend') 
+    page.click("button.btn.btn-primary:has-text('Add')")
+
+    success_alert = page.locator("div.alert.alert-success")
+    expect(success_alert).to_have_text("Comment added!")
+    assert success_alert.is_visible()
+
+    page.goto(f"{apps.backend.url}/comments/")
+    row_with_comment = page.locator("#DataTables_Table_0 tbody tr", has_text="is vervelend")
+    expect(row_with_comment).to_have_count(1)
