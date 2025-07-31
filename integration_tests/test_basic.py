@@ -244,24 +244,6 @@ def test_remove_from_timeslot(apps, as_admin):
     success_alert = page.locator(".alert")
     expect(success_alert).to_have_text('Timeslot removed!')
     assert success_alert.is_visible()
-    
-
-def test_delete_participant(apps, as_admin):
-
-    ''' Test if the researcher can delete a participant'''
-
-    Experiment = apps.backend.get_model('experiments', 'Experiment')
-    Location = apps.backend.get_model('experiments', 'Location')
-    apps.backend.load('leader.json')
-    location = Location.objects.create(name="Test Lab")
-    page = as_admin
-    
-    page.goto(f"{apps.backend.url}/participants/2/del/")
-    page.get_by_role("button", name="Delete participant").click()
-
-    cell = page.locator("td.dtr-control.sorting_1", has_text="1")
-
-    assert cell.count() == 0
 
     
 def test_invite_participant(apps, as_admin):
@@ -274,7 +256,6 @@ def test_invite_participant(apps, as_admin):
     apps.backend.load('leader.json')
     location = Location.objects.create(name="Test Lab")
     page = as_admin
-    
     page.goto(f"{apps.backend.url}/experiments/2/invite/")
     assert page.locator("text=Han S. Olo").count() == 0
 
@@ -298,7 +279,7 @@ def test_merge_participant(apps, as_admin):
     page.goto(f"{apps.backend.url}/participants/merge/")
 
     page.click("#select2-id_old_participant-container")
-    old_option = page.locator("li.select2-results__option", has_text="[2] name unknown")
+    old_option = page.locator("li.select2-results__option", has_text="[1] name unknown")
     old_option.click()
 
     page.click("#select2-id_new_participant-container")
@@ -313,7 +294,26 @@ def test_merge_participant(apps, as_admin):
     page.goto(f"{apps.backend.url}/participants/")
     table_body = page.locator("#DataTables_Table_0 tbody")
     rows_count = table_body.locator("tr").count()
-    assert rows_count == 1, f"Expected 1 participant, but found {rows_count}"
+    assert rows_count == 2, f"Expected 2 participant, but found {rows_count}"
+
+
+def test_delete_participant(apps, as_admin):
+
+    ''' Test if the researcher can delete a participant'''
+
+    Experiment = apps.backend.get_model('experiments', 'Experiment')
+    Location = apps.backend.get_model('experiments', 'Location')
+    apps.backend.load('leader.json')
+    location = Location.objects.create(name="Test Lab")
+    page = as_admin
+    
+    page.goto(f"{apps.backend.url}/participants/1/del/")
+    page.get_by_role("button", name="Delete participant").click()
+
+    cell = page.locator("td.dtr-control.sorting_1", has_text="1")
+
+    assert cell.count() == 0
+
 
 def test_comment(apps,as_admin):
 
@@ -326,7 +326,7 @@ def test_comment(apps,as_admin):
     page = as_admin
 
     page.goto(f"{apps.backend.url}/comments/new/2/1")
-    page.fill('textarea[name="comment"]', 'is vervelend') 
+    page.fill('textarea[name="comment"]', 'is vervelend')
     page.click("button.btn.btn-primary:has-text('Add')")
 
     success_alert = page.locator("div.alert.alert-success")
