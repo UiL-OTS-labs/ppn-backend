@@ -20,7 +20,9 @@ def test_frontend_starts(page_en, as_admin, frontend_app):
 
 
 def test_create_easy_experiment(apps, as_admin):
-    """ Simple test with few harsh criteria """
+
+    """ Test if a researcher can create a simple test 
+    with mild criteria """
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
@@ -76,8 +78,10 @@ def test_create_easy_experiment(apps, as_admin):
 
     assert Experiment.objects.filter(name="Verhalen en emotie 4: De buurman is een klootzak").exists()
 
-def test_create_difficutlt_experiment(apps, as_admin):
-    """ Complex test with harsh criteria """
+def test_create_difficult_experiment(apps, as_admin):
+
+    """ Test if a researcher can make a complex test 
+    with harsh criteria """
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
@@ -129,8 +133,7 @@ def test_create_difficutlt_experiment(apps, as_admin):
     page.click ('#save-new-slot')
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
-    
-    
+
 
     assert Experiment.objects.filter(name="Leer een taal van een andere planeet").exists()
     
@@ -160,6 +163,7 @@ def test_create_users(page, apps):
     page.click('#submit')
     assert page.url == (f"{apps.frontend.url}participant/sign_up/subscribed/")
 
+    
 def test_create_right_user(page, apps):
     ''' Test if a user can sign up using the specific experiment sign up form '''
 
@@ -186,6 +190,9 @@ def test_create_right_user(page, apps):
      
 
 def test_create_wrong_user(page, apps):
+
+    ''' Test if a participant can't join an experiment 
+    they're not qualified for with all the reasons why'''
 
     page.goto(f"{apps.frontend.url}/participant/register/2/")
 
@@ -225,6 +232,8 @@ def test_create_wrong_user(page, apps):
 
 def test_remove_from_timeslot(apps, as_admin):
 
+    ''' Test if the researcher can delete a timeslot'''
+
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
@@ -235,23 +244,28 @@ def test_remove_from_timeslot(apps, as_admin):
     success_alert = page.locator(".alert")
     expect(success_alert).to_have_text('Timeslot removed!')
     assert success_alert.is_visible()
+
     
+def test_invite_participant(apps, as_admin):
 
-def test_delete_participant(apps, as_admin):
-
+    ''' Testing if the researcher can invite participants and only the right participant
+    is in the list of avaible participants'''
+    
     Experiment = apps.backend.get_model('experiments', 'Experiment')
     Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
     location = Location.objects.create(name="Test Lab")
     page = as_admin
+    page.goto(f"{apps.backend.url}/experiments/2/invite/")
+    assert page.locator("text=Han S. Olo").count() == 0
+
+    page.check('input[name="participants[]"]')
+    page.get_by_role("button", name="Invite participants").click()
+    success_alert = page.locator(".alert")
+    expect(success_alert).to_have_text('Successfully invited participants!')
+    assert success_alert.is_visible()
     
-    page.goto(f"{apps.backend.url}/participants/1/del/")
-    page.get_by_role("button", name="Delete participant").click()
-
-    cell = page.locator("td.dtr-control.sorting_1", has_text="1")
-
-    assert cell.count() == 0
-
+    
 def test_merge_participant(apps, as_admin):
 
     """ Test if two participant merge succesfully """
@@ -265,7 +279,7 @@ def test_merge_participant(apps, as_admin):
     page.goto(f"{apps.backend.url}/participants/merge/")
 
     page.click("#select2-id_old_participant-container")
-    old_option = page.locator("li.select2-results__option", has_text="[2] name unknown")
+    old_option = page.locator("li.select2-results__option", has_text="[1] name unknown")
     old_option.click()
 
     page.click("#select2-id_new_participant-container")
@@ -280,7 +294,26 @@ def test_merge_participant(apps, as_admin):
     page.goto(f"{apps.backend.url}/participants/")
     table_body = page.locator("#DataTables_Table_0 tbody")
     rows_count = table_body.locator("tr").count()
-    assert rows_count == 1, f"Expected 1 participant, but found {rows_count}"
+    assert rows_count == 2, f"Expected 2 participant, but found {rows_count}"
+
+
+def test_delete_participant(apps, as_admin):
+
+    ''' Test if the researcher can delete a participant'''
+
+    Experiment = apps.backend.get_model('experiments', 'Experiment')
+    Location = apps.backend.get_model('experiments', 'Location')
+    apps.backend.load('leader.json')
+    location = Location.objects.create(name="Test Lab")
+    page = as_admin
+    
+    page.goto(f"{apps.backend.url}/participants/1/del/")
+    page.get_by_role("button", name="Delete participant").click()
+
+    cell = page.locator("td.dtr-control.sorting_1", has_text="1")
+
+    assert cell.count() == 0
+
 
 def test_comment(apps,as_admin):
 
@@ -293,7 +326,7 @@ def test_comment(apps,as_admin):
     page = as_admin
 
     page.goto(f"{apps.backend.url}/comments/new/2/1")
-    page.fill('textarea[name="comment"]', 'is vervelend') 
+    page.fill('textarea[name="comment"]', 'is vervelend')
     page.click("button.btn.btn-primary:has-text('Add')")
 
     success_alert = page.locator("div.alert.alert-success")
