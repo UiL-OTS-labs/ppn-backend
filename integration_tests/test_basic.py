@@ -234,10 +234,7 @@ def test_remove_from_timeslot(apps, as_admin):
 
     ''' Test if the researcher can delete a timeslot'''
 
-    Experiment = apps.backend.get_model('experiments', 'Experiment')
-    Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
-    location = Location.objects.create(name="Test Lab")
     page = as_admin
     page.goto(f"{apps.backend.url}/experiments/1/timeslots/delete/1")
     page.locator('#delete-all-selected').click() 
@@ -251,14 +248,11 @@ def test_invite_participant(apps, as_admin):
     ''' Testing if the researcher can invite participants and only the right participant
     is in the list of avaible participants'''
     
-    Experiment = apps.backend.get_model('experiments', 'Experiment')
-    Location = apps.backend.get_model('experiments', 'Location')
+
     apps.backend.load('leader.json')
-    location = Location.objects.create(name="Test Lab")
     page = as_admin
     page.goto(f"{apps.backend.url}/experiments/2/invite/")
-    assert page.locator("text=Han S. Olo").count() == 0
-
+    assert page.locator("text=Han S. Olo").count() == 0 #because he's not a student
     page.check('input[name="participants[]"]')
     page.get_by_role("button", name="Invite participants").click()
     success_alert = page.locator(".alert")
@@ -270,10 +264,7 @@ def test_merge_participant(apps, as_admin):
 
     """ Test if two participant merge succesfully """
 
-    Experiment = apps.backend.get_model('experiments', 'Experiment')
-    Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
-    location = Location.objects.create(name="Test Lab")
     page = as_admin
 
     page.goto(f"{apps.backend.url}/participants/merge/")
@@ -301,10 +292,7 @@ def test_delete_participant(apps, as_admin):
 
     ''' Test if the researcher can delete a participant'''
 
-    Experiment = apps.backend.get_model('experiments', 'Experiment')
-    Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
-    location = Location.objects.create(name="Test Lab")
     page = as_admin
     
     page.goto(f"{apps.backend.url}/participants/1/del/")
@@ -319,10 +307,7 @@ def test_comment(apps,as_admin):
 
     """ Test if comments can be placed and are visible """
 
-    Experiment = apps.backend.get_model('experiments', 'Experiment')
-    Location = apps.backend.get_model('experiments', 'Location')
     apps.backend.load('leader.json')
-    location = Location.objects.create(name="Test Lab")
     page = as_admin
 
     page.goto(f"{apps.backend.url}/comments/new/2/1")
