@@ -290,11 +290,12 @@ def test_merge_participant(apps, as_admin):
 
     success_alert = page.locator("div.alert.alert-success")
     expect(success_alert).to_have_text("Participant merged!")
+    breakpoint()
     assert success_alert.is_visible()
     page.goto(f"{apps.backend.url}/participants/")
-    table_body = page.locator("#DataTables_Table_0 tbody")
-    rows_count = table_body.locator("tr").count()
-    assert rows_count == 2, f"Expected 2 participant, but found {rows_count}"
+    second_row = page.locator("table#DataTables_Table_0 tbody tr").nth(1)
+    secondary_email_cell = second_row.locator("td").nth(3)
+    assert "Alberta.Bacon@test.com" in secondary_email_cell.inner_html()
 
 
 def test_delete_participant(apps, as_admin):
