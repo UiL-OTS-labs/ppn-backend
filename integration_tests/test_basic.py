@@ -290,7 +290,6 @@ def test_merge_participant(apps, as_admin):
 
     success_alert = page.locator("div.alert.alert-success")
     expect(success_alert).to_have_text("Participant merged!")
-    breakpoint()
     assert success_alert.is_visible()
     page.goto(f"{apps.backend.url}/participants/")
     second_row = page.locator("table#DataTables_Table_0 tbody tr").nth(1)
