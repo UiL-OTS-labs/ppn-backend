@@ -261,7 +261,6 @@ def test_invite_participant(apps, as_admin):
     
     
 def test_merge_participant(apps, as_admin):
-
     """ Test if two participant merge succesfully """
 
     apps.backend.load('leader.json')
@@ -270,22 +269,27 @@ def test_merge_participant(apps, as_admin):
     page.goto(f"{apps.backend.url}/participants/merge/")
 
     page.click("#select2-id_old_participant-container")
-    old_option = page.locator("li.select2-results__option", has_text="[1] name unknown")
-    old_option.click()
+    old = page.locator("li.select2-results__option", has_text="[1] name unknown")
+    old.click()
 
     page.click("#select2-id_new_participant-container")
-    new_option = page.locator("li.select2-results__option", has_text="[3] Han S. Olo")
-    new_option.click()
+    new = page.locator("li.select2-results__option", has_text="[3] Han S. Olo")
+    new.click()
 
     page.click("button.btn.btn-primary:has-text('Merge participants')")
 
     success_alert = page.locator("div.alert.alert-success")
     expect(success_alert).to_have_text("Participant merged!")
     assert success_alert.is_visible()
+
     page.goto(f"{apps.backend.url}/participants/")
-    table_body = page.locator("#DataTables_Table_0 tbody")
-    rows_count = table_body.locator("tr").count()
-    assert rows_count == 2, f"Expected 2 participant, but found {rows_count}"
+
+
+    row = page.locator("table#DataTables_Table_0 tbody tr", has_text="Han S. Olo")
+    secondary_email_cell = row.locator("td").nth(3)
+
+    assert "Alberta.Bacon@test.com" in secondary_email_cell.inner_html()
+
 
 
 def test_delete_participant(apps, as_admin):
