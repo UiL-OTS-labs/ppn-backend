@@ -20,7 +20,7 @@ jobs:
       db:
         image: mariadb
         ports:
-          - 3306:3306
+          - 3306/tcp
 
     steps:
       - name: Install OS dependencies
@@ -75,7 +75,7 @@ jobs:
       db:
         image: mariadb
         ports:
-          - 3306:3306
+          - 3306/tcp
 
     strategy:
       matrix:
