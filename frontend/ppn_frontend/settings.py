@@ -165,11 +165,11 @@ WSGI_APPLICATION = 'ppn_frontend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DATABASE_NAME', 'test_db'),
-        'USER': os.environ.get('DATABASE_USER', 'root'),
-        'PASSWORD': '', 
-        'HOST': os.environ.get('DATABASE_HOST', '127.0.0.1'),
-        'PORT': os.environ.get('DATABASE_PORT', '3306'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': int(os.environ.get('DB_PORT', '3306')),
+        'NAME': os.environ.get('DB_NAME', 'ppn_frontend'),
+        'USER': os.environ.get('DB_USER', 'ppn'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'ppn')
     }
 }
 
