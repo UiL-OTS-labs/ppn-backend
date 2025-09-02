@@ -164,8 +164,12 @@ WSGI_APPLICATION = 'ppn_frontend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':   os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
+        'PORT': int(os.environ.get('DB_PORT', '3306')),
+        'NAME': os.environ.get('DB_NAME', 'ppn_frontend'),
+        'USER': os.environ.get('DB_USER', 'ppn'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'ppn')
     }
 }
 
