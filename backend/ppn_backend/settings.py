@@ -166,7 +166,7 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME', 'ppn_backend'),
         'USER': os.environ.get('DB_USER', 'ppn'),
         'PASSWORD': os.environ.get('DB_PASSWORD', 'ppn')
-    }
+    },
     'auditlog': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME':   os.path.join(BASE_DIR, 'auditlog.sqlite3'),
