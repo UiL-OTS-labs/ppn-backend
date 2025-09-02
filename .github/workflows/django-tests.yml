@@ -19,6 +19,8 @@ jobs:
     services:
       db:
         image: mariadb
+        env:
+          MARIADB_ROOT_PASSWORD: ppn
         ports:
           - 3306/tcp
 
@@ -49,10 +51,9 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Set DB env variables
         run: |
-          echo "DATABASE_HOST=127.0.0.1" >> $GITHUB_ENV
-          echo "DATABASE_PORT=${{ job.services.db.ports['3306'] }}" >> $GITHUB_ENV
-          echo "DATABASE_USER=root" >> $GITHUB_ENV
-          echo "DATABASE_NAME=test_db" >> $GITHUB_ENV
+          echo "DB_HOST=127.0.0.1" >> $GITHUB_ENV
+          echo "DB_PORT=${{ job.services.db.ports['3306'] }}" >> $GITHUB_ENV
+          echo "DB_USER=root" >> $GITHUB_ENV
       - name: Compile 18n
         run: |
           cd ${{ matrix.app }}
@@ -74,6 +75,8 @@ jobs:
     services:
       db:
         image: mariadb
+        env:
+          MARIADB_ROOT_PASSWORD: ppn
         ports:
           - 3306/tcp
 
@@ -110,10 +113,10 @@ jobs:
           python manage.py compilemessages
       - name: Set DB env variables
         run: |
-          echo "DATABASE_HOST=127.0.0.1" >> $GITHUB_ENV
-          echo "DATABASE_PORT=${{ job.services.db.ports['3306'] }}" >> $GITHUB_ENV
-          echo "DATABASE_USER=root" >> $GITHUB_ENV
-          echo "DATABASE_NAME=test_db" >> $GITHUB_ENV
+          echo "DB_HOST=127.0.0.1" >> $GITHUB_ENV
+          echo "DB_PORT=${{ job.services.db.ports['3306'] }}" >> $GITHUB_ENV
+          echo "DB_USER=root" >> $GITHUB_ENV
+          echo "DB_NAME=test_db" >> $GITHUB_ENV
       - name: Integration tests
         run: |
           cd integration_tests
