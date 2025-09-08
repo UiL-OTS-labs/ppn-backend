@@ -190,7 +190,7 @@ msgstr ""
 msgid "cancel:message:cancelled"
 msgstr ""
 "Afspraak afgezegd. Er is een bevestiging per mail verstuurd. <a href=\"/"
-"\">Klik hier om je opnieuw in te schrijven voor een (ander) experiment!</a>"
+"\">Klik hier om je in te schrijven voor een ander tijdstip, of voor een ander experiment!</a>"
 
 #: participant/views/mailinglist_views.py:48
 msgid "unsubscribe_mailinglist:messages:unsubscribed"

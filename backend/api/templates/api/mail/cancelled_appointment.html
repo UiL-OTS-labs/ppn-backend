@@ -13,7 +13,7 @@
         Beste {{ participant.mail_name }},
     </p>
     <p>
-        Je hebt je uitgeschreven voor experiment: <strong>{{ experiment.name }}</strong><br/><br/>
+        Je hebt je uitgeschreven voor het experiment: <strong>{{ experiment.name }}</strong><br/><br/>
         {% if time_slot %}
         Datum: <strong>{{ time_slot.datetime|date:"l d-m-Y" }}</strong><br/>
         Tijd: <strong>{{ time_slot.datetime|date:"H:i" }} uur</strong><br/>
@@ -34,9 +34,10 @@
     <p>
         Dit bericht is automatisch verzonden omdat je je hebt uitgeschreven voor een experiment.<br/>
         {% if participant.email_subscription %}
-            Indien je geen e-mails meer wilt ontvangen met informatie over nieuwe experimenten, <a href="{{ mailinglist_unsubscribe }}">
-            schrijf je dan hier uit.
-        </a>
+            Indien je geen e-mails meer wilt ontvangen met informatie over nieuwe experimenten, 
+            <a href="{{ mailinglist_unsubscribe }}" style="color:#00aaff; text-decoration:underline;">
+                schrijf je dan hier uit.
+            </a>
         {% endif %}
     </p>
 {% endblock %}
