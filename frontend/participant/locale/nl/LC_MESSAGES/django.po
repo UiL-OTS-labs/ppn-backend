@@ -67,18 +67,12 @@ msgstr "Uitschrijven is niet meer mogelijk."
 msgid "cancel_landing:content:header"
 msgstr "Afspraak afzeggen"
 
-#: participant/templates/participant/appointments/cancel_landing.html:22
-msgid "cancel_landing:content:p1"
-msgstr ""
-"Als je een account hebt, kun je je uitschrijven door hieronder in te "
-"loggen."
 
 #: participant/templates/participant/appointments/cancel_landing.html:25
 msgid "cancel_landing:content:p2"
 msgstr ""
-"Als je geen account hebt, kun je hier het email-adres invullen waarmee je "
-"jezelf hebt opgegeven. Je zult dan een email ontvangen met een link om je "
-"uit te schrijven."
+"Als je je hebt ingeschreven voor een experiment maar toch niet kunt komen, kun je hier het email-adres "
+"invullen waarmee je jezelf hebt opgegeven. Je zult dan een email ontvangen met een link om je uit te schrijven."
 
 #: participant/templates/participant/appointments/cancel_landing.html:31
 msgid "cancel_landing:content:email:header"
