@@ -80,7 +80,7 @@ msgstr "Verander profiel"
 
 #: main/menus.py:22
 msgid "mainmenu:sign_up"
-msgstr "Mailing list en/of account"
+msgstr "Aanmeldformulier"
 
 #: main/menus.py:27
 msgid "mainmenu:cancel_appointment"
