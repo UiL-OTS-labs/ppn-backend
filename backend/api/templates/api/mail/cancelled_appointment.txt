@@ -1,6 +1,6 @@
 Beste {{ participant.mail_name }},
 
-Je hebt je uitgeschreven voor experiment: {{ experiment.name }}
+Je hebt je uitgeschreven voor het experiment: {{ experiment.name }}
 
 {% if time_slot %}
 Datum: {{ time_slot.datetime|date:"l d-m-Y" }}
