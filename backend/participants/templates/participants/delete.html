@@ -1,35 +1,39 @@
 {% extends "base/ppn_base.html" %}
 {% load i18n %}
-{% load transformat %}
-{% load datatables %}
-{% load get_field_name %}
 
 {% block header_title %}
     {% trans 'participants:delete:header' %} - {{ block.super }}
 {% endblock %}
 
 {% block pre-messages-content %}
-    <div class="uu-hero">
-        <h1 class="h2">
-            {% trans 'participants:delete:header' %}
-        </h1>
-    </div>
+<div class="uu-hero">
+    <h1 class="h2">
+        {% trans 'participants:delete:header' %}
+    </h1>
+</div>
 {% endblock %}
 
 {% block content %}
 <div class="uu-container">
     <div class="col-12">
-        <form method="post">{% csrf_token %}
-            <p>{% transformat 'participants:delete:text' object %}</p>
-            <div class="btn-group">
-                <a href="{% url 'participants:home' %}" class="btn btn-secondary">
-                    {% trans 'participants:delete:cancel' %}
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    {% trans 'participants:delete:confirm' %}
-                </button>
-            </div>
-        </form>
+        {% if object.appointments.exists %}
+            <p>{% trans "Je kan deze participant niet verwijderen omdat die al aan een experiment meedoet." %}</p>
+            <a href="{% url 'participants:home' %}" class="btn btn-secondary">
+                {% trans 'global:delete:cancel' %}
+            </a>
+        {% else %}
+            <form method="post">{% csrf_token %}
+                <p>{% trans "Weet je zeker dat je deze participant wilt verwijderen?" %}</p>
+                <div class="btn-group">
+                    <a href="{% url 'participants:home' %}" class="btn btn-secondary">
+                        {% trans 'global:delete:cancel' %}
+                    </a>
+                    <button class="btn btn-primary" type="submit">
+                        {% trans 'global:delete:confirm' %}
+                    </button>
+                </div>
+            </form>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
