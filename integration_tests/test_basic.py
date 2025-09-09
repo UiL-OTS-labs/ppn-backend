@@ -299,10 +299,10 @@ def test_delete_participant(apps, as_admin):
     apps.backend.load('leader.json')
     page = as_admin
     
-    page.goto(f"{apps.backend.url}/participants/1/del/")
-    page.get_by_role("button", name="Delete participant").click()
+    page.goto(f"{apps.backend.url}/participants/2/del/")
+    page.get_by_role("button", name="Confirm").click()
 
-    cell = page.locator("td.dtr-control.sorting_1", has_text="1")
+    cell = page.locator("td.dtr-control.sorting_1", has_text="2")
 
     assert cell.count() == 0
 
@@ -314,7 +314,7 @@ def test_comment(apps,as_admin):
     apps.backend.load('leader.json')
     page = as_admin
 
-    page.goto(f"{apps.backend.url}/comments/new/2/1")
+    page.goto(f"{apps.backend.url}/comments/new/1/1")
     page.fill('textarea[name="comment"]', 'is vervelend')
     page.click("button.btn.btn-primary:has-text('Add')")
 
