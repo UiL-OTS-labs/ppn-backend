@@ -18,6 +18,8 @@ class Leader(models.Model):
         null=True,
         on_delete=models.SET_NULL
     )
+     
+    is_primary = models.BooleanField(default=False)
 
     @property
     def email(self):

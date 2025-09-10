@@ -21,7 +21,6 @@ from datamanagement.utils.participants import \
 from experiments.models import Experiment
 
 
-# TODO: write tests
 
 
 class OverviewView(braces.LoginRequiredMixin, generic.TemplateView):

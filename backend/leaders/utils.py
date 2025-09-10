@@ -15,7 +15,7 @@ from .models import Leader
 
 
 def create_leader(name: str, email: str, phonenumber: str,
-                  password: str = None) -> (Leader, bool):
+                  password: str = None, is_primary: bool = False) -> (Leader, bool):
     """
     This function creates a new Leader object.
 
@@ -45,6 +45,7 @@ def create_leader(name: str, email: str, phonenumber: str,
     leader = Leader()
     leader.name = name
     leader.phonenumber = phonenumber
+    leader.is_primary = is_primary  
 
     existing_api_user = ApiUser.objects.get_by_email(email)
     existing = False
@@ -200,12 +201,13 @@ def _get_tomorrow():
 
 
 def update_leader(leader: Leader, name: str, email: str, phonenumber: str,
-                  password: str = None, is_active: bool = True) -> Leader:
+                  password: str = None, is_active: bool = True, is_primary: bool = False) -> Leader:
     _leader_group = ApiGroup.objects.get(name=settings.LEADER_GROUP)
     _participant_group = ApiGroup.objects.get(name=settings.PARTICIPANT_GROUP)
 
     leader.name = name
     leader.phonenumber = phonenumber
+    leader.is_primary = is_primary  
     leader.save()
 
     api_user = leader.api_user
