@@ -121,7 +121,7 @@ class LeaderUpdateView(braces.LoginRequiredMixin, SuccessMessageMixin,
             'phonenumber': leader.phonenumber,
             'leader':      leader,
             'active':      leader.is_active_leader(),
-            'is_primary':  leader.is_primary,  
+            'is_primary':  leader.is_primary,
         }
 
     def form_valid(self, form):
@@ -138,7 +138,7 @@ class LeaderUpdateView(braces.LoginRequiredMixin, SuccessMessageMixin,
             data['phonenumber'],
             data['password'],
             data['active'],
-            data.get('is_primary', False),  
+            data['is_primary']
         )
 
         return super(LeaderUpdateView, self).form_valid(form)

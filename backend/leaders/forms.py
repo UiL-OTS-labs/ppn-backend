@@ -84,7 +84,7 @@ class LeaderCreateForm(PPNTemplatedForm):
 
     def clean_confirm_password(self):
         return _clean_confirm_password(self)
-    
+
     def clean(self):
         cleaned_data = super().clean()
         is_primary = cleaned_data.get('is_primary')
@@ -151,7 +151,7 @@ class LDAPLeaderCreateForm(PPNTemplatedForm):
                 _('leader:form:email:error:user_exists'))
 
         return data
-    
+
     def clean(self):
         cleaned_data = super().clean()
         is_primary = cleaned_data.get('is_primary')
@@ -225,13 +225,6 @@ class LeaderUpdateForm(PPNTemplatedForm):
         widget=forms.PasswordInput,
     )
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        leader = kwargs.get('instance')
-        if leader:
-            
-            self.fields['is_primary'].initial = leader.is_primary 
-
     def clean_email(self):
         """This clean method ensures that we do not create new leaders with
                     existing emails.
@@ -261,14 +254,14 @@ class LeaderUpdateForm(PPNTemplatedForm):
                     _('leader:form:password:error:empty'))
 
         return password
-    
+
     def clean(self):
         cleaned_data = super().clean()
-       
+
         is_primary = cleaned_data.get('is_primary') or False
         phone = cleaned_data.get('phonenumber')
 
-      
+
         if is_primary and not phone:
             self.add_error(
                 'phonenumber',
@@ -335,7 +328,7 @@ class LDAPLeaderUpdateForm(PPNTemplatedForm):
                 _('leader:form:email:error:user_exists'))
 
         return data
-    
+
     def clean(self):
         cleaned_data = super().clean()
         is_primary = cleaned_data.get('is_primary')
