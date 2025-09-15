@@ -77,7 +77,7 @@ msgstr "Change profile"
 
 #: main/menus.py:22
 msgid "mainmenu:sign_up"
-msgstr "Mailing list and/or account"
+msgstr "Mailing list"
 
 #: main/menus.py:27
 msgid "mainmenu:cancel_appointment"
