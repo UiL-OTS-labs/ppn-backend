@@ -106,14 +106,10 @@ class UnsubscribeFromMailinglistView(views.APIView):
                 )
 
                 # Please note that these token's don't have to be checked for
-                # expiration. These tokens should just live on indefinably.
+                # expiration. These tokens should just live on indefinitely.
 
-                participant = o.participant
-                participant.email_subscription = False
-                participant.save()
-
+                o.participant.unsubscribe()
                 success = True
-
             except (ValidationError, UserToken.DoesNotExist):
                 pass
 
