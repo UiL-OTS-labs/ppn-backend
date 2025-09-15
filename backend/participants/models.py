@@ -190,6 +190,16 @@ class Participant(models.Model):
             self.phonenumber
         )
 
+    def unsubscribe(self):
+        """Unsubscribes the participant from the mailing list.
+        If they are not signed up for any experiment, they will be completely
+        removed from the database"""
+        if self.appointments.count() > 0:
+            self.email_subscription = False
+            self.save()
+        else:
+            self.delete()
+
 
 class SecondaryEmail(models.Model):
     email = e_fields.EncryptedEmailField(
