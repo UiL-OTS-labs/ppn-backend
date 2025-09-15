@@ -1,0 +1,21 @@
+Django>=4.2,<4.3
+django-axes
+django-braces
+django-csp
+django-simple-menu
+django-extensions # QoF for the admin, adds a lot of useful manage.py commands
+django-impersonate
+cryptography
+PyJWT
+bpython
+djangorestframework
+django-debug-toolbar
+cryptography
+python-dateutil
+cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.2.0
+mysqlclient
+django-auth-ldap
+
+# dev only
+pip-tools
+freezegun

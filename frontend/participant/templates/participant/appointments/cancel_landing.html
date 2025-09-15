@@ -1,0 +1,47 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block header_title %}
+    {% trans 'cancel_landing:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            {% trans 'cancel_landing:content:header' %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <p>
+            {% trans 'cancel_landing:content:p2' %}
+        </p>
+    </div>
+</div>
+
+<div class="uu-container">
+    <div class="col-lg-6 col-12 pe-lg-3">
+        <h4>{% trans 'cancel_landing:content:email:header' %}</h4>
+        <form method="post" class="uu-form uu-form-no-gap uu-form-no-help w-100">
+            {% csrf_token %}
+            <div class="uu-form-row">
+                <div class="uu-form-field">
+                    <label for="id_email" class="form-label">{% trans 'cancel_landing:form:email' %}:</label>
+                    <input type="email" name="email" required="" class="form-control" placeholder="{% trans 'cancel_landing:form:email' %}" maxlength="254" id="id_email">
+                </div>
+            </div>
+            <button type="submit" class="float-end btn btn-primary mt-3">
+                {% trans 'cancel_landing:content:email:send_button' %}
+            </button>
+        </form>
+    </div>
+
+    {# Hier verwijderen we de via-account sectie volledig #}
+</div>
+<br/>
+{% endblock %}

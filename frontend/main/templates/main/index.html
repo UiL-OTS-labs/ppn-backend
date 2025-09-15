@@ -1,0 +1,90 @@
+{% extends "base/ppn_base.html" %}
+{% load vue_tags %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+    {{ block.super }}
+    {% include 'cdh.vue/vueloader.html' %}
+
+    {% load_vue_component 'ExperimentList' request.csp_nonce %}
+
+    <script nonce="{{ request.csp_nonce }}">
+        // Needs to be wrapped into an onload to ensure all dependencies are loaded
+        window.onload = _ => {
+            const i18n = new VueI18n({
+                locale: '{{ LANGUAGE_CODE }}',
+            });
+            new Vue({
+                i18n,
+                el: "#list",
+                components: {
+                    // Loaded by the load_vue_component tag, no need to manually load this
+                    ExperimentList
+                },
+                template: "<ExperimentList></ExperimentList>",
+            });
+        }
+    </script>
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-cover h-300">
+{#        <img class="uu-cover-image" alt="cover" src="{% static 'main/img.png' %}" />#}
+    </div>
+    <div class="uu-hero">
+        <h1>Experimenten ILS Labs</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <h1>Welkom toekomstig proefpersoon!</h1>
+        <p>
+            Wat leuk dat je er bent. Bij het Institute for Language Sciences (ILS) van de Universiteit Utrecht
+            doen we onderzoek naar hoe mensen taal begrijpen en gebruiken. Daarvoor hebben we regelmatig experimenten
+            waarbij je iets leest, zegt of luistert — en jij kunt meedoen! Hoe doe je mee?
+            <strong>Vul een paar gegevens in via het linkje hieronder</strong>. Daarna hoef je niks meer te doen:
+            wij sturen je vanzelf een mail zodra er een experiment openstaat dat bij jou past. Je mag natuurlijk
+            ook kijken wat voor experimenten er al open staan hieronder! Bedenk je je later? Geen probleem — uitschrijven
+            kan altijd. Kan geen kwaad dus!
+        </p>
+
+        {% url 'participant:sign_up' as mailinglist_url %}
+<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+    <p style="margin: 0;"><strong>{% transformat 'index:content:maillinglist1' mailinglist_url %}</strong></p>
+    <img src="{% static 'main/mail.png' %}" alt="Mailinglijst icoon" style="height: 180px;" />
+</div>
+
+        <h2>Hoe verloopt zo'n experiment?</h2>
+        <p>
+            Dat hangt een beetje af van het soort experiment.
+            Een experiment bestaat meestal uit het lezen of beluisteren van woorden, zinnen of korte
+            verhaaltjes, en daarbij voer je een eenvoudige taak uit. Bijvoorbeeld een vraag beantwoorden,
+            of een plaatje kiezen dat past bij wat je hoorde. Soms meten we ondertussen ook je oogbewegingen of je hersenactiviteit (EEG).
+        </p>
+
+        <p>Dit is vaak het geval:</p>
+        <p>
+            <strong>*  Duur:</strong> ca. 20 minuten tot 1,5 uur<br>
+            <strong>*  Vergoeding:</strong> tussen de €7,50 en €10 per uur   (cashen in je tussen-uur dus)
+        </p>
+
+        <p> De experimenten vinden plaats in ons lab op <strong>Janskerkhof 13A</strong>, midden in de
+            binnenstad van Utrecht (naast de Drift, lekker dichtbij).</p>
+    </div>
+</div>
+<div class="uu-container">
+    <div class="col-12">
+        <h2>Dit zijn de experimenten waarvoor we je op dit moment zoeken:</h2>
+            <div id="list"></div>
+         {% url 'participant:sign_up' as mailinglist_url %}
+         <p class="mb-4">{% transformat "index:content:mailinglist" mailinglist_url %}</p>
+
+    </div>
+</div>
+{% if request.user.is_anonymous or not request.user.is_participant %}
+{% endif %}
+{% endblock %}

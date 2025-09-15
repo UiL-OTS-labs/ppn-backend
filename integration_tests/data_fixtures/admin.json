@@ -1,0 +1,33 @@
+[
+    {
+	"model": "main.User",
+	"pk": 1,
+	"fields": {
+		"is_supreme_admin":true,
+	    "username": "admin",
+	    "password": "pbkdf2_sha256$320000$6MdlmKwGohtOCZBqZC79IS$aJOxH9ajzELPMTwn7DW2+Q9lpPlSeVHiVuugl+4DAZM=",
+	    "is_superuser": true,
+	    "is_staff": true,
+	    "first_name": "Admin",
+		"last_name": "Admin",
+	    "email": "admin@localhost.local",
+		"is_active": true,
+		"groups": []
+		}
+	},
+	{
+		"model": "apiauth.ApiGroup",
+		"pk": 1,
+		"fields": {
+		"name":"leader"
+		}
+	
+	  },
+	  {
+		"model": "apiauth.ApiGroup",
+		"pk": 2,
+		"fields": {
+		"name":"participant"
+		}
+	  }
+]

@@ -1,0 +1,320 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-30 11:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: leader/templates/leader/add_comment.html:8
+#: leader/templates/leader/add_comment.html:14
+msgid "comments:new:header"
+msgstr "Add comment"
+
+#: leader/templates/leader/add_comment.html:23
+msgid "comments:new:comment:help_text"
+msgstr ""
+"The comment that you submit here, will only be visible to the recruitment "
+"system admin (not to the participant). You can report particularities about "
+"the participant here, for instance if they didn't show up without letting "
+"you know, or if they were distracted during the experiment, didn't listen to "
+"instructions, etcetera."
+
+#: leader/templates/leader/add_comment.html:29
+msgid "globals:add_button"
+msgstr "Add"
+
+#: leader/templates/leader/criteria_snippit.html:11
+msgid "criteria_snippit:language"
+msgstr "Language"
+
+#: leader/templates/leader/criteria_snippit.html:19
+msgid "criteria_snippit:multilingual"
+msgstr "Multilingual"
+
+#: leader/templates/leader/criteria_snippit.html:27
+msgid "criteria_snippit:handedness"
+msgstr "Handedness"
+
+#: leader/templates/leader/criteria_snippit.html:35
+msgid "criteria_snippit:sex"
+msgstr "Sex"
+
+#: leader/templates/leader/criteria_snippit.html:43
+msgid "criteria_snippit:social_status"
+msgstr "Social Role"
+
+#: leader/templates/leader/criteria_snippit.html:51
+msgid "criteria_snippit:min_age"
+msgstr "Min Age"
+
+#: leader/templates/leader/criteria_snippit.html:59
+msgid "criteria_snippit:max_age"
+msgstr "Max Age"
+
+#: leader/templates/leader/experiment_participants.html:11
+#: leader/templates/leader/experiment_participants.html:22
+msgid "participants:header"
+msgstr "Participants - Experiment '{}'"
+
+#: leader/templates/leader/experiment_participants.html:38
+#: leader/templates/leader/experiment_participants.html:255
+msgid "participants:download_data"
+msgstr "Download as CSV"
+
+#: leader/templates/leader/experiment_participants.html:53
+#: leader/templates/leader/experiment_participants.html:185 leader/views.py:97
+msgid "participants:datetime"
+msgstr "Date & Time"
+
+#: leader/templates/leader/experiment_participants.html:56
+#: leader/templates/leader/experiment_participants.html:189
+#: leader/templates/leader/timeslots.html:61 leader/views.py:98
+msgid "timeslots:day"
+msgstr "Day"
+
+#: leader/templates/leader/experiment_participants.html:59
+#: leader/templates/leader/experiment_participants.html:192 leader/views.py:99
+msgid "participants:place"
+msgstr "WP"
+
+#: leader/templates/leader/experiment_participants.html:63
+#: leader/templates/leader/experiment_participants.html:198 leader/views.py:100
+msgid "participants:name"
+msgstr "Name"
+
+#: leader/templates/leader/experiment_participants.html:66
+msgid "participants:reminder"
+msgstr "Reminder"
+
+#: leader/templates/leader/experiment_participants.html:69
+msgid "globals:actions"
+msgstr "Actions"
+
+#: leader/templates/leader/experiment_participants.html:72
+#: leader/templates/leader/experiment_participants.html:210 leader/views.py:101
+msgid "participants:email"
+msgstr "Email"
+
+#: leader/templates/leader/experiment_participants.html:75
+#: leader/templates/leader/experiment_participants.html:214 leader/views.py:102
+msgid "participants:phone_number"
+msgstr "Phone number"
+
+#: leader/templates/leader/experiment_participants.html:78
+#: leader/templates/leader/experiment_participants.html:219 leader/views.py:103
+msgid "participants:birth_date"
+msgstr "Birth date"
+
+#: leader/templates/leader/experiment_participants.html:81
+#: leader/templates/leader/experiment_participants.html:222 leader/views.py:104
+msgid "participants:language"
+msgstr "Lang."
+
+#: leader/templates/leader/experiment_participants.html:84
+#: leader/templates/leader/experiment_participants.html:227 leader/views.py:105
+msgid "participants:multilingual"
+msgstr "Multiple Lang. (one/many)"
+
+#: leader/templates/leader/experiment_participants.html:87
+#: leader/templates/leader/experiment_participants.html:231 leader/views.py:106
+msgid "participants:handedness"
+msgstr "Handedness (L/R)"
+
+#: leader/templates/leader/experiment_participants.html:90
+#: leader/templates/leader/experiment_participants.html:234 leader/views.py:107
+msgid "participants:sex"
+msgstr "Sex (M/F)"
+
+#: leader/templates/leader/experiment_participants.html:93
+#: leader/templates/leader/experiment_participants.html:239 leader/views.py:108
+msgid "participants:social_status"
+msgstr "Social Role"
+
+#: leader/templates/leader/experiment_participants.html:96
+#: leader/templates/leader/experiment_participants.html:244
+msgid "participants:email_subscription"
+msgstr "On mailing list"
+
+#: leader/templates/leader/experiment_participants.html:119
+#: leader/templates/leader/experiment_participants.html:146
+#: leader/templates/leader/experiment_participants.html:153 leader/views.py:113
+#: leader/views.py:114 leader/views.py:115
+msgid "globals:hidden"
+msgstr "Hidden"
+
+#: leader/templates/leader/experiment_participants.html:129
+#: leader/templates/leader/timeslots.html:143
+msgid "timeslots:remove_participant:title"
+msgstr "Unsubscribe participant"
+
+#: leader/templates/leader/experiment_participants.html:163
+msgid "many,one"
+msgstr "Many,One"
+
+#: leader/templates/leader/experiment_participants.html:175
+msgid "yes,no"
+msgstr "Yes,No"
+
+#: leader/templates/leader/experiment_participants.html:203
+msgid "participants:send"
+msgstr "Send"
+
+#: leader/templates/leader/experiments.html:5
+#: leader/templates/leader/experiments.html:11
+msgid "experiments:content:header"
+msgstr "My experiments"
+
+#: leader/templates/leader/experiments.html:23
+msgid "experiments:table:name"
+msgstr "Name"
+
+#: leader/templates/leader/experiments.html:26
+msgid "experiments:table:timeslots"
+msgstr "# Timeslots"
+
+#: leader/templates/leader/experiments.html:29
+msgid "experiments:table:participants"
+msgstr "# Participants"
+
+#: leader/templates/leader/experiments.html:32
+msgid "experiments:table:status"
+msgstr "Status"
+
+#: leader/templates/leader/experiments.html:35
+#: leader/templates/leader/timeslots.html:79
+msgid "global:actions"
+msgstr "Actions"
+
+#: leader/templates/leader/experiments.html:64
+msgid "experiment:switch_open:title"
+msgstr "Open/close experiment"
+
+#: leader/templates/leader/experiments.html:75
+msgid "experiment:timeslots:title"
+msgstr "Edit/view timeslots"
+
+#: leader/templates/leader/experiments.html:82
+msgid "experiments:timeslots:title:disabled"
+msgstr "Edit/view timeslots"
+
+#: leader/templates/leader/experiments.html:90
+msgid "experiment:participants:title"
+msgstr "Participants"
+
+#: leader/templates/leader/profile.html:5
+#: leader/templates/leader/profile.html:11
+msgid "profile:content:header"
+msgstr "Change leader profile"
+
+#: leader/templates/leader/profile.html:24
+msgid "globals:save_button"
+msgstr "Save"
+
+#: leader/templates/leader/timeslots.html:9
+#: leader/templates/leader/timeslots.html:22
+msgid "timeslots:home:header"
+msgstr "Timeslots for experiment '{}'"
+
+#: leader/templates/leader/timeslots.html:31
+msgid "timeslots:home:info_text"
+msgstr ""
+"Timeslots can be edited here.<br/>If your timeslot has multiple 'places', "
+"(that is, if you are running multiple participants in the same timeslot), "
+"please note that you can only delete the last place in a certain timeslot."
+"<br/>If you need to delete multiple (or all) places, you can use the "
+"checkboxes. By default you can only check the last checkbox for a timeslot. "
+"Once a checkbox has been clicked, the one above it (within the same "
+"timeslot) can be checked too.<br/><br/>The 'group rows by slot' button "
+"toggles grouping places under a timeslot. It is designed to improve "
+"readability if your timeslots have multiple places, but it can have the "
+"opposite effect if most of your timeslots only have 1 place."
+
+#: leader/templates/leader/timeslots.html:36
+msgid "timeslots:home:new_timeslots:header"
+msgstr "New timeslot"
+
+#: leader/templates/leader/timeslots.html:42
+msgid "timeslotss:add_button"
+msgstr "Add"
+
+#: leader/templates/leader/timeslots.html:55
+msgid "timeslots:id"
+msgstr "ID"
+
+#: leader/templates/leader/timeslots.html:64
+msgid "timeslots:date"
+msgstr "Date"
+
+#: leader/templates/leader/timeslots.html:67
+msgid "timeslots:time"
+msgstr "Time"
+
+#: leader/templates/leader/timeslots.html:70
+msgid "timeslots:place"
+msgstr "Place #"
+
+#: leader/templates/leader/timeslots.html:73
+msgid "timeslots:participant:name"
+msgstr "Participant"
+
+#: leader/templates/leader/timeslots.html:76
+msgid "timeslots:participant:email"
+msgstr "Participant email"
+
+#: leader/templates/leader/timeslots.html:161
+msgid "global:delete"
+msgstr "Delete"
+
+#: leader/views.py:167
+msgid "experiment:message:open"
+msgstr "Successfully opened experiment for participants."
+
+#: leader/views.py:169
+msgid "experiment:message:closed"
+msgstr "Successfully closed experiment for participants."
+
+#: leader/views.py:171 leader/views.py:177
+msgid "experiment:message:fail"
+msgstr "Something went wrong when trying to change the experiments status"
+
+#: leader/views.py:214
+msgid "timeslots:message:added"
+msgstr "Successfully added timeslot(s)"
+
+#: leader/views.py:258
+msgid "timeslots:message:deleted_timeslot"
+msgstr "Timeslot successfully deleted!"
+
+#: leader/views.py:274
+msgid "timeslots:message:deleted_timeslots"
+msgstr "Timeslots successfully deleted!"
+
+#: leader/views.py:292
+msgid "timeslots:message:unsubscribed_participant"
+msgstr "Unsubscribed participant"
+
+#: leader/views.py:348
+msgid "comment:message:added"
+msgstr "Successfully added comment!"
+
+#: leader/views.py:360
+msgid "profile:message:updated"
+msgstr "Successfully updated profile."
+
+#: leader/views.py:419
+msgid "leaders:message:sent_reminders"
+msgstr "Sent reminders to {} participant(s)"
+
+#~ msgid "participants:info_text"
+#~ msgstr " "

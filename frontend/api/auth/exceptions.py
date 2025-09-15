@@ -1,0 +1,4 @@
+
+
+class AccountAlreadyExistsException(Exception):
+    pass

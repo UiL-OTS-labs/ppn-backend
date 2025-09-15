@@ -1,0 +1,191 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 15:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: participant/templates/participant/appointments/appointments.html:25
+#: participant/templates/participant/appointments/appointments.html:31
+msgid "appointments:content:header"
+msgstr "Mijn afspraken"
+
+#: participant/templates/participant/appointments/appointments.html:40
+msgid "appointments:content:p1"
+msgstr " "
+
+#: participant/templates/participant/appointments/appointments.html:46
+msgid "appointments:thead:experiment"
+msgstr "Experiment"
+
+#: participant/templates/participant/appointments/appointments.html:49
+msgid "appointments:thead:day"
+msgstr "Dag"
+
+#: participant/templates/participant/appointments/appointments.html:52
+msgid "appointments:thead:date"
+msgstr "Datum"
+
+#: participant/templates/participant/appointments/appointments.html:55
+msgid "appointments:thead:time"
+msgstr "Tijd"
+
+#: participant/templates/participant/appointments/appointments.html:58
+msgid "appointments:thead:leader"
+msgstr "Proefleider"
+
+#: participant/templates/participant/appointments/appointments.html:61
+msgid "appointments:thead:leader_email"
+msgstr "Proefleider e-mail"
+
+#: participant/templates/participant/appointments/appointments.html:64
+msgid "appointments:thead:actions"
+msgstr "Acties"
+
+#: participant/templates/participant/appointments/appointments.html:92
+#: participant/templates/participant/appointments/appointments.html:96
+msgid "appointments:content:cancel"
+msgstr "Afzeggen"
+
+#: participant/templates/participant/appointments/appointments.html:100
+msgid "appointments:content:cannot_cancel"
+msgstr "Uitschrijven is niet meer mogelijk."
+
+#: participant/templates/participant/appointments/cancel_landing.html:7
+#: participant/templates/participant/appointments/cancel_landing.html:13
+msgid "cancel_landing:content:header"
+msgstr "Afspraak afzeggen"
+
+
+#: participant/templates/participant/appointments/cancel_landing.html:25
+msgid "cancel_landing:content:p2"
+msgstr ""
+"Als je je hebt ingeschreven voor een experiment maar toch niet kunt komen, kun je hier het email-adres "
+"invullen waarmee je jezelf hebt opgegeven. Je zult dan een email ontvangen met een link om je uit te schrijven."
+
+#: participant/templates/participant/appointments/cancel_landing.html:31
+msgid "cancel_landing:content:email:header"
+msgstr "Via e-mail"
+
+#: participant/templates/participant/appointments/cancel_landing.html:36
+#: participant/templates/participant/appointments/cancel_landing.html:37
+#: participant/templates/participant/appointments/cancel_landing.html:52
+#: participant/templates/participant/appointments/cancel_landing.html:53
+msgid "cancel_landing:form:email"
+msgstr "Email"
+
+#: participant/templates/participant/appointments/cancel_landing.html:41
+msgid "cancel_landing:content:email:send_button"
+msgstr "Verstuur"
+
+#: participant/templates/participant/appointments/cancel_landing.html:46
+msgid "cancel_landing:content:account:header"
+msgstr "Via account"
+
+#: participant/templates/participant/appointments/cancel_landing.html:58
+#: participant/templates/participant/appointments/cancel_landing.html:59
+msgid "cancel_landing:form:password"
+msgstr "Wachtwoord"
+
+#: participant/templates/participant/appointments/cancel_landing.html:64
+msgid "login:content:forgot_password"
+msgstr "Wachtwoord vergeten?"
+
+#: participant/templates/participant/appointments/cancel_landing.html:66
+msgid "login:button:login"
+msgstr "Log in"
+
+#: participant/templates/participant/closed_experiment.html:11
+#: participant/templates/participant/closed_experiment.html:17
+msgid "closed:content:header"
+msgstr "Experiment gesloten"
+
+#: participant/templates/participant/closed_experiment.html:26
+msgid "closed:content:p1"
+msgstr ""
+"Dit experiment is gesloten voor inschrijvingen; er zijn op dit moment geen tijdstippen meer waar je je voor op kunt geven. "
+"Je kunt op <a href=\"{}\">de hoofdpagina</a> zien of er nog andere experimenten zijn waar je aan mee zou kunnen doen. "
+"Dankjewel voor je belangstelling!"
+
+#: participant/templates/participant/exp_info.html:7
+msgid "register:content:duration"
+msgstr "Dit experiment duurt {}"
+
+#: participant/templates/participant/exp_info.html:9
+msgid "register:content:location"
+msgstr "Het wordt afgenomen op"
+
+#: participant/templates/participant/exp_info.html:22
+msgid "register:content:details"
+msgstr "Bijzonderheden:"
+
+#: participant/templates/participant/exp_info.html:26
+msgid "register:content:compensation"
+msgstr "Je krijgt {} om mee te doen."
+
+#: participant/templates/participant/exp_info.html:46
+msgid "register:content:leader"
+msgstr "Proefleider: "
+
+#: participant/templates/participant/exp_info.html:54
+msgid "register:content:other_leaders"
+msgstr "Overige proefleiders: "
+
+#: participant/templates/participant/register.html:55
+#: participant/templates/participant/register.html:61
+#: participant/templates/participant/register_success.html:8
+#: participant/templates/participant/register_success.html:14
+msgid "register:content:header"
+msgstr "Opgaveformulier experiment"
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:11
+#: participant/templates/participant/unsubscribe_mailinglist.html:17
+msgid "unsubscribe_mailinglist:content:title"
+msgstr "Uitschrijven mailing list"
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:26
+msgid "unsubscribe_mailinglist:content:p1"
+msgstr ""
+"Je kunt je hier uitschrijven voor uitnodigingen tot deelname aan "
+"experimenten van de ILS Labs."
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:30
+msgid "unsubscribe_mailinglist:content:email"
+msgstr "E-mailadres"
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:35
+msgid "unsubscribe_mailinglist:button:unsubscribe"
+msgstr "Uitschrijven"
+
+#: participant/templates/participant/unsubscribe_mailinglist.html:40
+msgid "unsubscribe_mailinglist:content:invalid_token"
+msgstr ""
+"Deze link is ongeldig! Neem contact op met <a href=\"{}\">{}</a> als je je "
+"wilt uitschrijven van de mailing list."
+
+#: participant/views/appointments_views.py:31
+msgid "cancel_landing:message:send_token"
+msgstr ""
+"Als het email adres bestaat in onze database hebben wij een mail gestuurd "
+"met verdere instructies!"
+
+#: participant/views/appointments_views.py:91
+msgid "cancel:message:cancelled"
+msgstr ""
+"Afspraak afgezegd. Er is een bevestiging per mail verstuurd. <a href=\"/"
+"\">Klik hier om je in te schrijven voor een ander tijdstip, of voor een ander experiment!</a>"
+
+#: participant/views/mailinglist_views.py:48
+msgid "unsubscribe_mailinglist:messages:unsubscribed"
+msgstr "Je hebt je succesvol uitgeschreven van de mailing list!"

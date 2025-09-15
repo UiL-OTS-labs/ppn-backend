@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-26 14:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "timeslot:warning:confirm_remove_participant"
+msgstr ""
+"Are you sure you want to unsubscribe this participant? (An automatic email "
+"will be sent to the participant, but be sure to send a personal mail as "
+"well, if you haven't done so already.)"
+
+msgid "timeslot:warning:download_csv"
+msgstr ""
+"You are about to download participant data, please bear in mind this data is "
+"confidential! Make sure you handle this data safely and securely. If you "
+"can, anonymize and/or delete this data as soon as possible."
+
+msgid "timeslot:warning:deleting_timeslot"
+msgstr ""
+"Are you sure you want to delete this timeslot? (An automatic email will "
+"be sent to any participants affected, but be sure to send a personal mail as "
+"well, if you haven't done so already.)"
+
+msgid "timeslot:warning:deleting_timeslots"
+msgstr ""
+"Are you sure you want to delete these timeslots? (An automatic email "
+"will be sent to any participants affected, but be sure to send a personal "
+"mail as well, if you haven't done so already.)"
+
+
+msgid "timeslot:error:cannot_validate_datetime"
+msgstr ""
+"An error occurred while validating the date and time. This probably means "
+"that you've entered an invalid value. Please ensure the date and time you've "
+"entered is a valid datetime, in the 'yyyy-mm-dd hh:mm' format."
+
+msgid "timeslot:error:invalid_date"
+msgstr ""
+"Invalid date entered! Please ensure the date you've entered is a valid date, "
+"in the yyyy-mm-dd format."
+
+msgid "timeslot:error:invalid_time"
+msgstr ""
+"Invalid time entered! Please ensure the date you've entered is a valid "
+"timestamp, in the hh:mm format."
+
+msgid "timeslot:error:invalid_datetime"
+msgstr ""
+"Invalid value entered in 'Date & Time'! Please ensure the date and time "
+"you've entered is a valid datetime, in the 'yyyy-mm-dd hh:mm' format."

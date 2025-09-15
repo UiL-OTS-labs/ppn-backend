@@ -1,0 +1,293 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-01 12:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: participants/forms.py:39
+msgid "participants:multilingual:many"
+msgstr "Meerdere"
+
+#: participants/forms.py:40
+msgid "participants:multilingual:one"
+msgstr "Een"
+
+#: participants/forms.py:64
+msgid "participants:merge_form:field:old_participant"
+msgstr "Oude participant"
+
+#: participants/forms.py:70
+msgid "participants:merge_form:field:new_participant"
+msgstr "Participant om mee samen te voegen"
+
+#: participants/forms.py:80
+msgid "participants:merge_form:validation:are_equal"
+msgstr "Dit is dezelfde participant als hierboven gekozen!"
+
+#: participants/models.py:48
+msgid "participant:attribute:handedness:lefthanded"
+msgstr "Linkshandig"
+
+#: participants/models.py:49
+msgid "participant:attribute:handedness:righthanded"
+msgstr "Rechtshandig"
+
+#: participants/models.py:53
+msgid "participant:attribute:social_role:student"
+msgstr "Student"
+
+#: participants/models.py:54
+msgid "participant:attribute:social_role:other"
+msgstr "Geen student"
+
+#: participants/models.py:58
+msgid "participant:attribute:email"
+msgstr "E-mailadres"
+
+#: participants/models.py:64
+msgid "participant:attribute:name"
+msgstr "Naam"
+
+#: participants/models.py:70
+msgid "participant:attribute:language"
+msgstr "Taal"
+
+#: participants/models.py:74
+msgid "participant:attribute:dyslexic"
+msgstr "Dyslexie"
+
+#: participants/models.py:78
+msgid "participant:attribute:birth_date"
+msgstr "Geboortedatum"
+
+#: participants/models.py:84
+msgid "participant:attribute:multilingual"
+msgstr "Meertalig"
+
+#: participants/models.py:90
+msgid "participant:attribute:phonenumber"
+msgstr "Telefoonnummer"
+
+#: participants/models.py:96
+msgid "participant:attribute:handedness"
+msgstr "Left/rechtshandig"
+
+#: participants/models.py:103
+msgid "participant:attribute:sex"
+msgstr "Geslacht"
+
+#: participants/models.py:109
+msgid "participant:attribute:social_status"
+msgstr "Sociale rol"
+
+#: participants/models.py:116
+msgid "participant:attribute:email_subscription"
+msgstr "Op maillijst"
+
+#: participants/models.py:121
+msgid "participant:attribute:capable"
+msgstr "Bekwaam"
+
+#: participants/models.py:133
+msgid "participant:attribute:created"
+msgstr "Aangemaakt op"
+
+#: participants/models.py:142 participants/models.py:184
+msgid "participant:name:unknown"
+msgstr "naam onbekend"
+
+#: participants/models.py:165
+#: participants/templates/widgets/participant_sex_widget.html:42
+msgid "participant:attribute:sex:male"
+msgstr "Man"
+
+#: participants/models.py:166
+#: participants/templates/widgets/participant_sex_widget.html:58
+msgid "participant:attribute:sex:female"
+msgstr "Vrouw"
+
+#: participants/models.py:167
+#: participants/templates/widgets/participant_sex_widget.html:94
+msgid "participant:attribute:sex:prefer_not_to_answer"
+msgstr "Antwoordde liever niet"
+
+#: participants/models.py:196
+msgid "secondary_email:attribute:email"
+msgstr "Secundaire e-mailadres"
+
+#: participants/models.py:214
+msgid "criterion_answer:attribute:answer"
+msgstr "Antwoord"
+
+#: participants/templates/participants/delete.html:8
+#: participants/templates/participants/delete.html:14
+msgid "participants:delete:header"
+msgstr "Participant verwijderen"
+
+#: participants/templates/participants/delete.html:23
+msgid "participants:delete:text"
+msgstr "Weet je zeker dat je participant '{}' wilt verwijderen?"
+
+#: participants/templates/participants/delete.html:26
+msgid "participants:delete:cancel"
+msgstr "Annuleer"
+
+#: participants/templates/participants/delete.html:29
+msgid "participants:delete:confirm"
+msgstr "Verwijder participant"
+
+#: participants/templates/participants/detail.html:9
+#: participants/templates/participants/detail.html:26
+msgid "participants:detail:header"
+msgstr "Details van '{}'"
+
+#: participants/templates/participants/detail.html:29
+msgid "participants:detail:edit_participant"
+msgstr "Verander"
+
+#: participants/templates/participants/detail.html:39
+msgid "participant:detail:table_header"
+msgstr "Participant Details"
+
+#: participants/templates/participants/detail.html:46
+msgid "Unknown"
+msgstr ""
+
+#: participants/templates/participants/detail.html:61
+#: participants/templates/participants/index.html:38
+msgid "participants:detail:secondary_emails"
+msgstr "Secundaire emails"
+
+#: participants/templates/participants/detail.html:68
+msgid "participants:detail:secondary_emails:switch_main:title"
+msgstr "Wissel primair email met dit secundaire email adres"
+
+#: participants/templates/participants/detail.html:69
+msgid "participants:detail:secondary_emails:switch_main"
+msgstr "Wissel"
+
+#: participants/templates/participants/detail.html:76
+msgid "participants:detail:has_account"
+msgstr "Heeft account"
+
+#: participants/templates/participants/detail.html:79
+#: participants/templates/participants/detail.html:98
+#: participants/templates/participants/detail.html:154
+#: participants/templates/participants/detail.html:162
+#: participants/templates/participants/index.html:95
+msgid "yes,no"
+msgstr "ja,nee"
+
+#: participants/templates/participants/detail.html:114
+#: participants/templates/participants/index.html:92
+msgid "options:many,one"
+msgstr "meerdere,een"
+
+#: participants/templates/participants/detail.html:169
+msgid "participants:detail:appointments_header"
+msgstr "Afspraken van deze participant"
+
+#: participants/templates/participants/detail.html:175
+msgid "participants:detail:experiments"
+msgstr "Experimenten"
+
+#: participants/templates/participants/detail.html:178
+msgid "participants:detail:datetime"
+msgstr "Datum & tijd"
+
+#: participants/templates/participants/detail.html:181
+msgid "participants:detail:place"
+msgstr "Plaats"
+
+#: participants/templates/participants/edit.html:8
+#: participants/templates/participants/edit.html:64
+msgid "participants:update:header"
+msgstr "Participant aanpassen"
+
+#: participants/templates/participants/edit.html:79
+msgid "participants:update:header:secondary_email"
+msgstr "Secundaire emails"
+
+#: participants/templates/participants/edit.html:89
+msgid "participants:update:add_secondary_email"
+msgstr "Nieuw secundair email"
+
+#: participants/templates/participants/edit.html:92
+#: participants/templates/participants/specific_criteria.html:33
+msgid "participants:globals:save_button"
+msgstr "Save"
+
+#: participants/templates/participants/index.html:8
+#: participants/templates/participants/index.html:14
+msgid "participants:home:header"
+msgstr "Participanten"
+
+#: participants/templates/participants/index.html:17
+msgid "participants:home:merge_participants"
+msgstr "Combineer Participanten"
+
+#: participants/templates/participants/index.html:60
+msgid "participants:globals:actions"
+msgstr "Acties"
+
+#: participants/templates/participants/index.html:118
+msgid "participants:home:detail:title"
+msgstr "Bekijk details"
+
+#: participants/templates/participants/index.html:126
+msgid "participants:home:update:title"
+msgstr "Pas participant gegevens aan"
+
+#: participants/templates/participants/index.html:134
+msgid "participants:home:update_specific_criteria:title"
+msgstr "Pas participant criteria gegevens aan"
+
+#: participants/templates/participants/index.html:143
+msgid "participants:home:delete:title"
+msgstr "Verwijder participant"
+
+#: participants/templates/participants/merge.html:8
+#: participants/templates/participants/merge.html:14
+msgid "participants:merge:header"
+msgstr "Participanten samenvoegen"
+
+#: participants/templates/participants/merge.html:26
+msgid "participants:merge:merge_button"
+msgstr "Participanten samenvoegen"
+
+#: participants/templates/participants/specific_criteria.html:8
+#: participants/templates/participants/specific_criteria.html:14
+msgid "participants:specific_criteria:header"
+msgstr "Specifieke criteria voor '{}'"
+
+#: participants/templates/widgets/participant_sex_widget.html:78
+msgid "participant:attribute:sex:other"
+msgstr "Overig"
+
+#: participants/views.py:50
+msgid "participants:messages:switched_emails"
+msgstr "Participant emails omgewisseld!"
+
+#: participants/views.py:72
+msgid "participants:messages:updated_participant"
+msgstr "Participant aangepast!"
+
+#: participants/views.py:126
+msgid "participants:messages:deleted_participant"
+msgstr "Participant verwijderd!"
+
+#: participants/views.py:173
+msgid "participants:messages:merged_participants"
+msgstr "Participanten samengevoegd!"

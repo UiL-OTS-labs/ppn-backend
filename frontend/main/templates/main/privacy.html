@@ -1,0 +1,58 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load datatables %}
+{% load get_field_name %}
+{% load static %}
+
+{% block header_title %}
+    {% trans 'main:privacy:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>{% trans 'main:privacy:header' %}</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <h2>
+            {% trans 'main:privacy:subheader1' %}
+        </h2>
+        <p>
+            {% trans 'main:privacy:p1' %}
+        </p>
+        <p>
+            {% trans 'main:privacy:p2' %}
+        </p>
+        <p>
+            {% trans 'main:privacy:p3' %}
+        </p>
+        <p>
+            {% trans 'main:privacy:p4' %}
+        </p>
+        <p>
+            {% transformat 'main:privacy:p5' admin_email admin.name %}
+        </p>
+
+        <h2>
+            {% trans 'main:privacy:subheader2' %}
+        </h2>
+        <p>
+            {% trans 'main:privacy:p6' %}
+        </p>
+        <p>
+            {% trans 'main:privacy:p7' %}
+        </p>
+
+        <h2>
+            {% trans 'main:privacy:subheader3' %}
+        </h2>
+        <p>
+            {% transformat 'main:privacy:p8' admin_email admin.name %}
+        </p>
+    </div>
+</div>
+{% endblock %}

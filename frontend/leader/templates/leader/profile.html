@@ -1,0 +1,29 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+
+{% block header_title %}
+    {% trans 'profile:content:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            {% trans 'profile:content:header' %}
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <form method="post" enctype="multipart/form-data" class="uu-form uu-form-no-help uu-form-no-gap">
+            {% csrf_token %}
+            {{ form }}
+
+            <button type="submit" class="btn btn-primary mt-3">
+                {% trans 'globals:save_button' %}
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

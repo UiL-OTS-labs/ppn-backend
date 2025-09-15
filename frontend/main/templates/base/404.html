@@ -1,0 +1,30 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+
+
+{% block html_head %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block header_title %}
+    {% trans '404:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h2>{% trans '404:header' %}</h2>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        <p>
+            {% trans '404:p1' %}
+        </p>
+        <p>
+            {% trans '404:p2' %}
+        </p>
+    </div>
+</div>
+{% endblock %}

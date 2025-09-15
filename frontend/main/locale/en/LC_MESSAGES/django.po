@@ -1,0 +1,319 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-06 08:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: main/forms.py:15
+msgid ""
+"Please enter a correct email address and password. Note that both fields may "
+"be case-sensitive."
+msgstr ""
+
+#: main/forms.py:21
+msgid "Email"
+msgstr ""
+
+#: main/forms.py:38
+msgid "forms:forgot_password:token_placeholder"
+msgstr "Enter your reset token"
+
+#: main/forms.py:47
+msgid "forms:forgot_password:email_placeholder"
+msgstr "Enter your email"
+
+#: main/forms.py:67
+msgid "form:forgot_password:email_incorrect"
+msgstr ""
+"The email address you've entered is invalid or not attached to an account."
+
+#: main/forms.py:78 main/forms.py:130
+msgid "forms:change_password:password_mismatch"
+msgstr "The two password fields didn't match."
+
+#: main/forms.py:79
+msgid "forms:change_password:token_incorrect"
+msgstr "Your token has expired!"
+
+#: main/forms.py:87 main/forms.py:135
+msgid "forms:change_password:new1"
+msgstr "New password"
+
+#: main/forms.py:93 main/forms.py:141
+msgid "forms:change_password:new2"
+msgstr "Confirm new password"
+
+#: main/forms.py:131
+msgid "forms:change_password:password_incorrect"
+msgstr "Your old password was entered incorrectly. Please enter it again."
+
+#: main/forms.py:147
+msgid "forms:change_password:old"
+msgstr "Current password"
+
+#: main/menus.py:5
+msgid "mainmenu:home"
+msgstr "Home"
+
+#: main/menus.py:10
+msgid "mainmenu:leader_experiments"
+msgstr "My experiments"
+
+#: main/menus.py:16
+msgid "mainmenu:leader_profile"
+msgstr "Change profile"
+
+#: main/menus.py:22
+msgid "mainmenu:sign_up"
+msgstr "Mailing list"
+
+#: main/menus.py:27
+msgid "mainmenu:cancel_appointment"
+msgstr "Cancel appointment"
+
+#: main/menus.py:32
+msgid "mainmenu:my_appointments"
+msgstr "My appointments"
+
+#: main/menus.py:39 main/menus.py:66
+msgid "menu:privacy"
+msgstr "Privacy Statement"
+
+#: main/menus.py:46 main/menus.py:61 main/templates/base/login_header.html:12
+msgid "main:globals:login"
+msgstr "Log in"
+
+#: main/menus.py:51
+msgid "mainmenu:change_password"
+msgstr "Change password"
+
+#: main/menus.py:56 main/menus.py:70 main/templates/base/login_header.html:7
+msgid "main:globals:logout"
+msgstr "Log out"
+
+#: main/templates/403_csrf.html:7 main/templates/403_csrf.html:12
+#: main/templates/base/500.html:5 main/templates/base/500.html:10
+msgid "500:header"
+msgstr "Something went wrong"
+
+#: main/templates/403_csrf.html:23 main/templates/base/500.html:18
+msgid "500:p1"
+msgstr "Sorry! It looks like we made a mistake our side!"
+
+#: main/templates/403_csrf.html:26 main/templates/base/500.html:21
+msgid "500:p2"
+msgstr "In the meantime, these are some things you can do:"
+
+#: main/templates/403_csrf.html:30 main/templates/base/500.html:25
+msgid "500:advice:reload"
+msgstr "<strong>Reload the page</strong> (this might help)"
+
+#: main/templates/base/403.html:9 main/templates/base/403.html:14
+msgid "403:header"
+msgstr "Not authorized"
+
+#: main/templates/base/403.html:22
+msgid "403:p1"
+msgstr ""
+"It looks like you are trying to acess a page you are not allowed to view."
+
+#: main/templates/base/403.html:25
+msgid "403:p2"
+msgstr "If you think this is a mistake, please contact the lab technicians."
+
+#: main/templates/base/404.html:10 main/templates/base/404.html:15
+msgid "404:header"
+msgstr "Page not found"
+
+#: main/templates/base/404.html:23
+msgid "404:p1"
+msgstr "We can't seem to find the page you're looking for."
+
+#: main/templates/base/404.html:26
+msgid "404:p2"
+msgstr "The link you clicked may be broken or the page may have been moved."
+
+#: main/templates/base/500.html:28
+msgid "500:advice:wait"
+msgstr "<strong>Try again later</strong>"
+
+#: main/templates/base/500.html:32
+#, python-format
+msgid "500:advice:contact %(technician_contact)s"
+msgstr ""
+"<strong>Contact the <a href=\"%(technician_contact)s\">lab technicians</a></"
+"strong> and tell them what happend."
+
+#: main/templates/base/login_header.html:6
+msgid "site:header:login"
+msgstr "Welcome {}."
+
+#. Translators: This is the title that will end up in the tab of the browser
+#: main/templates/base/ppn_base.html:11 main/templates/base/site_title.html:5
+msgid "site:name"
+msgstr "ILS Labs Experiments"
+
+#: main/templates/base/ppn_base.html:25 main/templates/base/ppn_base.html:26
+#: main/templates/base/ppn_base.html:79
+msgid "cdh.core:uu"
+msgstr ""
+
+#. Translators: This is the title that will end up in the header (in blue)
+#: main/templates/base/ppn_base.html:34 main/templates/base/site_header.html:4
+msgid "site:header:title"
+msgstr "ILS Labs Experiments"
+
+#: main/templates/base/ppn_base.html:59
+msgid "lang:en"
+msgstr "English"
+
+#: main/templates/base/ppn_base.html:64
+msgid "lang:nl"
+msgstr "Nederlands"
+
+#: main/templates/main/change_password.html:14
+#: main/templates/main/change_password.html:20
+msgid "change_password:content:header"
+msgstr "Change password"
+
+#: main/templates/main/change_password.html:30
+msgid "change_password:content:forced_change"
+msgstr ""
+"Your current password has been set by an administrator. For security "
+"reasons, we ask you to change this password to something else. "
+
+#: main/templates/main/change_password.html:39
+msgid "globals:save_button"
+msgstr "Save "
+
+#: main/templates/main/enter_reset_token.html:5
+#: main/templates/main/enter_reset_token.html:11
+msgid "enter_reset_token:content:header"
+msgstr "(Re)set password"
+
+#: main/templates/main/enter_reset_token.html:20
+msgid "enter_reset_token:content:help_text"
+msgstr "Please enter your reset token."
+
+#: main/templates/main/enter_reset_token.html:26
+msgid "enter_reset_token:content:continue"
+msgstr "Continue"
+
+#: main/templates/main/forgot_password.html:5
+#: main/templates/main/forgot_password.html:11
+msgid "forgot_password:content:header"
+msgstr "Forgotten password"
+
+#: main/templates/main/forgot_password.html:20
+msgid "forgot_password:content:help_text"
+msgstr "Follow these instructions to reset your password."
+
+#: main/templates/main/forgot_password.html:25
+msgid "forgot_password:content:request_button"
+msgstr "Request password reset"
+
+
+#: main/templates/main/index.html:62
+msgid "index:header:open_experiments"
+msgstr "Open experiments"
+
+#: main/templates/main/ldap_password.html:6
+#: main/templates/main/ldap_password.html:12
+msgid "ldap_password:header"
+msgstr "Solis account"
+
+#: main/templates/main/ldap_password.html:21
+msgid "ldap_password:content"
+msgstr ""
+"Your account is linked to your Solis account, which means you cannot change/"
+"reset your password through this application. Please use the university's "
+"'MySolisID' portal to change/reset your password."
+
+#: main/templates/main/ldap_password.html:25
+msgid "ldap_password:link"
+msgstr "Click here to go to the 'MySolisID' portal."
+
+#: main/templates/main/login_lockout.html:9
+#: main/templates/main/login_lockout.html:17
+msgid "main:login_lockout:header"
+msgstr "Login disabled"
+
+#: main/templates/main/login_lockout.html:20
+msgid "main:login_lockout:info_text"
+msgstr ""
+"Due to many failed login attempts, logging in has been disabled for one hour."
+
+#: main/templates/main/privacy.html:25
+msgid "main:privacy:p1"
+msgstr ""
+
+#: main/templates/main/privacy.html:28
+msgid "main:privacy:p2"
+msgstr ""
+
+#: main/templates/main/reset_password.html:5
+#: main/templates/main/reset_password.html:11
+msgid "reset_password:content:header"
+msgstr "(Re)set password"
+
+#: main/templates/main/reset_password.html:21
+msgid "reset_password:content:help_text"
+msgstr "Please enter the new password you want to use."
+
+#: main/templates/main/reset_password.html:27
+msgid "reset_password:content:change_button"
+msgstr "Change password"
+
+#: main/templates/main/reset_password.html:32
+msgid "reset_password:content:invalid_token"
+msgstr "Your password reset token is invalid or has expired!"
+
+#: main/templates/registration/logged_out.html:6
+msgid "main:logged_out_title"
+msgstr "Logged out"
+
+#: main/templates/registration/logged_out.html:13
+msgid "main:logged_out_text"
+msgstr "You have been successfully logged out!"
+
+#: main/templates/registration/login.html:7
+msgid "login:header:login"
+msgstr "Log in"
+
+#: main/templates/registration/login.html:20
+msgid "login:content:forgot_password"
+msgstr "Forgot password?"
+
+#: main/templates/registration/login.html:22
+msgid "login:button:login"
+msgstr "Log in"
+
+#: main/views.py:88
+msgid "password:message:updated"
+msgstr "Password changed!"
+
+#: main/views.py:123
+msgid "password:message:reset_requested"
+msgstr ""
+"We've sent you an email with instructions on how to reset your password!"
+
+#: main/views.py:146
+msgid "password:message:reset_successful"
+msgstr "Password successfully reset!"
+
+#~ msgid "index:content:cancel"
+#~ msgstr ""
+#~ "If you have registered for an experiment but you're not able to come, you "
+#~ "can unsubscribe here. "

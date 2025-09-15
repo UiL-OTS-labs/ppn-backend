@@ -1,0 +1,81 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+{% load static %}
+
+{% block html_head %}
+    <script src="{% static 'uil.core/js/form_helpers.js' %}"></script>
+    <script nonce="{{ request.csp_nonce }}">
+        $(function () {
+            depends_on_value('account', 'True', 'name');
+
+            $('form').submit((e) => {
+                let el = $('#submit');
+
+                if($('form')[0].checkValidity()) {
+                    el.prop('disabled', true);
+                    el.toggleClass('btn-loading')
+                }
+            });
+        });
+    </script>
+    {# Redicilous display fix because Django cannot <label> right #}
+    </style>
+{% endblock %}
+
+{% block header_title %}
+    Opgeven voor mailing list en/of account aanmaken - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>
+            Aanmeldformulier
+        </h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="uu-container">
+        <div class="col-12">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h2>
+                    Opgeven voor experimenten
+                </h2>
+                <p>
+                    Wil je meedoen aan een experiment? Dan moet je natuurlijk weten welke experimenten er zijn! Daarom vragen we je e-mailadres.
+                    Geen zorgen: we zullen je niet vol spammen. Je ontvangt alleen mailtjes over experimenten die voor jou relevant zijn.
+                    Bedenk je je later en wil je geen proefpersoon meer zijn? Geen probleem — je kunt je op elk moment afmelden!
+                </p>
+                <h2>Formulier</h2>
+                <p>
+                    We hebben een paar gegevens van je nodig — omdat jouw deelname ertoe doet.
+                    jouw bijdrage helpt ons écht verder in het doen van belangrijk wetenschappelijk onderzoek.
+                </p>
+                <div class="uu-form uu-form-no-gap uu-form-no-help">
+                    {{ form }}
+                </div>
+                {# Sorry for this custom HTML, its template is being annoying when automatically rendered #}
+                
+                <p class="mt-4">
+                    {{ form.mailing_list }}
+                </p>
+                <p>
+                    Je gegevens worden vertrouwelijk behandeld, en je kunt
+                    je op elk moment weer uitschrijven door een mailtje te
+                    sturen aan
+                    <a href="mailto:{{ admin_email }}">{{ admin.name }}</a>.
+                    Zie onze
+                    <a href="{% url 'main:privacy' %}">
+                        privacy-verklaring
+                    </a>
+                    voor meer informatie.
+                </p>
+                <button id="submit" type="submit" class="btn btn-primary">
+                    Opgeven
+                </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

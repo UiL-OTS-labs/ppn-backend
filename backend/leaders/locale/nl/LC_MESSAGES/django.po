@@ -1,0 +1,256 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-01 12:11+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: leaders/forms.py:17
+msgid "leader:form:password:error:not_equal"
+msgstr "De opgegeven wachtwoorden komen niet overeen!"
+
+#: leaders/forms.py:30 leaders/forms.py:89 leaders/forms.py:147
+#: leaders/forms.py:231
+msgid "leader:form:name"
+msgstr "(Volledige) naam"
+
+#: leaders/forms.py:34 leaders/forms.py:93 leaders/forms.py:151
+#: leaders/forms.py:235
+msgid "leader:form:email"
+msgstr "E-mailadres"
+
+#: leaders/forms.py:38 leaders/forms.py:97 leaders/forms.py:155
+#: leaders/forms.py:239
+msgid "leader:form:phonenumber"
+msgstr "Telefoonnummer"
+
+#: leaders/forms.py:42 leaders/forms.py:168
+msgid "leader:form:password"
+msgstr "Wachtwoord"
+
+#: leaders/forms.py:43 leaders/forms.py:169
+msgid "leader:form:password:help_text"
+msgstr ""
+"Dit kan leeg gelaten worden indien je geen wachtwoord wil maken/veranderen"
+
+#: leaders/forms.py:49 leaders/forms.py:175
+msgid "leader:form:confirm_password:label"
+msgstr "Herhaal wachtwoord"
+
+#: leaders/forms.py:50 leaders/forms.py:176
+msgid "leader:form:confirm_password:help_text"
+msgstr ""
+"Dit kan leeg gelaten worden indien je geen wachtwoord wil maken/veranderen"
+
+#: leaders/forms.py:56 leaders/forms.py:101
+msgid "leaders:forms:create_form:notify_user:label"
+msgstr "Informeer proefleider"
+
+#: leaders/forms.py:57
+msgid "leaders:forms:create_form:notify_user:help_text"
+msgstr ""
+"Als dit is aangevinkt zal het systeem een email sturen naar de proefleider "
+"over hun nieuwe account. Als er geen wachtwoord is opgegeven zal deze mail "
+"ook uitleggen hoe die zelf een wachtwoord kunnen instellen."
+
+#: leaders/forms.py:73 leaders/forms.py:123 leaders/forms.py:193
+#: leaders/forms.py:259
+msgid "leader:form:email:error:user_exists"
+msgstr "Er bestaat al een proefleider met dit email adres!"
+
+#: leaders/forms.py:102
+msgid "leaders:forms:create_form:notify_user:help_text:ldap"
+msgstr ""
+"Als dit is aangevinkt zal het systeem een email sturen naar de proefleider "
+"over hun nieuwe account."
+
+#: leaders/forms.py:116 leaders/forms.py:251
+msgid "leader:form:email:error:not_uu_mail"
+msgstr "Dit is geen geldig UU email adres."
+
+#: leaders/forms.py:141 leaders/forms.py:225
+msgid "leader:form:active"
+msgstr "Account actief"
+
+#: leaders/forms.py:159
+msgid "leaders:forms:create_form:keep_current_password:label"
+msgstr "Behoud huidig wachtwoord"
+
+#: leaders/forms.py:161
+msgid "leaders:forms:create_form:keep_current_password:help_text"
+msgstr ""
+"Indien dit is aangevinkt worden de wachtwoord-velden genegeerd en het "
+"huidige wachtwoord behouden."
+
+#: leaders/forms.py:207
+msgid "leader:form:password:error:empty"
+msgstr ""
+"Dit veld kan niet leeg gelaten worden als 'Behoud huidig wachtwoord' is "
+"aangevinkt!"
+
+#: leaders/models.py:34
+msgid "leader:inactive"
+msgstr "{} (inactief)"
+
+#: leaders/templates/leaders/convert.html:8
+#: leaders/templates/leaders/convert.html:14
+msgid "leaders:convert:header"
+msgstr "Account omzetten naar Solis-ID account"
+
+#: leaders/templates/leaders/convert.html:23
+msgid "leaders:convert:text"
+msgstr ""
+"Weet je zeker dat je {}'s account wilt omzetten naar een Solis account? <br/"
+"> Hiermee wordt het ingestelde wachtwoord verwijderd en moet de gebruiker "
+"diens UU-inloggegevens gebruiken! De gebruiker wordt niet automatisch op de "
+"hoogte gebracht van deze wijziging."
+
+#: leaders/templates/leaders/convert.html:26
+msgid "leaders:convert:cancel"
+msgstr "Annuleer"
+
+#: leaders/templates/leaders/convert.html:29
+msgid "leaders:convert:confirm"
+msgstr "Converteer"
+
+#: leaders/templates/leaders/delete.html:8
+#: leaders/templates/leaders/delete.html:14
+msgid "leaders:delete:header"
+msgstr "Proefleider verwijderen"
+
+#: leaders/templates/leaders/delete.html:23
+msgid "leaders:delete:text"
+msgstr ""
+"Weet je zeker dat je {} wilt verwijderen als proefleider? Experimenten "
+"waarbij die de hoofd-proefleider is kunnen onvoorspelbaar gedrag gaan "
+"verstonen. Je kunt in plaats van een account verwijderen ook een account "
+"deactiveren, dit ziet er voor de proefleider uit alsof het account "
+"verwijderd is."
+
+#: leaders/templates/leaders/delete.html:26
+msgid "leaders:delete:cancel"
+msgstr "Annuleer"
+
+#: leaders/templates/leaders/delete.html:29
+msgid "leaders:delete:confirm"
+msgstr "verwijder"
+
+#: leaders/templates/leaders/index.html:7
+#: leaders/templates/leaders/index.html:13
+msgid "leaders:home:header"
+msgstr "Proefleiders"
+
+#: leaders/templates/leaders/index.html:18
+msgid "leaders:home:create_leader:local"
+msgstr "Nieuwe gast-proefleider (non-Solis-ID)"
+
+#: leaders/templates/leaders/index.html:20
+msgid "leaders:home:create_leader"
+msgstr "Nieuwe proefleider"
+
+#: leaders/templates/leaders/index.html:25
+msgid "leaders:home:create_leader:ldap"
+msgstr "Nieuwe proefleider (Solis-ID)"
+
+#: leaders/templates/leaders/index.html:39
+msgid "leaders:home:id"
+msgstr "ID"
+
+#: leaders/templates/leaders/index.html:42
+msgid "leaders:home:name"
+msgstr "Naam"
+
+#: leaders/templates/leaders/index.html:45
+msgid "leaders:home:email"
+msgstr "E-mailadres"
+
+#: leaders/templates/leaders/index.html:48
+msgid "leaders:home:phone"
+msgstr "Telefoonnummer"
+
+#: leaders/templates/leaders/index.html:51
+msgid "leaders:home:active"
+msgstr "Actief"
+
+#: leaders/templates/leaders/index.html:55
+msgid "leaders:home:is_ldap"
+msgstr "Solis account"
+
+#: leaders/templates/leaders/index.html:59
+msgid "leaders:home:actions"
+msgstr "Acties"
+
+#: leaders/templates/leaders/index.html:104
+#: leaders/templates/leaders/index.html:110
+msgid "leaders:home:edit:title"
+msgstr "Proefleider bewerken"
+
+#: leaders/templates/leaders/index.html:120
+msgid "leaders:home:convert_to_ldap"
+msgstr "Zet account om naar Solis account"
+
+#: leaders/templates/leaders/index.html:131
+msgid "leaders:home:delete:title"
+msgstr "Proefleider verwijderen"
+
+#: leaders/templates/leaders/new.html:8 leaders/templates/leaders/new.html:14
+msgid "leaders:new:header"
+msgstr "Nieuwe proefleider aanmaken"
+
+#: leaders/templates/leaders/new.html:27
+#: leaders/templates/leaders/update.html:39
+msgid "leaders:globals:save_button"
+msgstr "Opslaan"
+
+#: leaders/templates/leaders/update.html:9
+#: leaders/templates/leaders/update.html:26
+msgid "leaders:update:header"
+msgstr "Proefleider '{}' aanpassen"
+
+#: leaders/views.py:51 leaders/views.py:78
+msgid "leaders:create:success_message"
+msgstr "Nieuwe proefleider aangemaakt!"
+
+#: leaders/views.py:99 leaders/views.py:203
+msgid "leaders:create:error_no_solis"
+msgstr "Solis account kon niet gevonden worden!"
+
+#: leaders/views.py:112 leaders/views.py:150
+msgid "leaders:update:success_message"
+msgstr "Proefleider aangepast!"
+
+#: leaders/views.py:188
+msgid "leaders:messages:deleted"
+msgstr "Proefleider verwijderd!"
+
+#: leaders/views.py:201
+msgid "leaders:messages:converted"
+msgstr "Account omgezet!"
+
+#: leaders/views.py:205
+msgid "leaders:messages:ldap_not_enabled"
+msgstr "LDAP staat niet aan. Hoe kreeg je deze error?"
+
+#: leaders/views.py:207
+msgid "leaders:messages:invalid_solis_mail"
+msgstr "Account heeft geen valide UU mail. Hoe kreeg je deze error?"
+
+#~ msgid "leaders:home:info_text"
+#~ msgstr "<br/>"
+
+#~ msgid "leaders:new:info_text"
+#~ msgstr "<br/>"
+
+#~ msgid "leaders:update:info_text"
+#~ msgstr "<br/>"

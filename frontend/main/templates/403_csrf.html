@@ -1,0 +1,35 @@
+{# We're acting like it's our fault (500) to avoid confusing the user into #}
+{# thinking they aren't allowed to view a page. Often it's just a stale CSRF token #}
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+
+{% block header_title %}
+    {% trans '500:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+    <div class="uu-hero">
+        <h1>{% trans '500:header' %}</h1>
+    </div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+        {% if DEBUG %}
+            <p>DEBUG INFO: this is a CSRF error in disguise ;)</p>
+        {% endif %}
+        <p>
+            {% trans '500:p1' %}
+        </p>
+        <p>
+            {% trans '500:p2' %}
+        </p>
+        <ul>
+            <li>
+                {% trans '500:advice:reload' %}
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
