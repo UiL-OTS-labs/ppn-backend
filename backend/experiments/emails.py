@@ -79,7 +79,7 @@ DEFAULT_REMINDER_CONTENT = """<p>Beste {{ name }},</p>
         minstens 24 uur vantevoren. Als je vlak vantevoren ontdekt dat je 
         verhinderd bent, neem dan svp even persoonlijk contact op met de 
         proefleider ({{ leader_name }}, email: {{ leader_email }}
-        tel.: {{ leader_phone }}).
+        tel.: {{ leader_phonenumber }}).
     </p>"""
 
 
