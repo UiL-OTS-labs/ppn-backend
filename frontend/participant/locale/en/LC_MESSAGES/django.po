@@ -43,7 +43,7 @@ msgstr "Canceling is no longer possible"
 
 #: participant/templates/participant/appointments/appointments.html:74
 msgid "appointments:content:no_appointments"
-msgstr "Canceling is no longer possible"
+msgstr "Je hebt op dit moment geen afspraken staan"
 
 #: participant/templates/participant/appointments/cancel_landing.html:7
 #: participant/templates/participant/appointments/cancel_landing.html:13
