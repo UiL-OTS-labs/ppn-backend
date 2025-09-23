@@ -29,7 +29,7 @@ django-filter==25.1
 django-impersonate==1.9.5
 django-modeltranslation==0.19.15
 django-requests-debug-toolbar==0.0.7
-django-select2==8.4.1
+django-select2==8.2.4
 django-simple-menu==2.1.4
 djangorestframework==3.16.0
 djangosaml2==1.10.1
