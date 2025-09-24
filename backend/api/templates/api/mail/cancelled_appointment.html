@@ -18,7 +18,7 @@
         Datum: <strong>{{ time_slot.datetime|date:"l d-m-Y" }}</strong><br/>
         Tijd: <strong>{{ time_slot.datetime|date:"H:i" }} uur</strong><br/>
          {% if experiment.location %}
-            {% if "<b>" in experiment.location or "<strong>" in experiment.location %}
+            {% if "<b>" in experiment.location or "<strong>" in experiment.location %} //Iris wanted this
                 Locatie: {{ experiment.location|safe }}<br/>
             {% else %}
                 Locatie: <strong>{{ experiment.location }}</strong><br/>
