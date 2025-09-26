@@ -101,10 +101,6 @@ def register_participant(data: dict, experiment: Experiment) -> Tuple[bool,
 
     participant = _get_participant(data)
 
-    # Participants should not be allowed to register twice
-    if participant.pk is None:
-        participant.save()
-
     if experiment.appointments.filter(participant=participant).exists():
         return False, False, [
             _format_message(MISC_INVALID_MESSAGES['already_registered'])
