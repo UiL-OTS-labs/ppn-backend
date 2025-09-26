@@ -38,7 +38,7 @@ cryptography==43.0.3
     #   cdh-django-core
     #   pyopenssl
     #   pysaml2
-curtsies==0.4.3
+curtsies==0.4.2
     # via bpython
 cwcwidth==0.1.10
     # via
