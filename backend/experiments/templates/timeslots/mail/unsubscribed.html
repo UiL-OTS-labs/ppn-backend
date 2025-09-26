@@ -29,8 +29,19 @@
 {% block footer %}
     <p>
         Dit bericht is automatisch gegegenereerd. Neem bij vragen contact op met {{ admin }} via
-        <a href="mailto:{{ admin_email }}" style="color:#003399">
+        <a href="mailto:{{ admin_email }}" class="footer-link">
             {{ admin_email }}
         </a>
     </p>
+
+    <style>
+        .footer-link:link,
+        .footer-link:visited,
+        .footer-link:hover,
+        .footer-link:active {
+            color: inherit;         
+            text-decoration: underline; 
+        }
+    </style>
 {% endblock %}
+

@@ -136,15 +136,19 @@ msgstr "Antwoord"
 msgid "participants:delete:header"
 msgstr "Participant verwijderen"
 
-#: participants/templates/participants/delete.html:23
+#: participants/templates/participants/delete.html:20
+msgid "participants:delete:denied"
+msgstr "Je kan '{}' niet verwijderen, omdat deze persoon al meedoet aan een experiment."
+
+#: participants/templates/participants/delete.html:26
 msgid "participants:delete:text"
 msgstr "Weet je zeker dat je participant '{}' wilt verwijderen?"
 
-#: participants/templates/participants/delete.html:26
+#: participants/templates/participants/delete.html:29
 msgid "participants:delete:cancel"
 msgstr "Annuleer"
 
-#: participants/templates/participants/delete.html:29
+#: participants/templates/participants/delete.html:32
 msgid "participants:delete:confirm"
 msgstr "Verwijder participant"
 
@@ -152,6 +156,7 @@ msgstr "Verwijder participant"
 #: participants/templates/participants/detail.html:26
 msgid "participants:detail:header"
 msgstr "Details van '{}'"
+
 
 #: participants/templates/participants/detail.html:29
 msgid "participants:detail:edit_participant"

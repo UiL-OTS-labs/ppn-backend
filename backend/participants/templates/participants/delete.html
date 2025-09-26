@@ -1,5 +1,6 @@
 {% extends "base/ppn_base.html" %}
 {% load i18n %}
+{% load transformat %}
 
 {% block header_title %}
     {% trans 'participants:delete:header' %} - {{ block.super }}
@@ -17,13 +18,13 @@
 <div class="uu-container">
     <div class="col-12">
         {% if object.appointments.exists %}
-            <p>{% trans "Je kan deze participant niet verwijderen omdat die al aan een experiment meedoet." %}</p>
+            <p>{% transformat 'participants:delete:denied' participant.fullname %}</p>
             <a href="{% url 'participants:home' %}" class="btn btn-secondary">
                 {% trans 'global:delete:cancel' %}
             </a>
         {% else %}
             <form method="post">{% csrf_token %}
-                <p>{% trans "Weet je zeker dat je deze participant wilt verwijderen?" %}</p>
+                <p>{% transformat 'participants:delete:text' participant.fullname %}</p>
                 <div class="btn-group">
                     <a href="{% url 'participants:home' %}" class="btn btn-secondary">
                         {% trans 'global:delete:cancel' %}
