@@ -123,11 +123,9 @@ def _get_register_form(form: BaseRegisterForm, experiment: Experiment):
 
     if not current_user.is_authenticated or not current_user.is_participant:
         form.fields['mailinglist'] = forms.BooleanField(
-            label='Wil je bericht ontvangen over toekomstige taal-experimenten?',
             widget=BootstrapRadioSelect(
                 choices=(
-                    (True, 'Ja'),
-                    (False, 'Nee')
+                    (True, 'Door dit aantekruisen ga je ermee akkoord dat we je in de toekomst via e-mail kunnen uitnodigen voor taalexperimenten. Je kunt je hier natuurlijk altijd voor afmelden.'),
                 ),
                 attrs={
                     'required': 'required'
