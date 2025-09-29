@@ -16,32 +16,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participant/templates/participant/appointments/appointments.html:30
-#: participant/templates/participant/appointments/appointments.html:36
+#: participant/templates/participant/appointments/appointments.html:25
+#: participant/templates/participant/appointments/appointments.html:31
 msgid "appointments:content:header"
 msgstr "My appointments"
 
-#: participant/templates/participant/appointments/appointments.html:49
+#: participant/templates/participant/appointments/appointments.html:40
 msgid "appointments:thead:date"
 msgstr "Date"
 
-#: participant/templates/participant/appointments/appointments.html:50
+#: participant/templates/participant/appointments/appointments.html:46
 msgid "appointments:thead:time"
 msgstr "Time"
 
-#: participant/templates/participant/appointments/appointments.html:53
+#: participant/templates/participant/appointments/appointments.html:49
 msgid "appointments:thead:leader"
 msgstr "Experiment leader"
 
-#: participant/templates/participant/appointments/appointments.html:65
+#: participant/templates/participant/appointments/appointments.html:52
 msgid "appointments:content:cancel"
 msgstr "Cancel appointment"
 
-#: participant/templates/participant/appointments/appointments.html:68
+#: participant/templates/participant/appointments/appointments.html:55
 msgid "appointments:content:cannot_cancel"
 msgstr "Canceling is no longer possible"
 
-#: participant/templates/participant/appointments/appointments.html:74
+#: participant/templates/participant/appointments/appointments.html:58
 msgid "appointments:content:no_appointments"
 msgstr "You don’t have any appointments you could unsubscribe from."
 

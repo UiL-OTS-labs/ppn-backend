@@ -33,15 +33,15 @@ msgstr "Experiment"
 msgid "appointments:thead:day"
 msgstr "Dag"
 
-#: participant/templates/participant/appointments/appointments.html:52
+#: participant/templates/participant/appointments/appointments.html:49
 msgid "appointments:thead:date"
 msgstr "Datum"
 
-#: participant/templates/participant/appointments/appointments.html:55
+#: participant/templates/participant/appointments/appointments.html:50
 msgid "appointments:thead:time"
 msgstr "Tijd"
 
-#: participant/templates/participant/appointments/appointments.html:58
+#: participant/templates/participant/appointments/appointments.html:53
 msgid "appointments:thead:leader"
 msgstr "Proefleider"
 
