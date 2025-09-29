@@ -1,4 +1,5 @@
 {% extends 'cdh.mail/mail_template.html' %}
+{% load custom_filters %}
 
 {% block sender %}
     Taal-experimenten
@@ -15,11 +16,11 @@
     <p>
         Je hebt je uitgeschreven voor het experiment: <strong>{{ experiment.name }}</strong><br/><br/>
         {% if time_slot %}
-        Datum: <strong>{{ time_slot.datetime|date:"l d-m-Y" }}</strong><br/>
-        Tijd: <strong>{{ time_slot.datetime|date:"H:i" }} uur</strong><br/>
+            Datum: <strong>{{ time_slot.datetime|date:"l d-m-Y" }}</strong><br/>
+            Tijd: <strong>{{ time_slot.datetime|date:"H:i" }} uur</strong><br/>
         {% endif %}
         {% if experiment.location %}
-        Locatie: <strong>{{ experiment.location }}</strong><br/>
+            Locatie: <strong>{{ experiment.location|remove_bold_tags }}</strong><br/>
         {% endif %}
         Uitgeschreven op: <strong>{% now "d-m-Y, H:i" %}</strong>
     </p>
