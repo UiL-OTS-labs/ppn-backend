@@ -54,13 +54,17 @@ msgid "appointments:thead:actions"
 msgstr "Acties"
 
 #: participant/templates/participant/appointments/appointments.html:92
-#: participant/templates/participant/appointments/appointments.html:96
+#: participant/templates/participant/appointments/appointments.html:65
 msgid "appointments:content:cancel"
 msgstr "Afzeggen"
 
-#: participant/templates/participant/appointments/appointments.html:100
+#: participant/templates/participant/appointments/appointments.html:68
 msgid "appointments:content:cannot_cancel"
 msgstr "Uitschrijven is niet meer mogelijk."
+
+#: participant/templates/participant/appointments/appointments.html:74
+msgid "appointments:content:no_appointments"
+msgstr "Je hebt geen afspraken staan waarvoor je je uit zou kunnen schrijven."
 
 #: participant/templates/participant/appointments/cancel_landing.html:7
 #: participant/templates/participant/appointments/cancel_landing.html:13
