@@ -104,7 +104,7 @@ class ParticipantAccountCreationTests(TestCase):
 
         # Check if dyslexic is still the same
         # This should not be modifiable by any action on the users part
-        p = Participant.objects.get(pk=1)
+        p = Participant.objects.get(pk=participant.pk)
         self.assertEqual(p.dyslexic, False)
 
         user = ApiUser.objects.first()
@@ -417,7 +417,7 @@ class ParticipantAccountCreationTests(TestCase):
         )
 
         # Refetch to get the latest data
-        p = Participant.objects.get(pk=1)
+        p = Participant.objects.get(pk=p.pk)
 
         # Check if the primary email is now the .nl variant
         self.assertEqual(
