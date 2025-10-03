@@ -13,6 +13,7 @@ from datetime import date
 
 import django
 import pytest
+import MySQLdb
 
 from playwright.sync_api import Page, Browser
 
@@ -30,13 +31,30 @@ class DjangoServerProcess:
         self.settings = f"{name}_settings"
         self.db_conn = None
 
-    def migrate(self):
-        # delete existing db
-        try:
-            os.unlink(f"{self.name}.int.db.sqlite3")
-        except FileNotFoundError:
-            pass
+    def recreate_db(self):
+        settings_module = importlib.import_module(self.settings)
 
+        if settings_module.DATABASES['default']['ENGINE'].endswith('sqlite3'):
+            try:
+                os.unlink(f"{self.name}.int.db.sqlite3")
+            except FileNotFoundError:
+                pass
+            return
+
+        connection = MySQLdb.connect(
+            user=settings_module.DATABASES["default"]["USER"],
+            host=settings_module.DATABASES["default"]["HOST"],
+            port=settings_module.DATABASES["default"]["PORT"],
+            password=settings_module.DATABASES["default"]["PASSWORD"],
+        )
+        db_name = settings_module.DATABASES["default"]["NAME"]
+
+        cursor = connection.cursor()
+        cursor.execute(f"DROP DATABASE IF EXISTS `{db_name}`;")
+        cursor.execute(f"CREATE DATABASE `{db_name}`;")
+
+    def migrate(self):
+        self.recreate_db()
         cmd = [
             "python",
             "-m",
@@ -110,6 +128,7 @@ class DjangoServerProcess:
         os.environ['DJANGO_SETTINGS_MODULE'] = self.settings
         django.setup()
         from django.db import connection
+
         self.db_conn = connection
         module = importlib.import_module(f'{app_name}.models')
         return module.__dict__[model]

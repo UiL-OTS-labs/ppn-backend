@@ -25,7 +25,9 @@ class ExclusionTests(TestCase):
         self.experiment.defaultcriteria.save()
 
         self.excluded_experiment = Experiment.objects.create(
-            name='excluded'
+            name='excluded',
+            leader=_get_or_create_leader(),
+            location=_get_or_create_location(),
         )
 
         self.time_slot = TimeSlot.objects.create(
