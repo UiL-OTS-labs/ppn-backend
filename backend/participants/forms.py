@@ -77,12 +77,14 @@ class ParticipantMergeForm(PPNTemplatedForm):
     old_participant = forms.ModelChoiceField(
         Participant.objects.all(),
         label=_('participants:merge_form:field:old_participant'),
+        empty_label=_('Type om participant op te zoeken'),
         widget=SearchableSelectWidget,
     )
 
     new_participant = forms.ModelChoiceField(
         Participant.objects.all(),
         label=_('participants:merge_form:field:new_participant'),
+        empty_label=_('Type om participant op te zoeken'),
         widget=SearchableSelectWidget,
     )
     

@@ -267,15 +267,19 @@ def test_merge_participant(apps, as_admin):
     page = as_admin
 
     page.goto(f"{apps.backend.url}/participants/merge/")
+    old_option = page.locator(
+        "#select2-id_old_participant-results li.select2-results__option",
+        has_text="[1] name unknown"
+    )
+    old_option.click()
 
-    page.click("#select2-id_old_participant-container")
-    old = page.locator("li.select2-results__option", has_text="[1] name unknown")
-    old.click()
 
-    page.click("#select2-id_new_participant-container")
-    new = page.locator("li.select2-results__option", has_text="[3] Han S. Olo")
-    new.click()
-
+    new_option = page.locator(
+        "#select2-id_new_participant-results li.select2-results__option",
+        has_text="[3] Han S. Olo"
+    )
+    new_option.click()
+    
     page.click("button.btn.btn-primary:has-text('Merge participants')")
 
     success_alert = page.locator("div.alert.alert-success")

@@ -9,11 +9,9 @@
 {% endblock %}
 
 {% block pre-messages-content %}
-    <div class="uu-hero">
-        <h1 class="h2">
-            {% trans 'participants:merge:header' %}
-        </h1>
-    </div>
+<div class="uu-hero">
+    <h1 class="h2">{% trans 'participants:merge:header' %}</h1>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -21,11 +19,72 @@
     <div class="col-12">
         <form method="post" class="uu-form uu-form-no-gap uu-form-no-help">
             {% csrf_token %}
-            {{ form }}
-            <button type="submit" class="btn btn-primary float-end mt-3">
-                {% trans 'participants:merge:merge_button' %}
-            </button>
+
+            <!-- Oude participant -->
+            <div class="form-group">
+                <label for="id_old_participant" style="margin-left:18px;">
+                    {% trans 'participants:merge_form:field:old_participant' %}
+                </label>
+                {{ form.old_participant }}
+            </div>
+
+            <div class="form-group" style="margin-top:12em;">
+                <label for="id_new_participant" style="margin-left:18px;">
+                    {% trans 'participants:merge_form:field:new_participant' %}
+                </label>
+                {{ form.new_participant }}
+            </div>
+
+            <div style="margin-top:10em;">
+                <button type="submit" class="btn btn-primary float-end mt-3">
+                    {% trans 'participants:merge:merge_button' %}
+                </button>
+            </div>
         </form>
     </div>
 </div>
+
+<style>
+
+.select2-container--default .select2-dropdown {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.select2-container--default .select2-search--dropdown {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+}
+</style>
+
+<script nonce="{{ request.csp_nonce }}">
+window.onload = function() {
+    function initSelect2AlwaysOpen($select) {
+        $select.select2({
+            placeholder: "Select participant",
+            allowClear: true,
+            width: '100%',
+            dropdownParent: $select.parent()
+        });
+
+        setTimeout(function() {
+            $select.select2('open');
+        }, 100);
+
+        $select.on('select2:open', function() {
+            let searchField = $select.data('select2').$dropdown.find('.select2-search__field');
+            if(searchField.length) searchField.focus();
+        });
+
+        $select.on('select2:closing', function(e) {
+            e.preventDefault();
+        });
+    }
+
+    initSelect2AlwaysOpen($('#id_old_participant'));
+    initSelect2AlwaysOpen($('#id_new_participant'));
+};
+</script>
 {% endblock %}
