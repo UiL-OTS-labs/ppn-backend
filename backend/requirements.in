@@ -15,6 +15,7 @@ python-dateutil
 cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.2.0
 mysqlclient
 django-auth-ldap
+pytz
 
 # dev only
 pip-tools

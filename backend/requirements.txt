@@ -154,6 +154,8 @@ python-ldap==3.4.5
     # via django-auth-ldap
 python-magic==0.4.27
     # via cdh-django-core
+pytz==2025.2
+    # via -r requirements.in
 pyxdg==0.28
     # via bpython
 requests==2.32.5
