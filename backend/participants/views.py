@@ -1,6 +1,7 @@
 import braces.views as braces
 from django import forms
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import Q
 from django.urls import reverse_lazy as reverse
 from django.utils.functional import cached_property
 from django.utils.text import gettext_lazy as _
@@ -23,9 +24,33 @@ from .utils.switch_main_email import switch_main_email
 class ParticipantsHomeView(braces.LoginRequiredMixin, generic.ListView):
     template_name = 'participants/index.html'
     model = Participant
+    paginate_by = 15
 
     def get_queryset(self):
-        return self.model.objects.prefetch_related('secondaryemail_set')
+        qs = self.model.objects.prefetch_related('secondaryemail_set')
+        order_by = '-created'
+        if self.request.GET.get('sort') == 'created':
+            order_by = 'created'
+
+        filtered = qs.order_by(order_by)
+        search = self.request.GET.get('search')
+        if search:
+            search = search.lower()
+            filtered = [
+                pp
+                for pp in qs
+                if (pp.name is not None and search in pp.name.lower())
+                or (pp.phonenumber is not None and search in pp.phonenumber)
+            ]
+
+        return filtered
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        page = context['page_obj']
+        if context['is_paginated']:
+            context['page_range'] = page.paginator.get_elided_page_range(page.number)
+        return context
 
 
 class ParticipantDetailView(braces.LoginRequiredMixin,

@@ -1,11 +1,26 @@
 {% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
-{% load datatables %}
 {% load get_field_name %}
 
 {% block header_title %}
     {% trans 'experiments:home:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block html_head %}
+{{ block.super }}
+<style>
+        .list-controls {
+            display: flex;
+            font-size: .8rem;
+        }
+
+        .list-controls select, .list-controls input, .list-controls .clear {
+            background: white;
+            border:1px solid #ccc;
+            color: #444;
+        }
+</style>
 {% endblock %}
 
 {% block pre-messages-content %}
@@ -23,7 +38,18 @@
 {% block content %}
 <div class="uu-container">
     <div class="col-12">
-        <table class="dt w-100 table-hover align-middle" width="100%" data-language="{% datatables_lang %}">
+        <form id="list_query_form">
+            <div class="list-controls mb-2">
+                <label>
+                    {% translate 'experiments:home:search' %}
+                    <input name="search" value="{{ request.GET.search }}"></input>
+                </label>
+                {% if request.GET.search %}
+                <button class="clear ms-2">{% translate 'experiments:home:search:clear' %}</button>
+                {% endif %}
+            </div>
+        </form>
+        <table class="w-100 table table-hover align-middle" width="100%">
             <thead>
                 <tr>
                     <th>
@@ -118,7 +144,30 @@
                 {% endfor %}
             </tbody>
         </table>
+        {% if is_paginated %}
+            <ul class="pagination">
+                {% for page in page_range %}
+                    {% if page_obj.number == page %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ page }}&search={{request.GET.search}}">{{ page }}</a></li>
+                    {% elif page == page_obj.paginator.ELLIPSIS %}
+                        <li class="page-item">{{ page }}</li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ page }}&search={{request.GET.search}}">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
         <br/>
     </div>
 </div>
+<script nonce="{{ request.csp_nonce }}">
+    let form = document.querySelector('#list_query_form');
+    let clear = form.querySelector('.clear');
+    if (clear) {
+        clear.addEventListener('click', () => {
+            form.search.value = '';
+            form.submit();
+        });
+    }
+</script>
 {% endblock %}

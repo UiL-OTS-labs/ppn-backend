@@ -31,18 +31,38 @@ from django.core.exceptions import SuspiciousOperation
 class ExperimentHomeView(braces.LoginRequiredMixin, generic.ListView):
     template_name = 'experiments/index.html'
     model = Experiment
+    paginate_by = 15
 
     def get_queryset(self):
-        qs = self.model.objects.select_related('location')
+        qs = self.model.objects.prefetch_related('timeslot_set').prefetch_related('leader')
+
+        search = self.request.GET.get('search')
+        if search:
+            qs = qs.filter(
+                Q(name__icontains=search) |
+                Q(leader__name__icontains=search)
+            ).distinct()
 
         count_participants = Count('appointments', distinct=True)
         count_excluded_experiments = Count('excluded_experiments',
                                            distinct=True)
 
-        return qs.annotate(
+        qs = qs.annotate(
             n_participants=count_participants,
             n_excluded_experiments=count_excluded_experiments,
         )
+        order_by = '-id'
+        if self.request.GET.get('sort') == 'id':
+            order_by = 'id'
+
+        return qs.order_by(order_by)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        page = context['page_obj']
+        if context['is_paginated']:
+            context['page_range'] = page.paginator.get_elided_page_range(page.number)
+        return context
 
 
 class ExperimentCreateView(braces.LoginRequiredMixin, SuccessMessageMixin,
