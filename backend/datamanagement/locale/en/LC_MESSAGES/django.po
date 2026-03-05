@@ -130,7 +130,7 @@ msgstr "Participants"
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:30
 msgid "datamanagement:home:participants:info_text"
-msgstr "These participants haven't participated in an experiment for {}."
+msgstr "These participants haven't participated in an experiment for more than {}."
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:36
 #: datamanagement/templates/datamanagement/index_parts/participants.html:91
@@ -154,7 +154,7 @@ msgstr "Participants without appointments"
 msgid "datamanagement:home:participants:info_text2"
 msgstr ""
 "These participants haven't ever participated in an experiment and were "
-"created {} ago"
+"created more than {} ago"
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:94
 msgid "datamanagement:home:participants:registered"
