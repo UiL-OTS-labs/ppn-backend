@@ -3,6 +3,23 @@
 {% load transformat %}
 {% load static %}
 
+{% block html_head %}
+    <script nonce="{{ request.csp_nonce }}">
+        document.addEventListener('invalid', function(e) {
+            e.target.setCustomValidity('Let op, je moet deze vraag nog beantwoorden!');
+        }, true);
+
+        document.addEventListener('change', function(e) {
+            e.target.setCustomValidity('');
+        }, true);
+    </script>
+    <style nonce="{{ request.csp_nonce }}">
+    input:user-invalid, select:user-invalid {
+        border-color: red !important;
+    }
+    </style>
+{% endblock %}
+
 {% block header_title %}
     {% trans 'cancel_landing:content:header' %} - {{ block.super }}
 {% endblock %}
