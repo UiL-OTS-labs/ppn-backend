@@ -7,15 +7,7 @@
         {% transformat 'register:content:duration' experiment.duration %}.
         {% if experiment.location %}
             {% trans 'register:content:location' %}
-            {% if experiment.location.route_url %}
-                <a href="{{ experiment.location.route_url }}" target="_blank">
-                    {{ experiment.location.name }}
-                </a>
-            {% else %}
-                {% autoescape off %}
-                {{ experiment.location.name }}
-                {% endautoescape %}
-            {% endif %}.
+            {% if experiment.location.route_url %}<a href="{{ experiment.location.route_url }}" target="_blank">{{ experiment.location.name }}</a>{% else %}{% autoescape off %}{{ experiment.location.name }}{% endautoescape %}{% endif %}.
         {% endif %}
     </p>
     <p>

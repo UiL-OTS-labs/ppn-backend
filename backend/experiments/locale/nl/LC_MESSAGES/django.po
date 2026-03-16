@@ -223,7 +223,11 @@ msgstr ""
 
 #: experiments/forms/experiment_forms.py:36
 msgid "experiment:form:use_timeslots:true"
-msgstr "Op locatie"
+msgstr "On location"
+
+#: experiments/forms/experiment_forms.py:36
+msgid "experiment:form:use_timeslots:false"
+msgstr "Online"
 
 
 #: experiments/models/appointment_models.py:18
