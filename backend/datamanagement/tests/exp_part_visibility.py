@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+from freezegun import freeze_time
 from django.test import TestCase
 from django.utils.timezone import get_current_timezone
 
@@ -9,6 +10,7 @@ from datamanagement.utils.exp_part_visibility import \
 from experiments.models import Experiment, TimeSlot
 
 
+@freeze_time("2026-05-01")
 class ParticipantVisibilityTests(TestCase):
 
     def setUp(self) -> None:

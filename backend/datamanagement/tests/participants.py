@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+from freezegun import freeze_time
 from django.test import TestCase
 from django.utils.timezone import get_current_timezone
 
@@ -14,6 +15,7 @@ from ..utils.participants import delete_participant, \
     get_participants_without_appointments
 
 
+@freeze_time("2026-05-01")
 class ParticipantTests(TestCase):
     databases = ['default', 'auditlog']
 
@@ -103,4 +105,3 @@ class ParticipantTests(TestCase):
 
         # Check if the auditlog logged anything
         self.assertEqual(LogEntry.objects.count(), 1)
-

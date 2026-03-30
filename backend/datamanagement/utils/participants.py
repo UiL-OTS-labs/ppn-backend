@@ -19,7 +19,7 @@ def get_participants_with_appointments() -> List[Tuple[Participant, datetime, in
             '-creation_date'
         ).first()
 
-        if newest_appointment.creation_date < threshold:
+        if newest_appointment.creation_date <= threshold:
             out.append(
                 (
                     participant,

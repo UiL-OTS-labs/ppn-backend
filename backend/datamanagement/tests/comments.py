@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+from freezegun import freeze_time
 from django.test import TestCase
 from django.utils.timezone import get_current_timezone
 
@@ -10,6 +11,7 @@ from datamanagement.tests.common import _create_dummy_user, _create_experiment, 
 from datamanagement.utils.comments import delete_comments, get_comment_counts
 
 
+@freeze_time("2026-05-01")
 class CommentDMTests(TestCase):
     databases = ['default', 'auditlog']
 
@@ -88,4 +90,3 @@ class CommentDMTests(TestCase):
 
         # Check if the auditlog logged anything
         self.assertEqual(LogEntry.objects.count(), 1)
-
