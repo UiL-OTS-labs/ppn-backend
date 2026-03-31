@@ -97,6 +97,12 @@ class DjangoServerProcess:
             self.settings,
         ]
         self.process = subprocess.Popen(cmd, env=self.env)
+        # sleep for a bit so we can get an error return code in case the server couldn't start
+        # this can happen, for example, if the port is already in use
+        self.process.wait(5)
+        if self.process.returncode is not None:
+            raise RuntimeError(f"could not start app in {self.path}")
+
         for attempt in range(5):
             try:
                 requests.get(self.url)
@@ -111,9 +117,6 @@ class DjangoServerProcess:
             except subprocess.TimeoutExpired:
                 # this is good, the process is still running
                 pass
-
-        if self.process.returncode is not None:
-            raise RuntimeError(f"could not start app in {self.path}")
 
     def shutdown(self):
         if self.db_conn:
