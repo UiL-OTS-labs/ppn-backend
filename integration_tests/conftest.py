@@ -31,10 +31,9 @@ class DjangoServerProcess:
         self.settings = f"{name}_settings"
         self.db_conn = None
 
-    def recreate_db(self):
+    def recreate_db(self, db):
         settings_module = importlib.import_module(self.settings)
-
-        if settings_module.DATABASES['default']['ENGINE'].endswith('sqlite3'):
+        if settings_module.DATABASES[db]['ENGINE'].endswith('sqlite3'):
             try:
                 os.unlink(f"{self.name}.int.db.sqlite3")
             except FileNotFoundError:
@@ -42,24 +41,26 @@ class DjangoServerProcess:
             return
 
         connection = MySQLdb.connect(
-            user=settings_module.DATABASES["default"]["USER"],
-            host=settings_module.DATABASES["default"]["HOST"],
-            port=settings_module.DATABASES["default"]["PORT"],
-            password=settings_module.DATABASES["default"]["PASSWORD"],
+            user=settings_module.DATABASES[db]["USER"],
+            host=settings_module.DATABASES[db]["HOST"],
+            port=settings_module.DATABASES[db]["PORT"],
+            password=settings_module.DATABASES[db]["PASSWORD"],
         )
-        db_name = settings_module.DATABASES["default"]["NAME"]
+        db_name = settings_module.DATABASES[db]["NAME"]
 
         cursor = connection.cursor()
         cursor.execute(f"DROP DATABASE IF EXISTS `{db_name}`;")
         cursor.execute(f"CREATE DATABASE `{db_name}`;")
 
-    def migrate(self):
-        self.recreate_db()
+    def migrate(self, db='default'):
+        self.recreate_db(db)
         cmd = [
             "python",
             "-m",
             "django",
             "migrate",
+            "--database",
+            db,
             "--noinput",
             "--settings",
             self.settings,
@@ -144,7 +145,8 @@ class DjangoServerProcess:
 @pytest.fixture(scope="module")
 def backend_app():
     server = DjangoServerProcess("backend", "../backend", BACK_PORT)
-    server.migrate()
+    server.migrate('default')
+    server.migrate('auditlog')
     server.start()
     yield server
     server.shutdown()
