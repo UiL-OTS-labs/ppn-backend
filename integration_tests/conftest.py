@@ -13,6 +13,7 @@ from datetime import date
 
 import django
 import pytest
+import MySQLdb
 
 from playwright.sync_api import Page, Browser
 
@@ -30,18 +31,36 @@ class DjangoServerProcess:
         self.settings = f"{name}_settings"
         self.db_conn = None
 
-    def migrate(self):
-        # delete existing db
-        try:
-            os.unlink(f"{self.name}.int.db.sqlite3")
-        except FileNotFoundError:
-            pass
+    def recreate_db(self, db):
+        settings_module = importlib.import_module(self.settings)
+        if settings_module.DATABASES[db]['ENGINE'].endswith('sqlite3'):
+            try:
+                os.unlink(f"{self.name}.int.db.sqlite3")
+            except FileNotFoundError:
+                pass
+            return
 
+        connection = MySQLdb.connect(
+            user=settings_module.DATABASES[db]["USER"],
+            host=settings_module.DATABASES[db]["HOST"],
+            port=settings_module.DATABASES[db]["PORT"],
+            password=settings_module.DATABASES[db]["PASSWORD"],
+        )
+        db_name = settings_module.DATABASES[db]["NAME"]
+
+        cursor = connection.cursor()
+        cursor.execute(f"DROP DATABASE IF EXISTS `{db_name}`;")
+        cursor.execute(f"CREATE DATABASE `{db_name}`;")
+
+    def migrate(self, db='default'):
+        self.recreate_db(db)
         cmd = [
             "python",
             "-m",
             "django",
             "migrate",
+            "--database",
+            db,
             "--noinput",
             "--settings",
             self.settings,
@@ -79,6 +98,16 @@ class DjangoServerProcess:
             self.settings,
         ]
         self.process = subprocess.Popen(cmd, env=self.env)
+        # sleep for a bit so we can get an error return code in case the server couldn't start
+        # this can happen, for example, if the port is already in use
+        try:
+            self.process.wait(5)
+        except subprocess.TimeoutExpired:
+            # this is good, the process is still running
+            pass
+        if self.process.returncode is not None:
+            raise RuntimeError(f"could not start app in {self.path}")
+
         for attempt in range(5):
             try:
                 requests.get(self.url)
@@ -94,9 +123,6 @@ class DjangoServerProcess:
                 # this is good, the process is still running
                 pass
 
-        if self.process.returncode is not None:
-            raise RuntimeError(f"could not start app in {self.path}")
-
     def shutdown(self):
         if self.db_conn:
             self.db_conn.close()
@@ -110,6 +136,7 @@ class DjangoServerProcess:
         os.environ['DJANGO_SETTINGS_MODULE'] = self.settings
         django.setup()
         from django.db import connection
+
         self.db_conn = connection
         module = importlib.import_module(f'{app_name}.models')
         return module.__dict__[model]
@@ -118,7 +145,8 @@ class DjangoServerProcess:
 @pytest.fixture(scope="module")
 def backend_app():
     server = DjangoServerProcess("backend", "../backend", BACK_PORT)
-    server.migrate()
+    server.migrate('default')
+    server.migrate('auditlog')
     server.start()
     yield server
     server.shutdown()
