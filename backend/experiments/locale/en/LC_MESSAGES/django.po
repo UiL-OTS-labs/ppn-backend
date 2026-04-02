@@ -513,6 +513,9 @@ msgstr ""
 msgid "criteria:home:num_experiment"
 msgstr "Number of linked experiments"
 
+msgid "experiments:home:search"
+msgstr "Search"
+
 #: experiments/templates/criteria/index.html:47
 #: experiments/templates/criteria/specific_list.html:47
 #: experiments/templates/experiments/detail_parts/comments.html:33
@@ -864,17 +867,8 @@ msgstr "Experiments"
 msgid "experiments:home:create_experiment"
 msgstr "Create experiment"
 
-#: experiments/templates/experiments/index.html:44
-#, fuzzy
-#| msgid "experiments:home:header"
-msgid "experiments:home:search"
-msgstr "Experiments"
-
-#: experiments/templates/experiments/index.html:48
-#, fuzzy
-#| msgid "experiments:home:header"
 msgid "experiments:home:search:clear"
-msgstr "Experiments"
+msgstr "Clear"
 
 #: experiments/templates/experiments/index.html:65
 msgid "experiments:global:slots"

@@ -353,13 +353,3 @@ msgstr "Participant anonymized!"
 
 msgid "participants:messages:merged_participants"
 msgstr "Participant merged!"
-
-#, fuzzy
-#~| msgid "participants:home:header"
-#~ msgid "experiments:home:search"
-#~ msgstr "Participants"
-
-#, fuzzy
-#~| msgid "participants:home:header"
-#~ msgid "experiments:home:search:clear"
-#~ msgstr "Participants"
