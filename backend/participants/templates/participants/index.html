@@ -10,16 +10,49 @@
 {% block html_head %}
 {{ block.super }}
 <style>
-        .list-controls {
-            display: flex;
-            font-size: .8rem;
-        }
+    .list-controls {
+        display: flex;
+        font-size: .8rem;
+    }
 
-        .list-controls select, .list-controls input, .list-controls .clear {
-            background: white;
-            border:1px solid #ccc;
-            color: #444;
-        }
+    .list-controls select, .list-controls input, .list-controls .clear, .list-controls .csv {
+        background: white;
+        border:1px solid #ccc;
+        color: #444;
+    }
+
+    .csv {
+        margin-left: 5px;
+    }
+
+    .csv:focus + .csv-dropdown {
+        visibility: visible;
+        transition-delay: 0s;
+    }
+
+    .csv-dropdown {
+        display: inline-block;
+        list-style: none;
+        background: #fff;
+        border: 1px solid #ccc;
+        margin-left: -1px;
+        padding: 0;
+        visibility: hidden;
+        position: absolute;
+        transition-delay: 0.2s;
+    }
+
+    .csv-dropdown button {
+        display: block;
+        text-align: left;
+        border: 0;
+        background: #fff;
+        width: 100%;
+        padding: 4px;
+    }
+    .csv-dropdown button:hover {
+        background: #eff;
+    }
 </style>
 {% endblock %}
 
@@ -39,7 +72,7 @@
     <div class="col-12">
         <form id="list_query_form">
             <div class="list-controls mb-2">
-                <div style="flex: 1">
+                <div style="flex: 1; display:flex;">
                     <label>{% translate 'participants:home:sort' %}
                         <select name="sort">
                             <option value="-created" {%if request.GET.sort == '-created' %}selected{%endif%}>
@@ -50,6 +83,13 @@
                             </option>
                         </select>
                     </label>
+                    <div>
+                        <button type="button" class="csv">{% translate 'participants:home:csv' %} 🞂</button>
+                        <ul class="csv-dropdown">
+                            <li><button type="submit" name="csv" value="page">{% translate 'participants:home:csv:page' %}</button></li>
+                            <li><button type="submit" name="csv" value="everything">{% translate 'participants:home:csv:everything' %}</button></li>
+                        </ul>
+                    </div>
                 </div>
                 <label>
                     {% translate 'participants:home:search' %}
@@ -59,6 +99,7 @@
                     <button type="button" class="clear ms-2">{% translate 'participants:home:search:clear' %}</button>
                 {% endif %}
             </div>
+            <input type="hidden" name="page" value="{{ page_obj.number }}"/>
         </form>
 
         <table class="w-100 table">
@@ -203,12 +244,16 @@
             <ul class="pagination">
                 {% for page in page_range %}
                     {% if page_obj.number == page %}
-                        <li class="page-item active"><a class="page-link" href="?page={{ page }}&search={{request.GET.search}}">{{ page }}</a></li>
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{ page }}&sort={{request.GET.sort}}&search={{request.GET.search}}">{{ page }}</a>
+                        </li>
                     {% elif page == page_obj.paginator.ELLIPSIS %}
                         <li class="page-item">{{ page }}</li>
                     {% else %}
-                        <li class="page-item"><a class="page-link" href="?page={{ page }}&search={{request.GET.search}}">{{ page }}</a></li>
-                    {% endif %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page }}&sort={{request.GET.sort}}&search={{request.GET.search}}">{{ page }}</a>
+                        </li>
+                        {% endif %}
                 {% endfor %}
             </ul>
         {% endif %}

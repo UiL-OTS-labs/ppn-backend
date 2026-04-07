@@ -353,3 +353,12 @@ msgstr "Participant anonymized!"
 
 msgid "participants:messages:merged_participants"
 msgstr "Participant merged!"
+
+msgid "participants:home:csv"
+msgstr "CSV"
+
+msgid "participants:home:csv:page"
+msgstr "Page"
+
+msgid "participants:home:csv:everything"
+msgstr "Everything"

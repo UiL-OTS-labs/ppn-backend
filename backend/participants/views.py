@@ -1,7 +1,7 @@
 import braces.views as braces
 from django import forms
 from django.contrib.messages.views import SuccessMessageMixin
-from django.db.models import Q
+from django.http import StreamingHttpResponse
 from django.urls import reverse_lazy as reverse
 from django.utils.functional import cached_property
 from django.utils.text import gettext_lazy as _
@@ -14,11 +14,12 @@ from django.contrib import messages
 
 from .forms import CriterionAnswerForm, ParticipantForm, ParticipantMergeForm
 from .models import CriterionAnswer, Participant, SecondaryEmail
-from .utils import merge_participants
+from .utils import merge_participants, participants_csv
 
 from auditlog.enums import Event, UserType
 import auditlog.utils.log as auditlog
 from .utils.switch_main_email import switch_main_email
+
 
 
 class ParticipantsHomeView(braces.LoginRequiredMixin, generic.ListView):
@@ -45,12 +46,25 @@ class ParticipantsHomeView(braces.LoginRequiredMixin, generic.ListView):
 
         return filtered
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         page = context['page_obj']
         if context['is_paginated']:
             context['page_range'] = page.paginator.get_elided_page_range(page.number)
         return context
+
+    def get(self, *args, **kwargs):
+        export = self.request.GET.get('csv')
+        if not export:
+            return super().get(*args, **kwargs)
+
+        queryset = self.get_queryset()
+        if export == 'page':
+            _, _, queryset, _ = self.paginate_queryset(queryset, self.get_paginate_by(queryset))
+        response = StreamingHttpResponse(participants_csv(queryset), content_type="text/csv")
+        filename = "participants-export.csv"
+        response['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
+        return response
 
 
 class ParticipantDetailView(braces.LoginRequiredMixin,

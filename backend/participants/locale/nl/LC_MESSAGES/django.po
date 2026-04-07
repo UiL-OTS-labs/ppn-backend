@@ -339,3 +339,12 @@ msgstr "Zoek"
 
 msgid "participants:home:search:clear"
 msgstr "Wissen"
+
+msgid "participants:home:csv"
+msgstr "CSV"
+
+msgid "participants:home:csv:page"
+msgstr "Pagina"
+
+msgid "participants:home:csv:everything"
+msgstr "Alles"
