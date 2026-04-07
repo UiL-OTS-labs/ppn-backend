@@ -13,7 +13,6 @@ from cdh.core.forms import BootstrapRadioSelect
 from api.resources import Experiment
 from api.resources.experiment_resources import ExperimentRegistration, \
     RegistrationCriteria, RegistrationCriterion
-from backend.participants.models import Participant
 from participant.forms import BaseRegisterForm
 
 
