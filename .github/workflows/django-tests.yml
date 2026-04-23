@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 2
       matrix:
-        python-version: [3.9, '3.10']
+        python-version: ['3.11', '3.13']
         app: ['backend', 'frontend']
 
     services:
@@ -29,9 +29,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libldap2-dev libsasl2-dev libssl-dev gettext poppler-utils poppler-data libpoppler-cpp-dev default-libmysqlclient-dev
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
@@ -82,16 +82,16 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ['3.9', '3.10']
+        python-version: ['3.11', '3.13']
 
     steps:
       - name: Install OS dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libldap2-dev libsasl2-dev libssl-dev gettext poppler-utils poppler-data libpoppler-cpp-dev xmlsec1 default-libmysqlclient-dev
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
