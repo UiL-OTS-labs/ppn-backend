@@ -146,6 +146,8 @@ python-dateutil==2.9.0.post0
     # via pysaml2
 python-magic==0.4.27
     # via cdh-django-core
+pytz==2026.1.post1
+    # via -r requirements.in
 pyxdg==0.28
     # via bpython
 requests==2.33.1
