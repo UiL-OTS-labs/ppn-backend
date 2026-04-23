@@ -1,4 +1,4 @@
-#html text weghalen 
+#html text weghalen
 #mail laten werken
 #html test
 
@@ -21,7 +21,7 @@ def test_frontend_starts(page_en, as_admin, frontend_app):
 
 def test_create_easy_experiment(apps, as_admin):
 
-    """ Test if a researcher can create a simple test 
+    """ Test if a researcher can create a simple test
     with mild criteria """
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
@@ -51,36 +51,37 @@ def test_create_easy_experiment(apps, as_admin):
     page.click('#submit')
 
     # Criteria for experiment
-    page.locator('input#id_language_2').click()    
-    page.locator('#id_multilingual_2').click()     
-    page.locator('#id_sex_2').click()              
-    page.locator('#id_handedness_2').click()      
-    page.locator('#id_dyslexia_2').click()        
-    page.locator('#id_social_status_2').click()   
-    page.fill('input[name="min_age"]', '18')      
-    page.fill('input[name="max_age"]', '60')      
+    page.locator('input#id_language_2').click()
+    page.locator('#id_multilingual_2').click()
+    page.locator('#id_sex_2').click()
+    page.locator('#id_handedness_2').click()
+    page.locator('#id_dyslexia_2').click()
+    page.locator('#id_social_status_2').click()
+    page.fill('input[name="min_age"]', '18')
+    page.fill('input[name="max_age"]', '60')
 
-    page.locator('button:has-text("Save")').click()  
- 
-    page.goto(f"{apps.backend.url}/experiments/1/timeslots/")
+    page.locator('button:has-text("Save")').click()
+    experiment = Experiment.objects.filter(name="Verhalen en emotie 4: De buurman is een klootzak").first()
+    assert experiment is not None
+
+    page.goto(f"{apps.backend.url}/experiments/{experiment.pk}/timeslots/")
     input = page.locator("#id_datetime")
-    current_value = input.input_value()  
-    date = current_value.split(" ")[0]  
+    current_value = input.input_value()
+    date = current_value.split(" ")[0]
     input.fill(f"{date} 9:45")
-    page.click ('#save-new-slot')      
-    input.fill(f"{date} 23:59") 
+    page.click ('#save-new-slot')
+    input.fill(f"{date} 23:59")
     page.click ('#save-new-slot')
     input.fill(f"{date} 11:32")
     page.click ('#save-new-slot')
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
-    
 
-    assert Experiment.objects.filter(name="Verhalen en emotie 4: De buurman is een klootzak").exists()
+
 
 def test_create_difficult_experiment(apps, as_admin):
 
-    """ Test if a researcher can make a complex test 
+    """ Test if a researcher can make a complex test
     with harsh criteria """
 
     Experiment = apps.backend.get_model('experiments', 'Experiment')
@@ -95,7 +96,7 @@ def test_create_difficult_experiment(apps, as_admin):
     page.fill('input[name="name"]', 'Leer een taal van een andere planeet')
     page.fill('input[name="duration"]', 'ongeveer 30 minutes')
     page.fill('input[name="compensation"]', 'een <a href=\"https://cadeau.yesty.nl/\">yesty cadeaubon</a> van 5 euro')
-   
+
     frame = page.frame_locator('#id_task_description_ifr')
     frame.locator('body').fill("<p>In dit experiment hoor je eerst woorden uit een taal van een andere planeet. Daarna hoor je nieuwe woorden uit dezelfde taal en krijg je vragen over wat je net gehoord hebt.</p>")
     frame = page.frame_locator('#id_additional_instructions_ifr')
@@ -110,122 +111,124 @@ def test_create_difficult_experiment(apps, as_admin):
     page.click('#submit')
 
     # Criteria for experiment
-    page.locator('input#id_language_0').click()    
-    page.locator('#id_multilingual_0').click()     
-    page.locator('#id_sex_0').click()              
-    page.locator('#id_handedness_0').click()      
-    page.locator('#id_dyslexia_1').click()      
-    page.locator('#id_social_status_1').click()   
-    page.fill('input[name="min_age"]', '18')      
-    page.fill('input[name="max_age"]', '20')     
+    page.locator('input#id_language_0').click()
+    page.locator('#id_multilingual_0').click()
+    page.locator('#id_sex_0').click()
+    page.locator('#id_handedness_0').click()
+    page.locator('#id_dyslexia_1').click()
+    page.locator('#id_social_status_1').click()
+    page.fill('input[name="min_age"]', '18')
+    page.fill('input[name="max_age"]', '20')
 
-    page.locator('button:has-text("Save")').click()  
-    page.goto(f"{apps.backend.url}/experiments/2/timeslots/")
+    page.locator('button:has-text("Save")').click()
+    experiment = Experiment.objects.filter(name="Leer een taal van een andere planeet").first()
+    assert experiment is not None
+
+    page.goto(f"{apps.backend.url}/experiments/{experiment.pk}/timeslots/")
     input = page.locator("#id_datetime")
-    current_value = input.input_value()  
+    current_value = input.input_value()
     date = current_value.split(" ")[0]
 
     input.fill(f"{date} 23:59")
-    page.click ('#save-new-slot')  
+    page.click ('#save-new-slot')
     input.fill(f"{date} 9:45")
-    page.click ('#save-new-slot')      
+    page.click ('#save-new-slot')
     input.fill(f"{date} 11:32")
     page.click ('#save-new-slot')
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
 
 
-    assert Experiment.objects.filter(name="Leer een taal van een andere planeet").exists()
-    
-   
+
+
 def test_create_users(page, apps):
     """ Test if you can create multiple users with sign up form """
 
     page.goto(f"{apps.frontend.url}/participant/sign_up/")
 
-    page.fill('input[name="email"]', 'Alberta.Bacon@test.com')   
+    page.fill('input[name="email"]', 'Alberta.Bacon@test.com')
     page.locator('input#id_language_0').click()
-    page.locator('#id_multilingual_0').click()                 
-    page.locator('#id_dyslexic_1').click()                       
-    page.locator('#id_mailing_list_0').click() 
+    page.locator('#id_multilingual_0').click()
+    page.locator('#id_dyslexic_1').click()
+    page.locator('#id_mailing_list_0').click()
 
     page.click('#submit')
     assert page.url == (f"{apps.frontend.url}participant/sign_up/subscribed/")
 
     page.goto(f"{apps.frontend.url}/participant/sign_up/")
 
-    page.fill('input[name="email"]', 'ChrisP.Bacon@test.com')   
+    page.fill('input[name="email"]', 'ChrisP.Bacon@test.com')
     page.locator('input#id_language_0').click()
-    page.locator('#id_multilingual_0').click()                 
-    page.locator('#id_dyslexic_1').click()                       
-    page.locator('#id_mailing_list_0').click()                   
+    page.locator('#id_multilingual_0').click()
+    page.locator('#id_dyslexic_1').click()
+    page.locator('#id_mailing_list_0').click()
 
     page.click('#submit')
     assert page.url == (f"{apps.frontend.url}participant/sign_up/subscribed/")
 
-    
+
 def test_create_right_user(page, apps):
     ''' Test if a user can sign up using the specific experiment sign up form '''
 
     page.goto(f"{apps.frontend.url}/participant/register/1/")
 
-    page.fill('input[name="name"]', 'Han S. Olo')           
-    page.fill('input[name="email"]', 'HanS.Olo@test.com')   
-    page.fill('input[name="phone"]', '0610032023')             
-    page.fill('input[name="birth_date"]', '15-09-2005')         
+    page.fill('input[name="name"]', 'Han S. Olo')
+    page.fill('input[name="email"]', 'HanS.Olo@test.com')
+    page.fill('input[name="phone"]', '0610032023')
+    page.fill('input[name="birth_date"]', '15-09-2005')
     page.locator('input#id_language_0').click()
-    page.locator('input#id_language_0').click()                
-    page.locator('#id_multilingual_0').click()                  
-    page.locator('#id_sex_0').click()                           
-    page.locator('#id_handedness_1').click()                    
-    page.locator('#id_dyslexic_1').click()                      
-    page.locator('#id_social_status_0').click()                 
-    page.locator('#id_timeslot_0').click()                     
-    page.locator('#id_mailinglist_1').click()                   
-    page.locator('#id_consent_0').click()                       
+    page.locator('input#id_language_0').click()
+    page.locator('#id_multilingual_0').click()
+    page.locator('#id_sex_0').click()
+    page.locator('#id_handedness_1').click()
+    page.locator('#id_dyslexic_1').click()
+    page.locator('#id_social_status_0').click()
+    page.locator('#id_timeslot_0').click()
+    page.locator('#id_mailinglist_1').click()
+    page.locator('#id_consent_0').click()
     assert page.get_by_text(", 9:45 uur").count() == 0
     assert page.get_by_text(", 15:11 uur").count() == 1
     page.click('#submit')
     assert page.url == (f"{apps.frontend.url}participant/register/1/success/")
-     
+
 
 def test_create_wrong_user(page, apps):
 
-    ''' Test if a participant can't join an experiment 
+    ''' Test if a participant can't join an experiment
     they're not qualified for with all the reasons why'''
 
     page.goto(f"{apps.frontend.url}/participant/register/2/")
 
-    page.fill('input[name="name"]', 'Anita Beth')              
-    page.fill('input[name="email"]', 'Anita.Beth@test.com')    
-    page.fill('input[name="phone"]', '0613052004')              
-    page.fill('input[name="birth_date"]', '15-08-2003')         
+    page.fill('input[name="name"]', 'Anita Beth')
+    page.fill('input[name="email"]', 'Anita.Beth@test.com')
+    page.fill('input[name="phone"]', '0613052004')
+    page.fill('input[name="birth_date"]', '15-08-2003')
     page.locator('input#id_language_0').click()
-    page.locator('input#id_language_0').click()                
-    page.locator('#id_multilingual_1').click()                 
-    page.locator('#id_sex_1').click()                          
-    page.locator('#id_handedness_1').click()               
-    page.locator('#id_dyslexic_0').click()                  
-    page.locator('#id_social_status_0').click()                 
-    page.locator('#id_timeslot_0').click()                      
-    page.locator('#id_mailinglist_1').click()                   
-    page.locator('#id_consent_0').click()                       
-    
+    page.locator('input#id_language_0').click()
+    page.locator('#id_multilingual_1').click()
+    page.locator('#id_sex_1').click()
+    page.locator('#id_handedness_1').click()
+    page.locator('#id_dyslexic_0').click()
+    page.locator('#id_social_status_0').click()
+    page.locator('#id_timeslot_0').click()
+    page.locator('#id_mailinglist_1').click()
+    page.locator('#id_consent_0').click()
 
-    
+
+
     reasons = [
         "omdat je geslacht niet overeen komt",
         "omdat je voorkeurshand niet overeen komt",
         "omdat je volgens onze gegevens student bent",
-        "omdat je volgens onze gegevens dyslectisch bent", 
+        "omdat je volgens onze gegevens dyslectisch bent",
         "omdat je meertalig bent",
         "omdat je leeftijd niet overeen komt"
     ]
-   
+
     page.click('#submit')
     text = page.locator(".uu-hero.text-bg-warning").text_content()
     text = " ".join(text.split())
-    
+
     for reason in reasons:
         assert reason in text, f"Reden niet gevonden: {reason}"
 
@@ -237,17 +240,17 @@ def test_remove_from_timeslot(apps, as_admin):
     apps.backend.load('leader.json')
     page = as_admin
     page.goto(f"{apps.backend.url}/experiments/1/timeslots/delete/1")
-    page.locator('#delete-all-selected').click() 
+    page.locator('#delete-all-selected').click()
     success_alert = page.locator(".alert")
     expect(success_alert).to_have_text('Timeslot removed!')
     assert success_alert.is_visible()
 
-    
+
 def test_invite_participant(apps, as_admin):
 
     ''' Testing if the researcher can invite participants and only the right participant
     is in the list of avaible participants'''
-    
+
 
     apps.backend.load('leader.json')
     page = as_admin
@@ -258,8 +261,8 @@ def test_invite_participant(apps, as_admin):
     success_alert = page.locator(".alert")
     expect(success_alert).to_have_text('Successfully invited participants!')
     assert success_alert.is_visible()
-    
-    
+
+
 def test_merge_participant(apps, as_admin):
     """ Test if two participant merge succesfully """
 
@@ -298,7 +301,7 @@ def test_delete_participant(apps, as_admin):
 
     apps.backend.load('leader.json')
     page = as_admin
-    
+
     page.goto(f"{apps.backend.url}/participants/2/del/")
     page.get_by_role("button", name="Confirm").click()
 
