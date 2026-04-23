@@ -29,9 +29,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libldap2-dev libsasl2-dev libssl-dev gettext poppler-utils poppler-data libpoppler-cpp-dev default-libmysqlclient-dev
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
@@ -89,9 +89,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libldap2-dev libsasl2-dev libssl-dev gettext poppler-utils poppler-data libpoppler-cpp-dev xmlsec1 default-libmysqlclient-dev
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
