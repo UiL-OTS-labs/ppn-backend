@@ -14,11 +14,13 @@ class ThresholdNode(Node):
     _days = _('datamanagement:global:days')
 
     def __init__(self, threshold, asvar):
-        self.threshold = getattr(get_thresholds_model(), str(threshold), None)
+        self.threshold_key = str(threshold) 
         self.asvar = asvar
 
     def render(self, context):
-        if self.threshold is not None:
+        threshold = getattr(get_thresholds_model(), self.threshold_key, None)
+        if threshold is not None:
+            self.threshold = threshold
             unit, value = self._get_display_values()
             val = "{} {}".format(value, unit)
         else:

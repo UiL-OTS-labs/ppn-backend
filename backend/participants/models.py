@@ -1,6 +1,7 @@
 from datetime import date
 from typing import List, Optional
 
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
