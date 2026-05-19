@@ -130,7 +130,7 @@ msgstr "Participanten"
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:30
 msgid "datamanagement:home:participants:info_text"
-msgstr "Deze participanten hebben {} niet meer meegedaan in een experiment."
+msgstr "Deze participanten hebben langer dan {} niet meer meegedaan in een experiment."
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:36
 #: datamanagement/templates/datamanagement/index_parts/participants.html:91
@@ -153,7 +153,7 @@ msgstr "Participanten zonder afspraak"
 #: datamanagement/templates/datamanagement/index_parts/participants.html:85
 msgid "datamanagement:home:participants:info_text2"
 msgstr ""
-"Deze participanten hebben nooit aan een experiment mee gedaan en zijn {} "
+"Deze participanten hebben nooit aan een experiment mee gedaan en zijn meer dan {} "
 "geleden aangemaakt."
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:94
