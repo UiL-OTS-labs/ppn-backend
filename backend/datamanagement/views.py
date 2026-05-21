@@ -16,7 +16,7 @@ from datamanagement.utils.exp_part_visibility import \
     get_experiments_with_visibility, hide_part_from_exp
 from datamanagement.utils.invitations import delete_invites, get_invite_counts
 from datamanagement.utils.participants import \
-    delete_participant, get_participants_with_appointments, \
+    delete_participant, get_participants_with_appointments,anonymize_participant, \
     get_participants_without_appointments
 from experiments.models import Experiment
 
@@ -72,7 +72,22 @@ class DeleteParticipantView(braces.LoginRequiredMixin,
     def get_redirect_url(self, *args, **kwargs):
         return reverse('datamanagement:overview') + \
                "#collapse-participants"
+    
+class AnonymizeParticipantView(braces.LoginRequiredMixin,
+                               RedirectSuccessMessageMixin,
+                               RedirectActionView):
 
+    def action(self, request):
+        anonymize_participant(self.participant, self.request.user)
+        self.success_message = _('datamanagement:messages:anonymized_participant')
+
+    @cached_property
+    def participant(self):
+        pk = self.kwargs.get('participant')
+        return Participant.objects.get(pk=pk)
+
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('datamanagement:overview') + "#collapse-participants"
 
 class HideParticipantsView(braces.LoginRequiredMixin,
                            RedirectSuccessMessageMixin,

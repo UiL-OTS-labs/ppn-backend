@@ -259,9 +259,17 @@ msgstr "Pas participant gegevens aan"
 msgid "participants:home:update_specific_criteria:title"
 msgstr "Pas participant criteria gegevens aan"
 
-#: participants/templates/participants/index.html:143
+#: participants/templates/participants/index.html:70
 msgid "participants:home:delete:title"
 msgstr "Verwijder participant"
+
+#: participants/templates/participants/index.html:143
+msgid "participants:home:anonymize:title"
+msgstr "Anonimiseer participant"
+
+#: participants/templates/participants/index.html:143
+msgid "datamanagement:home:anonymize_participant"
+msgstr "Anonimiseer participant"
 
 #: participants/templates/participants/merge.html:8
 #: participants/templates/participants/merge.html:14

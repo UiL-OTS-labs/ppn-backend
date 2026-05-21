@@ -195,6 +195,10 @@ msgstr ""
 "voorverwijdering en kan leiden tot gegevensverlies. Neem contact op met een "
 "technicus als je denkt dat dit niet het geval is."
 
+#: datamanagement/views.py:79
+msgid "datamanagement:messages:anonymized_participant"
+msgstr "Participant succesvol geanonimiseerd"
+
 #: datamanagement/views.py:96
 msgid "datamanagement:messages:hid_participants"
 msgstr "Gegevens verborgen!"

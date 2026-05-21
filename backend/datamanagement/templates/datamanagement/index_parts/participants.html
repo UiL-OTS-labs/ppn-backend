@@ -63,14 +63,17 @@
                             {{ num_appointments }}
                         </td>
                         <td class="icon-yesno text-center">
-                            {{ participant.api_user|yesno:"," }}
+                            {{ participant.api_user|yesno:"," }}
                         </td>
-                        <td class="text-center"> {#  TODO: this #}
-                            {#                 <a  href="{% url 'datamanagement:delete_participants' experiment.pk %}"#}
-                            {#                        title="{% trans 'datamanagement:home:delete_participants' %}"#}
-                            {#                        class="icon-delete">#}
-                            {#                        #}
-                            {#                    </a>#}
+                        <td class="text-center">
+                            <a href="{% url 'datamanagement:anonymize_participant' participant.pk %}"
+                            title="{% trans 'datamanagement:home:anonymize_participant' %}">
+                                <svg width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h2v16H0V0z" fill="currentColor"/>
+                                    <path d="M13 10.047c1.291 0 2.415-.312 3-.773v-8c-.585.461-1.709.773-3 .773s-2.415-.312-3-.773v8c.585.461 1.709.773 3 .773z" fill="currentColor"/>
+                                    <path d="M9.5.508C8.767.196 7.695 0 6.5 0C4.994 0 3.682.312 3 .773v8C3.682 8.312 4.994 8 6.5 8c1.195 0 2.267.197 3 .508v-8z" fill="currentColor"/>
+                                </svg>
+                            </a>
                         </td>
                     </tr>
                 {% endfor %}

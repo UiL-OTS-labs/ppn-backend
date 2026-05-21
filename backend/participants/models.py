@@ -122,6 +122,10 @@ class Participant(models.Model):
         _('participant:attribute:capable'),
         default=True,
     )
+    anonymized = models.BooleanField(
+        _('participant:attribute:anonymized'),
+        default=False,
+    )
 
     api_user = models.OneToOneField(
         ApiUser,
@@ -200,6 +204,23 @@ class Participant(models.Model):
             self.save()
         else:
             self.delete()
+
+
+    def anonymize(self):
+        """Anonymizes a participant by clearing all PII fields"""
+        self.name = 'Anonymous' 
+        self.email = None
+        self.birth_date = None
+        self.phonenumber = None
+        self.multilingual = None
+        self.handedness = None
+        self.sex = None
+        self.social_status = None
+        self.email_subscription = False
+        self.anonymized = True
+        self.save()
+        self.secondaryemail_set.all().delete()
+        self.comment_set.all().delete() 
 
 
 class SecondaryEmail(models.Model):

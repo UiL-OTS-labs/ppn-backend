@@ -13,6 +13,7 @@ def get_participants_with_appointments() -> List[Tuple[Participant, datetime, in
     threshold = get_threshold_years_ago('participants_with_appointment')
     for participant in Participant.objects.filter(
         appointments__timeslot__datetime__lte=threshold,
+        anonymized=False,
     ).distinct():
         newest_appointment = participant.appointments.filter(
             timeslot__isnull=False
@@ -32,7 +33,8 @@ def get_participants_with_appointments() -> List[Tuple[Participant, datetime, in
 def get_participants_without_appointments() -> List[Participant]:
     return list(Participant.objects.filter(
         appointments=None,
-        created__lte=get_threshold_years_ago('participants_without_appointment')
+        created__lte=get_threshold_years_ago('participants_without_appointment'),
+        anonymized=False,
     ))
 
 
@@ -54,3 +56,12 @@ def delete_participant(participant: Participant, user) -> bool:
     participant.delete()
 
     return True
+
+def anonymize_participant(participant: Participant, user) -> None:
+    log_to_auditlog(
+        Event.MODIFY_DATA,
+        "Anonymized participant '{}'".format(participant),
+        user,
+        UserType.ADMIN,
+    )
+    participant.anonymize()

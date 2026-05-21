@@ -137,6 +137,14 @@
                                     <li class="dropdown-divider"></li>
                                     <li>
                                         <a
+                                            href="{% url 'datamanagement:anonymize_participant' participant.pk %}"
+                                            class="dropdown-item text-warning"
+                                        >
+                                            {% trans 'participants:home:anonymize:title' %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
                                             href="{% url 'participants:delete' participant.pk %}"
                                             class="dropdown-item text-danger"
                                         >

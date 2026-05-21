@@ -258,9 +258,17 @@ msgstr "Edit participant"
 msgid "participants:home:update_specific_criteria:title"
 msgstr "Edit specific criteria"
 
-#: participants/templates/participants/index.html:143
+#: participants/templates/participants/index.html: 70
 msgid "participants:home:delete:title"
 msgstr "Delete this participant"
+
+#: participants/templates/participants/index.html:143
+msgid "participants:home:anonymize:title"
+msgstr "Anonymize this participant"
+
+#: participants/templates/participants/index.html:143
+msgid "datamanagement:home:anonymize_participant"
+msgstr "Anonymize this participant"
 
 #: participants/templates/participants/merge.html:8
 #: participants/templates/participants/merge.html:14
