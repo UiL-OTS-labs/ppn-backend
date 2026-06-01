@@ -8,19 +8,33 @@
     <script nonce="{{ request.csp_nonce }}">
         $(function () {
             depends_on_value('account', 'True', 'name');
-
             $('form').submit((e) => {
                 let el = $('#submit');
-
                 if($('form')[0].checkValidity()) {
                     el.prop('disabled', true);
                     el.toggleClass('btn-loading')
                 }
             });
         });
+
+        document.addEventListener('invalid', function(e) {
+            e.target.setCustomValidity('Let op, je moet deze vraag nog beantwoorden!');
+        }, true);
+
+        document.addEventListener('change', function(e) {
+            e.target.setCustomValidity('');
+            if (e.target.type === 'radio') {
+                document.querySelectorAll(`input[type="radio"][name="${e.target.name}"]`)
+                    .forEach(radio => radio.setCustomValidity(''));
+            }
+        }, true);
     </script>
-    {# Redicilous display fix because Django cannot <label> right #}
+    <style nonce="{{ request.csp_nonce }}">
+    input:user-invalid, select:user-invalid {
+        border-color: red !important;
+    }
     </style>
+    {# Redicilous display fix because Django cannot <label> right #}
 {% endblock %}
 
 {% block header_title %}
