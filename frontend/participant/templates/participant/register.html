@@ -10,6 +10,17 @@
     <link href="{% static 'participant/register/style.css' %}" rel="stylesheet" />
     <script src="{% static 'participant/register/birthdate.js' %}"></script>
 
+    <script>
+    document.addEventListener('invalid', function(e) {
+        e.target.setCustomValidity('Let op, je moet deze vraag nog beantwoorden!');
+    }, true);
+
+    document.addEventListener('change', function(e) {
+        e.target.setCustomValidity('');
+    }, true);
+    </script>
+    </body>
+
     <script nonce="{{ request.csp_nonce }}">
 
     function add_title(field, title)
@@ -41,6 +52,17 @@
             }
         });
     });
+    document.addEventListener('invalid', function(e) {
+            e.target.setCustomValidity('Let op, je moet deze vraag nog beantwoorden!');
+        }, true);
+
+        document.addEventListener('change', function(e) {
+            e.target.setCustomValidity('');
+            if (e.target.type === 'radio') {
+                document.querySelectorAll(`input[type="radio"][name="${e.target.name}"]`)
+                    .forEach(radio => radio.setCustomValidity(''));
+            }
+        }, true);
     </script>
     <style nonce="{{ request.csp_nonce }}">
     @media (min-width: 869px) {
@@ -48,7 +70,11 @@
             padding: 20px 0;
         }
     }
-    </style>
+
+    input:user-invalid, select:user-invalid {
+        border-color: red !important;
+    }
+    </style>    
 {% endblock%}
 
 {% block header_title %}
