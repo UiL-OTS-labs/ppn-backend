@@ -136,6 +136,11 @@ msgstr "Answer"
 msgid "participants:delete:header"
 msgstr "Delete participant"
 
+#: participants/templates/participants/delete.html:8
+#: participants/templates/participants/delete.html:14
+msgid "participants:anonymize:header"
+msgstr "Anonymize participant"
+
 #: participants/templates/participants/delete.html:20
 msgid "participants:delete:denied"
 msgstr "You can't delete '{}', because they're already participating in an experiment."
@@ -144,6 +149,10 @@ msgstr "You can't delete '{}', because they're already participating in an exper
 msgid "participants:delete:text"
 msgstr "Are you sure you want to delete participant '{}'?"
 
+#: participants/templates/participants/delete.html:26
+msgid "participants:anonymize:text"
+msgstr "Are you sure you want to anonymize participant '{}'?"
+
 #: participants/templates/participants/delete.html:29
 msgid "participants:delete:cancel"
 msgstr "Cancel"
@@ -151,6 +160,14 @@ msgstr "Cancel"
 #: participants/templates/participants/delete.html:32
 msgid "participants:delete:confirm"
 msgstr "Delete participant"
+
+#: participants/templates/participants/delete.html:29
+msgid "participants:anonymize:cancel"
+msgstr "Cancel"
+
+#: participants/templates/participants/delete.html:32
+msgid "participants:anonymize:confirm"
+msgstr "Anonymize participant"
 
 #: participants/templates/participants/detail.html:9
 #: participants/templates/participants/detail.html:26
@@ -299,6 +316,10 @@ msgstr "Participant updated!"
 #: participants/views.py:126
 msgid "participants:messages:deleted_participant"
 msgstr "Participant deleted!"
+
+#: participants/views.py:126
+msgid "participants:messages:anonymized_participant"
+msgstr "Participant anonymized!"
 
 #: participants/views.py:173
 msgid "participants:messages:merged_participants"

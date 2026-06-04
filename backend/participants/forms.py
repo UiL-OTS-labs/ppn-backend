@@ -75,13 +75,13 @@ class CriterionAnswerForm(forms.ModelForm):
 class ParticipantMergeForm(PPNTemplatedForm):
 
     old_participant = forms.ModelChoiceField(
-        Participant.objects.all(),
+        Participant.objects.filter(anonymized = False),
         label=_('participants:merge_form:field:old_participant'),
         widget=SearchableSelectWidget,
     )
 
     new_participant = forms.ModelChoiceField(
-        Participant.objects.all(),
+        Participant.objects.filter(anonymized = False),
         label=_('participants:merge_form:field:new_participant'),
         widget=SearchableSelectWidget,
     )

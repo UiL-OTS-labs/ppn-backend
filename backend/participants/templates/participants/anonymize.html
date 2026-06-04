@@ -1,0 +1,33 @@
+{% extends "base/ppn_base.html" %}
+{% load i18n %}
+{% load transformat %}
+
+{% block header_title %}
+    {% trans 'participants:anonymize:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block pre-messages-content %}
+<div class="uu-hero">
+    <h1 class="h2">
+        {% trans 'participants:anonymize:header' %}
+    </h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="uu-container">
+    <div class="col-12">
+            <form method="post">{% csrf_token %}
+                <p>{% transformat 'participants:anonymize:text' participant.fullname %}</p>
+                <div class="btn-group">
+                    <a href="{% url 'participants:home' %}" class="btn btn-secondary">
+                        {% trans 'global:delete:cancel' %}
+                    </a>
+                    <button class="btn btn-primary" type="submit">
+                        {% trans 'global:delete:confirm' %}
+                    </button>
+                </div>
+            </form>
+    </div>
+</div>
+{% endblock %}

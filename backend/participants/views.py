@@ -8,6 +8,8 @@ from django.views import generic
 from cdh.core.views import FormSetUpdateView, RedirectActionView
 from cdh.core.views.mixins import DeleteSuccessMessageMixin
 from main.views import RedirectSuccessMessageMixin
+from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 from .forms import CriterionAnswerForm, ParticipantForm, ParticipantMergeForm
 from .models import CriterionAnswer, Participant, SecondaryEmail
@@ -127,6 +129,22 @@ class ParticipantDeleteView(braces.LoginRequiredMixin,
     template_name = 'participants/delete.html'
     model = Participant
 
+    def form_valid(self, form):
+        messages.success(self.request, self.success_message)
+        return super().form_valid(form)
+
+
+class ParticipantAnonymizeView(braces.LoginRequiredMixin,
+                               DeleteSuccessMessageMixin, generic.DeleteView):
+    success_url = reverse('participants:home')
+    success_message = _('participants:messages:anonymized_participant')
+    template_name = 'participants/anonymize.html'
+    model = Participant
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_message)
+        self.get_object().anonymize()
+        return HttpResponseRedirect(self.success_url)
 
 
 class ParticipantSpecificCriteriaUpdateView(braces.LoginRequiredMixin,

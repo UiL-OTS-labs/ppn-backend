@@ -17,7 +17,4 @@ $(function () {
         return confirm(gettext('datamanagement:home:warning:delete_comments'));
     });
 
-    $(".delete-participant").click(function () {
-        return confirm(gettext('datamanagement:home:warning:delete_participant'));
-    });
 });

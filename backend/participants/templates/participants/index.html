@@ -64,6 +64,7 @@
 
             <tbody>
                 {% for participant in object_list %}
+                    {% if not participant.anonymized %}
                     <tr>
                         <td>
                             {{ participant.pk }}
@@ -137,7 +138,7 @@
                                     <li class="dropdown-divider"></li>
                                     <li>
                                         <a
-                                            href="{% url 'datamanagement:anonymize_participant' participant.pk %}"
+                                            href="{% url 'participants:anonymize' participant.pk %}"
                                             class="dropdown-item text-warning"
                                         >
                                             {% trans 'participants:home:anonymize:title' %}
@@ -155,6 +156,7 @@
                             </div>
                         </td>
                     </tr>
+                    {% endif %}
                 {% endfor %}
             </tbody>
         </table>

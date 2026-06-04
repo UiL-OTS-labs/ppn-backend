@@ -69,10 +69,12 @@ class Participant(models.Model):
 
     language = e_fields.EncryptedTextField(
         _('participant:attribute:language'),
+        null=True,
     )
 
     dyslexic = e_fields.EncryptedBooleanField(
         _('participant:attribute:dyslexic'),
+        null=True,
     )
 
     birth_date = e_fields.EncryptedDateField(
@@ -121,6 +123,8 @@ class Participant(models.Model):
     capable = e_fields.EncryptedBooleanField(
         _('participant:attribute:capable'),
         default=True,
+        null=True,
+
     )
     anonymized = models.BooleanField(
         _('participant:attribute:anonymized'),
@@ -207,8 +211,7 @@ class Participant(models.Model):
 
 
     def anonymize(self):
-        """Anonymizes a participant by clearing all PII fields"""
-        self.name = 'Anonymous' 
+        self.name = 'Anonymous'
         self.email = None
         self.birth_date = None
         self.phonenumber = None
@@ -216,12 +219,14 @@ class Participant(models.Model):
         self.handedness = None
         self.sex = None
         self.social_status = None
+        self.language = None
+        self.dyslexic = None
+        self.capable = None
         self.email_subscription = False
         self.anonymized = True
         self.save()
         self.secondaryemail_set.all().delete()
-        self.comment_set.all().delete() 
-
+        self.comment_set.all().delete()
 
 class SecondaryEmail(models.Model):
     email = e_fields.EncryptedEmailField(
