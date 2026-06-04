@@ -34,3 +34,11 @@ msgstr "Are you sure you want to delete all comments from this experiment?"
 msgid "datamanagement:home:warning:delete_participant"
 msgstr ""
 "Are you sure you want to delete this participant? This cannot be undone!"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:warning:bulk_anonymize"
+msgstr "Are you sure you want to anonymize the selected participants?"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:warning:bulk_delete"
+msgstr "Are you sure you want to delete the selected participants?"

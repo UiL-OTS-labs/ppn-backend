@@ -214,3 +214,19 @@ msgstr "Successfully deleted invites for {}"
 #: datamanagement/views.py:139
 msgid "datamanagement:messages:deleted_comments"
 msgstr "Successfully deleted comments for {}"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:messages:bulk_anonymized"
+msgstr "Participants have been anonymized"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:messages:bulk_deleted"
+msgstr "Participants have been deleted"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:bulk_anonymize"
+msgstr "Bulk anonymize"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:bulk_delete"
+msgstr "Bulk delete"

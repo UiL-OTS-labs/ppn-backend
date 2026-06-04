@@ -167,7 +167,7 @@ msgstr "Verwijder participant"
 #: datamanagement/templates/widgets/timespan_widget.html:11
 #: datamanagement/templatetags/display_threshold.py:14
 msgid "datamanagement:global:days"
-msgstr "Data management"
+msgstr "dagen"
 
 #: datamanagement/templates/widgets/timespan_widget.html:14
 #: datamanagement/templatetags/display_threshold.py:13
@@ -214,3 +214,19 @@ msgstr "Trackers successvol verwijderd voor {}!"
 #: datamanagement/views.py:139
 msgid "datamanagement:messages:deleted_comments"
 msgstr "Comments verwijderd voor {}!"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:messages:bulk_anonymized"
+msgstr "Participanten zijn geanonimiseerd"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:messages:bulk_deleted"
+msgstr "Participants zijn verwijderd"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:bulk_anonymize"
+msgstr "Bulk anonimiseren"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:bulk_delete"
+msgstr "Bulk verwijderen"

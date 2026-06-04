@@ -6,6 +6,7 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 
+from django.shortcuts import redirect
 from participants.models import Participant
 from cdh.core.views import RedirectActionView
 from cdh.core.views.mixins import RedirectSuccessMessageMixin
@@ -144,3 +145,22 @@ class DeleteCommentsView(braces.LoginRequiredMixin,
         return _('datamanagement:messages:deleted_comments').format(
             self.experiment
         )
+
+class BulkAnonymizeView(braces.LoginRequiredMixin, generic.View):
+    def post(self, request, *args, **kwargs):
+        participant_ids = request.POST.getlist('participants')
+        for pk in participant_ids:
+            participant = Participant.objects.get(pk=pk)
+            anonymize_participant(participant, request.user)
+        messages.success(request, _('datamanagement:messages:bulk_anonymized'))
+        return redirect(reverse('datamanagement:overview') + '#collapse-participants')
+    
+
+class BulkDeleteView(braces.LoginRequiredMixin, generic.View):
+    def post(self, request, *args, **kwargs):
+        participant_ids = request.POST.getlist('participants')
+        for pk in participant_ids:
+            participant = Participant.objects.get(pk=pk)
+            delete_participant(participant, request.user)
+        messages.success(request, _('datamanagement:messages:bulk_deleted'))
+        return redirect(reverse('datamanagement:overview') + '#collapse-participants')

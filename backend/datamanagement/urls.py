@@ -1,7 +1,8 @@
 from django.urls import path
 
 from .views import HideParticipantsView, OverviewView, DeleteInvitesView, \
-    DeleteCommentsView, ThresholdsEditView, DeleteParticipantView, AnonymizeParticipantView
+    DeleteCommentsView, ThresholdsEditView, DeleteParticipantView, AnonymizeParticipantView\
+     , BulkAnonymizeView, BulkDeleteView
 
 app_name = 'datamanagement'
 
@@ -24,4 +25,8 @@ urlpatterns = [
     path('<int:experiment>/delete_comments/',
          DeleteCommentsView.as_view(),
          name='delete_comments'),
+    path('bulk_anonymize/', 
+         BulkAnonymizeView.as_view(), name='bulk_anonymize'),
+    path('bulk_delete/', 
+         BulkDeleteView.as_view(), name='bulk_delete'),
 ]

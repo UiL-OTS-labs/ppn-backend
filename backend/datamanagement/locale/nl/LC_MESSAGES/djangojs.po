@@ -35,3 +35,11 @@ msgid "datamanagement:home:warning:delete_participant"
 msgstr ""
 "Weet je zeker dat je deze deelnemer wilt verwijderen? Dit kan niet ongedaan "
 "gemaakt worden!"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:warning:bulk_anonymize"
+msgstr "Weet je zeker dat je deze deelnemers wilt anonimiseren?"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:warning:bulk_delete"
+msgstr "Weet je zeker dat je deze deelnemers wilt verwijderen?"
