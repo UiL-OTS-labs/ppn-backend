@@ -64,17 +64,9 @@ msgstr ""
 "over hun nieuwe account. Als er geen wachtwoord is opgegeven zal deze mail "
 "ook uitleggen hoe die zelf een wachtwoord kunnen instellen."
 
-#: leaders/forms.py:102
-msgid "leaders:forms:create_form:is_primary:label"
-msgstr "Is hoofdproefleider"
-
-#: leaders/forms.py:103
-msgid "leaders:forms:create_form:is_primary:help_text"
-msgstr "Indien dit is aangevinkt, wordt de gebruiker als hoofdproefleider geregistreerd. Dit vereist een telefoonnummer"
-
 #: leaders/forms.py:103
 msgid "leaders:forms:create_form:phone:help_text"
-msgstr "Indien het veld leeg gelaten wordt, kan de gebruiker niet worden geregistreerd als hoofdproefleider"
+msgstr "Indien het telefoonnummer veld leeg gelaten wordt, kan de gebruiker niet worden geregistreerd als hoofdproefleider. Wel kan deze als extra proefleider worden toegevoegd"
 
 #: leaders/forms.py:73 leaders/forms.py:123 leaders/forms.py:193
 #: leaders/forms.py:259

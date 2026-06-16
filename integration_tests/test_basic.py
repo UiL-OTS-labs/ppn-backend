@@ -1,12 +1,6 @@
-#html text weghalen
-#mail laten werken
-#html test
-
-
 import uuid
 import pytest
 from playwright.sync_api import expect
-
 
 
 def test_backend_starts(page_en, backend_app):
@@ -138,9 +132,6 @@ def test_create_difficult_experiment(apps, as_admin):
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
 
-
-
-
 def test_create_users(page, apps):
     """ Test if you can create multiple users with sign up form """
 
@@ -271,7 +262,7 @@ def test_merge_participant(apps, as_admin):
 
     page.goto(f"{apps.backend.url}/participants/merge/")
 
-    page.click("#select2-id_old_participant-container")
+    page.click("select2 select2-container select2-container--default select2-container--below select2-container--focus")
     old = page.locator("li.select2-results__option", has_text="[1] name unknown")
     old.click()
 
