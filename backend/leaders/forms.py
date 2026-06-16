@@ -36,6 +36,7 @@ class LeaderCreateForm(PPNTemplatedForm):
 
     phonenumber = forms.Field(
         label=_('leader:form:phonenumber'),
+        help_text=_('leaders:forms:create_form:phone:help_text'),
         required=False
     )
 
@@ -115,6 +116,7 @@ class LDAPLeaderCreateForm(PPNTemplatedForm):
 
     phonenumber = forms.Field(
         label=_('leader:form:phonenumber'),
+        help_text=_('leaders:forms:create_form:phone:help_text'),
         required=False
     )
 
@@ -199,6 +201,7 @@ class LeaderUpdateForm(PPNTemplatedForm):
 
     phonenumber = forms.Field(
         label=_('leader:form:phonenumber'),
+        help_text=_('leaders:forms:create_form:phone:help_text'),
         required=False
     )
 
@@ -305,6 +308,7 @@ class LDAPLeaderUpdateForm(PPNTemplatedForm):
 
     phonenumber = forms.Field(
         label=_('leader:form:phonenumber'),
+        help_text=_('leaders:forms:create_form:phone:help_text'),
         required=False
     )
 

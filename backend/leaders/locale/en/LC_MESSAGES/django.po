@@ -68,8 +68,11 @@ msgstr "Is primary leader"
 
 #: leaders/forms.py:103
 msgid "leaders:forms:create_form:is_primary:help_text"
-msgstr "If checked, this user will be marked as the primary leader. This will require a phone number."
+msgstr "If checked, this user will be marked as the primary leader. This will require a phone number"
 
+#: leaders/forms.py:103
+msgid "leaders:forms:create_form:phone:help_text"
+msgstr "If left blank, this user cannot be registered as primary leader on a experiment"
 
 #: leaders/forms.py:73 leaders/forms.py:123 leaders/forms.py:193
 #: leaders/forms.py:259
