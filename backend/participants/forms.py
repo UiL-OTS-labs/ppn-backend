@@ -73,31 +73,26 @@ class CriterionAnswerForm(forms.ModelForm):
 
 
 class ParticipantMergeForm(PPNTemplatedForm):
-    old_participant = forms.ModelMultipleChoiceField(
+
+    old_participant = forms.ModelChoiceField(
         Participant.objects.all(),
         label=_('participants:merge_form:field:old_participant'),
-        required=True,
+        widget=SearchableSelectWidget,
     )
-    new_participant = forms.ModelMultipleChoiceField(
+
+    new_participant = forms.ModelChoiceField(
         Participant.objects.all(),
         label=_('participants:merge_form:field:new_participant'),
-        required=True,
+        widget=SearchableSelectWidget,
     )
-
-    def clean_old_participant(self):
-        data = self.cleaned_data['old_participant']
-        if len(data) != 1:
-            raise ValidationError(_('participants:merge_form:validation:select_one'))
-        return data.first()
-
+    
     def clean_new_participant(self):
         """This checks if two unique participants have been chosen"""
-        data = self.cleaned_data['new_participant']
-        if len(data) != 1:
-            raise ValidationError(_('participants:merge_form:validation:select_one'))
-        new_participant = data.first()
-        if self.cleaned_data.get('old_participant') == new_participant:
+        data = self.cleaned_data
+
+        if data['old_participant'] == data['new_participant']:
             raise ValidationError(
                 _('participants:merge_form:validation:are_equal')
             )
-        return new_participant
+
+        return data['new_participant']
