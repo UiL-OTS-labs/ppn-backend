@@ -71,8 +71,6 @@ def test_create_easy_experiment(apps, as_admin):
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
 
-
-
 def test_create_difficult_experiment(apps, as_admin):
 
     """ Test if a researcher can make a complex test
@@ -205,8 +203,6 @@ def test_create_wrong_user(page, apps):
     page.locator('#id_mailinglist_1').click()
     page.locator('#id_consent_0').click()
 
-
-
     reasons = [
         "omdat je geslacht niet overeen komt",
         "omdat je voorkeurshand niet overeen komt",
@@ -262,7 +258,7 @@ def test_merge_participant(apps, as_admin):
 
     page.goto(f"{apps.backend.url}/participants/merge/")
 
-    page.click("select2 select2-container select2-container--default select2-container--below select2-container--focus")
+    page.click("#select2-id_old_participant-container")
     old = page.locator("li.select2-results__option", has_text="[1] name unknown")
     old.click()
 
