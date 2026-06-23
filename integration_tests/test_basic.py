@@ -1,12 +1,6 @@
-#html text weghalen
-#mail laten werken
-#html test
-
-
 import uuid
 import pytest
 from playwright.sync_api import expect
-
 
 
 def test_backend_starts(page_en, backend_app):
@@ -77,8 +71,6 @@ def test_create_easy_experiment(apps, as_admin):
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
 
-
-
 def test_create_difficult_experiment(apps, as_admin):
 
     """ Test if a researcher can make a complex test
@@ -137,9 +129,6 @@ def test_create_difficult_experiment(apps, as_admin):
     page.click ('#save-new-slot')
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
-
-
-
 
 def test_create_users(page, apps):
     """ Test if you can create multiple users with sign up form """
@@ -213,8 +202,6 @@ def test_create_wrong_user(page, apps):
     page.locator('#id_timeslot_0').click()
     page.locator('#id_mailinglist_1').click()
     page.locator('#id_consent_0').click()
-
-
 
     reasons = [
         "omdat je geslacht niet overeen komt",
