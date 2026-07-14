@@ -36,6 +36,7 @@ class LeaderCreateForm(PPNTemplatedForm):
 
     phonenumber = forms.Field(
         label=_('leader:form:phonenumber'),
+        help_text=_('leaders:forms:create_form:phone:help_text'),
         required=False
     )
 
@@ -53,12 +54,6 @@ class LeaderCreateForm(PPNTemplatedForm):
         widget=forms.PasswordInput,
     )
 
-    is_primary = forms.BooleanField(
-        label=_('leaders:forms:create_form:is_primary:label'),
-        help_text=_('leaders:forms:create_form:is_primary:help_text'),
-        required=False,
-        widget=BootstrapCheckboxInput
-    )
 
     notify_user = forms.BooleanField(
         label=_('leaders:forms:create_form:notify_user:label'),
@@ -85,19 +80,6 @@ class LeaderCreateForm(PPNTemplatedForm):
     def clean_confirm_password(self):
         return _clean_confirm_password(self)
 
-    def clean(self):
-        cleaned_data = super().clean()
-        is_primary = cleaned_data.get('is_primary')
-        phone = cleaned_data.get('phonenumber')
-
-        if is_primary and not phone:
-            self.add_error(
-                'phonenumber',
-                _('Phone number is required for primary leaders.')
-            )
-
-
-
 class LDAPLeaderCreateForm(PPNTemplatedForm):
     """This form is meant for creating Leaders
 
@@ -115,14 +97,8 @@ class LDAPLeaderCreateForm(PPNTemplatedForm):
 
     phonenumber = forms.Field(
         label=_('leader:form:phonenumber'),
+        help_text=_('leaders:forms:create_form:phone:help_text'),
         required=False
-    )
-
-    is_primary = forms.BooleanField(
-        label=_('leaders:forms:create_form:is_primary:label'),
-        help_text=_('leaders:forms:create_form:is_primary:help_text'),
-        required=False,
-        widget=BootstrapCheckboxInput
     )
 
     notify_user = forms.BooleanField(
@@ -152,17 +128,6 @@ class LDAPLeaderCreateForm(PPNTemplatedForm):
 
         return data
 
-    def clean(self):
-        cleaned_data = super().clean()
-        is_primary = cleaned_data.get('is_primary')
-        phone = cleaned_data.get('phonenumber')
-
-        if is_primary and not phone:
-            self.add_error(
-                'phonenumber',
-                _('Phone number is required for primary leaders.')
-            )
-
 
 class LeaderUpdateForm(PPNTemplatedForm):
     """This form is meant for updating Leaders
@@ -182,13 +147,6 @@ class LeaderUpdateForm(PPNTemplatedForm):
         widget=BootstrapCheckboxInput
     )
 
-    is_primary = forms.BooleanField(
-        label=_('leaders:forms:create_form:is_primary:label'),
-        help_text=_('leaders:forms:create_form:is_primary:help_text'),
-        required=False,
-        widget=BootstrapCheckboxInput
-    )
-
     name = forms.Field(
         label=_('leader:form:name'),
     )
@@ -199,6 +157,7 @@ class LeaderUpdateForm(PPNTemplatedForm):
 
     phonenumber = forms.Field(
         label=_('leader:form:phonenumber'),
+        help_text=_('leaders:forms:create_form:phone:help_text'),
         required=False
     )
 
@@ -255,20 +214,6 @@ class LeaderUpdateForm(PPNTemplatedForm):
 
         return password
 
-    def clean(self):
-        cleaned_data = super().clean()
-
-        is_primary = cleaned_data.get('is_primary') or False
-        phone = cleaned_data.get('phonenumber')
-
-
-        if is_primary and not phone:
-            self.add_error(
-                'phonenumber',
-                _('Phone number is required for primary leaders.')
-            )
-
-        return cleaned_data
 
 class LDAPLeaderUpdateForm(PPNTemplatedForm):
     """This form is meant for updating Leaders
@@ -288,13 +233,6 @@ class LDAPLeaderUpdateForm(PPNTemplatedForm):
         widget=BootstrapCheckboxInput
     )
 
-    is_primary = forms.BooleanField(
-        label=_('leaders:forms:create_form:is_primary:label'),
-        help_text=_('leaders:forms:create_form:is_primary:help_text'),
-        required=False,
-        widget=BootstrapCheckboxInput
-    )
-
     name = forms.Field(
         label=_('leader:form:name'),
     )
@@ -305,6 +243,7 @@ class LDAPLeaderUpdateForm(PPNTemplatedForm):
 
     phonenumber = forms.Field(
         label=_('leader:form:phonenumber'),
+        help_text=_('leaders:forms:create_form:phone:help_text'),
         required=False
     )
 
@@ -329,13 +268,3 @@ class LDAPLeaderUpdateForm(PPNTemplatedForm):
 
         return data
 
-    def clean(self):
-        cleaned_data = super().clean()
-        is_primary = cleaned_data.get('is_primary')
-        phone = cleaned_data.get('phonenumber')
-
-        if is_primary and not phone:
-            self.add_error(
-                'phonenumber',
-                _('Phone number is required for primary leaders.')
-            )

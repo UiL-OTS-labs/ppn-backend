@@ -1,12 +1,6 @@
-#html text weghalen
-#mail laten werken
-#html test
-
-
 import uuid
 import pytest
 from playwright.sync_api import expect
-
 
 
 def test_backend_starts(page_en, backend_app):
@@ -77,8 +71,6 @@ def test_create_easy_experiment(apps, as_admin):
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
 
-
-
 def test_create_difficult_experiment(apps, as_admin):
 
     """ Test if a researcher can make a complex test
@@ -137,9 +129,6 @@ def test_create_difficult_experiment(apps, as_admin):
     page.click ('#save-new-slot')
     input.fill(f"{date} 15:11")
     page.click ('#save-new-slot')
-
-
-
 
 def test_create_users(page, apps):
     """ Test if you can create multiple users with sign up form """
@@ -214,8 +203,6 @@ def test_create_wrong_user(page, apps):
     page.locator('#id_mailinglist_1').click()
     page.locator('#id_consent_0').click()
 
-
-
     reasons = [
         "omdat je geslacht niet overeen komt",
         "omdat je voorkeurshand niet overeen komt",
@@ -265,32 +252,29 @@ def test_invite_participant(apps, as_admin):
 
 def test_merge_participant(apps, as_admin):
     """ Test if two participant merge succesfully """
-
     apps.backend.load('leader.json')
     page = as_admin
-
     page.goto(f"{apps.backend.url}/participants/merge/")
 
-    page.click("#select2-id_old_participant-container")
+    # Old participant
+    page.click("#id_old_participant + span .select2-search__field")
+    page.fill("#id_old_participant + span .select2-search__field", "name unknown")
     old = page.locator("li.select2-results__option", has_text="[1] name unknown")
     old.click()
 
-    page.click("#select2-id_new_participant-container")
+    # New participant
+    page.click("#id_new_participant + span .select2-search__field")
+    page.fill("#id_new_participant + span .select2-search__field", "Han S. Olo")
     new = page.locator("li.select2-results__option", has_text="[3] Han S. Olo")
     new.click()
 
     page.click("button.btn.btn-primary:has-text('Merge participants')")
-
     success_alert = page.locator("div.alert.alert-success")
     expect(success_alert).to_have_text("Participant merged!")
     assert success_alert.is_visible()
-
     page.goto(f"{apps.backend.url}/participants/")
-
-
     row = page.locator("table#DataTables_Table_0 tbody tr", has_text="Han S. Olo")
     secondary_email_cell = row.locator("td").nth(3)
-
     assert "Alberta.Bacon@test.com" in secondary_email_cell.inner_html()
 
 
