@@ -274,6 +274,9 @@ class AppointmentsView(rest_mixins.ListModelMixin,
                 )
             except UserToken.DoesNotExist:
                 raise PermissionDenied
+            except ValidationError:
+                # triggered when token is not a valid UUID
+                raise PermissionDenied
 
             if token.is_valid():
                 return token.participant
