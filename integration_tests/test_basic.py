@@ -312,3 +312,25 @@ def test_comment(apps,as_admin):
     page.goto(f"{apps.backend.url}/comments/")
     row_with_comment = page.locator("#DataTables_Table_0 tbody tr", has_text="is vervelend")
     expect(row_with_comment).to_have_count(1)
+
+
+def test_anonymize_participant(apps, as_admin):
+
+    ''' Test if the researcher can anonymize a participant'''
+
+    apps.backend.load('leader.json')
+    page = as_admin
+    page.goto(f"{apps.backend.url}/participants/1/anonymize/")
+    page.get_by_role("button", name="Confirm").click()
+
+    success_alert = page.locator("div.alert.alert-success")
+    expect(success_alert).to_have_text("Participant anonymized!")
+    assert success_alert.is_visible()
+
+    page.goto(f"{apps.backend.url}/participants/")
+    row = page.locator("table#DataTables_Table_0 tbody tr", has_text="[1]")
+    assert row.count() == 0
+
+    page.goto(f"{apps.backend.url}/comments/")
+    row_with_comment = page.locator("#DataTables_Table_0 tbody tr", has_text="is vervelend")
+    expect(row_with_comment).to_have_count(0)

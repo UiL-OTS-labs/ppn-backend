@@ -11,30 +11,30 @@ from auditlog.enums import Event, UserType
 def get_participants_with_appointments() -> List[Tuple[Participant, datetime, int]]:
     out = []
     threshold = get_threshold_years_ago('participants_with_appointment')
-
     for participant in Participant.objects.filter(
-        appointments__creation_date__lte=threshold,
+        appointments__timeslot__datetime__lte=threshold,
+        anonymized=False,
     ).distinct():
-        newest_appointment = participant.appointments.order_by(
-            '-creation_date'
-        ).first()
+        newest_appointment = participant.appointments.filter(
+            timeslot__isnull=False
+        ).order_by('-timeslot__datetime').first()
 
-        if newest_appointment.creation_date <= threshold:
+        if newest_appointment and newest_appointment.timeslot.datetime <= threshold:
             out.append(
                 (
                     participant,
-                    newest_appointment.creation_date,
+                    newest_appointment.timeslot.datetime,
                     participant.appointments.count(),
-                 )
+                )
             )
-
     return out
 
 
 def get_participants_without_appointments() -> List[Participant]:
     return list(Participant.objects.filter(
         appointments=None,
-        created__lte=get_threshold_years_ago('participants_without_appointment')
+        created__lte=get_threshold_years_ago('participants_without_appointment'),
+        anonymized=False,
     ))
 
 
@@ -56,3 +56,12 @@ def delete_participant(participant: Participant, user) -> bool:
     participant.delete()
 
     return True
+
+def anonymize_participant(participant: Participant, user) -> None:
+    log_to_auditlog(
+        Event.MODIFY_DATA,
+        "Anonymized participant '{}'".format(participant),
+        user,
+        UserType.ADMIN,
+    )
+    participant.anonymize()

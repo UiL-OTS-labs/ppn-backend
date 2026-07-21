@@ -3,7 +3,10 @@ from django.urls import reverse_lazy as reverse
 from django.utils.functional import cached_property
 from django.utils.translation import gettext as _
 from django.views import generic
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 
+from django.shortcuts import redirect
 from participants.models import Participant
 from cdh.core.views import RedirectActionView
 from cdh.core.views.mixins import RedirectSuccessMessageMixin
@@ -16,7 +19,7 @@ from datamanagement.utils.exp_part_visibility import \
     get_experiments_with_visibility, hide_part_from_exp
 from datamanagement.utils.invitations import delete_invites, get_invite_counts
 from datamanagement.utils.participants import \
-    delete_participant, get_participants_with_appointments, \
+    delete_participant, get_participants_with_appointments,anonymize_participant, \
     get_participants_without_appointments
 from experiments.models import Experiment
 
@@ -50,29 +53,33 @@ class ThresholdsEditView(braces.LoginRequiredMixin, generic.UpdateView):
 
 
 class DeleteParticipantView(braces.LoginRequiredMixin,
-                            RedirectSuccessMessageMixin,
-                            RedirectActionView):
+                            generic.DeleteView):
+    model = Participant
+    template_name = 'participants/delete.html'
+    success_url = reverse('datamanagement:overview')
 
-    def action(self, request):
+    def get_object(self):
+        return Participant.objects.get(pk=self.kwargs.get('participant'))
 
-        if delete_participant(self.participant, self.request.user):
-            self.success_message = _(
-                'datamanagement:messages:deleted_participant'
-            )
-        else:
-            self.success_message = _('datamanagement:messages:refused_deletion')
+    def form_valid(self, form):
+        delete_participant(self.get_object(), self.request.user)
+        messages.success(self.request, _('datamanagement:messages:delete_participant'))
+        return HttpResponseRedirect(self.success_url)
 
 
-    @cached_property
-    def participant(self):
-        pk = self.kwargs.get('participant')
+class AnonymizeParticipantView(braces.LoginRequiredMixin,
+                               generic.DeleteView):
+    model = Participant
+    template_name = 'participants/anonymize.html'
+    success_url = reverse('datamanagement:overview')
 
-        return Participant.objects.get(pk=pk)
+    def get_object(self):
+        return Participant.objects.get(pk=self.kwargs.get('participant'))
 
-    def get_redirect_url(self, *args, **kwargs):
-        return reverse('datamanagement:overview') + \
-               "#collapse-participants"
-
+    def form_valid(self, form):
+        anonymize_participant(self.get_object(), self.request.user)
+        messages.success(self.request, _('datamanagement:messages:anonymized_participant'))
+        return HttpResponseRedirect(self.success_url)
 
 class HideParticipantsView(braces.LoginRequiredMixin,
                            RedirectSuccessMessageMixin,
@@ -138,3 +145,22 @@ class DeleteCommentsView(braces.LoginRequiredMixin,
         return _('datamanagement:messages:deleted_comments').format(
             self.experiment
         )
+
+class BulkAnonymizeView(braces.LoginRequiredMixin, generic.View):
+    def post(self, request, *args, **kwargs):
+        participant_ids = request.POST.getlist('participants')
+        for pk in participant_ids:
+            participant = Participant.objects.get(pk=pk)
+            anonymize_participant(participant, request.user)
+        messages.success(request, _('datamanagement:messages:bulk_anonymized'))
+        return redirect(reverse('datamanagement:overview') + '#collapse-participants')
+    
+
+class BulkDeleteView(braces.LoginRequiredMixin, generic.View):
+    def post(self, request, *args, **kwargs):
+        participant_ids = request.POST.getlist('participants')
+        for pk in participant_ids:
+            participant = Participant.objects.get(pk=pk)
+            delete_participant(participant, request.user)
+        messages.success(request, _('datamanagement:messages:bulk_deleted'))
+        return redirect(reverse('datamanagement:overview') + '#collapse-participants')
