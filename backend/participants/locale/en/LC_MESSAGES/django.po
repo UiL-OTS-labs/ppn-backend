@@ -170,9 +170,6 @@ msgstr "Cancel"
 msgid "participants:delete:confirm"
 msgstr "Delete participant"
 
-msgid "participants:delete:confirm"
-msgstr "Delete participant"
-
 #: participants/templates/participants/delete.html:29
 msgid "participants:anonymize:cancel"
 msgstr "Cancel"
