@@ -324,3 +324,27 @@ msgstr "Participant geanonimiseerd!"
 #: participants/views.py:173
 msgid "participants:messages:merged_participants"
 msgstr "Participanten samengevoegd!"
+
+msgid "participants:home:sort"
+msgstr "Sorteer op"
+
+msgid "participants:home:sort:date:desc"
+msgstr "Datum aangemaakt (nieuwste eerst)"
+
+msgid "participants:home:sort:date:asc"
+msgstr "Datum aangemaakt (oudste eerst)"
+
+msgid "participants:home:search"
+msgstr "Zoek"
+
+msgid "participants:home:search:clear"
+msgstr "Wissen"
+
+msgid "participants:home:csv"
+msgstr "CSV"
+
+msgid "participants:home:csv:page"
+msgstr "Pagina"
+
+msgid "participants:home:csv:everything"
+msgstr "Alles"

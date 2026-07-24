@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-01 12:11+0200\n"
+"POT-Creation-Date: 2026-03-02 14:24+0100\n"
 "PO-Revision-Date: 2018-11-23 08:27+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -513,6 +513,9 @@ msgstr ""
 msgid "criteria:home:num_experiment"
 msgstr "Number of linked experiments"
 
+msgid "experiments:home:search"
+msgstr "Search"
+
 #: experiments/templates/criteria/index.html:47
 #: experiments/templates/criteria/specific_list.html:47
 #: experiments/templates/experiments/detail_parts/comments.html:33
@@ -855,32 +858,35 @@ msgstr "Invite participants"
 msgid "experiments:home:delete:title"
 msgstr "Delete experiment"
 
-#: experiments/templates/experiments/index.html:8
-#: experiments/templates/experiments/index.html:14
+#: experiments/templates/experiments/index.html:7
+#: experiments/templates/experiments/index.html:29
 msgid "experiments:home:header"
 msgstr "Experiments"
 
-#: experiments/templates/experiments/index.html:18
+#: experiments/templates/experiments/index.html:33
 msgid "experiments:home:create_experiment"
 msgstr "Create experiment"
 
-#: experiments/templates/experiments/index.html:39
+msgid "experiments:home:search:clear"
+msgstr "Clear"
+
+#: experiments/templates/experiments/index.html:65
 msgid "experiments:global:slots"
 msgstr "Slots"
 
-#: experiments/templates/experiments/index.html:42
+#: experiments/templates/experiments/index.html:68
 msgid "experiments:global:participants"
 msgstr "Participants"
 
-#: experiments/templates/experiments/index.html:91
+#: experiments/templates/experiments/index.html:117
 msgid "experiments:home:switch_open:title"
 msgstr "Open/close experiment"
 
-#: experiments/templates/experiments/index.html:100
+#: experiments/templates/experiments/index.html:126
 msgid "experiments:home:switch_public:title"
 msgstr "Make experiment public/private"
 
-#: experiments/templates/experiments/index.html:109
+#: experiments/templates/experiments/index.html:135
 msgid "experiments:home:switch_visible:title"
 msgstr "Toggle participant details visibility"
 
@@ -905,8 +911,8 @@ msgstr "Invited on"
 msgid "experiments:invite:text:help"
 msgstr ""
 "Here you can make changes to the invitation email before it is sent. Changes "
-"will not be saved for next time, that can be done on the <a "
-"href=\"{}\">'Edit email templates' page</a>."
+"will not be saved for next time, that can be done on the <a href=\"{}"
+"\">'Edit email templates' page</a>."
 
 #: experiments/templates/experiments/invite.html:121
 msgid "experiments:invite:invite_button"
@@ -1116,55 +1122,55 @@ msgstr "Criterion successfully added to experiment!"
 msgid "criteria:messages:removed_from_experiment"
 msgstr "Criterion successfully removed from experiment!"
 
-#: experiments/views/experiment_views.py:52
+#: experiments/views/experiment_views.py:72
 msgid "experiments:message:create:success"
 msgstr "Successfully created experiment"
 
-#: experiments/views/experiment_views.py:64
+#: experiments/views/experiment_views.py:84
 msgid "experiments:message:update:success"
 msgstr "Successfully updated experiment"
 
-#: experiments/views/experiment_views.py:99
+#: experiments/views/experiment_views.py:119
 msgid "experiments:message:deleted_experiment"
 msgstr "Experiment deleted!"
 
-#: experiments/views/experiment_views.py:145
+#: experiments/views/experiment_views.py:165
 msgid "experiments:message:exclude:included"
 msgstr "Successfully included experiment"
 
-#: experiments/views/experiment_views.py:148
+#: experiments/views/experiment_views.py:168
 msgid "experiments:message:exclude:excluded"
 msgstr "Successfully excluded experiment"
 
-#: experiments/views/experiment_views.py:224
+#: experiments/views/experiment_views.py:244
 msgid "experiments:message:update_emails:success"
 msgstr "Successfully updated email templates"
 
-#: experiments/views/experiment_views.py:258
+#: experiments/views/experiment_views.py:278
 msgid "experiments:message:switch_open:closed"
 msgstr "Successfully closed experiment"
 
-#: experiments/views/experiment_views.py:261
+#: experiments/views/experiment_views.py:281
 msgid "experiments:message:switch_open:opened"
 msgstr "Successfully opened experiment"
 
-#: experiments/views/experiment_views.py:276
+#: experiments/views/experiment_views.py:296
 msgid "experiments:message:switch_public:closed"
 msgstr "Successfully hid experiment"
 
-#: experiments/views/experiment_views.py:279
+#: experiments/views/experiment_views.py:299
 msgid "experiments:message:switch_public:opened"
 msgstr "Successfully made experiment public"
 
-#: experiments/views/experiment_views.py:295
+#: experiments/views/experiment_views.py:315
 msgid "experiments:message:switch_visible:invisible"
 msgstr "Successfully hid participants from leaders"
 
-#: experiments/views/experiment_views.py:300
+#: experiments/views/experiment_views.py:320
 msgid "experiments:message:switch_visible:visible"
 msgstr "Successfully changed participant visibility to visible"
 
-#: experiments/views/experiment_views.py:323
+#: experiments/views/experiment_views.py:343
 msgid "experiments:message:sent_reminders"
 msgstr "Sent reminders to {} participant(s)"
 

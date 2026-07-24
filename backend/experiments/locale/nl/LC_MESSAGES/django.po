@@ -516,6 +516,12 @@ msgstr ""
 msgid "criteria:home:num_experiment"
 msgstr "Aantal gelinkte experimenten"
 
+msgid "experiments:home:search"
+msgstr "Zoek"
+
+msgid "experiments:home:search:clear"
+msgstr "Wissen"
+
 #: experiments/templates/criteria/index.html:47
 #: experiments/templates/criteria/specific_list.html:47
 #: experiments/templates/experiments/detail_parts/comments.html:33

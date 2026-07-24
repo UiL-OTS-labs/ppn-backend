@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-01 12:11+0200\n"
+"POT-Creation-Date: 2026-03-02 14:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,23 +16,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: participants/forms.py:39
+#: participants/forms.py:41
 msgid "participants:multilingual:many"
 msgstr "Many"
 
-#: participants/forms.py:40
+#: participants/forms.py:42
 msgid "participants:multilingual:one"
 msgstr "One"
 
-#: participants/forms.py:64
+#: participants/forms.py:54
+msgid "Deze email is al in gebruik door een andere participant."
+msgstr ""
+
+#: participants/forms.py:79
 msgid "participants:merge_form:field:old_participant"
 msgstr "Old participant"
 
-#: participants/forms.py:70
+#: participants/forms.py:85
 msgid "participants:merge_form:field:new_participant"
 msgstr "To be merged participant"
 
-#: participants/forms.py:80
+#: participants/forms.py:96
 msgid "participants:merge_form:validation:are_equal"
 msgstr "This is the same participant as the one picked above!"
 
@@ -123,29 +127,35 @@ msgstr "Female"
 msgid "participant:attribute:sex:prefer_not_to_answer"
 msgstr "Preferred not to answer"
 
-#: participants/models.py:196
+#: participants/models.py:206
 msgid "secondary_email:attribute:email"
 msgstr "Secondary e-mail address"
 
-#: participants/models.py:214
+#: participants/models.py:224
 msgid "criterion_answer:attribute:answer"
 msgstr "Answer"
 
-#: participants/templates/participants/delete.html:8
-#: participants/templates/participants/delete.html:14
+#: participants/templates/participants/delete.html:6
+#: participants/templates/participants/delete.html:12
 msgid "participants:delete:header"
 msgstr "Delete participant"
 
-#: participants/templates/participants/delete.html:8
-#: participants/templates/participants/delete.html:14
 msgid "participants:anonymize:header"
 msgstr "Anonymize participant"
 
-#: participants/templates/participants/delete.html:20
 msgid "participants:delete:denied"
-msgstr "You can't delete '{}', because they're already participating in an experiment."
+msgstr ""
+"You can't delete '{}', because they're already participating in an "
+"experiment."
 
-#: participants/templates/participants/delete.html:26
+#: participants/templates/participants/delete.html:23
+#: participants/templates/participants/delete.html:30
+#, fuzzy
+#| msgid "participants:delete:cancel"
+msgid "global:delete:cancel"
+msgstr "Cancel"
+
+#: participants/templates/participants/delete.html:27
 msgid "participants:delete:text"
 msgstr "Are you sure you want to delete participant '{}'?"
 
@@ -157,7 +167,6 @@ msgstr "Are you sure you want to anonymize participant '{}'?"
 msgid "participants:delete:cancel"
 msgstr "Cancel"
 
-#: participants/templates/participants/delete.html:32
 msgid "participants:delete:confirm"
 msgstr "Delete participant"
 
@@ -187,7 +196,7 @@ msgid "Unknown"
 msgstr "Unknown"
 
 #: participants/templates/participants/detail.html:61
-#: participants/templates/participants/index.html:38
+#: participants/templates/participants/index.html:77
 msgid "participants:detail:secondary_emails"
 msgstr "Secondary e-mail(s)"
 
@@ -207,12 +216,12 @@ msgstr "Has account"
 #: participants/templates/participants/detail.html:98
 #: participants/templates/participants/detail.html:154
 #: participants/templates/participants/detail.html:162
-#: participants/templates/participants/index.html:95
+#: participants/templates/participants/index.html:134
 msgid "yes,no"
 msgstr "yes,no"
 
 #: participants/templates/participants/detail.html:114
-#: participants/templates/participants/index.html:92
+#: participants/templates/participants/index.html:131
 msgid "options:many,one"
 msgstr "many,one"
 
@@ -250,32 +259,51 @@ msgstr "New secondary email"
 msgid "participants:globals:save_button"
 msgstr "Save"
 
-#: participants/templates/participants/index.html:8
-#: participants/templates/participants/index.html:14
+#: participants/templates/participants/index.html:7
+#: participants/templates/participants/index.html:29
 msgid "participants:home:header"
 msgstr "Participants"
 
-#: participants/templates/participants/index.html:17
+#: participants/templates/participants/index.html:32
 msgid "participants:home:merge_participants"
 msgstr "Merge participants"
 
-#: participants/templates/participants/index.html:60
+#: participants/templates/participants/index.html:43
+msgid "participants:home:sort"
+msgstr "Sort"
+
+#: participants/templates/participants/index.html:46
+msgid "participants:home:sort:date:desc"
+msgstr "Date created (newest first)"
+
+#: participants/templates/participants/index.html:49
+msgid "participants:home:sort:date:asc"
+msgstr "Date created (oldest first)"
+
+#: participants/templates/participants/index.html:55
+msgid "participants:home:search"
+msgstr "Search"
+
+#: participants/templates/participants/index.html:59
+msgid "participants:home:search:clear"
+msgstr "Clear"
+
+#: participants/templates/participants/index.html:99
 msgid "participants:globals:actions"
 msgstr "Actions"
 
-#: participants/templates/participants/index.html:118
+#: participants/templates/participants/index.html:157
 msgid "participants:home:detail:title"
 msgstr "View details"
 
-#: participants/templates/participants/index.html:126
+#: participants/templates/participants/index.html:165
 msgid "participants:home:update:title"
 msgstr "Edit participant"
 
-#: participants/templates/participants/index.html:134
+#: participants/templates/participants/index.html:173
 msgid "participants:home:update_specific_criteria:title"
 msgstr "Edit specific criteria"
 
-#: participants/templates/participants/index.html: 70
 msgid "participants:home:delete:title"
 msgstr "Delete this participant"
 
@@ -305,22 +333,29 @@ msgstr "Specific criteria for '{}'"
 msgid "participant:attribute:sex:other"
 msgstr "Other"
 
-#: participants/views.py:50
+#: participants/views.py:75
 msgid "participants:messages:switched_emails"
 msgstr "Participant email switched!"
 
-#: participants/views.py:72
+#: participants/views.py:97
 msgid "participants:messages:updated_participant"
 msgstr "Participant updated!"
 
-#: participants/views.py:126
+#: participants/views.py:151
 msgid "participants:messages:deleted_participant"
 msgstr "Participant deleted!"
 
-#: participants/views.py:126
 msgid "participants:messages:anonymized_participant"
 msgstr "Participant anonymized!"
 
-#: participants/views.py:173
 msgid "participants:messages:merged_participants"
 msgstr "Participant merged!"
+
+msgid "participants:home:csv"
+msgstr "CSV"
+
+msgid "participants:home:csv:page"
+msgstr "Page"
+
+msgid "participants:home:csv:everything"
+msgstr "Everything"

@@ -273,7 +273,9 @@ def test_merge_participant(apps, as_admin):
     expect(success_alert).to_have_text("Participant merged!")
     assert success_alert.is_visible()
     page.goto(f"{apps.backend.url}/participants/")
-    row = page.locator("table#DataTables_Table_0 tbody tr", has_text="Han S. Olo")
+
+
+    row = page.locator("table tbody tr", has_text="Han S. Olo")
     secondary_email_cell = row.locator("td").nth(3)
     assert "Alberta.Bacon@test.com" in secondary_email_cell.inner_html()
 
