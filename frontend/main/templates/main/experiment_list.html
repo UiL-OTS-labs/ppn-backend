@@ -1,0 +1,84 @@
+<style>
+    summary {
+        list-style: none;
+    }
+
+    summary h4 {
+        flex: 1;
+    }
+
+
+    details {
+        border-bottom: 1px solid #eaeaea;
+        padding: 10px;
+        color: #444;
+        font-size: .9rem;
+    }
+
+    details[open] {
+        background-color: #f3f3f3;
+        border: 1px solid #eaeaea;
+        box-shadow: 3px 3px 5px #aaa;
+    }
+
+    details .marker::before {
+        content: '\E611';
+        font-family: 'icomoon-additional';
+        color: #666;
+        font-size: 10px;
+    }
+
+    details[open] .marker::before {
+        content: '\E612';
+    }
+</style>
+{% for experiment in experiments %}
+<details>
+    <summary>
+        <div class="d-flex">
+            <h4>
+                {{ experiment.name }}
+            </h4>
+            <span class="marker"></span>
+        </div>
+        Type: {{ experiment.use_timeslots |yesno:"op locatie," }}
+        |
+        Compensatie: {{ experiment.compensation }}
+        |
+        Duur: {{ experiment.duration }}
+        |
+        <a href="{% url 'participant:register' experiment.id %}" class="register-link">Inschrijven</a>
+    </summary>
+    <p>
+    Dit experiment duurt {{ experiment.duration }}.
+    Het wordt afgenomen op
+    {% if experiment.location.route_url %}
+            <a href="{{ experiment.location.route_url }}"
+                target="_blank">
+                {{ experiment.location.name }}
+            </a>
+    {% else %}
+            {{ experiment.location.name }}
+    {% endif %}
+    </p>
+    <p>
+        Bijzonderheden:
+        <ul>
+              <li>
+                Je krijgt <span v-html="experiment.compensation" /> om mee te doen.
+              </li>
+            {% if experiment.task_description %}
+              <li>{{ experiment.task_description | safe}}</li>
+            {% endif %}
+            {% if experiment.task_description %}
+              <li>{{ experiment.additional_instructions | safe }}</li>
+            {% endif %}
+        </ul>
+    </p>
+    <div class="text-end">
+        <a href="{% url 'participant:register' experiment.id %}" class="btn btn-primary mb-2 register-button">
+            Inschrijven
+        </a>
+    </div>
+</details>
+{% endfor %}
