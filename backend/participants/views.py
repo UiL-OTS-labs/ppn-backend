@@ -1,6 +1,7 @@
 import braces.views as braces
 from django import forms
 from django.contrib.messages.views import SuccessMessageMixin
+from django.http import StreamingHttpResponse
 from django.urls import reverse_lazy as reverse
 from django.utils.functional import cached_property
 from django.utils.text import gettext_lazy as _
@@ -8,22 +9,62 @@ from django.views import generic
 from cdh.core.views import FormSetUpdateView, RedirectActionView
 from cdh.core.views.mixins import DeleteSuccessMessageMixin
 from main.views import RedirectSuccessMessageMixin
+from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 from .forms import CriterionAnswerForm, ParticipantForm, ParticipantMergeForm
 from .models import CriterionAnswer, Participant, SecondaryEmail
-from .utils import merge_participants
+from .utils import merge_participants, participants_csv
 
 from auditlog.enums import Event, UserType
 import auditlog.utils.log as auditlog
 from .utils.switch_main_email import switch_main_email
 
 
+
 class ParticipantsHomeView(braces.LoginRequiredMixin, generic.ListView):
     template_name = 'participants/index.html'
     model = Participant
+    paginate_by = 15
 
     def get_queryset(self):
-        return self.model.objects.prefetch_related('secondaryemail_set')
+        qs = self.model.objects.prefetch_related('secondaryemail_set')
+        order_by = '-created'
+        if self.request.GET.get('sort') == 'created':
+            order_by = 'created'
+
+        filtered = qs.order_by(order_by)
+        search = self.request.GET.get('search')
+        if search:
+            search = search.lower()
+            filtered = [
+                pp
+                for pp in qs
+                if (pp.name is not None and search in pp.name.lower())
+                or (pp.phonenumber is not None and search in pp.phonenumber)
+            ]
+
+        return filtered
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        page = context['page_obj']
+        if context['is_paginated']:
+            context['page_range'] = page.paginator.get_elided_page_range(page.number)
+        return context
+
+    def get(self, *args, **kwargs):
+        export = self.request.GET.get('csv')
+        if not export:
+            return super().get(*args, **kwargs)
+
+        queryset = self.get_queryset()
+        if export == 'page':
+            _, _, queryset, _ = self.paginate_queryset(queryset, self.get_paginate_by(queryset))
+        response = StreamingHttpResponse(participants_csv(queryset), content_type="text/csv")
+        filename = "participants-export.csv"
+        response['Content-Disposition'] = 'attachment; filename="{}"'.format(filename)
+        return response
 
 
 class ParticipantDetailView(braces.LoginRequiredMixin,
@@ -127,6 +168,22 @@ class ParticipantDeleteView(braces.LoginRequiredMixin,
     template_name = 'participants/delete.html'
     model = Participant
 
+    def form_valid(self, form):
+        messages.success(self.request, self.success_message)
+        return super().form_valid(form)
+
+
+class ParticipantAnonymizeView(braces.LoginRequiredMixin,
+                               DeleteSuccessMessageMixin, generic.DeleteView):
+    success_url = reverse('participants:home')
+    success_message = _('participants:messages:anonymized_participant')
+    template_name = 'participants/anonymize.html'
+    model = Participant
+
+    def form_valid(self, form):
+        messages.success(self.request, self.success_message)
+        self.get_object().anonymize()
+        return HttpResponseRedirect(self.success_url)
 
 
 class ParticipantSpecificCriteriaUpdateView(braces.LoginRequiredMixin,

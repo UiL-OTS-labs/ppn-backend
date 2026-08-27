@@ -3,10 +3,6 @@ sys.path.append('../backend')
 
 from ppn_backend.settings import *
 
+DATABASES['default']['NAME'] = 'ppn_test'
 FIXTURE_DIRS = ['data_fixtures']
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'backend.int.db.sqlite3',
-    }}
+DATABASES['default']['NAME'] = 'ppn-test'

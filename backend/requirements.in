@@ -1,4 +1,4 @@
-Django>=4.2,<4.3
+Django<6
 django-axes
 django-braces
 django-csp
@@ -12,9 +12,10 @@ djangorestframework
 django-debug-toolbar
 cryptography
 python-dateutil
-cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.2.0
+cdh-django-core[all] @ git+https://github.com/CentreForDigitalHumanities/django-shared-core.git@v3.4.0-pre1
 mysqlclient
 django-auth-ldap
+pytz
 
 # dev only
 pip-tools

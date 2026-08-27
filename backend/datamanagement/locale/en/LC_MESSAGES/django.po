@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 12:22+0200\n"
+"POT-Creation-Date: 2026-03-02 14:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,7 +130,7 @@ msgstr "Participants"
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:30
 msgid "datamanagement:home:participants:info_text"
-msgstr "These participants haven't participated in an experiment for {}."
+msgstr "These participants haven't participated in an experiment for more than {}."
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:36
 #: datamanagement/templates/datamanagement/index_parts/participants.html:91
@@ -154,7 +154,7 @@ msgstr "Participants without appointments"
 msgid "datamanagement:home:participants:info_text2"
 msgstr ""
 "These participants haven't ever participated in an experiment and were "
-"created {} ago"
+"created more than {} ago"
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:94
 msgid "datamanagement:home:participants:registered"
@@ -184,25 +184,47 @@ msgstr "months"
 msgid "datamanagement:global:years"
 msgstr "years"
 
-#: datamanagement/views.py:61
+#: datamanagement/views.py:60
 msgid "datamanagement:messages:deleted_participant"
 msgstr "Participant deleted!"
 
-#: datamanagement/views.py:64
+#: datamanagement/views.py:63
 msgid "datamanagement:messages:refused_deletion"
 msgstr ""
 "Refused to delete this participant! This participant has not been marked for "
 "deletion and could result in data loss. Please contact a technician if you "
 "think this isn't the case."
 
-#: datamanagement/views.py:96
+msgid "datamanagement:messages:anonymized_participant"
+msgstr "Successfully anonymized participant"
+
+#: datamanagement/views.py:79
+msgid "datamanagement:messages:delete_participant"
+msgstr "Successfully deleted participant"
+
 msgid "datamanagement:messages:hid_participants"
 msgstr "Participant data visibility successfully turned off."
 
-#: datamanagement/views.py:118
+#: datamanagement/views.py:117
 msgid "datamanagement:messages:deleted_invites"
 msgstr "Successfully deleted invites for {}"
 
-#: datamanagement/views.py:139
+#: datamanagement/views.py:138
 msgid "datamanagement:messages:deleted_comments"
 msgstr "Successfully deleted comments for {}"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:messages:bulk_anonymized"
+msgstr "Participants have been anonymized"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:messages:bulk_deleted"
+msgstr "Participants have been deleted"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:bulk_anonymize"
+msgstr "Bulk anonymize"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:bulk_delete"
+msgstr "Bulk delete"

@@ -136,6 +136,11 @@ msgstr "Antwoord"
 msgid "participants:delete:header"
 msgstr "Participant verwijderen"
 
+#: participants/templates/participants/delete.html:8
+#: participants/templates/participants/delete.html:14
+msgid "participants:anonymize:header"
+msgstr "Participant anonimiseren"
+
 #: participants/templates/participants/delete.html:20
 msgid "participants:delete:denied"
 msgstr "Je kan '{}' niet verwijderen, omdat deze persoon al meedoet aan een experiment."
@@ -143,6 +148,10 @@ msgstr "Je kan '{}' niet verwijderen, omdat deze persoon al meedoet aan een expe
 #: participants/templates/participants/delete.html:26
 msgid "participants:delete:text"
 msgstr "Weet je zeker dat je participant '{}' wilt verwijderen?"
+
+#: participants/templates/participants/delete.html:26
+msgid "participants:anonymize:text"
+msgstr "Weet je zeker dat je participant '{}' wilt anonymiseren??"
 
 #: participants/templates/participants/delete.html:29
 msgid "participants:delete:cancel"
@@ -152,11 +161,18 @@ msgstr "Annuleer"
 msgid "participants:delete:confirm"
 msgstr "Verwijder participant"
 
+#: participants/templates/participants/delete.html:29
+msgid "participants:anonymize:cancel"
+msgstr "Annuleer"
+
+#: participants/templates/participants/delete.html:32
+msgid "participants:anonymize:confirm"
+msgstr "Participant anonimiseren"
+
 #: participants/templates/participants/detail.html:9
 #: participants/templates/participants/detail.html:26
 msgid "participants:detail:header"
 msgstr "Details van '{}'"
-
 
 #: participants/templates/participants/detail.html:29
 msgid "participants:detail:edit_participant"
@@ -259,9 +275,17 @@ msgstr "Pas participant gegevens aan"
 msgid "participants:home:update_specific_criteria:title"
 msgstr "Pas participant criteria gegevens aan"
 
-#: participants/templates/participants/index.html:143
+#: participants/templates/participants/index.html:70
 msgid "participants:home:delete:title"
 msgstr "Verwijder participant"
+
+#: participants/templates/participants/index.html:143
+msgid "participants:home:anonymize:title"
+msgstr "Anonimiseer participant"
+
+#: participants/templates/participants/index.html:143
+msgid "datamanagement:home:anonymize_participant"
+msgstr "Anonimiseer participant"
 
 #: participants/templates/participants/merge.html:8
 #: participants/templates/participants/merge.html:14
@@ -293,6 +317,34 @@ msgstr "Participant aangepast!"
 msgid "participants:messages:deleted_participant"
 msgstr "Participant verwijderd!"
 
+#: participants/views.py:126
+msgid "participants:messages:anonymized_participant"
+msgstr "Participant geanonimiseerd!"
+
 #: participants/views.py:173
 msgid "participants:messages:merged_participants"
 msgstr "Participanten samengevoegd!"
+
+msgid "participants:home:sort"
+msgstr "Sorteer op"
+
+msgid "participants:home:sort:date:desc"
+msgstr "Datum aangemaakt (nieuwste eerst)"
+
+msgid "participants:home:sort:date:asc"
+msgstr "Datum aangemaakt (oudste eerst)"
+
+msgid "participants:home:search"
+msgstr "Zoek"
+
+msgid "participants:home:search:clear"
+msgstr "Wissen"
+
+msgid "participants:home:csv"
+msgstr "CSV"
+
+msgid "participants:home:csv:page"
+msgstr "Pagina"
+
+msgid "participants:home:csv:everything"
+msgstr "Alles"

@@ -2,7 +2,7 @@ from django.urls import path
 
 from .views import ParticipantDeleteView, ParticipantDetailView, \
     ParticipantMergeView, ParticipantSpecificCriteriaUpdateView, \
-    ParticipantSwitchEmailView, ParticipantUpdateView, ParticipantsHomeView
+    ParticipantSwitchEmailView, ParticipantUpdateView, ParticipantsHomeView, ParticipantAnonymizeView
 
 app_name = 'participants'
 
@@ -16,6 +16,7 @@ urlpatterns = [
     ),
     path('<int:pk>/edit/', ParticipantUpdateView.as_view(), name='edit'),
     path('<int:pk>/del/', ParticipantDeleteView.as_view(), name='delete'),
+    path('<int:pk>/anonymize/', ParticipantAnonymizeView.as_view(), name='anonymize'),
     path(
         '<int:pk>/specific-criteria/',
         ParticipantSpecificCriteriaUpdateView.as_view(),

@@ -1,11 +1,57 @@
 {% extends "base/ppn_base.html" %}
 {% load i18n %}
 {% load transformat %}
-{% load datatables %}
 {% load get_field_name %}
 
 {% block header_title %}
     {% trans 'participants:home:header' %} - {{ block.super }}
+{% endblock %}
+
+{% block html_head %}
+{{ block.super }}
+<style>
+    .list-controls {
+        display: flex;
+        font-size: .8rem;
+    }
+
+    .list-controls select, .list-controls input, .list-controls .clear, .list-controls .csv {
+        background: white;
+        border:1px solid #ccc;
+        color: #444;
+    }
+
+    .csv {
+        margin-left: 5px;
+    }
+
+    .csv:focus + .csv-dropdown {
+        visibility: visible;
+        transition-delay: 0s;
+    }
+
+    .csv-dropdown {
+        display: inline-block;
+        list-style: none;
+        background: #fff;
+        border: 1px solid #ccc;
+        margin-left: -1px;
+        padding: 0;
+        visibility: hidden;
+        position: absolute;
+        transition-delay: 0.2s;
+    }
+
+    .csv-dropdown a {
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 4px;
+    }
+    .csv-dropdown a:hover {
+        background: #eff;
+    }
+</style>
 {% endblock %}
 
 {% block pre-messages-content %}
@@ -22,7 +68,46 @@
 {% block content %}
 <div class="uu-container">
     <div class="col-12">
-        <table class="dt w-100" data-language="{% datatables_lang %}">
+        <form id="list_query_form">
+            <div class="list-controls mb-2">
+                <div style="flex: 1; display:flex;">
+                    <label>{% translate 'participants:home:sort' %}
+                        <select name="sort">
+                            <option value="-created" {%if request.GET.sort == '-created' %}selected{%endif%}>
+                                {% translate 'participants:home:sort:date:desc' %}
+                            </option>
+                            <option value="created" {%if request.GET.sort == 'created' %}selected{%endif%}>
+                                {% translate 'participants:home:sort:date:asc' %}
+                            </option>
+                        </select>
+                    </label>
+                    <div>
+                        <button type="button" class="csv">{% translate 'participants:home:csv' %} 🞂</button>
+                        <ul class="csv-dropdown">
+                            <li>
+                                <a href="?page={{ page_obj.number }}&sort={{request.GET.sort}}&search={{request.GET.search}}&csv=page">
+                                    {% translate 'participants:home:csv:page' %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?page={{ page_obj.number }}&sort={{request.GET.sort}}&search={{request.GET.search}}&csv=everything">
+                                    {% translate 'participants:home:csv:everything' %}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <label>
+                    {% translate 'participants:home:search' %}
+                    <input name="search" value="{{ request.GET.search }}"></input>
+                </label>
+                {% if request.GET.search %}
+                    <button type="button" class="clear ms-2">{% translate 'participants:home:search:clear' %}</button>
+                {% endif %}
+            </div>
+        </form>
+
+        <table class="w-100 table">
             <thead>
                 <tr>
                     <th>
@@ -64,6 +149,7 @@
 
             <tbody>
                 {% for participant in object_list %}
+                    {% if not participant.anonymized %}
                     <tr>
                         <td>
                             {{ participant.pk }}
@@ -137,6 +223,14 @@
                                     <li class="dropdown-divider"></li>
                                     <li>
                                         <a
+                                            href="{% url 'participants:anonymize' participant.pk %}"
+                                            class="dropdown-item text-warning"
+                                        >
+                                            {% trans 'participants:home:anonymize:title' %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a
                                             href="{% url 'participants:delete' participant.pk %}"
                                             class="dropdown-item text-danger"
                                         >
@@ -147,9 +241,41 @@
                             </div>
                         </td>
                     </tr>
+                    {% endif %}
                 {% endfor %}
             </tbody>
         </table>
+        {% if is_paginated %}
+            <ul class="pagination">
+                {% for page in page_range %}
+                    {% if page_obj.number == page %}
+                        <li class="page-item active">
+                            <a class="page-link" href="?page={{ page }}&sort={{request.GET.sort}}&search={{request.GET.search}}">{{ page }}</a>
+                        </li>
+                    {% elif page == page_obj.paginator.ELLIPSIS %}
+                        <li class="page-item">{{ page }}</li>
+                    {% else %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page }}&sort={{request.GET.sort}}&search={{request.GET.search}}">{{ page }}</a>
+                        </li>
+                        {% endif %}
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 </div>
+<script nonce="{{ request.csp_nonce }}">
+    let form = document.querySelector('#list_query_form');
+    form.querySelector('select').addEventListener('change', () => {
+        form.submit();
+    });
+
+    let clear = form.querySelector('.clear');
+    if (clear) {
+        clear.addEventListener('click', () => {
+            form.search.value = '';
+            form.submit();
+        });
+    }
+</script>
 {% endblock %}

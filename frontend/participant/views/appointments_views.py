@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.exceptions import BadRequest
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.safestring import mark_safe
@@ -60,7 +61,7 @@ class MyAppointmentsView(OverrideLanguageMixin,
             context['appointments'] = Appointments.client.get(**kwargs)
             context['token'] = self.kwargs.get('token', None)
         except ApiError:
-            pass
+            raise BadRequest("Could not fetch appointments from user token")
 
         return context
 

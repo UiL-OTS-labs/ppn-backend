@@ -64,6 +64,10 @@ msgstr ""
 "over hun nieuwe account. Als er geen wachtwoord is opgegeven zal deze mail "
 "ook uitleggen hoe die zelf een wachtwoord kunnen instellen."
 
+#: leaders/forms.py:103
+msgid "leaders:forms:create_form:phone:help_text"
+msgstr "Indien het telefoonnummer veld leeg gelaten wordt, kan de gebruiker niet worden geregistreerd als hoofdproefleider. Wel kan deze als extra proefleider worden toegevoegd"
+
 #: leaders/forms.py:73 leaders/forms.py:123 leaders/forms.py:193
 #: leaders/forms.py:259
 msgid "leader:form:email:error:user_exists"

@@ -61,6 +61,11 @@ class ExperimentForm(PPNTemplatedModelForm):
             self.fields['excluded_experiments'].choices = [
                 (x.pk, x.name) for x in other_experiments
             ]
+        
+        # Only show leaders who have a phone number filled in
+        self.fields['leader'].queryset = self.fields['leader'].queryset.exclude(
+            phonenumber__isnull=True
+        ).exclude(phonenumber='')
 
 
 class ExperimentEmailTemplatesForm(PPNTemplatedModelForm):

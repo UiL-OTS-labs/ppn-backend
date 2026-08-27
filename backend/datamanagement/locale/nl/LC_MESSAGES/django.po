@@ -130,7 +130,7 @@ msgstr "Participanten"
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:30
 msgid "datamanagement:home:participants:info_text"
-msgstr "Deze participanten hebben {} niet meer meegedaan in een experiment."
+msgstr "Deze participanten hebben langer dan {} niet meer meegedaan in een experiment."
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:36
 #: datamanagement/templates/datamanagement/index_parts/participants.html:91
@@ -153,7 +153,7 @@ msgstr "Participanten zonder afspraak"
 #: datamanagement/templates/datamanagement/index_parts/participants.html:85
 msgid "datamanagement:home:participants:info_text2"
 msgstr ""
-"Deze participanten hebben nooit aan een experiment mee gedaan en zijn {} "
+"Deze participanten hebben nooit aan een experiment mee gedaan en zijn meer dan {} "
 "geleden aangemaakt."
 
 #: datamanagement/templates/datamanagement/index_parts/participants.html:94
@@ -167,7 +167,7 @@ msgstr "Verwijder participant"
 #: datamanagement/templates/widgets/timespan_widget.html:11
 #: datamanagement/templatetags/display_threshold.py:14
 msgid "datamanagement:global:days"
-msgstr "Data management"
+msgstr "dagen"
 
 #: datamanagement/templates/widgets/timespan_widget.html:14
 #: datamanagement/templatetags/display_threshold.py:13
@@ -195,6 +195,14 @@ msgstr ""
 "voorverwijdering en kan leiden tot gegevensverlies. Neem contact op met een "
 "technicus als je denkt dat dit niet het geval is."
 
+#: datamanagement/views.py:79
+msgid "datamanagement:messages:anonymized_participant"
+msgstr "Participant succesvol geanonimiseerd"
+
+#: datamanagement/views.py:79
+msgid "datamanagement:messages:delete_participant"
+msgstr "Successfully deleted participant"
+
 #: datamanagement/views.py:96
 msgid "datamanagement:messages:hid_participants"
 msgstr "Gegevens verborgen!"
@@ -206,3 +214,19 @@ msgstr "Trackers successvol verwijderd voor {}!"
 #: datamanagement/views.py:139
 msgid "datamanagement:messages:deleted_comments"
 msgstr "Comments verwijderd voor {}!"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:messages:bulk_anonymized"
+msgstr "Participanten zijn geanonimiseerd"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:messages:bulk_deleted"
+msgstr "Participants zijn verwijderd"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:bulk_anonymize"
+msgstr "Bulk anonimiseren"
+
+#: datamanagement/participants.html:96
+msgid "datamanagement:home:bulk_delete"
+msgstr "Bulk verwijderen"

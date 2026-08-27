@@ -6,9 +6,6 @@
 
 {% block html_head %}
     {{ block.super }}
-    {% include 'cdh.vue/vueloader.html' %}
-
-    {% load_vue_component 'ExperimentList' request.csp_nonce %}
 
     <script nonce="{{ request.csp_nonce }}">
         // Needs to be wrapped into an onload to ensure all dependencies are loaded
@@ -79,7 +76,7 @@
 <div class="uu-container">
     <div class="col-12">
         <h2>Dit zijn de experimenten waarvoor we je op dit moment zoeken:</h2>
-            <div id="list"></div>
+         {% include 'main/experiment_list.html' %}
          {% url 'participant:sign_up' as mailinglist_url %}
          <p class="mb-4">{% transformat "index:content:mailinglist" mailinglist_url %}</p>
 
