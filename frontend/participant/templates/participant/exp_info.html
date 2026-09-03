@@ -4,10 +4,14 @@
 
 <div class="col-12 col-sm-8 pe-sm-3">
     <p>
-        {% transformat 'register:content:duration' experiment.duration %}.
+        {% with safe_duration=experiment.duration|safe %}
+            {% transformat 'register:content:duration' safe_duration %}.
+        {% endwith %}
         {% if experiment.location %}
-            {% trans 'register:content:location' %}
-            {% if experiment.location.route_url %}<a href="{{ experiment.location.route_url }}" target="_blank">{{ experiment.location.name }}</a>{% else %}{% autoescape off %}{{ experiment.location.name }}{% endautoescape %}{% endif %}.
+            {% with safe_location=experiment.location.name|safe %}
+                    {% trans 'register:content:location' %}
+                    {% if experiment.location.route_url %}<a href="{{ experiment.location.route_url }}" target="_blank">{{ safe_location }}</a>{% else %}{{ safe_location }}{% endif %}.
+            {% endwith %}
         {% endif %}
     </p>
     <p>
@@ -15,24 +19,23 @@
     </p>
     <ul>
         <li>
-            {% transformat 'register:content:compensation' experiment.compensation %}
+            {% with safe_compensation=experiment.compensation|safe %}
+                {% transformat 'register:content:compensation' safe_compensation %}
+            {% endwith %}
         </li>
         {% if experiment.task_description %}
             <li>
-                {% autoescape off %}
-                    {{ experiment.task_description }}
-                {% endautoescape %}
+                {{ experiment.task_description | safe }}
             </li>
         {% endif %}
         {% if experiment.additional_instructions %}
             <li>
-                {% autoescape off %}
-                    {{ experiment.additional_instructions }}
-                {% endautoescape %}
+                {{ experiment.additional_instructions | safe }}
             </li>
         {% endif %}
     </ul>
 </div>
+
 <div class="col-sm-4 col-12">
     <h4 >
         {% trans 'register:content:leader' %} {{ experiment.leader.name }}

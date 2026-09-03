@@ -74,7 +74,7 @@
     input:user-invalid, select:user-invalid {
         border-color: red !important;
     }
-    </style>    
+    </style>
 {% endblock%}
 
 {% block header_title %}
@@ -84,7 +84,7 @@
 {% block pre-messages-content %}
     <div class="uu-hero">
         <h1 class="h3 text-truncate">
-            {% trans 'register:content:header' %} '{{ experiment.name }}'
+            {% trans 'register:content:header' %} '{{ experiment.name | safe }}'
         </h1>
     </div>
 {% endblock %}

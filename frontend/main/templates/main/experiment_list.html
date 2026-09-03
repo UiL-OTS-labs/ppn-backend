@@ -37,28 +37,28 @@
     <summary>
         <div class="d-flex">
             <h4>
-                {{ experiment.name }}
+                {{ experiment.name | safe }}
             </h4>
             <span class="marker"></span>
         </div>
         Type: {{ experiment.use_timeslots |yesno:"op locatie," }}
         |
-        Compensatie: {{ experiment.compensation }}
+        Compensatie: {{ experiment.compensation | safe }}
         |
-        Duur: {{ experiment.duration }}
+        Duur: {{ experiment.duration | safe }}
         |
         <a href="{% url 'participant:register' experiment.id %}" class="register-link">Inschrijven</a>
     </summary>
     <p>
-    Dit experiment duurt {{ experiment.duration }}.
+    Dit experiment duurt {{ experiment.duration | safe }}.
     Het wordt afgenomen op
     {% if experiment.location.route_url %}
             <a href="{{ experiment.location.route_url }}"
                 target="_blank">
-                {{ experiment.location.name }}
+                {{ experiment.location.name | safe }}
             </a>
     {% else %}
-            {{ experiment.location.name }}
+            {{ experiment.location.name | safe }}
     {% endif %}
     </p>
     <p>
