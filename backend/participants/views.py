@@ -42,6 +42,8 @@ class ParticipantsHomeView(braces.LoginRequiredMixin, generic.ListView):
                 for pp in qs
                 if (pp.name is not None and search in pp.name.lower())
                 or (pp.phonenumber is not None and search in pp.phonenumber)
+                or (search in str(pp.id))
+                or (pp.email is not None and search in pp.email)
             ]
 
         return filtered
