@@ -44,6 +44,7 @@ class ParticipantsHomeView(braces.LoginRequiredMixin, generic.ListView):
                 or (pp.phonenumber is not None and search in pp.phonenumber)
                 or (search in str(pp.id))
                 or (pp.email is not None and search in pp.email)
+                or (any(search in secondary.email for secondary in pp.secondaryemail_set.all()))
             ]
 
         return filtered
