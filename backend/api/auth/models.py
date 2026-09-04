@@ -87,6 +87,11 @@ class ApiUser(models.Model):
     def has_password(self) -> bool:
         return self.password is not None and self.password != ''
 
+    def has_usable_password(self):
+        # Django is using this function to detect users where password auth
+        # has been disabled. Not really relevant in our use case
+        return self.has_password
+
     def set_password(self, raw_password):
         self.password = make_password(raw_password)
         self._password = raw_password
