@@ -7,12 +7,20 @@ from .views import ChangePasswordView, CustomLoginView, EnterTokenView, \
 
 app_name = 'main'
 
+class LegacyLogoutView(auth_views.LogoutView):
+    """Temporary workaround for django deperecating logout via GET"""
+    http_method_names = ["get"]
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+    def get(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
+
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('privacy/', PrivacyView.as_view(), name='privacy'),
 
     path('login/', CustomLoginView.as_view(), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('logout/', LegacyLogoutView.as_view(), name='logout'),
 
     path('change_password/ldap/', LDAPPasswordView.as_view(),
          name='ldap_password'),
