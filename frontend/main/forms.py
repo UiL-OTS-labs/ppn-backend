@@ -9,6 +9,7 @@ from cdh.core.forms import TemplatedFormMixin, TemplatedForm
 
 
 class CustomAuthenticationFrom(TemplatedFormMixin, AuthenticationForm):
+    show_valid_fields = False
 
     error_messages = {
         "invalid_login": _(
